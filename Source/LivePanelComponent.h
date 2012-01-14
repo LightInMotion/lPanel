@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  13 Jan 2012 6:22:16pm
+  Creation date:  13 Jan 2012 9:42:58pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_FC2C7CFA__
-#define __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_FC2C7CFA__
+#ifndef __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_A9B76823__
+#define __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_A9B76823__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -74,6 +74,10 @@ public:
     static const int gmfadeOff_2x_pngSize;
     static const char* gmfullOff_2x_png;
     static const int gmfullOff_2x_pngSize;
+    static const char* sequence_inactive_png;
+    static const int sequence_inactive_pngSize;
+    static const char* smallButton_2x_png;
+    static const int smallButton_2x_pngSize;
 
 
     //==============================================================================
@@ -95,6 +99,23 @@ private:
     ImageButton* gmFadeOffButton;
     ImageButton* gmFullOffButton;
     Label* gmLabel;
+    ImageButton* recallButton1;
+    ImageButton* recallButton2;
+    ImageButton* recallButton3;
+    ImageButton* recallButton4;
+    ImageButton* recallButton5;
+    ImageButton* recallButton6;
+    ImageButton* recallButton7;
+    ImageButton* recallButton8;
+    ImageButton* recallButton9;
+    ImageButton* recallButton10;
+    ImageButton* recallButton11;
+    ImageButton* recallButton12;
+    ImageButton* funcButton;
+    Label* funcLabel;
+    Label* connectLabel;
+    ImageButton* funcButton2;
+    Label* pageLabel;
 
 
     //==============================================================================
@@ -104,4 +125,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_FC2C7CFA__
+#endif   // __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_A9B76823__
