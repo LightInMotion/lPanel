@@ -43,6 +43,7 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/LivePanelHComponent_2e2653ee.o \
   $(OBJDIR)/LivePanelComponent_2a81ee6e.o \
   $(OBJDIR)/MainWindow_499ac812.o \
   $(OBJDIR)/Main_90ebc5c2.o \
@@ -67,6 +68,11 @@ clean:
 	-@rm -f $(OUTDIR)/$(TARGET)
 	-@rm -rf $(OBJDIR)/*
 	-@rm -rf $(OBJDIR)
+
+$(OBJDIR)/LivePanelHComponent_2e2653ee.o: ../../Source/LivePanelHComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LivePanelHComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LivePanelComponent_2a81ee6e.o: ../../Source/LivePanelComponent.cpp
 	-@mkdir -p $(OBJDIR)

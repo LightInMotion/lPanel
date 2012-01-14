@@ -9,8 +9,62 @@
 */
 
 #include "LivePanelComponent.h"
+#include "LivePanelHComponent.h"
 #include "MainWindow.h"
 
+
+//==============================================================================
+class ContentComp : public Component
+{
+public:
+    
+    ContentComp()
+        : orientation (-1)
+    {
+    }
+    
+    ~ContentComp()
+    {
+    }
+    
+    //==============================================================================
+    void resized()
+    {
+        if (getWidth() > getHeight())
+        {
+            if (orientation != 2)
+            {
+                orientation = 2;
+                currentView = new LivePanelHComponent();
+                addAndMakeVisible (currentView);
+            }
+        }
+        else
+        {
+            if (orientation != 1)
+            {
+                orientation = 1;
+                currentView = new LivePanelComponent();
+                addAndMakeVisible (currentView);
+            }
+        }
+        
+        if (currentView != 0)
+            currentView->setBounds (0, 0, getWidth(), getHeight());
+    }
+    
+    //==============================================================================
+    void showView (Component* viewComp)
+    {
+        currentView = viewComp;
+        addAndMakeVisible (currentView);
+        resized();
+    }
+
+private:
+    int orientation;
+    ScopedPointer<Component> currentView;
+};
 
 //==============================================================================
 MainAppWindow::MainAppWindow()
@@ -27,8 +81,8 @@ MainAppWindow::MainAppWindow()
         centreWithSize (320, 480);
     #endif
 
-    LivePanelComponent* livePanelComponent = new LivePanelComponent();
-    setContentOwned(livePanelComponent, false);
+    ContentComp* contentComp = new ContentComp();
+    setContentOwned(contentComp, false);
     
     setVisible (true);
 }

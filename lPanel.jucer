@@ -22,6 +22,10 @@
       <FILE id="H1qzA0" name="icon-large.png" compile="0" resource="1" file="Images/icon-large.png"/>
     </GROUP>
     <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">
+      <FILE id="JNTpLP" name="LivePanelHComponent.cpp" compile="1" resource="0"
+            file="Source/LivePanelHComponent.cpp"/>
+      <FILE id="O1VVyI" name="LivePanelHComponent.h" compile="0" resource="0"
+            file="Source/LivePanelHComponent.h"/>
       <FILE id="lZ7lNr" name="LivePanelComponent.cpp" compile="1" resource="0"
             file="Source/LivePanelComponent.cpp"/>
       <FILE id="heNkZD" name="LivePanelComponent.h" compile="0" resource="0"

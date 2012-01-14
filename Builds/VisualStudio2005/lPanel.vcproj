@@ -141,6 +141,8 @@
         </File>
       </Filter>
       <Filter Name="Source">
+        <File RelativePath="..\..\Source\LivePanelHComponent.cpp"/>
+        <File RelativePath="..\..\Source\LivePanelHComponent.h"/>
         <File RelativePath="..\..\Source\LivePanelComponent.cpp"/>
         <File RelativePath="..\..\Source\LivePanelComponent.h"/>
         <File RelativePath="..\..\Source\MainWindow.cpp"/>

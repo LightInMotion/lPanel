@@ -7,6 +7,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := juce_jni
 LOCAL_SRC_FILES := \
+  ../../../Source/LivePanelHComponent.cpp\
   ../../../Source/LivePanelComponent.cpp\
   ../../../Source/MainWindow.cpp\
   ../../../Source/Main.cpp\
