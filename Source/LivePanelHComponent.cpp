@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  13 Jan 2012 10:21:39pm
+  Creation date:  13 Jan 2012 10:49:46pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -351,7 +351,7 @@ void LivePanelHComponent::paint (Graphics& g)
     g.fillAll (Colour (0xff233845));
 
     g.setColour (Colour (0xff182d3a));
-    g.fillRect (proportionOfWidth (0.0000f), proportionOfHeight (0.0997f), proportionOfWidth (0.4711f), proportionOfHeight (0.7601f));
+    g.fillRect (proportionOfWidth (0.0178f), proportionOfHeight (0.0997f), proportionOfWidth (0.4444f), proportionOfHeight (0.7601f));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -385,7 +385,7 @@ void LivePanelHComponent::resized()
     funcButton->setBounds (proportionOfWidth (0.3644f), proportionOfHeight (0.8723f), proportionOfWidth (0.0667f), proportionOfHeight (0.0935f));
     funcLabel->setBounds (proportionOfWidth (0.1511f), proportionOfHeight (0.8972f), proportionOfWidth (0.2044f), proportionOfHeight (0.0498f));
     connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
-    funcButton2->setBounds (proportionOfWidth (0.0374f), proportionOfHeight (0.0045f), proportionOfWidth (0.0667f), proportionOfHeight (0.0935f));
+    funcButton2->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0667f), proportionOfHeight (0.0935f));
     pageLabel->setBounds (proportionOfWidth (0.1156f), proportionOfHeight (0.0249f), proportionOfWidth (0.1622f), proportionOfHeight (0.0374f));
     //[UserResized] Add your own custom resize handling here..
     gmLabel->setFont (Font (gmLabel->getHeight(), Font::plain));
@@ -553,7 +553,7 @@ BEGIN_JUCER_METADATA
     <METHOD name="handleCommandMessage (int commandId)"/>
   </METHODS>
   <BACKGROUND backgroundColour="ff233845">
-    <RECT pos="0% 9.969% 47.111% 76.012%" fill="solid: ff182d3a" hasStroke="0"/>
+    <RECT pos="1.778% 9.969% 44.444% 76.012%" fill="solid: ff182d3a" hasStroke="0"/>
   </BACKGROUND>
   <LABEL name="gm label" id="63c9b48faf1995" memberName="gmLabel" virtualName=""
          explicitFocusOrder="0" pos="66.667% 80.997% 15.111% 4.984%" textCol="ffffffff"
