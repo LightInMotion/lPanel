@@ -388,10 +388,10 @@ void LivePanelComponent::resized()
     funcButton2->setBounds (proportionOfWidth (0.0374f), proportionOfHeight (0.0045f), proportionOfWidth (0.0935f), proportionOfHeight (0.0670f));
     pageLabel->setBounds (proportionOfWidth (0.1308f), proportionOfHeight (0.0223f), proportionOfWidth (0.2274f), proportionOfHeight (0.0268f));
     //[UserResized] Add your own custom resize handling here..
-    gmLabel->setFont (Font (gmLabel->getHeight(), Font::plain));
-    funcLabel->setFont (Font (funcLabel->getHeight(), Font::plain));
-    pageLabel->setFont (Font (pageLabel->getHeight(), Font::plain));
-    connectLabel->setFont (Font (connectLabel->getHeight(), Font::plain));
+    gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
+    funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
+    pageLabel->setFont (Font (pageLabel->getHeight() * .8f, Font::plain));
+    connectLabel->setFont (Font (connectLabel->getHeight() * .8f, Font::plain));
     //[/UserResized]
 }
 
