@@ -509,6 +509,7 @@ obj/local/armeabi/objs/juce_jni/__/__/__/Source/MainWindow.o: \
  jni/../../../Source/../JuceLibraryCode/modules/juce_gui_basics/application/juce_Initialisation.h \
  jni/../../../Source/../JuceLibraryCode/modules/juce_gui_basics/misc/juce_BubbleComponent.h \
  jni/../../../Source/../JuceLibraryCode/BinaryData.h \
+ jni/../../../Source/LivePanelHComponent.h \
  jni/../../../Source/MainWindow.h
 
 jni/../../../Source/LivePanelComponent.h:
@@ -1528,5 +1529,7 @@ jni/../../../Source/../JuceLibraryCode/modules/juce_gui_basics/application/juce_
 jni/../../../Source/../JuceLibraryCode/modules/juce_gui_basics/misc/juce_BubbleComponent.h:
 
 jni/../../../Source/../JuceLibraryCode/BinaryData.h:
+
+jni/../../../Source/LivePanelHComponent.h:
 
 jni/../../../Source/MainWindow.h:

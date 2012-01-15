@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  13 Jan 2012 9:42:58pm
+  Creation date:  14 Jan 2012 5:34:36pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -56,8 +56,9 @@ LivePanelComponent::LivePanelComponent ()
       funcButton (0),
       funcLabel (0),
       connectLabel (0),
-      funcButton2 (0),
-      pageLabel (0)
+      pageButton (0),
+      pageLabel (0),
+      infoButton (0)
 {
     addAndMakeVisible (stopButton = new ImageButton (L"stop button"));
     stopButton->setButtonText (L"new button");
@@ -153,7 +154,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton1->addListener (this);
 
     recallButton1->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton2 = new ImageButton (L"recall button 1"));
@@ -161,7 +162,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton2->addListener (this);
 
     recallButton2->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton3 = new ImageButton (L"recall button 1"));
@@ -169,7 +170,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton3->addListener (this);
 
     recallButton3->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton4 = new ImageButton (L"recall button 1"));
@@ -177,7 +178,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton4->addListener (this);
 
     recallButton4->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton5 = new ImageButton (L"recall button 1"));
@@ -185,7 +186,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton5->addListener (this);
 
     recallButton5->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton6 = new ImageButton (L"recall button 1"));
@@ -193,7 +194,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton6->addListener (this);
 
     recallButton6->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton7 = new ImageButton (L"recall button 1"));
@@ -201,7 +202,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton7->addListener (this);
 
     recallButton7->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton8 = new ImageButton (L"recall button 1"));
@@ -209,7 +210,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton8->addListener (this);
 
     recallButton8->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton9 = new ImageButton (L"recall button 1"));
@@ -217,7 +218,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton9->addListener (this);
 
     recallButton9->setImages (false, true, false,
-                              ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                              ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x0),
                               Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton10 = new ImageButton (L"recall button 1"));
@@ -225,7 +226,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton10->addListener (this);
 
     recallButton10->setImages (false, true, false,
-                               ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton11 = new ImageButton (L"recall button 1"));
@@ -233,7 +234,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton11->addListener (this);
 
     recallButton11->setImages (false, true, false,
-                               ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (recallButton12 = new ImageButton (L"recall button 1"));
@@ -241,7 +242,7 @@ LivePanelComponent::LivePanelComponent ()
     recallButton12->addListener (this);
 
     recallButton12->setImages (false, true, false,
-                               ImageCache::getFromMemory (sequence_inactive_png, sequence_inactive_pngSize), 1.0000f, Colour (0x0),
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (funcButton = new ImageButton (L"function button"));
@@ -270,14 +271,14 @@ LivePanelComponent::LivePanelComponent ()
     connectLabel->setColour (TextEditor::textColourId, Colours::black);
     connectLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
-    addAndMakeVisible (funcButton2 = new ImageButton (L"function button"));
-    funcButton2->setButtonText (L"new button");
-    funcButton2->addListener (this);
+    addAndMakeVisible (pageButton = new ImageButton (L"page button"));
+    pageButton->setButtonText (L"new button");
+    pageButton->addListener (this);
 
-    funcButton2->setImages (false, true, false,
-                            ImageCache::getFromMemory (smallButton_2x_png, smallButton_2x_pngSize), 0.9487f, Colour (0x0),
-                            Image(), 1.0000f, Colour (0x0),
-                            Image(), 1.0000f, Colour (0x20000000));
+    pageButton->setImages (false, true, false,
+                           ImageCache::getFromMemory (smallButton_2x_png, smallButton_2x_pngSize), 0.9487f, Colour (0x0),
+                           Image(), 1.0000f, Colour (0x0),
+                           Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (pageLabel = new Label (L"page label",
                                               L"Page ?"));
     pageLabel->setFont (Font (12.0000f, Font::plain));
@@ -287,6 +288,14 @@ LivePanelComponent::LivePanelComponent ()
     pageLabel->setColour (TextEditor::textColourId, Colours::black);
     pageLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
+    addAndMakeVisible (infoButton = new ImageButton (L"page button"));
+    infoButton->setButtonText (L"new button");
+    infoButton->addListener (this);
+
+    infoButton->setImages (false, true, false,
+                           ImageCache::getFromMemory (info_2x_png, info_2x_pngSize), 0.9487f, Colour (0x0),
+                           Image(), 1.0000f, Colour (0x0),
+                           Image(), 1.0000f, Colour (0x20000000));
 
     //[UserPreSize]
     gmLabel->setMinimumHorizontalScale (.2);
@@ -334,8 +343,9 @@ LivePanelComponent::~LivePanelComponent()
     deleteAndZero (funcButton);
     deleteAndZero (funcLabel);
     deleteAndZero (connectLabel);
-    deleteAndZero (funcButton2);
+    deleteAndZero (pageButton);
     deleteAndZero (pageLabel);
+    deleteAndZero (infoButton);
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -359,34 +369,35 @@ void LivePanelComponent::paint (Graphics& g)
 
 void LivePanelComponent::resized()
 {
-    stopButton->setBounds (proportionOfWidth (0.4611f), proportionOfHeight (0.7321f), proportionOfWidth (0.3115f), proportionOfHeight (0.1116f));
-    tapButton->setBounds (proportionOfWidth (0.2741f), proportionOfHeight (0.8571f), proportionOfWidth (0.3115f), proportionOfHeight (0.1116f));
-    stepButton->setBounds (proportionOfWidth (0.6480f), proportionOfHeight (0.8571f), proportionOfWidth (0.3115f), proportionOfHeight (0.1116f));
-    forwardButton->setBounds (proportionOfWidth (0.7850f), proportionOfHeight (0.6786f), proportionOfWidth (0.1869f), proportionOfHeight (0.1786f));
-    reverseButton->setBounds (proportionOfWidth (0.2617f), proportionOfHeight (0.6786f), proportionOfWidth (0.1869f), proportionOfHeight (0.1786f));
-    ballyButton->setBounds (proportionOfWidth (0.4611f), proportionOfHeight (0.5893f), proportionOfWidth (0.3115f), proportionOfHeight (0.1339f));
-    gmFullOnButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.6071f), proportionOfWidth (0.1558f), proportionOfHeight (0.0670f));
-    gmFadeOnButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.7054f), proportionOfWidth (0.1558f), proportionOfHeight (0.0670f));
-    gmFadeOffButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.8125f), proportionOfWidth (0.1558f), proportionOfHeight (0.0670f));
-    gmFullOffButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.9107f), proportionOfWidth (0.1558f), proportionOfHeight (0.0670f));
-    gmLabel->setBounds (proportionOfWidth (0.0249f), proportionOfHeight (0.5446f), proportionOfWidth (0.2118f), proportionOfHeight (0.0357f));
-    recallButton1->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.0982f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton2->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.0982f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton3->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.0982f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton4->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.0982f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton5->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.2321f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton6->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.2321f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton7->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.2321f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton8->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.2321f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton9->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.3661f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton10->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.3661f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton11->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.3661f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    recallButton12->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.3661f), proportionOfWidth (0.1900f), proportionOfHeight (0.1250f));
-    funcButton->setBounds (proportionOfWidth (0.8723f), proportionOfHeight (0.5357f), proportionOfWidth (0.0935f), proportionOfHeight (0.0670f));
-    funcLabel->setBounds (proportionOfWidth (0.5732f), proportionOfHeight (0.5446f), proportionOfWidth (0.2866f), proportionOfHeight (0.0357f));
-    connectLabel->setBounds (proportionOfWidth (0.2492f), proportionOfHeight (0.0179f), proportionOfWidth (0.5109f), proportionOfHeight (0.0357f));
-    funcButton2->setBounds (proportionOfWidth (0.0374f), proportionOfHeight (0.0045f), proportionOfWidth (0.0935f), proportionOfHeight (0.0670f));
-    pageLabel->setBounds (proportionOfWidth (0.1308f), proportionOfHeight (0.0223f), proportionOfWidth (0.2274f), proportionOfHeight (0.0268f));
+    stopButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.7321f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
+    tapButton->setBounds (proportionOfWidth (0.2733f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
+    stepButton->setBounds (proportionOfWidth (0.6489f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
+    forwardButton->setBounds (proportionOfWidth (0.7844f), proportionOfHeight (0.6791f), proportionOfWidth (0.1867f), proportionOfHeight (0.1776f));
+    reverseButton->setBounds (proportionOfWidth (0.2622f), proportionOfHeight (0.6791f), proportionOfWidth (0.1867f), proportionOfHeight (0.1776f));
+    ballyButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.5888f), proportionOfWidth (0.3111f), proportionOfHeight (0.1340f));
+    gmFullOnButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.6075f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
+    gmFadeOnButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.7041f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
+    gmFadeOffButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.8131f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
+    gmFullOffButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.9097f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
+    gmLabel->setBounds (proportionOfWidth (0.0244f), proportionOfHeight (0.5452f), proportionOfWidth (0.2111f), proportionOfHeight (0.0343f));
+    recallButton1->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton2->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton3->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton4->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton5->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton6->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton7->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton8->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton9->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton10->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton11->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    recallButton12->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
+    funcButton->setBounds (proportionOfWidth (0.8733f), proportionOfHeight (0.5358f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
+    funcLabel->setBounds (proportionOfWidth (0.5733f), proportionOfHeight (0.5452f), proportionOfWidth (0.2867f), proportionOfHeight (0.0343f));
+    connectLabel->setBounds (proportionOfWidth (0.2489f), proportionOfHeight (0.0187f), proportionOfWidth (0.5111f), proportionOfHeight (0.0343f));
+    pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
+    pageLabel->setBounds (proportionOfWidth (0.1311f), proportionOfHeight (0.0218f), proportionOfWidth (0.2267f), proportionOfHeight (0.0280f));
+    infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), 18, 18);
     //[UserResized] Add your own custom resize handling here..
     gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
     funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
@@ -515,10 +526,15 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_funcButton] -- add your button handler code here..
         //[/UserButtonCode_funcButton]
     }
-    else if (buttonThatWasClicked == funcButton2)
+    else if (buttonThatWasClicked == pageButton)
     {
-        //[UserButtonCode_funcButton2] -- add your button handler code here..
-        //[/UserButtonCode_funcButton2]
+        //[UserButtonCode_pageButton] -- add your button handler code here..
+        //[/UserButtonCode_pageButton]
+    }
+    else if (buttonThatWasClicked == infoButton)
+    {
+        //[UserButtonCode_infoButton] -- add your button handler code here..
+        //[/UserButtonCode_infoButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -550,7 +566,7 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="LivePanelComponent" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+                 snapPixels="2" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="0" initialWidth="320" initialHeight="480">
   <METHODS>
     <METHOD name="handleCommandMessage (int commandId)"/>
@@ -559,175 +575,182 @@ BEGIN_JUCER_METADATA
     <RECT pos="0% 7.143% 100% 44.643%" fill="solid: ff182d3a" hasStroke="0"/>
   </BACKGROUND>
   <IMAGEBUTTON name="stop button" id="ea7fed1bbaa91052" memberName="stopButton"
-               virtualName="" explicitFocusOrder="0" pos="46.106% 73.214% 31.153% 11.161%"
+               virtualName="" explicitFocusOrder="0" pos="46.106% 73.274% 31.153% 11.136%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="stop_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="tap button" id="d05314d5fa933513" memberName="tapButton"
-               virtualName="" explicitFocusOrder="0" pos="27.414% 85.714% 31.153% 11.161%"
+               virtualName="" explicitFocusOrder="0" pos="27.414% 85.746% 31.153% 11.136%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="tap_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="step button" id="96cd5f0ba432c9f5" memberName="stepButton"
-               virtualName="" explicitFocusOrder="0" pos="64.798% 85.714% 31.153% 11.161%"
+               virtualName="" explicitFocusOrder="0" pos="64.798% 85.746% 31.153% 11.136%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="step_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="forward button" id="46eba685f7634102" memberName="forwardButton"
-               virtualName="" explicitFocusOrder="0" pos="78.505% 67.857% 18.692% 17.857%"
+               virtualName="" explicitFocusOrder="0" pos="78.505% 67.929% 18.692% 17.817%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="forward_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="reverse button" id="d1e1a49c76d10523" memberName="reverseButton"
-               virtualName="" explicitFocusOrder="0" pos="26.168% 67.857% 18.692% 17.857%"
+               virtualName="" explicitFocusOrder="0" pos="26.168% 67.929% 18.692% 17.817%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="reverse_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="bally button" id="a2c0045bad348fa4" memberName="ballyButton"
-               virtualName="" explicitFocusOrder="0" pos="46.106% 58.929% 31.153% 13.393%"
+               virtualName="" explicitFocusOrder="0" pos="46.106% 58.797% 31.153% 13.363%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="bally_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="gm full on" id="48eadfcb9e1a9803" memberName="gmFullOnButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 60.714% 15.576% 6.696%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 60.802% 15.576% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade on" id="45fcf1fc1f9ac553" memberName="gmFadeOnButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 70.536% 15.576% 6.696%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 70.379% 15.576% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade off" id="976910dd801d19ff" memberName="gmFadeOffButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 81.25% 15.576% 6.696%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 81.292% 15.576% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm full off" id="9d0d0e118f2bfe08" memberName="gmFullOffButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 91.071% 15.576% 6.696%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 90.869% 15.576% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="gm label" id="63c9b48faf1995" memberName="gmLabel" virtualName=""
-         explicitFocusOrder="0" pos="2.492% 54.464% 21.184% 3.571%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="2.492% 54.566% 21.184% 3.341%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="GM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="recall button 1" id="3d734b24bb9aa3e1" memberName="recallButton1"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 9.821% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 10.022% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="4f4bd7b069e43c5" memberName="recallButton2"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 9.821% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="28.66% 10.022% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="f4e7d07022855fd4" memberName="recallButton3"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 9.821% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="52.336% 10.022% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="8c6c3c6640478175" memberName="recallButton4"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 9.821% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="76.012% 10.022% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="2deb1abc0f816bae" memberName="recallButton5"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 23.214% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 23.385% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d640741d1e762cea" memberName="recallButton6"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 23.214% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="28.66% 23.385% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="34bee016c96908fc" memberName="recallButton7"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 23.214% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="52.336% 23.385% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d51509e8921d7f63" memberName="recallButton8"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 23.214% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="76.012% 23.385% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="74462e9f215af1cf" memberName="recallButton9"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 36.607% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="4.984% 36.748% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d363e8623625aee3" memberName="recallButton10"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 36.607% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="28.66% 36.748% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="a6c8db0da937653d" memberName="recallButton11"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 36.607% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="52.336% 36.748% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="b47915fcfb5d42b2" memberName="recallButton12"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 36.607% 19.003% 12.5%"
+               virtualName="" explicitFocusOrder="0" pos="76.012% 36.748% 19.003% 12.472%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
-               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_png"
+               radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="function button" id="f9463f29b30243dd" memberName="funcButton"
-               virtualName="" explicitFocusOrder="0" pos="87.227% 53.571% 9.346% 6.696%"
+               virtualName="" explicitFocusOrder="0" pos="87.227% 53.675% 9.346% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="function label" id="3fa2db79ec9077db" memberName="funcLabel"
-         virtualName="" explicitFocusOrder="0" pos="57.321% 54.464% 28.66% 3.571%"
+         virtualName="" explicitFocusOrder="0" pos="57.321% 54.566% 28.66% 3.341%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Func"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="34"/>
   <LABEL name="connect label" id="5f14852cabc3c4f" memberName="connectLabel"
-         virtualName="" explicitFocusOrder="0" pos="24.922% 1.786% 51.09% 3.571%"
+         virtualName="" explicitFocusOrder="0" pos="24.922% 1.782% 51.09% 3.341%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Searching..."
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
-  <IMAGEBUTTON name="function button" id="c9d03a700378b5ac" memberName="funcButton2"
-               virtualName="" explicitFocusOrder="0" pos="3.738% 0.446% 9.346% 6.696%"
+  <IMAGEBUTTON name="page button" id="c9d03a700378b5ac" memberName="pageButton"
+               virtualName="" explicitFocusOrder="0" pos="3.738% 0.223% 9.346% 6.459%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="page label" id="c3afd5f93c8507b2" memberName="pageLabel"
-         virtualName="" explicitFocusOrder="0" pos="13.084% 2.232% 22.741% 2.679%"
+         virtualName="" explicitFocusOrder="0" pos="13.084% 2.227% 22.741% 2.895%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Page ?"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12" bold="0" italic="0" justification="33"/>
+  <IMAGEBUTTON name="page button" id="7bbeabccc57b1c53" memberName="infoButton"
+               virtualName="" explicitFocusOrder="0" pos="89.097% 1.336% 18 18"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="info_2x_png"
+               opacityNormal="0.948730469" colourNormal="0" resourceOver=""
+               opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
+               colourDown="20000000"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -3195,3 +3218,197 @@ static const unsigned char resource_LivePanelComponent_smallButton_2x_png[] = { 
 
 const char* LivePanelComponent::smallButton_2x_png = (const char*) resource_LivePanelComponent_smallButton_2x_png;
 const int LivePanelComponent::smallButton_2x_pngSize = 1861;
+
+// JUCER_RESOURCE: sequence_inactive_2x_png, 9786, "../Images/sequence_inactive@2x.png"
+static const unsigned char resource_LivePanelComponent_sequence_inactive_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,122,0,0,0,112,8,6,0,0,0,209,194,100,130,0,0,0,1,115,82,71,66,0,
+174,206,28,233,0,0,0,6,98,75,71,68,0,0,0,0,0,0,249,67,187,127,0,0,0,9,112,72,89,115,0,0,46,35,0,0,46,35,1,120,165,63,118,0,0,0,7,116,73,77,69,7,220,1,14,23,41,27,163,221,203,133,0,0,32,0,73,68,65,84,120,
+218,237,125,123,148,101,85,121,231,239,247,237,123,239,169,238,186,253,168,234,247,163,170,187,160,155,116,203,195,65,16,163,16,250,133,98,162,60,76,16,2,186,102,73,70,87,124,16,51,62,150,193,196,40,96,
+102,129,153,76,152,97,162,49,113,18,130,75,77,20,22,202,160,49,36,200,107,41,130,43,226,72,119,67,219,221,54,210,64,55,93,143,126,86,117,215,235,124,223,252,177,247,217,103,159,91,229,90,89,89,128,213,
+230,126,90,220,219,231,222,115,238,57,251,251,190,223,247,220,123,3,109,106,83,155,218,212,166,54,181,169,77,109,106,83,155,218,212,166,54,181,169,77,109,106,83,155,218,212,166,54,181,169,77,109,106,83,
+155,218,212,166,54,189,244,196,95,182,7,250,159,183,222,186,154,34,175,166,112,189,19,89,67,74,47,133,75,133,178,64,68,230,146,236,16,17,71,145,92,200,81,82,142,138,200,144,8,95,20,114,47,69,118,139,200,
+211,36,127,124,197,21,87,252,172,205,232,25,66,55,223,124,203,122,17,94,68,145,13,66,190,65,68,150,9,5,20,130,34,112,66,144,226,223,211,191,151,226,152,35,132,2,146,112,226,252,57,36,156,8,64,194,57,183,
+31,228,163,78,248,48,41,247,95,118,217,101,79,183,25,253,10,210,141,55,221,120,150,80,222,46,194,203,73,57,35,50,78,60,227,68,4,66,66,196,51,152,225,125,241,61,17,241,175,142,16,120,129,16,73,142,39,215,
+115,85,161,217,70,242,27,20,185,243,173,111,121,235,147,109,70,191,76,244,137,79,124,226,93,34,114,45,69,46,140,204,140,12,46,25,70,18,226,36,106,171,103,156,131,4,65,160,43,4,161,60,94,48,56,101,118,
+122,205,41,215,23,121,68,40,183,255,250,111,252,250,223,181,25,253,18,208,199,254,224,15,234,2,126,152,142,215,9,101,37,227,160,19,34,206,191,15,112,203,132,73,195,195,195,56,116,248,48,142,28,62,140,
+195,135,143,224,216,240,81,140,28,27,193,200,241,227,24,61,113,2,245,70,29,29,29,29,104,118,54,49,119,222,60,44,92,176,0,139,151,44,198,138,149,43,176,104,225,162,136,2,17,13,200,32,32,213,99,226,228,
+121,82,254,66,68,254,252,77,111,122,211,68,155,209,255,14,250,200,71,62,242,33,138,92,239,40,139,163,102,74,161,129,85,70,140,140,12,163,191,127,16,3,3,253,232,239,239,199,137,227,39,160,166,200,53,135,
+169,65,85,161,166,254,85,181,114,204,114,133,170,33,55,255,221,206,206,38,250,250,86,99,237,218,211,240,170,245,235,176,98,197,202,32,88,94,152,36,194,122,161,229,4,233,250,133,184,229,77,23,95,124,107,
+155,209,255,70,250,224,239,127,240,50,161,124,154,148,51,11,56,157,6,58,49,50,50,130,254,254,126,28,56,240,34,142,30,61,134,60,87,88,193,76,83,152,42,114,245,76,52,45,153,172,145,201,158,177,166,138,220,
+20,154,123,1,200,195,185,197,247,151,45,91,138,255,116,246,217,120,221,121,175,195,170,85,171,90,238,69,18,251,79,136,112,43,233,254,248,141,111,188,232,158,54,163,127,14,189,255,253,239,159,71,145,91,
+73,94,235,18,167,72,92,226,45,139,96,112,96,16,7,250,251,113,228,240,97,168,5,70,229,158,113,211,50,213,20,150,231,200,213,74,65,80,245,231,230,26,53,89,53,213,120,255,121,138,0,185,42,214,174,93,139,
+13,27,46,196,166,77,155,162,243,87,181,233,174,48,45,183,139,200,135,182,108,217,114,164,205,232,132,126,247,119,127,247,173,164,124,150,194,94,151,104,109,241,10,0,67,7,135,48,216,63,136,209,177,209,
+170,230,5,248,205,11,72,54,133,106,94,104,238,207,76,245,199,185,218,211,106,186,219,52,223,171,106,47,170,234,82,85,237,53,179,53,170,186,94,85,95,173,170,171,85,3,42,228,138,220,12,170,85,33,40,4,101,
+222,252,249,184,248,77,111,194,165,151,92,134,122,163,30,28,64,87,250,15,158,249,123,133,242,129,205,91,182,124,179,205,104,0,255,229,221,239,254,164,144,55,86,156,159,240,158,66,28,61,114,12,7,15,14,
+97,98,98,34,129,222,60,66,110,10,191,166,250,180,170,221,159,171,62,108,170,143,170,234,126,45,96,217,12,154,231,21,77,141,154,237,223,47,83,213,55,152,234,6,85,189,40,55,93,111,129,225,85,148,40,175,
+213,108,206,193,229,111,187,28,151,93,118,89,176,225,101,136,151,132,117,159,218,188,121,203,77,255,161,25,125,237,181,215,126,137,228,59,10,39,167,12,113,136,177,177,49,28,59,122,12,99,99,99,1,150,75,
+251,106,166,200,115,131,121,184,126,50,87,189,211,84,191,161,170,219,204,74,237,46,156,177,194,94,167,218,106,9,188,155,229,208,220,42,14,155,170,158,161,170,151,171,218,219,213,244,44,203,171,14,93,20,
+144,60,199,202,158,30,92,115,205,53,120,253,175,190,62,58,104,18,146,50,164,192,145,95,222,188,101,203,59,255,195,49,250,157,239,124,71,23,69,238,18,202,230,86,77,0,128,19,199,143,227,196,232,104,180,
+151,121,244,142,43,182,243,239,84,245,118,85,123,196,180,149,9,10,43,24,151,183,122,220,254,26,94,24,74,187,158,39,208,156,23,182,190,56,95,245,66,53,187,214,84,223,149,222,147,170,6,1,241,2,181,105,211,
+38,188,231,61,239,65,115,206,156,152,180,137,218,77,62,64,39,87,108,218,184,233,208,127,8,70,255,246,213,87,47,19,145,255,43,224,185,49,100,9,94,171,153,98,108,124,220,123,208,133,157,245,240,108,185,
+230,212,220,38,204,242,63,87,181,191,80,213,231,163,134,70,79,187,21,150,19,173,77,52,81,243,220,163,130,150,118,184,250,121,114,190,121,102,134,251,89,169,170,215,169,233,135,85,181,30,29,181,128,56,
+166,134,238,238,110,188,255,125,239,195,235,126,245,117,16,134,212,106,105,183,255,85,232,46,221,184,105,227,254,95,106,70,95,121,229,149,11,41,252,39,161,156,147,122,173,78,8,144,200,243,48,96,0,96,6,
+53,155,156,213,209,113,108,120,120,248,224,196,196,196,61,166,250,153,220,172,223,51,37,47,67,165,232,69,231,37,163,172,212,224,210,227,46,52,216,162,57,40,195,178,112,92,243,112,174,85,127,163,18,178,
+233,98,83,187,94,85,63,84,162,132,86,238,231,154,107,174,193,53,239,120,71,37,45,27,178,114,63,20,225,155,55,110,220,52,248,75,201,232,223,250,205,223,114,20,62,64,202,133,226,24,82,152,14,34,130,90,189,
+6,0,80,213,248,125,17,55,58,107,86,199,72,189,94,63,222,127,160,255,65,16,55,157,56,49,250,211,200,136,104,163,181,133,225,9,108,23,76,8,225,145,182,132,82,22,19,37,58,197,70,91,132,247,20,21,242,50,230,
+246,140,61,83,85,63,173,102,151,105,68,161,210,188,108,216,176,1,31,251,216,199,166,228,225,41,242,136,8,55,111,220,184,41,127,37,198,222,189,146,140,94,183,110,221,87,73,254,70,42,95,20,162,163,35,131,
+147,26,64,3,41,168,213,28,178,44,27,155,51,119,206,112,179,179,83,143,30,59,186,104,124,124,252,53,121,158,239,55,181,239,130,254,124,18,128,21,111,74,209,165,17,6,3,200,105,36,153,197,255,227,191,139,
+211,45,253,126,184,54,201,240,27,201,247,195,79,26,8,194,250,1,254,3,128,189,0,54,146,236,240,223,245,39,252,236,103,207,96,235,214,173,248,213,243,94,135,44,203,16,111,156,88,5,112,253,29,119,220,113,
+231,47,149,70,95,122,233,165,55,139,200,245,100,180,85,160,8,230,205,155,7,231,92,208,100,63,162,141,70,61,111,54,231,142,102,89,99,114,116,108,108,214,241,145,145,198,240,200,8,134,143,29,133,25,56,125,
+104,212,2,227,133,237,181,42,252,22,218,153,79,155,20,209,22,231,205,42,136,224,145,196,42,215,47,61,111,133,154,246,170,233,103,53,215,183,170,90,5,61,78,63,253,116,220,124,243,205,168,215,235,101,33,
+198,103,214,110,217,188,121,211,199,95,238,241,151,87,130,201,111,249,141,183,92,165,170,215,23,97,145,193,160,102,152,55,111,30,178,172,1,17,194,57,241,69,10,17,204,153,51,103,108,222,188,57,172,215,
+235,205,122,173,214,200,178,12,29,89,134,90,173,142,227,199,143,91,76,139,134,26,115,76,73,82,74,120,76,114,211,12,215,45,255,237,127,139,33,193,33,201,191,73,231,19,31,33,167,46,226,171,93,116,101,81,
+35,94,223,21,2,203,34,156,218,43,148,75,68,228,38,87,64,117,96,234,246,237,219,241,153,207,124,38,177,245,69,152,152,95,255,192,3,15,94,117,210,51,250,205,111,126,243,114,53,253,172,153,5,237,242,15,56,
+111,238,92,204,158,61,59,50,160,248,107,54,59,117,206,156,185,135,178,44,27,170,213,107,227,141,172,129,172,209,64,163,222,64,173,86,67,163,209,192,200,200,113,99,194,56,207,112,231,27,9,92,41,4,226,202,
+82,102,235,239,136,16,78,66,54,43,150,60,25,26,21,88,10,8,75,134,73,210,172,144,30,247,191,29,126,207,95,255,83,20,121,103,25,54,58,8,5,223,251,222,247,112,251,237,183,123,70,155,247,1,204,59,137,159,
+125,224,193,7,150,159,212,140,86,213,91,205,108,65,116,140,204,208,217,217,137,174,238,238,0,93,206,23,249,41,152,55,111,222,225,238,238,238,157,205,102,231,115,206,185,231,106,181,218,80,163,94,31,173,
+213,106,129,113,14,141,70,3,89,35,195,241,145,97,139,197,4,73,155,4,66,163,0,5,2,169,198,177,73,67,66,81,144,72,51,113,169,224,72,116,158,92,229,156,18,118,93,89,216,16,38,40,18,11,30,95,22,145,43,69,
+92,40,161,250,227,119,221,121,23,30,126,232,225,152,209,83,175,0,11,76,237,214,147,150,209,91,46,218,114,181,153,93,89,120,183,166,10,17,135,165,75,150,64,42,131,35,16,145,127,152,59,119,206,63,55,155,
+205,123,107,181,218,227,34,238,68,205,185,35,34,50,10,18,106,134,122,173,134,44,203,80,207,234,104,212,51,12,15,15,219,161,67,135,77,90,74,136,66,241,166,160,212,176,56,216,226,92,82,113,106,77,85,74,
+37,171,229,2,42,148,141,10,146,192,124,48,27,169,0,68,205,143,199,239,20,225,199,11,193,112,161,233,225,47,255,242,47,49,56,56,88,245,3,76,175,252,206,3,223,185,250,164,100,180,229,118,147,21,121,225,
+0,221,203,87,44,67,61,107,84,32,84,68,238,116,206,125,236,227,31,255,195,171,102,205,238,220,33,174,118,66,132,251,73,206,81,181,249,249,100,14,17,162,209,200,162,70,55,178,6,26,13,255,119,240,224,33,
+107,17,154,84,179,166,41,43,178,76,98,20,204,76,122,204,10,251,92,244,144,9,131,61,159,162,185,46,34,72,85,80,92,218,158,116,139,136,124,85,146,164,201,200,200,48,190,240,87,95,40,33,188,112,238,114,187,
+233,164,99,244,134,13,27,174,87,211,53,133,151,106,170,232,234,238,198,194,238,5,65,250,93,241,224,251,68,228,125,34,242,92,103,103,39,126,239,186,223,251,91,17,57,31,224,59,243,73,237,205,243,28,82,19,
+207,228,172,142,172,209,64,150,101,254,53,50,190,129,161,161,33,43,98,242,180,78,76,145,210,110,179,124,239,34,164,38,26,152,180,38,81,90,24,91,48,60,209,96,239,27,4,198,182,58,130,17,226,9,161,124,64,
+68,246,165,125,107,143,62,250,61,60,244,224,67,62,22,55,43,156,212,53,247,223,127,255,245,39,77,120,117,254,5,231,119,8,229,121,17,89,16,171,80,20,156,115,206,57,232,232,200,170,225,140,234,85,170,250,
+181,214,138,210,153,103,158,105,99,99,99,40,254,70,227,251,81,140,141,142,99,124,124,20,229,231,227,24,27,27,197,220,185,115,169,106,49,211,85,102,196,90,67,175,106,5,74,53,73,148,180,116,161,84,18,38,
+133,246,229,83,51,101,105,37,173,250,27,49,220,187,82,85,191,90,22,100,20,139,23,47,198,95,255,213,95,151,166,193,35,207,144,8,87,94,116,209,27,71,103,188,70,155,218,7,77,117,129,37,153,169,158,158,30,
+116,54,59,91,237,242,223,83,220,215,36,9,127,10,27,184,117,235,86,22,208,92,120,222,133,22,103,89,35,192,120,134,70,61,67,163,81,71,163,145,225,200,145,163,54,56,56,96,174,197,222,70,136,77,58,67,93,44,
+131,134,208,41,181,241,225,126,56,141,199,30,145,200,37,118,57,189,166,84,157,59,97,188,238,215,68,228,239,133,101,39,106,255,192,0,238,186,235,78,148,230,13,48,179,5,170,246,193,147,2,186,213,236,189,
+102,8,5,3,5,73,172,94,213,91,66,96,25,207,126,210,73,218,119,149,148,42,157,96,219,182,109,108,100,153,103,110,97,151,179,194,62,7,216,206,74,8,247,127,25,6,6,7,172,53,229,24,67,169,144,87,143,16,28,98,
+102,87,194,108,18,146,21,199,83,184,38,202,198,136,138,151,237,99,240,180,51,70,152,244,152,9,68,228,147,85,33,32,190,113,207,61,24,27,27,173,20,93,204,236,189,51,158,209,231,157,119,222,21,80,237,211,
+144,63,54,51,244,174,90,133,172,163,35,25,120,129,163,220,34,34,187,43,76,118,137,70,132,239,110,223,190,141,165,86,103,21,173,206,178,6,234,89,226,160,5,173,111,100,25,6,7,6,140,46,105,230,163,84,19,
+43,209,209,42,19,38,169,13,175,56,116,211,36,97,156,184,232,125,183,126,46,193,47,96,26,231,59,130,228,110,17,119,75,138,2,199,143,159,192,55,191,249,173,16,87,23,177,181,246,221,119,223,125,87,204,104,
+70,171,234,53,121,9,67,48,85,172,94,181,186,18,210,80,100,148,194,63,139,90,81,25,40,151,100,184,252,103,219,183,111,103,76,156,100,141,196,227,206,34,99,27,153,119,210,10,77,175,55,50,244,247,247,155,
+139,154,87,132,89,44,219,130,157,139,206,152,191,23,87,78,4,168,120,210,229,231,49,254,22,130,142,49,4,171,64,124,242,222,81,146,10,157,64,28,255,76,132,163,165,35,71,252,243,63,255,75,240,19,44,45,136,
+92,51,99,25,125,246,217,103,119,169,217,219,96,101,30,121,249,138,21,190,8,239,42,9,137,219,68,100,72,98,202,145,21,104,164,43,147,18,197,128,61,181,253,41,214,27,25,178,122,35,64,118,128,235,44,216,236,
+68,16,74,123,94,247,97,145,171,206,220,40,146,24,142,69,10,181,170,145,142,173,201,147,42,19,157,75,50,101,5,82,36,207,128,18,181,66,182,46,9,233,40,67,34,238,182,98,74,16,133,24,26,26,196,163,223,127,
+52,58,128,65,179,223,246,79,223,254,118,215,140,100,180,153,94,98,149,98,64,142,222,222,222,104,203,146,41,49,159,47,179,84,101,138,144,108,209,8,86,97,252,233,167,159,98,35,107,129,233,70,3,245,122,208,
+226,66,179,19,199,237,224,193,33,123,241,197,3,86,205,107,115,74,252,219,250,71,186,200,240,106,98,37,8,134,171,58,143,46,220,127,212,114,169,154,13,38,78,158,8,63,95,216,122,23,194,184,239,125,247,187,
+30,1,139,186,184,207,61,92,50,35,25,173,106,23,23,157,25,102,134,90,173,225,251,160,171,118,238,46,138,60,83,201,50,77,25,244,224,240,184,74,44,26,152,189,131,5,108,55,178,142,16,87,55,144,213,3,140,215,
+3,124,103,254,47,11,239,95,220,191,223,88,64,117,10,203,174,156,210,83,201,176,21,241,119,11,244,75,146,206,76,99,229,152,108,153,6,250,11,231,50,137,181,159,241,109,84,46,122,246,63,124,226,9,28,59,122,
+44,192,182,21,204,190,120,102,50,218,108,35,66,6,204,204,208,211,179,178,234,196,248,135,252,74,85,83,24,25,43,78,192,22,109,240,133,4,23,67,32,17,193,142,29,59,232,67,170,122,105,179,11,248,174,216,240,
+242,47,203,26,120,113,255,126,139,16,158,162,135,243,5,12,178,218,144,95,206,211,42,5,149,73,213,172,82,49,99,25,98,165,130,157,254,142,75,28,77,39,242,149,116,246,135,35,241,195,39,126,88,38,79,188,7,
+190,113,198,49,122,253,250,245,167,153,233,242,60,73,24,172,92,185,50,72,113,180,181,135,196,185,175,139,99,165,227,51,13,55,162,99,196,150,82,164,36,147,228,68,240,147,159,252,132,123,246,236,97,86,207,
+188,54,23,218,27,61,240,50,77,154,37,105,211,253,251,247,91,76,113,50,45,94,16,206,149,97,86,25,87,187,41,225,149,36,33,97,97,127,43,94,118,168,102,145,12,222,118,181,68,26,80,228,235,20,57,148,62,255,
+214,173,219,202,116,40,20,102,186,252,222,123,239,61,237,165,224,79,237,165,179,207,246,26,83,3,169,48,35,76,137,21,43,86,192,9,161,32,96,2,0,247,66,21,74,129,136,194,76,32,102,0,129,92,188,212,49,180,
+123,40,9,9,109,69,10,192,169,129,52,228,162,16,37,44,116,139,54,178,6,44,252,175,200,167,135,251,241,141,12,10,192,247,155,248,63,53,188,176,111,159,45,95,190,140,164,33,207,13,34,22,219,152,232,28,168,
+132,51,13,247,228,239,151,240,191,47,42,254,66,226,239,155,121,184,119,127,113,168,136,191,99,245,246,90,115,192,156,194,180,208,41,5,213,51,31,162,247,26,228,63,3,6,133,96,231,206,159,192,76,1,16,230,
+47,1,129,189,6,192,206,25,163,209,170,118,134,154,70,27,51,119,238,92,204,153,51,39,228,154,99,49,225,62,105,73,36,136,171,198,174,233,92,102,73,39,174,167,73,142,36,4,219,185,115,39,171,154,91,102,211,
+202,215,194,126,215,99,158,124,223,243,47,88,156,93,81,73,138,112,138,19,24,53,62,117,170,72,8,210,44,91,128,255,196,62,87,66,178,150,82,104,240,254,239,43,175,39,56,122,244,40,246,237,219,159,244,186,
+25,212,244,140,25,166,209,186,214,148,48,2,160,96,209,226,197,97,80,0,85,64,156,66,85,30,18,40,76,29,196,20,16,175,69,34,14,134,28,102,133,106,72,161,20,112,48,228,6,120,92,48,8,4,160,65,97,32,60,34,236,
+218,185,139,107,214,174,177,66,147,213,124,7,105,225,43,164,239,45,124,199,204,240,194,11,47,216,138,21,43,104,34,48,51,8,67,246,95,0,165,66,224,145,201,138,231,8,154,97,80,128,14,160,250,251,140,26,163,
+128,9,12,12,56,4,40,20,78,5,160,122,148,18,73,115,197,15,209,196,231,28,224,209,226,217,103,159,197,210,165,75,97,34,80,53,8,176,118,70,49,90,77,87,81,5,42,10,18,88,180,104,161,135,109,11,80,7,236,4,177,
+207,51,79,61,156,7,56,83,85,8,253,185,98,130,226,4,15,225,6,167,101,5,70,161,128,42,24,32,82,205,129,80,236,222,181,155,107,214,172,49,95,5,42,153,233,7,20,208,20,190,205,226,191,158,127,254,121,91,185,
+114,37,69,12,70,3,24,56,170,5,195,3,124,171,103,118,97,74,104,22,100,210,10,241,243,55,152,251,123,166,4,65,44,76,79,153,80,242,177,182,183,80,251,84,116,167,168,156,102,2,152,229,120,97,223,11,94,147,
+169,94,168,148,171,102,150,70,171,45,201,197,32,10,8,12,221,93,93,190,212,167,57,204,17,162,124,34,106,42,253,120,122,13,77,107,105,222,54,121,205,8,95,130,215,4,39,68,110,165,70,68,45,82,3,130,44,237,
+222,189,155,170,138,222,222,94,67,176,209,21,198,154,1,166,225,213,66,223,56,240,252,115,207,89,79,111,15,115,21,136,41,44,106,158,5,67,73,175,145,185,191,37,65,176,199,70,136,58,152,4,52,138,198,80,65,
+117,32,115,228,226,153,157,39,118,210,16,126,195,59,1,79,40,244,52,167,68,30,102,138,170,41,36,23,168,24,32,88,50,211,160,187,203,195,173,128,106,152,223,213,5,17,66,225,224,20,80,225,54,207,30,75,84,
+69,161,165,62,160,116,212,24,90,105,21,84,36,240,15,88,174,126,224,45,142,56,160,6,35,35,23,178,194,65,11,16,142,4,194,35,191,35,140,251,255,236,221,187,215,122,122,122,233,249,202,240,59,133,72,5,231,
+74,60,227,85,0,41,52,62,64,115,238,12,146,27,16,5,81,253,115,153,34,7,225,32,30,204,25,132,84,1,117,6,201,177,13,98,80,120,187,127,232,208,33,111,126,96,94,232,84,186,102,24,116,91,167,192,60,179,4,104,
+54,155,81,43,140,128,169,238,242,200,104,65,147,131,214,122,96,12,204,246,66,96,170,48,10,224,60,148,154,70,135,21,234,188,167,43,98,1,225,189,174,248,171,42,104,192,79,127,186,135,167,244,157,226,149,
+24,90,97,106,171,13,247,175,37,179,123,123,123,233,159,129,16,147,66,44,75,214,209,74,79,59,154,23,64,52,48,71,45,62,135,135,120,239,118,40,13,133,67,94,158,168,80,39,187,164,64,49,245,75,114,120,120,
+135,55,111,130,206,153,165,209,185,57,19,175,126,166,138,217,157,157,129,209,10,85,66,40,207,210,251,36,160,228,222,118,7,184,38,9,149,66,219,139,1,213,24,183,148,90,95,64,41,202,65,21,231,157,35,120,
+231,137,38,80,24,246,236,217,195,190,83,250,204,10,45,78,32,188,0,117,141,128,80,132,103,192,222,189,123,109,108,116,12,167,174,61,149,154,27,156,152,55,25,5,102,7,33,112,70,228,160,183,195,138,226,193,
+188,143,82,232,111,225,106,136,55,222,166,12,26,95,138,15,212,158,53,2,38,254,25,199,198,198,188,141,118,222,7,80,53,55,211,52,58,135,161,38,106,80,1,198,70,71,49,171,35,75,128,89,87,41,248,184,20,6,21,
+57,76,37,232,51,65,21,144,22,66,146,196,149,85,31,175,26,83,40,141,254,44,168,57,156,72,121,212,188,67,103,98,120,230,153,103,168,154,99,197,202,30,67,193,228,8,223,165,157,182,226,236,196,59,223,181,
+115,151,173,93,187,150,170,14,226,130,70,106,106,170,16,205,139,198,118,29,22,158,154,151,199,66,185,195,195,248,231,244,218,10,41,172,182,174,178,224,152,42,21,179,103,207,246,247,166,10,19,22,144,53,
+163,108,244,136,170,204,131,228,160,58,140,28,63,142,238,174,110,64,114,120,255,209,135,9,86,64,118,8,165,74,39,197,131,47,224,19,41,165,208,43,8,175,61,98,210,210,7,229,253,89,213,220,199,165,136,230,
+20,66,131,229,254,103,94,120,238,57,174,88,185,194,138,132,73,184,223,106,216,101,169,167,238,95,119,238,218,101,167,173,93,75,170,243,207,97,137,231,173,132,99,142,188,88,225,32,220,77,244,179,85,96,
+206,251,126,209,0,176,192,18,194,44,90,237,181,134,66,104,128,57,115,230,66,205,39,85,0,129,136,142,204,44,141,86,61,68,193,60,24,33,80,28,62,116,8,189,61,61,222,251,20,133,0,103,68,217,46,226,13,13,3,
+76,4,199,76,224,64,228,154,123,216,183,50,156,17,210,219,46,243,204,99,204,248,248,140,21,115,67,206,232,11,37,94,177,247,94,95,120,97,31,151,47,95,110,105,44,141,24,110,33,102,215,204,42,7,33,226,53,
+205,103,196,124,195,189,119,250,188,65,177,96,164,189,246,105,58,34,222,100,5,135,148,150,123,65,148,16,103,107,14,37,1,145,51,10,125,7,5,243,187,230,135,236,152,143,163,9,28,154,97,26,109,7,160,182,218,
+0,168,24,6,6,7,163,141,166,18,74,121,77,145,12,137,38,141,26,82,164,5,83,45,232,168,67,14,13,54,184,244,200,65,129,58,192,229,222,169,211,160,61,166,2,31,108,19,170,226,193,34,64,63,169,193,193,51,236,
+219,183,143,203,150,45,179,104,165,211,164,10,18,143,220,187,112,48,3,158,217,243,140,245,157,210,231,213,77,188,147,104,48,136,25,242,104,150,12,33,115,25,130,129,210,6,83,9,6,204,87,45,238,88,195,4,
+3,192,212,94,19,67,54,5,22,116,47,240,137,146,226,28,147,3,51,205,70,63,43,208,215,153,121,59,181,127,255,190,36,230,37,200,252,52,170,91,46,150,239,51,97,105,185,225,97,182,84,6,141,113,166,193,103,172,
+152,102,158,148,80,241,54,93,66,236,21,204,184,143,205,169,112,69,12,10,241,97,153,132,36,134,26,246,237,219,207,101,203,151,154,133,185,208,69,100,107,45,153,180,210,126,27,246,236,217,99,163,99,163,
+88,247,43,235,169,74,56,151,35,87,87,205,135,131,222,53,83,66,37,194,178,119,45,85,66,90,192,188,19,42,40,158,99,185,163,158,134,220,188,151,15,193,226,197,139,194,132,67,129,136,193,84,159,157,105,208,
+189,139,244,218,41,98,216,251,236,222,50,3,36,193,112,82,55,170,184,175,56,245,3,95,58,158,10,6,251,103,230,161,81,16,234,32,90,50,51,205,30,34,132,31,84,133,184,34,93,69,32,39,84,114,63,184,146,8,73,
+145,77,51,195,254,253,251,185,108,233,210,136,221,22,76,72,97,43,172,226,165,35,106,251,142,29,79,219,186,117,235,168,65,200,210,16,172,236,157,38,16,178,115,101,152,229,35,2,85,241,102,204,138,20,10,
+55,122,193,241,121,5,131,98,241,146,37,113,142,26,160,128,200,174,153,150,25,219,230,61,77,95,166,60,112,224,0,142,28,61,130,185,115,231,69,24,5,112,49,160,95,81,74,37,142,246,230,73,145,171,175,75,107,
+208,240,188,72,61,171,129,206,144,171,148,153,180,194,216,83,160,185,249,66,129,170,47,128,192,121,123,157,27,202,194,89,72,162,5,161,218,191,255,0,151,46,93,98,101,200,101,161,153,177,116,202,76,139,
+140,154,134,132,154,226,233,29,59,108,253,186,117,113,82,53,181,168,88,21,232,164,96,78,228,66,208,124,118,172,146,223,38,161,154,67,188,147,114,49,162,44,43,102,119,206,193,252,249,243,61,210,132,234,
+158,153,110,155,105,94,247,19,170,254,225,69,4,170,138,93,187,118,225,181,175,125,173,215,114,5,32,118,73,193,88,11,90,104,102,213,130,65,200,74,145,128,11,199,9,69,110,14,98,185,207,188,21,114,67,0,121,
+146,58,163,183,207,5,92,82,20,132,71,131,52,111,106,190,238,137,23,95,60,192,165,75,150,148,198,57,137,177,97,69,20,80,126,92,228,203,41,244,25,59,39,177,244,41,45,197,24,177,144,248,134,11,133,155,50,
+73,66,58,40,115,64,120,73,12,63,21,88,185,114,165,175,71,139,65,44,204,25,55,121,98,70,53,30,28,60,120,112,167,153,237,179,100,214,228,246,237,219,43,45,59,34,210,37,34,111,139,125,84,82,109,180,147,159,
+215,47,221,50,109,198,113,154,110,203,208,240,151,46,221,204,242,119,147,233,54,201,226,176,142,56,208,127,128,177,245,168,104,96,168,251,46,210,88,222,12,77,11,29,161,4,186,123,215,110,123,250,169,167,
+44,118,160,180,204,243,74,127,47,78,207,173,180,11,19,20,121,27,41,93,105,155,84,111,79,79,104,35,66,209,42,189,239,221,239,121,247,206,25,197,232,96,107,31,42,26,219,76,13,63,250,209,143,170,109,57,190,
+99,242,26,95,127,102,165,173,151,174,218,136,231,210,233,170,45,221,40,108,89,131,179,156,186,202,216,86,235,226,188,231,130,233,105,15,54,43,51,32,61,179,211,26,118,22,122,198,235,168,103,25,178,172,
+30,219,139,211,166,196,167,182,111,183,98,106,174,99,101,86,70,181,199,172,88,81,176,122,252,26,223,84,232,98,11,85,239,170,222,178,65,208,219,233,135,102,102,23,168,218,125,102,229,130,170,35,195,195,
+120,226,137,39,90,86,8,144,43,132,174,175,236,193,74,150,99,158,194,56,137,179,30,217,58,109,39,180,232,84,214,217,142,125,219,233,76,72,86,26,253,92,107,15,118,56,183,127,160,159,145,201,69,159,89,162,
+209,229,12,206,178,211,180,158,101,216,254,212,54,139,194,231,90,154,11,217,186,96,109,20,190,62,17,185,162,104,65,18,17,172,94,181,10,245,122,163,178,86,169,153,222,55,67,219,125,237,94,77,166,201,170,
+25,30,251,254,99,21,13,10,3,241,222,180,179,131,69,115,32,171,189,220,149,89,139,105,103,70,10,223,149,78,82,153,186,196,69,98,26,92,218,245,209,210,112,239,40,24,28,24,96,214,168,35,157,25,82,233,65,
+107,20,205,135,73,135,105,35,195,182,109,158,217,113,222,86,177,133,131,115,45,189,225,44,58,110,222,91,105,82,36,209,215,215,23,214,67,41,17,81,213,238,157,145,140,62,122,244,232,33,51,253,122,57,241,
+221,240,216,227,143,97,112,96,168,117,69,129,15,82,100,65,58,47,9,177,229,136,83,6,39,109,192,47,38,147,183,204,252,136,179,30,170,115,170,146,229,40,164,218,97,154,78,215,137,182,219,9,6,6,134,88,182,
+9,135,137,2,153,239,56,205,138,121,95,245,44,78,16,40,38,251,109,221,186,213,164,101,105,200,234,244,217,40,84,11,72,126,48,157,111,221,217,156,131,158,158,158,184,96,173,183,207,250,245,235,174,251,192,
+161,25,201,232,144,56,249,138,215,104,141,19,189,191,243,192,119,90,102,43,178,67,200,143,198,158,177,98,186,10,165,197,174,74,217,220,31,187,65,25,103,70,84,150,148,112,126,45,17,55,205,42,6,142,110,
+106,159,53,253,194,234,226,146,54,227,112,31,131,131,131,113,38,103,132,238,100,142,87,150,213,19,173,174,135,121,96,25,158,220,250,100,169,217,76,230,99,39,253,219,34,252,168,136,235,112,201,34,58,167,
+156,218,87,48,55,89,190,210,190,242,82,242,229,101,153,31,221,156,211,220,35,144,190,194,230,102,89,134,207,125,238,115,232,236,108,250,5,215,202,185,208,107,213,108,119,177,68,99,222,178,212,147,197,
+165,160,166,89,246,113,154,69,212,45,89,233,47,143,75,79,149,243,148,115,157,186,74,175,166,139,195,86,150,150,82,116,119,119,219,248,120,49,39,59,157,163,61,253,223,232,216,40,198,199,198,113,214,89,
+103,113,202,50,88,254,249,214,152,233,174,116,126,184,171,213,176,101,203,22,191,44,85,156,81,202,103,62,242,209,143,158,242,82,242,164,246,114,48,218,212,62,175,98,159,145,80,88,24,31,27,195,183,190,
+245,45,252,246,213,191,29,210,154,33,59,36,184,9,166,215,192,124,202,50,100,145,99,192,107,26,114,199,106,85,236,241,153,9,159,25,215,216,122,22,115,200,164,194,209,85,86,33,84,243,141,134,106,73,115,
+74,210,218,3,58,228,170,96,153,141,199,161,131,67,236,234,238,182,88,221,42,11,219,241,213,210,142,149,80,161,121,242,201,39,109,209,162,133,243,199,70,199,179,209,241,81,8,229,104,173,86,27,91,182,108,
+233,77,190,93,41,134,220,232,59,165,15,20,66,67,127,47,105,128,240,243,47,53,79,94,22,70,171,234,109,2,124,76,41,11,4,64,46,134,187,239,190,27,155,54,111,198,146,197,139,67,95,118,14,51,185,90,20,223,
+128,240,107,62,61,228,29,56,210,215,234,139,118,45,223,37,194,162,204,159,118,94,249,12,179,10,138,108,171,11,169,80,165,150,253,93,49,77,238,211,160,162,22,90,150,210,36,155,193,2,7,210,252,202,193,131,
+7,169,166,104,118,54,43,12,79,43,94,69,187,145,1,30,193,26,13,28,63,126,226,7,181,90,237,222,122,173,126,12,192,222,133,11,23,78,10,221,219,139,114,39,12,152,53,171,3,125,171,250,226,234,68,16,133,8,134,
+84,113,219,75,205,147,151,101,137,200,201,201,201,201,122,173,46,32,46,98,168,179,130,192,240,177,99,120,253,27,94,159,148,233,13,70,158,79,224,14,0,39,226,113,134,222,192,184,54,35,203,110,148,105,236,
+14,233,175,197,98,93,199,36,221,72,88,113,177,22,163,69,95,30,230,116,198,172,248,172,252,66,103,179,121,3,96,254,80,245,87,170,3,234,4,174,86,59,80,171,213,134,0,204,207,178,76,186,230,119,93,212,145,
+117,92,45,78,50,3,28,67,6,240,212,83,79,69,103,103,167,191,111,250,231,38,241,233,235,175,191,254,161,147,130,209,0,48,49,57,241,221,90,173,254,78,8,186,97,254,33,246,238,125,14,189,61,189,232,237,237,
+77,123,50,230,128,88,101,192,93,37,227,16,242,224,201,50,159,76,198,221,88,97,66,117,73,80,182,138,65,56,165,16,132,228,55,200,80,29,99,229,148,32,130,149,235,157,24,61,113,99,103,103,243,134,200,228,
+120,47,190,43,38,159,156,244,57,108,113,199,106,181,218,40,73,109,52,26,218,108,54,215,53,155,205,229,29,29,29,115,115,213,12,161,26,183,160,187,27,61,61,61,145,193,225,247,118,255,209,31,125,226,101,
+89,69,240,101,93,244,181,86,115,131,0,127,43,50,132,192,142,29,59,176,121,203,230,114,1,84,79,103,144,24,3,248,221,84,179,24,58,47,208,162,144,197,241,150,181,94,171,223,181,20,8,88,173,46,85,68,32,249,
+132,21,165,14,178,84,126,127,116,244,196,141,157,179,59,111,104,125,206,92,21,121,158,91,163,209,176,122,189,94,119,206,185,90,173,102,205,102,115,222,220,185,115,155,53,87,155,163,170,13,152,210,0,56,
+231,112,202,169,167,192,185,90,34,76,4,128,235,30,124,240,193,109,39,29,163,39,39,39,183,213,156,123,21,137,211,139,193,30,29,29,197,192,192,0,206,63,255,13,201,80,19,0,47,2,240,20,137,167,42,236,11,88,
+201,86,9,40,56,51,5,126,83,166,89,203,241,0,229,156,38,216,40,204,66,180,22,133,208,176,40,101,128,0,70,71,199,110,28,159,24,191,177,35,235,184,33,54,52,105,110,181,90,77,235,245,250,132,115,206,156,115,
+236,108,54,217,108,54,157,136,204,6,81,87,51,167,161,67,116,197,138,21,104,54,155,21,97,35,241,181,27,110,184,225,83,47,23,47,94,246,101,156,157,184,71,65,188,11,192,236,130,217,123,247,62,135,172,145,
+225,85,167,175,79,198,153,0,240,118,210,118,3,220,154,242,57,46,179,60,69,39,83,190,87,117,62,106,56,232,61,217,214,115,172,42,52,4,91,224,61,112,60,218,242,170,127,48,57,49,17,152,109,32,105,78,220,132,
+56,57,230,156,155,232,236,236,28,155,61,107,22,72,118,168,106,102,102,181,162,179,100,126,87,23,186,23,44,64,10,33,4,135,8,92,254,240,35,143,28,59,105,25,157,231,249,49,39,242,44,193,43,82,198,60,185,
+245,73,244,244,246,98,85,207,170,202,90,216,32,126,211,23,2,241,144,89,169,180,9,96,135,175,134,247,108,133,225,233,124,43,162,106,209,25,4,203,146,193,110,185,14,57,157,52,85,156,180,201,137,201,27,179,
+172,113,67,56,176,77,156,104,71,71,135,118,204,154,229,204,108,214,228,196,68,7,128,26,195,206,2,179,102,205,242,219,33,150,128,17,92,17,254,206,159,252,183,63,121,236,101,85,56,188,2,148,231,249,118,
+39,174,131,192,5,128,68,71,232,241,199,30,195,153,103,158,137,197,75,22,151,10,228,7,123,3,104,231,130,248,30,192,35,169,214,27,17,33,117,42,250,254,28,40,175,48,41,177,233,97,17,247,244,251,241,18,45,
+194,193,194,57,99,21,61,238,248,226,23,111,60,231,156,115,222,12,224,197,44,203,172,145,101,11,39,39,38,230,76,140,143,119,24,172,70,18,154,43,106,245,26,22,46,92,16,61,108,4,207,155,228,45,183,220,124,
+243,255,122,217,145,21,175,16,229,121,254,29,231,106,167,19,56,157,73,128,242,248,227,143,99,237,105,167,97,201,210,37,21,139,109,192,105,32,126,135,134,3,32,255,223,52,86,120,202,226,251,81,24,48,213,
+147,78,181,123,138,202,91,171,99,23,208,163,85,112,138,239,250,176,16,4,48,48,40,36,144,59,0,0,5,174,73,68,65,84,48,128,127,252,199,127,252,155,139,47,126,243,217,121,158,159,63,58,58,186,104,114,114,
+50,35,233,4,222,171,23,231,48,119,238,220,216,90,21,157,61,240,206,255,254,167,127,250,222,87,98,252,95,209,173,22,156,227,221,0,54,26,185,170,24,187,241,137,113,60,252,224,67,88,190,124,57,86,175,238,
+43,221,39,111,71,59,64,92,6,195,217,70,108,39,216,95,97,199,180,10,204,4,145,91,96,57,48,106,106,168,69,159,222,226,84,223,126,122,31,160,20,136,190,83,250,206,60,247,220,115,111,59,126,124,228,55,39,
+38,39,151,193,204,21,14,135,154,111,113,234,236,156,29,218,137,24,33,155,224,35,32,46,253,254,247,191,111,191,116,140,206,115,53,39,242,77,128,91,64,44,143,204,32,241,216,227,143,193,12,56,243,172,51,
+171,30,182,167,117,36,222,7,195,60,35,126,68,112,100,138,183,60,141,113,158,246,147,224,92,217,207,73,190,88,18,142,85,237,255,148,196,203,98,128,159,38,241,69,3,206,32,48,155,113,125,53,159,122,165,16,
+245,122,61,17,92,43,80,229,135,6,92,122,235,173,183,142,188,98,74,134,87,152,114,213,227,226,228,94,2,27,0,46,143,67,105,192,83,79,111,199,158,159,238,193,250,87,173,71,103,103,103,11,215,8,146,175,39,
+248,95,1,116,2,216,1,224,232,207,131,223,232,100,217,116,222,57,147,44,75,85,99,217,106,208,91,45,0,185,18,192,31,2,184,19,192,249,69,86,46,137,228,125,95,120,152,99,75,166,134,95,0,226,95,73,92,122,219,
+109,255,187,255,21,69,83,252,2,72,243,124,88,196,221,5,242,181,2,246,165,131,189,111,255,62,60,248,192,131,152,223,213,133,83,250,250,166,75,147,56,163,93,64,240,195,0,86,3,56,4,240,89,207,3,155,98,148,
+73,111,3,108,74,26,148,165,231,62,37,238,226,20,68,32,112,161,129,55,144,246,69,3,46,32,232,90,205,8,0,76,76,76,98,108,124,12,22,235,48,161,97,210,95,240,1,18,151,124,246,179,159,27,120,165,199,252,23,
+190,55,101,214,145,125,73,232,222,33,233,66,233,161,150,123,222,121,231,225,202,171,174,194,202,149,43,226,114,147,83,247,175,202,97,197,222,148,102,223,200,85,183,105,186,143,116,186,115,157,78,217,123,
+114,202,30,89,241,213,239,122,115,134,169,93,174,170,111,87,213,179,170,159,87,183,40,30,31,31,195,240,200,8,242,137,201,114,221,180,80,87,15,171,254,126,249,11,95,248,63,191,176,189,41,221,47,154,209,
+249,100,126,183,115,206,72,108,242,16,94,22,49,94,216,247,2,238,191,255,95,48,54,54,138,213,171,250,144,117,116,76,45,62,248,55,75,0,108,6,241,126,24,175,34,241,43,128,205,6,120,24,192,112,252,238,180,
+166,182,82,0,89,6,240,98,0,239,3,240,63,64,124,146,198,205,6,91,50,37,141,234,13,61,84,115,28,57,124,24,135,15,31,129,230,154,38,65,162,157,134,225,83,127,243,55,127,251,251,191,200,113,158,49,251,71,
+119,116,116,188,85,194,254,209,105,123,111,177,157,97,173,94,195,91,222,242,22,92,180,229,141,152,223,53,191,117,51,210,202,226,233,126,245,194,184,32,251,207,84,245,199,234,183,27,222,173,150,239,181,
+220,94,84,243,251,71,171,234,26,83,93,159,155,223,63,186,186,203,93,185,71,150,182,236,78,59,62,62,134,193,161,33,28,58,116,40,105,0,76,238,217,119,200,236,21,145,15,220,113,199,29,237,253,163,91,152,
+61,79,68,110,21,242,218,234,18,140,233,46,55,130,95,187,240,215,112,193,5,23,96,237,218,181,113,83,178,60,175,50,195,194,150,134,105,7,74,217,133,82,221,89,182,85,80,242,20,150,91,246,156,62,114,248,48,
+6,7,7,35,131,211,229,178,88,89,45,144,183,11,229,67,95,250,242,151,218,59,194,255,60,154,61,107,246,101,116,252,180,80,206,228,148,45,140,24,91,132,123,123,122,112,238,185,231,226,213,175,126,53,150,45,
+91,154,108,241,171,83,246,158,172,218,212,82,32,42,173,72,21,129,41,247,147,62,118,236,40,14,244,247,99,104,96,16,39,78,156,168,116,163,78,179,213,210,86,138,252,241,87,191,250,213,123,102,210,152,206,
+72,70,23,212,108,54,63,68,225,245,2,46,102,186,68,164,19,8,17,214,215,246,154,180,124,249,50,172,91,183,14,167,174,89,131,85,171,86,97,78,103,51,110,55,84,108,2,158,167,251,98,180,236,12,155,110,41,60,
+50,60,140,193,193,65,12,14,13,97,104,112,192,51,183,210,176,216,170,197,132,80,250,41,114,203,221,119,223,125,235,76,28,203,25,205,104,0,104,118,54,235,20,126,88,40,215,209,113,165,239,168,68,181,125,
+152,73,211,127,128,207,238,238,110,44,95,177,2,75,22,45,66,87,119,183,223,57,175,217,137,142,44,67,189,222,192,232,232,40,142,31,63,129,145,145,97,28,59,54,140,163,71,143,224,200,145,35,56,116,248,48,
+78,28,63,30,108,174,11,61,231,12,123,105,32,172,13,154,46,212,206,231,133,252,11,138,252,249,61,247,220,51,49,83,199,113,198,51,58,165,121,243,230,189,75,68,174,21,242,66,164,27,160,180,110,80,214,2,169,
+233,226,174,83,108,126,42,32,44,151,116,174,206,182,112,229,238,120,241,115,247,136,8,111,255,246,183,191,253,119,39,195,216,157,84,140,46,168,171,107,254,89,20,247,118,33,47,167,200,25,5,99,92,43,35,
+89,238,66,199,138,214,187,132,97,197,10,250,201,62,148,46,217,216,76,42,112,189,77,132,223,32,229,206,251,239,191,255,201,147,105,204,78,74,70,167,180,104,225,194,245,20,94,68,113,27,132,120,3,233,150,
+137,76,175,209,85,152,47,215,220,78,33,159,85,52,216,79,242,81,17,121,88,68,238,127,228,145,71,158,62,89,199,233,164,103,116,43,45,91,182,108,181,136,188,90,200,245,16,89,35,100,175,136,44,165,200,2,71,
+206,165,72,7,133,78,40,185,248,77,92,142,18,50,36,78,94,20,114,175,223,185,135,79,11,229,199,63,248,193,15,126,134,54,181,169,77,109,106,83,155,218,212,166,54,181,169,77,109,106,83,155,218,212,166,54,
+181,169,77,109,106,83,155,218,212,166,54,181,169,77,109,106,211,191,135,254,63,228,63,141,112,240,24,67,75,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
+
+const char* LivePanelComponent::sequence_inactive_2x_png = (const char*) resource_LivePanelComponent_sequence_inactive_2x_png;
+const int LivePanelComponent::sequence_inactive_2x_pngSize = 9786;
+
+// JUCER_RESOURCE: info_2x_png, 533, "../Images/info@2x.png"
+static const unsigned char resource_LivePanelComponent_info_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,36,0,0,0,36,8,6,0,0,0,225,0,152,152,0,0,0,1,115,82,71,66,0,174,206,28,233,0,
+0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,220,1,15,1,25,53,0,90,72,30,0,0,0,34,116,69,88,116,67,111,109,109,101,
+110,116,0,67,114,101,97,116,101,100,32,119,105,116,104,32,71,73,77,80,32,111,110,32,97,32,77,97,99,135,168,119,67,0,0,1,103,73,68,65,84,88,195,213,88,81,82,196,32,12,37,41,109,71,61,142,247,191,138,7,
+80,63,28,119,183,74,9,27,191,186,51,50,235,10,225,81,199,252,150,132,151,215,23,2,113,14,96,33,172,26,194,170,136,88,84,235,16,99,84,239,125,209,90,17,113,227,56,82,23,64,170,218,196,0,17,21,237,197,37,
+140,180,130,217,18,138,49,106,19,67,8,32,181,108,209,222,96,126,3,197,72,48,148,217,103,8,213,236,19,18,140,37,185,220,143,115,1,187,157,45,223,147,80,186,177,50,148,251,242,94,34,46,173,102,70,5,149,
+148,20,161,71,70,105,103,96,118,154,153,69,75,244,215,191,43,215,146,71,4,65,158,101,102,13,189,189,31,158,74,27,102,141,121,36,43,8,227,218,139,85,79,48,33,172,202,45,96,122,20,3,207,243,100,202,88,85,
+117,89,62,174,126,123,126,121,125,180,196,156,231,137,170,203,158,136,104,91,143,174,48,34,34,182,48,227,156,115,135,227,169,207,89,100,205,8,205,206,55,134,68,164,202,177,7,59,27,6,178,100,246,19,59,
+146,146,14,204,102,118,160,221,126,107,176,49,202,229,42,219,212,58,74,3,220,90,151,206,103,55,77,35,181,232,145,175,253,71,115,31,26,134,75,224,117,45,235,0,249,158,213,151,252,18,38,143,167,69,31,238,
+239,76,122,100,116,175,106,1,99,122,40,222,2,140,168,84,70,116,117,73,73,17,96,138,166,31,53,227,23,196,120,230,255,141,99,242,119,123,205,209,32,210,118,72,54,221,244,80,35,189,47,114,208,7,123,195,141,
+118,42,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
+
+const char* LivePanelComponent::info_2x_png = (const char*) resource_LivePanelComponent_info_2x_png;
+const int LivePanelComponent::info_2x_pngSize = 533;

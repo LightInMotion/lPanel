@@ -4,9 +4,9 @@
           package="com.juce">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true"/>
   <uses-permission android:name="android.permission.INTERNET"/>
-  <application android:label="@string/app_name" android:icon="@drawable/icon">
-    <activity android:name="JuceAppActivity" android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar">
+  <uses-sdk android:minSdkVersion="9"/>
+  <application android:label="@string/app_name" android:icon="@drawable/icon" android:debuggable="true">
+    <activity android:name="JuceAppActivity" android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
