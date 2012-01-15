@@ -43,5 +43,5 @@
     <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_FORCE_DEBUG="disabled"/>
+  <JUCEOPTIONS JUCE_FORCE_DEBUG="disabled" JUCE_USE_DIRECTWRITE="disabled"/>
 </JUCERPROJECT>
