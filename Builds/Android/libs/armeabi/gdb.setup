@@ -1,2 +1,0 @@
-set solib-search-path ./obj/local/armeabi
-directory /Users/joe/SDKs/android-ndk-r7/platforms/android-5/arch-arm/usr/include /Users/joe/SDKs/android-ndk-r7/sources/cxx-stl/gnu-libstdc++ /Users/joe/SDKs/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include /Users/joe/SDKs/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/libs/armeabi/include jni
