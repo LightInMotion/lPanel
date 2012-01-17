@@ -5,4 +5,5 @@ Builds/Android/bin/
 Builds/Android/libs/
 Builds/Android/obj/
 Builds/Android/gen/
-
+_UpgradeReport_Files/
+UpgradeLog*.XML
