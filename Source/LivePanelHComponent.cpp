@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  14 Jan 2012 5:40:54pm
+  Creation date:  15 Jan 2012 12:04:21pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -281,7 +281,7 @@ LivePanelHComponent::LivePanelHComponent ()
                            Image(), 1.0000f, Colour (0x20000000));
     addAndMakeVisible (pageLabel = new Label (L"page label",
                                               L"Page ?"));
-    pageLabel->setFont (Font (12.0000f, Font::plain));
+    pageLabel->setFont (Font (16.0000f, Font::plain));
     pageLabel->setJustificationType (Justification::centredLeft);
     pageLabel->setEditable (false, false, false);
     pageLabel->setColour (Label::textColourId, Colours::white);
@@ -392,11 +392,11 @@ void LivePanelHComponent::resized()
     recallButton10->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
     recallButton11->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
     recallButton12->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    funcButton->setBounds (proportionOfWidth (0.3778f), proportionOfHeight (0.8972f), proportionOfWidth (0.0667f), proportionOfHeight (0.0935f));
-    funcLabel->setBounds (proportionOfWidth (0.1644f), proportionOfHeight (0.9221f), proportionOfWidth (0.2044f), proportionOfHeight (0.0498f));
+    funcButton->setBounds (proportionOfWidth (0.3964f), proportionOfHeight (0.8972f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
+    funcLabel->setBounds (proportionOfWidth (0.1826f), proportionOfHeight (0.9221f), proportionOfWidth (0.2049f), proportionOfHeight (0.0498f));
     connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
-    pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0667f), proportionOfHeight (0.0935f));
-    pageLabel->setBounds (proportionOfWidth (0.1156f), proportionOfHeight (0.0249f), proportionOfWidth (0.1622f), proportionOfHeight (0.0374f));
+    pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
+    pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), 16);
     infoButton->setBounds (proportionOfWidth (0.9156f), proportionOfHeight (0.0187f), 18, 18);
     //[UserResized] Add your own custom resize handling here..
     gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
@@ -563,7 +563,7 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="LivePanelHComponent" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="2" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="0" initialWidth="320" initialHeight="480">
   <METHODS>
     <METHOD name="handleCommandMessage (int commandId)"/>
@@ -572,178 +572,178 @@ BEGIN_JUCER_METADATA
     <RECT pos="1.778% 11.215% 44.444% 76.012%" fill="solid: ff182d3a" hasStroke="0"/>
   </BACKGROUND>
   <LABEL name="gm label" id="63c9b48faf1995" memberName="gmLabel" virtualName=""
-         explicitFocusOrder="0" pos="66.667% 80.997% 15.111% 4.984%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="66.592% 80.997% 15.145% 4.984%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="GM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="recall button 1" id="d640741d1e762cea" memberName="recallButton6"
-               virtualName="" explicitFocusOrder="0" pos="31.111% 31.153% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="31.18% 31.153% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="74462e9f215af1cf" memberName="recallButton9"
-               virtualName="" explicitFocusOrder="0" pos="31.111% 49.844% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="31.18% 49.844% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d51509e8921d7f63" memberName="recallButton8"
-               virtualName="" explicitFocusOrder="0" pos="16.889% 49.844% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="16.927% 49.844% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="stop button" id="ea7fed1bbaa91052" memberName="stopButton"
-               virtualName="" explicitFocusOrder="0" pos="62.222% 29.907% 22.222% 15.576%"
+               virtualName="" explicitFocusOrder="0" pos="62.138% 29.907% 22.272% 15.576%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="stop_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="tap button" id="d05314d5fa933513" memberName="tapButton"
-               virtualName="" explicitFocusOrder="0" pos="49.778% 49.844% 22.222% 15.576%"
+               virtualName="" explicitFocusOrder="0" pos="49.889% 49.844% 22.272% 15.576%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="tap_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="step button" id="96cd5f0ba432c9f5" memberName="stepButton"
-               virtualName="" explicitFocusOrder="0" pos="75.556% 49.844% 22.222% 15.576%"
+               virtualName="" explicitFocusOrder="0" pos="75.501% 49.844% 22.272% 15.576%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="step_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="forward button" id="46eba685f7634102" memberName="forwardButton"
-               virtualName="" explicitFocusOrder="0" pos="85.333% 22.43% 13.333% 24.922%"
+               virtualName="" explicitFocusOrder="0" pos="85.301% 22.43% 13.363% 24.922%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="forward_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="reverse button" id="d1e1a49c76d10523" memberName="reverseButton"
-               virtualName="" explicitFocusOrder="0" pos="48% 22.43% 13.333% 24.922%"
+               virtualName="" explicitFocusOrder="0" pos="48.107% 22.43% 13.363% 24.922%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="reverse_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="bally button" id="a2c0045bad348fa4" memberName="ballyButton"
-               virtualName="" explicitFocusOrder="0" pos="62.222% 8.723% 22.222% 18.692%"
+               virtualName="" explicitFocusOrder="0" pos="62.138% 8.723% 22.272% 18.692%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="bally_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="gm full on" id="48eadfcb9e1a9803" memberName="gmFullOnButton"
-               virtualName="" explicitFocusOrder="0" pos="57.778% 72.274% 11.111% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="57.684% 72.274% 11.136% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade on" id="45fcf1fc1f9ac553" memberName="gmFadeOnButton"
-               virtualName="" explicitFocusOrder="0" pos="57.778% 85.981% 11.111% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="57.684% 85.981% 11.136% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade off" id="976910dd801d19ff" memberName="gmFadeOffButton"
-               virtualName="" explicitFocusOrder="0" pos="80% 87.227% 11.111% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="79.955% 87.227% 11.136% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm full off" id="9d0d0e118f2bfe08" memberName="gmFullOffButton"
-               virtualName="" explicitFocusOrder="0" pos="80% 73.52% 11.111% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="79.955% 73.52% 11.136% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="3d734b24bb9aa3e1" memberName="recallButton1"
-               virtualName="" explicitFocusOrder="0" pos="2.667% 12.461% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="2.673% 12.461% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="4f4bd7b069e43c5" memberName="recallButton2"
-               virtualName="" explicitFocusOrder="0" pos="16.889% 12.461% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="16.927% 12.461% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="f4e7d07022855fd4" memberName="recallButton3"
-               virtualName="" explicitFocusOrder="0" pos="31.111% 12.461% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="31.18% 12.461% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="8c6c3c6640478175" memberName="recallButton4"
-               virtualName="" explicitFocusOrder="0" pos="2.667% 31.153% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="2.673% 31.153% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="0.991210938" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="2deb1abc0f816bae" memberName="recallButton5"
-               virtualName="" explicitFocusOrder="0" pos="16.889% 31.153% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="16.927% 31.153% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="34bee016c96908fc" memberName="recallButton7"
-               virtualName="" explicitFocusOrder="0" pos="2.667% 49.844% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="2.673% 49.844% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d363e8623625aee3" memberName="recallButton10"
-               virtualName="" explicitFocusOrder="0" pos="2.667% 68.536% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="2.673% 68.536% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="a6c8db0da937653d" memberName="recallButton11"
-               virtualName="" explicitFocusOrder="0" pos="16.889% 68.536% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="16.927% 68.536% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="b47915fcfb5d42b2" memberName="recallButton12"
-               virtualName="" explicitFocusOrder="0" pos="31.111% 68.536% 13.556% 17.445%"
+               virtualName="" explicitFocusOrder="0" pos="31.18% 68.536% 13.586% 17.445%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="function button" id="f9463f29b30243dd" memberName="funcButton"
-               virtualName="" explicitFocusOrder="0" pos="37.778% 89.72% 6.667% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="39.644% 89.72% 6.682% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="function label" id="3fa2db79ec9077db" memberName="funcLabel"
-         virtualName="" explicitFocusOrder="0" pos="16.444% 92.212% 20.444% 4.984%"
+         virtualName="" explicitFocusOrder="0" pos="18.263% 92.212% 20.49% 4.984%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Func"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="34"/>
   <LABEL name="connect label" id="5f14852cabc3c4f" memberName="connectLabel"
-         virtualName="" explicitFocusOrder="0" pos="33.778% 1.869% 36.444% 4.984%"
+         virtualName="" explicitFocusOrder="0" pos="33.853% 1.869% 36.526% 4.984%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Searching..."
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="page button" id="c9d03a700378b5ac" memberName="pageButton"
-               virtualName="" explicitFocusOrder="0" pos="3.778% 0.312% 6.667% 9.346%"
+               virtualName="" explicitFocusOrder="0" pos="2.004% 90.031% 6.682% 9.346%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="page label" id="c3afd5f93c8507b2" memberName="pageLabel"
-         virtualName="" explicitFocusOrder="0" pos="11.556% 2.492% 16.222% 3.738%"
+         virtualName="" explicitFocusOrder="0" pos="8.909% 92.212% 16.258% 16"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Page ?"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="12" bold="0" italic="0" justification="33"/>
+         fontname="Default font" fontsize="16" bold="0" italic="0" justification="33"/>
   <IMAGEBUTTON name="function button" id="e623608fe3262969" memberName="infoButton"
-               virtualName="" explicitFocusOrder="0" pos="91.556% 1.869% 18 18"
+               virtualName="" explicitFocusOrder="0" pos="91.537% 1.869% 18 18"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="info_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""

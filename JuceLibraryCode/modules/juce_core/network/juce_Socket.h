@@ -170,6 +170,68 @@ private:
 
 //==============================================================================
 /**
+ A wrapper for a IPv4 addresses
+ 
+ This simple wrapper is for IPv4 addresses and is primarily intended for
+ use with a broadcasting DatagramSocket. It only handles IPv4 because
+ IPv6 is not typically used in UDP broadcasting and multicasting applications
+ since they are not generally routed outside the local network.
+ 
+ @see DatagramSocket
+ */
+class JUCE_API IpAddress
+{
+public:
+    //==============================================================================
+    /** Populates a list of the IPv4 addresses of all the available network cards. */
+    static void findAllIpAddresses (Array<IpAddress>& results);
+    
+    //==============================================================================
+    /** Creates a null address (0.0.0.0). */
+    IpAddress();
+    
+    /** Creates from a host order uint32. */
+    IpAddress (uint32 addr);
+    
+    /** Creates from another address. */
+    IpAddress (const IpAddress& other);
+    
+    /** Creates a copy of another address. */
+    IpAddress& operator= (const IpAddress& other);
+    
+    /** Creates an address from a string ("1.2.3.4"). */
+    explicit IpAddress (const String& addr);
+    
+    /** Returns a dot-separated string in the form "1.2.3.4". */
+    String toString() const;
+    
+    /** Return as host order uint32. */
+    uint32 toUint32() const noexcept;
+    
+    /** Return as network order uint32. */
+    uint32 toNetworkUint32() const noexcept;
+    
+    /** Returns true if this address is IPADDR_ANY (0.0.0.0). */
+    bool isAny() const noexcept;
+    
+    /** Returns true if this address is IPADDR_BROADCAST (255.255.255.255). */
+    bool isBroadcast() const noexcept;
+    
+    bool operator== (const IpAddress& other) const noexcept;
+    bool operator!= (const IpAddress& other) const noexcept;
+
+    //==============================================================================
+    /** IPv4 Any Address. */
+    static const IpAddress any;
+    
+    //==============================================================================
+private:
+    uint32 ipAddress;
+};
+
+
+//==============================================================================
+/**
     A wrapper for a datagram (UDP) socket.
 
     This allows low-level use of sockets; for an easier-to-use messaging layer on top of
@@ -193,22 +255,30 @@ public:
 
         If enableBroadcasting is true, the socket will be allowed to send broadcast messages
         (may require extra privileges on linux)
+     
+        If enableReuseAddress is true, the socket will allow any bound address to be
+        shared.
 
         To wait for other sockets to connect to this one, call waitForNextConnection().
     */
     DatagramSocket (int localPortNumber,
-                    bool enableBroadcasting = false);
+                    bool enableBroadcasting = false,
+                    bool enableReuseAddress = false,
+                    unsigned long localAddress = 0);
 
     /** Destructor. */
     ~DatagramSocket();
 
     //==============================================================================
     /** Binds the socket to the specified local port.
+     
+        The optional localAddress can be used to bind to a specific IP.
 
         @returns    true on success; false may indicate that another socket is already bound
                     on the same port
     */
-    bool bindToPort (int localPortNumber);
+    bool bindToPort (int localPortNumber,
+                     unsigned long localAddress = 0);
 
     /** Tries to connect the socket to hostname:port.
 
@@ -273,6 +343,7 @@ public:
         @returns the number of bytes written, or -1 if there was an error.
     */
     int write (const void* sourceBuffer, int numBytesToWrite);
+     
 
     //==============================================================================
     /** This waits for incoming data to be sent, and returns a socket that can be used
@@ -288,7 +359,8 @@ private:
     //==============================================================================
     String hostName;
     int volatile portNumber, handle;
-    bool connected, allowBroadcast;
+    bool connected, allowBroadcast, allowReuse;
+    unsigned long localAddress;
     void* serverAddress;
 
     DatagramSocket (const String& hostname, int portNumber, int handle, int localPortNumber);

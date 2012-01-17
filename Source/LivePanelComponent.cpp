@@ -414,6 +414,46 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == stopButton)
     {
         //[UserButtonCode_stopButton] -- add your button handler code here..
+        Array<IpAddress> ips;
+        
+        IpAddress ip;
+        String str = ip.toString();
+        if (ip.isAny())
+            printf("Oh!\n");
+        if (ip.isBroadcast())
+            printf("My!\n");
+        
+        IpAddress vp = IpAddress ("1.2.3.4");
+        uint32 u = vp.toUint32();
+        uint32 n = vp.toNetworkUint32();
+        str = vp.toString();
+        
+        IpAddress up = IpAddress (0x11223344);
+        str = up.toString();
+        
+        IpAddress dn = IpAddress (0xFFFFFFFF);
+        str = dn.toString();
+        if (dn.isAny())
+            printf("Oh!\n");
+        if (dn.isBroadcast())
+            printf("My!\n");
+
+        IpAddress::findAllIpAddresses (ips);
+        for (int n=0 ; n<ips.size() ; n++)
+        {
+            printf("%08lx\n", (unsigned long)(ips[n]).toUint32());
+        }
+        
+        DatagramSocket s (0x8000, true, true);
+        if (s.connect ("255.255.255.255", 0x8000))
+        {
+            if (s.write ("12345", 5) == 5)
+            {
+                char buf[10];
+                if (s.read(buf, 5, true) == 5)
+                    printf ("%c%c%c%c%c\n", buf[0], buf[1], buf[2], buf[3], buf[4]);
+            }
+        }
         //[/UserButtonCode_stopButton]
     }
     else if (buttonThatWasClicked == tapButton)
