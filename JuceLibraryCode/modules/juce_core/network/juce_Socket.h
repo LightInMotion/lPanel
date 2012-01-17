@@ -44,6 +44,9 @@ public:
     static uint16 HostToNetworkUint16 (uint16 value);
     static uint32 NetworkToHostUint32 (uint32 value);
     static uint16 NetworkToHostUint16 (uint16 value);
+
+    /** Constant to indicate that the system should pick the port */
+    static const uint16 anyPort;
 };
 
 
@@ -302,6 +305,23 @@ public:
     */
     bool bindToPort (int localPortNumber,
                      const IpAddress& localAddress = IpAddress::any);
+
+    /** Add a multicast address to receive from.
+
+        Since all DatagramSocket constructors currently bind an address you do not have to
+        explicitly call the bind member before using this function.
+
+        @returns    true on success
+        @see dropMulticastMembership
+    */
+    bool addMulticastMembership (const IpAddress& address);
+
+    /** Remove a multicast address to receive from.
+
+        @returns    true on success
+        @see addMulticastMembership
+    */
+    bool dropMulticastMembership (const IpAddress& address);
 
     /** Tries to connect the socket to hostname:port.
 

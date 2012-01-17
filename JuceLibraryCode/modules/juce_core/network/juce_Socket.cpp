@@ -64,7 +64,6 @@ BEGIN_JUCE_NAMESPACE
 #endif
 
 //==============================================================================
-
 uint32 Socket::HostToNetworkUint32 (uint32 value)
 {
     return htonl (value);
@@ -85,6 +84,192 @@ uint16 Socket::NetworkToHostUint16 (uint16 value)
     return ntohs (value);
 }
 
+const uint16 Socket::anyPort = (0);
+
+
+//==============================================================================
+//==============================================================================
+IpAddress::IpAddress()
+    : ipAddress (0)
+{
+}
+
+IpAddress::IpAddress (uint32 addr)
+    : ipAddress (addr)
+{
+}
+
+IpAddress::IpAddress (const IpAddress& other)
+    : ipAddress (other.ipAddress)
+{
+}
+
+IpAddress& IpAddress::operator= (const IpAddress& other)
+{
+    ipAddress = other.ipAddress;
+    return *this;
+}
+
+IpAddress::IpAddress (const String& addr)
+{
+    uint32 temp = inet_addr (addr.toUTF8());
+    ipAddress = ntohl (temp);
+}
+
+String IpAddress::toString() const
+{
+    String s;
+    
+    s = String ((ipAddress >> 24) & 0xFF);
+    s << '.';
+    s << String ((ipAddress >> 16) & 0xFF);
+    s << '.';
+    s << String ((ipAddress >> 8) & 0xFF);
+    s << '.';
+    s << String (ipAddress & 0xFF);
+    
+    return s;
+}
+
+uint32 IpAddress::toUint32() const noexcept
+{
+    return ipAddress;
+}
+
+uint32 IpAddress::toNetworkUint32() const noexcept
+{
+    return htonl (ipAddress);
+}
+
+bool IpAddress::isAny() const noexcept          { return ipAddress == 0; }
+bool IpAddress::isBroadcast() const noexcept    { return ipAddress == 0xFFFFFFFF; }
+bool IpAddress::isLocal() const noexcept        { return ipAddress == 0x7F000001; }
+
+bool IpAddress::operator== (const IpAddress& other) const noexcept
+{ 
+    return ipAddress == other.ipAddress; 
+}
+
+bool IpAddress::operator!= (const IpAddress& other) const noexcept
+{ 
+    return ipAddress != other.ipAddress;
+}
+
+#if JUCE_WINDOWS
+    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
+    {
+        // For consistancy
+        result.addIfNotAlreadyThere (IpAddress ("127.0.0.1"));
+
+        DynamicLibrary dll ("iphlpapi.dll");
+        JUCE_DLL_FUNCTION (GetAdaptersInfo, getAdaptersInfo, DWORD, dll, (PIP_ADAPTER_INFO, PULONG))
+
+        if (getAdaptersInfo != nullptr)
+        {
+            ULONG len = sizeof (IP_ADAPTER_INFO);
+            HeapBlock<IP_ADAPTER_INFO> adapterInfo (1);
+
+            if (getAdaptersInfo (adapterInfo, &len) == ERROR_BUFFER_OVERFLOW)
+                adapterInfo.malloc (len, 1);
+
+            if (getAdaptersInfo (adapterInfo, &len) == NO_ERROR)
+            {
+                for (PIP_ADAPTER_INFO adapter = adapterInfo; adapter != nullptr; adapter = adapter->Next)
+                {
+                    IpAddress ip (adapter->IpAddressList.IpAddress.String);
+                    if (! ip.isAny())
+                        result.addIfNotAlreadyThere (ip);
+                }
+            }
+        }
+    }
+#else
+    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
+    {
+	    struct ifconf cfg;
+	    size_t buffer_capacity;
+	    char* buffer = nullptr;
+        int sock = -1;
+        
+	    // Compute the sizes of ifreq structures
+	    const size_t ifreq_size_in = IFNAMSIZ + sizeof (struct sockaddr_in);
+	    const size_t ifreq_size_in6 = IFNAMSIZ + sizeof (struct sockaddr_in6);
+    	
+        // Poor man's try since we can be in an existing noexcept
+        do
+        {
+            // Create a dummy socket to execute the IO control on
+            sock = socket (AF_INET, SOCK_DGRAM, 0);
+            if (sock < 0)
+                break;
+            
+            // Repeatedly call the IO control with increasing buffer sizes until success
+            // Ugly, old school...
+            bool success = true;
+            buffer_capacity = ifreq_size_in6;
+            buffer = NULL;
+            do 
+            {
+                buffer_capacity *= 2;
+                char* buffer_new = (char*)realloc (buffer, buffer_capacity);
+                if (buffer_new)
+                {
+                    buffer = buffer_new;
+                }
+                else
+                {
+                    success = false;
+                    break;
+                }
+                
+                cfg.ifc_len = buffer_capacity;
+                cfg.ifc_buf = buffer;
+                
+                if ((ioctl (sock, SIOCGIFCONF, &cfg) < 0) && (errno != EINVAL))
+                {
+                    success = false;
+                    break;
+                }
+                
+            } while ((buffer_capacity - cfg.ifc_len) < 2 * ifreq_size_in6);
+            
+            // How did we do?
+            if (success == false)
+                break;
+            
+            // Copy the interface addresses into the result array
+            while (cfg.ifc_len >= ifreq_size_in) 
+            {
+                // Skip entries for non-internet addresses
+                if (cfg.ifc_req->ifr_addr.sa_family == AF_INET)
+                {
+                    const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &cfg.ifc_req->ifr_addr;
+                    in_addr_t addr = addr_in->sin_addr.s_addr;
+                    // Skip entries without an address
+                    if (addr != INADDR_NONE)
+                        result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
+                }
+                
+                // Move to the next structure in the buffer
+                cfg.ifc_len -= IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
+                cfg.ifc_buf += IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
+            }
+            
+	    } while (0);
+        
+	    // Free the buffer and close the socket if necessary
+	    if (buffer != nullptr)
+		    free(buffer);
+        
+        if (sock >= 0)
+            close(sock);
+    }
+#endif
+
+    const IpAddress IpAddress::any (0);
+    const IpAddress IpAddress::broadcast (0xFFFFFFFF);
+    const IpAddress IpAddress::localhost (0x7F000001);
+ 
 
 //==============================================================================
 //==============================================================================
@@ -500,189 +685,6 @@ bool StreamingSocket::isLocal() const noexcept
 
 //==============================================================================
 //==============================================================================
-IpAddress::IpAddress()
-    : ipAddress (0)
-{
-}
-
-IpAddress::IpAddress (uint32 addr)
-    : ipAddress (addr)
-{
-}
-
-IpAddress::IpAddress (const IpAddress& other)
-    : ipAddress (other.ipAddress)
-{
-}
-
-IpAddress& IpAddress::operator= (const IpAddress& other)
-{
-    ipAddress = other.ipAddress;
-    return *this;
-}
-
-IpAddress::IpAddress (const String& addr)
-{
-    uint32 temp = inet_addr (addr.toUTF8());
-    ipAddress = ntohl (temp);
-}
-
-String IpAddress::toString() const
-{
-    String s;
-    
-    s = String ((ipAddress >> 24) & 0xFF);
-    s << '.';
-    s << String ((ipAddress >> 16) & 0xFF);
-    s << '.';
-    s << String ((ipAddress >> 8) & 0xFF);
-    s << '.';
-    s << String (ipAddress & 0xFF);
-    
-    return s;
-}
-
-uint32 IpAddress::toUint32() const noexcept
-{
-    return ipAddress;
-}
-
-uint32 IpAddress::toNetworkUint32() const noexcept
-{
-    return htonl (ipAddress);
-}
-
-bool IpAddress::isAny() const noexcept          { return ipAddress == 0; }
-bool IpAddress::isBroadcast() const noexcept    { return ipAddress == 0xFFFFFFFF; }
-bool IpAddress::isLocal() const noexcept        { return ipAddress == 0x7F000001; }
-
-bool IpAddress::operator== (const IpAddress& other) const noexcept
-{ 
-    return ipAddress == other.ipAddress; 
-}
-
-bool IpAddress::operator!= (const IpAddress& other) const noexcept
-{ 
-    return ipAddress != other.ipAddress;
-}
-
-#if JUCE_WINDOWS
-    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
-    {
-        // For consistancy
-        result.addIfNotAlreadyThere (IpAddress ("127.0.0.1"));
-
-        DynamicLibrary dll ("iphlpapi.dll");
-        JUCE_DLL_FUNCTION (GetAdaptersInfo, getAdaptersInfo, DWORD, dll, (PIP_ADAPTER_INFO, PULONG))
-
-        if (getAdaptersInfo != nullptr)
-        {
-            ULONG len = sizeof (IP_ADAPTER_INFO);
-            HeapBlock<IP_ADAPTER_INFO> adapterInfo (1);
-
-            if (getAdaptersInfo (adapterInfo, &len) == ERROR_BUFFER_OVERFLOW)
-                adapterInfo.malloc (len, 1);
-
-            if (getAdaptersInfo (adapterInfo, &len) == NO_ERROR)
-            {
-                for (PIP_ADAPTER_INFO adapter = adapterInfo; adapter != nullptr; adapter = adapter->Next)
-                {
-                    IpAddress ip (adapter->IpAddressList.IpAddress.String);
-                    if (! ip.isAny())
-                        result.addIfNotAlreadyThere (ip);
-                }
-            }
-        }
-    }
-#else
-    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
-    {
-	    struct ifconf cfg;
-	    size_t buffer_capacity;
-	    char* buffer = nullptr;
-        int sock = -1;
-        
-	    // Compute the sizes of ifreq structures
-	    const size_t ifreq_size_in = IFNAMSIZ + sizeof (struct sockaddr_in);
-	    const size_t ifreq_size_in6 = IFNAMSIZ + sizeof (struct sockaddr_in6);
-    	
-        // Poor man's try since we can be in an existing noexcept
-        do
-        {
-            // Create a dummy socket to execute the IO control on
-            sock = socket (AF_INET, SOCK_DGRAM, 0);
-            if (sock < 0)
-                break;
-            
-            // Repeatedly call the IO control with increasing buffer sizes until success
-            // Ugly, old school...
-            bool success = true;
-            buffer_capacity = ifreq_size_in6;
-            buffer = NULL;
-            do 
-            {
-                buffer_capacity *= 2;
-                char* buffer_new = (char*)realloc (buffer, buffer_capacity);
-                if (buffer_new)
-                {
-                    buffer = buffer_new;
-                }
-                else
-                {
-                    success = false;
-                    break;
-                }
-                
-                cfg.ifc_len = buffer_capacity;
-                cfg.ifc_buf = buffer;
-                
-                if ((ioctl (sock, SIOCGIFCONF, &cfg) < 0) && (errno != EINVAL))
-                {
-                    success = false;
-                    break;
-                }
-                
-            } while ((buffer_capacity - cfg.ifc_len) < 2 * ifreq_size_in6);
-            
-            // How did we do?
-            if (success == false)
-                break;
-            
-            // Copy the interface addresses into the result array
-            while (cfg.ifc_len >= ifreq_size_in) 
-            {
-                // Skip entries for non-internet addresses
-                if (cfg.ifc_req->ifr_addr.sa_family == AF_INET)
-                {
-                    const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &cfg.ifc_req->ifr_addr;
-                    in_addr_t addr = addr_in->sin_addr.s_addr;
-                    // Skip entries without an address
-                    if (addr != INADDR_NONE)
-                        result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
-                }
-                
-                // Move to the next structure in the buffer
-                cfg.ifc_len -= IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
-                cfg.ifc_buf += IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
-            }
-            
-	    } while (0);
-        
-	    // Free the buffer and close the socket if necessary
-	    if (buffer != nullptr)
-		    free(buffer);
-        
-        if (sock >= 0)
-            close(sock);
-    }
-#endif
-
-    const IpAddress IpAddress::any (0);
-    const IpAddress IpAddress::broadcast (0xFFFFFFFF);
-    const IpAddress IpAddress::localhost (0x7F000001);
- 
-//==============================================================================
-//==============================================================================
 DatagramSocket::DatagramSocket (const int localPortNumber, const bool allowBroadcast_, const bool allowReuse_, const IpAddress& localAddress_)
     : portNumber (0),
       handle (-1),
@@ -742,6 +744,40 @@ void DatagramSocket::close()
 bool DatagramSocket::bindToPort (const int port, const IpAddress& localAddress)
 {
     return SocketHelpers::bindSocketToPort (handle, port, localAddress);
+}
+
+bool DatagramSocket::addMulticastMembership (const IpAddress& address)
+{
+    if (! connected)
+        return false;
+
+	struct ip_mreq mreq;
+	zerostruct<ip_mreq> (mreq);
+
+	mreq.imr_multiaddr.s_addr = address.toNetworkUint32();
+	mreq.imr_interface.s_addr = INADDR_ANY;
+
+    if (setsockopt(handle, IPPROTO_IP, IP_ADD_MEMBERSHIP, (const char*)&mreq, sizeof(mreq)) == 0)
+        return true;
+    
+    return false;
+}
+
+bool DatagramSocket::dropMulticastMembership (const IpAddress& address)
+{
+    if (! connected)
+        return false;
+
+	struct ip_mreq mreq;
+	zerostruct<ip_mreq> (mreq);
+
+	mreq.imr_multiaddr.s_addr = address.toNetworkUint32();
+	mreq.imr_interface.s_addr = INADDR_ANY;
+
+    if (setsockopt(handle, IPPROTO_IP, IP_DROP_MEMBERSHIP, (const char*)&mreq, sizeof(mreq)) == 0)
+        return true;
+
+    return false;
 }
 
 bool DatagramSocket::connect (const String& remoteHostName,

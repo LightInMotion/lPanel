@@ -27,6 +27,223 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
+// CITP Packets
+#if JUCE_WINDOWS
+  #pragma pack(push)
+  #pragma pack(1)
+#endif
+
+typedef struct
+{
+	// Magic cookie, always set to ”CITP”
+	unsigned char Cookie[4];
+	// Protocol version numbers
+	// Current version is 1.0
+	unsigned char VersionMajor;
+	unsigned char VersionMinor;
+	// Reserved space and 4-byte alignment
+	unsigned char Reserved[2];
+	// The size of the entire message
+	unsigned long MessageSize;
+	// Part count and part index of this message fragment
+	unsigned short MessagePartCount;
+	unsigned short MessagePart;
+	// The content type of the message
+	unsigned char ContentType[4];
+}  CITP_Header;
+
+typedef struct{
+	// CITP header (ContentType = “SDMX”)
+	CITP_Header CITPHeader;
+	// The content type of the SDMX message.
+	unsigned char ContentType[4];
+} CITP_SDMX_Header;
+
+typedef struct
+{
+   // CITP/SDMX header (ContentType = ”EnId”)
+   CITP_SDMX_Header SDMXHeader;
+   // Encryption identifier
+   char Identifier[64];
+}  CITP_SDMX_EncryptionIdentifier;
+
+typedef struct{
+	// CITP/SDMX header (ContentType = ”ChBk”)
+	CITP_SDMX_Header SDMXHeader;
+	// Blind DMX flag (set to non-zero for Blind DMX)
+	unsigned char Blind;
+	// Universe (0-based)
+	unsigned char Universe;
+	// Block first channel (0-based)
+	unsigned short FirstChannel;
+	// Block channel count (1-512)
+	unsigned short ChannelCount;
+	// Block channels follow...
+	// unsigned char Channels[];
+} CITP_SDMX_ChannelBlock_Header;
+
+typedef struct{
+	// CITP/SDMX header (ContentType = ”ChBk”)
+	CITP_SDMX_Header SDMXHeader;
+	// Blind DMX flag (set to non-zero for Blind DMX)
+	unsigned char Blind;
+	// Universe (0-based)
+	unsigned char Universe;
+	// Block first channel (0-based)
+	unsigned short FirstChannel;
+	// Block channel count (1-512)
+	unsigned short ChannelCount;
+	// Block channels follow...
+	unsigned char Channels[512];
+} CITP_SDMX_ChannelBlock;
+
+typedef struct CITP_SDMX_UniverseName
+{
+	// CITP/SDMX header (ContentType = “UNam”)
+	CITP_SDMX_Header SDMXHeader;
+	// Universe (0-based)
+	unsigned char Universe;
+	// Universe name
+	char Name[64];
+}  CITP_SDMX_UniverseName;
+
+typedef struct
+{
+	// CITP header (ContentType = “PINF”)
+	CITP_Header CITPHeader;
+	// The content type of the PINF message.
+	unsigned char ContentType[4];
+} CITP_PINF_Header;
+
+typedef struct	// Depracated
+{
+	// CITP/PINF header (ContentType = ”PNam”)
+	CITP_PINF_Header PINFHeader;
+	// Peer descriptive name (null terminated)
+	char Name[64];
+}  CITP_PINF_PeerName;
+
+typedef struct
+{
+	// CITP/PINF header (ContentType = "PLoc")
+	CITP_PINF_Header PINFHeader;
+	unsigned short port;
+	char pstrings;		// Null terminated strings list
+}  CITP_PINF_PLoc;
+
+typedef struct
+{
+	// CITP header (ContentType = “FPTC”)
+	CITP_Header CITPHeader;
+	// The content type of the FPTC message.
+	unsigned char ContentType[4];
+	// Content hint
+	unsigned long ContentHint;
+}  CITP_FPTC_Header;
+
+#define CITP_FPTC_ContentHint_InSequence 0x00000001
+#define CITP_FPTC_ContentHint_EndSequence 0x00000002
+
+typedef struct 
+{
+   // CITP/FPTC header (ContentType = ”Ptch”)
+   CITP_FPTC_Header FPTCHeader;
+   // Fixture identifier
+   unsigned short FixtureIdentifier;
+   // Patch universe (0-based)
+   unsigned char Universe;
+   // Reserved space and 4-byte alignment
+   unsigned char Reserved[1];
+   // Patch channel (0-based)
+   unsigned short Channel;
+   // Patch channel count (1-512)
+   unsigned short ChannelCount;
+   // Fixture make (only a null if omitted)
+   // char FixtureMake[];
+   // Fixture name (never omitted)
+   // char FixtureName[];
+} CITP_FPTC_Patch_Header;
+
+typedef struct
+{
+   // CITP/FPTC header (ContentType = ”UPtc”)
+   CITP_FPTC_Header FPTCHeader;
+   // Fixture count (0 to unpatch all)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+   // unsigned short FixtureIdentifiers[];
+}  CITP_FPTC_Remove_Header;
+
+typedef struct 
+{
+   // CITP/ FPTC header (ContentType = ”SPtc”)
+   CITP_FPTC_Header FPTCHeader;
+   // Fixture count (0 to request all)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+   // unsigned short FixtureIdentifiers[];
+} CITP_FPTC_SendPatch_Header;
+
+typedef struct
+{
+   // CITP header (ContentType = “FSEL”)
+   CITP_Header CITPHeader;
+   // The content type of the FSEL message.
+   unsigned char ContentType[4];
+} CITP_FSEL_Header;
+
+typedef struct
+{
+   // CITP/FSEL header (ContentType = ”Sele”)
+   CITP_FSEL_Header FSELHeader;
+   // Complete selection (non-zero for complete)
+   unsigned char Complete;
+   // Reserved space and 4-byte alignment
+   unsigned char Reserved[1];
+   // Fixture count (greater than 0)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+   // unsigned short FixtureIdentifiers[];
+}  CITP_FSEL_Select_Header;
+
+typedef struct
+{
+   // CITP/FSEL header (ContentType = ”Sele”)
+   CITP_FSEL_Header FSELHeader;
+   // Complete selection (non-zero for complete)
+   unsigned char Complete;
+   // Reserved space and 4-byte alignment
+   unsigned char Reserved[1];
+   // Fixture count (greater than 0)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+   unsigned short FixtureIdentifiers[8192];
+}  CITP_FSEL_Select;
+
+typedef struct
+{
+   // CITP/FSEL header (ContentType = ”DeSe”)
+   CITP_FSEL_Header FSELHeader;
+   // Fixture count (0 for complete deselection)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+// unsigned short FixtureIdentifiers[];
+}  CITP_FSEL_Deselect_Header;
+
+typedef struct
+{
+   // CITP/FSEL header (ContentType = ”DeSe”)
+   CITP_FSEL_Header FSELHeader;
+   // Fixture count (0 for complete deselection)
+   unsigned short FixtureCount;
+   // Fixture identifiers
+   unsigned short FixtureIdentifiers[8192];
+}  CITP_FSEL_Deselect;
+
+#if JUCE_WINDOWS
+  #pragma pack(pop)
+#endif
+
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -423,7 +640,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
             // Try non local addresses first
             if (! ips[n].isLocal())
             {
-                DatagramSocket s (0, true, true, ips[n]);
+                DatagramSocket s (Socket::anyPort, true, true, ips[n]);
                 if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
                 {
 			        LPNET_POLL outblock;
@@ -453,7 +670,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                                             IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
                                             uint16 lpport = Socket::NetworkToHostUint16 (reply->Port);
                                             String str = lpaddress.toString();
-                                           printf("Ho\n");
+                                            printf("Ho\n");
                                         }
                                     }
                                 }
@@ -463,15 +680,17 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                 }
             }
         }
-        
-        DatagramSocket s (0x8000, true, true);
-        if (s.connect ("255.255.255.255", 0x8000))
+
+        // OK, try CITP!
+//        for (int n=0 ; n<ips.size() ; n++)
         {
-            if (s.write ("12345", 5) == 5)
+            DatagramSocket s (4809, true, true);
+            if (s.addMulticastMembership (IpAddress ("224.0.0.180")))
             {
-                char buf[10];
-                if (s.read(buf, 5, true) == 5)
-                    printf ("%c%c%c%c%c\n", buf[0], buf[1], buf[2], buf[3], buf[4]);
+                if (s.waitUntilReady (true, 1000))
+                {
+                    printf("Got one!\n");
+                }
             }
         }
         //[/UserButtonCode_stopButton]
