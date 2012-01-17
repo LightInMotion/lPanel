@@ -298,10 +298,10 @@ LivePanelHComponent::LivePanelHComponent ()
                            Image(), 1.0000f, Colour (0x20000000));
 
     //[UserPreSize]
-    gmLabel->setMinimumHorizontalScale (.2);
-    funcLabel->setMinimumHorizontalScale (.2);
-    connectLabel->setMinimumHorizontalScale (.2);
-    pageLabel->setMinimumHorizontalScale (.2);
+    gmLabel->setMinimumHorizontalScale (.2f);
+    funcLabel->setMinimumHorizontalScale (.2f);
+    connectLabel->setMinimumHorizontalScale (.2f);
+    pageLabel->setMinimumHorizontalScale (.2f);
     //[/UserPreSize]
 
     setSize (320, 480);

@@ -20,6 +20,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "LPNet.h"
 //[/Headers]
 
 #include "LivePanelComponent.h"
@@ -298,10 +299,10 @@ LivePanelComponent::LivePanelComponent ()
                            Image(), 1.0000f, Colour (0x20000000));
 
     //[UserPreSize]
-    gmLabel->setMinimumHorizontalScale (.2);
-    funcLabel->setMinimumHorizontalScale (.2);
-    connectLabel->setMinimumHorizontalScale (.2);
-    pageLabel->setMinimumHorizontalScale (.2);
+    gmLabel->setMinimumHorizontalScale (.2f);
+    funcLabel->setMinimumHorizontalScale (.2f);
+    connectLabel->setMinimumHorizontalScale (.2f);
+    pageLabel->setMinimumHorizontalScale (.2f);
     //[/UserPreSize]
 
     setSize (320, 480);
@@ -415,34 +416,52 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_stopButton] -- add your button handler code here..
         Array<IpAddress> ips;
-        
-        IpAddress ip;
-        String str = ip.toString();
-        if (ip.isAny())
-            printf("Oh!\n");
-        if (ip.isBroadcast())
-            printf("My!\n");
-        
-        IpAddress vp = IpAddress ("1.2.3.4");
-        uint32 u = vp.toUint32();
-        uint32 n = vp.toNetworkUint32();
-        str = vp.toString();
-        
-        IpAddress up = IpAddress (0x11223344);
-        str = up.toString();
-        
-        IpAddress dn = IpAddress (0xFFFFFFFF);
-        str = dn.toString();
-        if (dn.isAny())
-            printf("Oh!\n");
-        if (dn.isBroadcast())
-            printf("My!\n");
 
         IpAddress::findAllIpAddresses (ips);
         for (int n=0 ; n<ips.size() ; n++)
         {
-            str = (ips[n].toString());
-            printf("%08lx\n", (unsigned long)(ips[n]).toUint32());
+            // Try non local addresses first
+            if (! ips[n].isLocal())
+            {
+                DatagramSocket s (0, true, true, ips[n]);
+                if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
+                {
+			        LPNET_POLL outblock;
+			        memset (&outblock, 0, sizeof (outblock));
+			        strcpy ((char *)outblock.ProtoID, LPNET_PROTO_ID);
+                    outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
+			        outblock.VersionL = LPNET_VERSION;
+
+                    if (s.write (&outblock, sizeof (LPNET_POLL)) > 0)
+                    {
+                        while (s.waitUntilReady (true, 250))
+                        {
+                            char inbuf[1024];
+
+                            int n = s.read (&inbuf, sizeof (inbuf), false);
+                            if (n > 0)
+                            {
+                                LPNET_POLLREPLY *reply;
+				                reply = (LPNET_POLLREPLY *)inbuf;
+				                if (!strcmp((char *)reply->ProtoID, LPNET_PROTO_ID))
+				                {
+                                    if (reply->OpCode == Socket::HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
+					                {
+                                        printf("Yo\n");
+						                if (reply->VersionL == LPNET_VERSION)
+						                {
+                                            IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
+                                            uint16 lpport = Socket::NetworkToHostUint16 (reply->Port);
+                                            String str = lpaddress.toString();
+                                           printf("Ho\n");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         DatagramSocket s (0x8000, true, true);

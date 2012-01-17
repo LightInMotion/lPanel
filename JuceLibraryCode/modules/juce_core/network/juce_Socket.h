@@ -31,6 +31,24 @@
 
 //==============================================================================
 /**
+    A collection of helpers for Socket communication.
+
+    @see DatagramSocket, StreamingSocket
+*/
+class JUCE_API Socket
+{
+public:
+    //==============================================================================
+    /** Conditional endian swaps, so that socket stuff doesn't have to be included. */
+    static uint32 HostToNetworkUint32 (uint32 value);
+    static uint16 HostToNetworkUint16 (uint16 value);
+    static uint32 NetworkToHostUint32 (uint32 value);
+    static uint16 NetworkToHostUint16 (uint16 value);
+};
+
+
+//==============================================================================
+/**
     A wrapper for a streaming (TCP) socket.
 
     This allows low-level use of sockets; for an easier-to-use messaging layer on top of
@@ -211,18 +229,23 @@ public:
     /** Return as network order uint32. */
     uint32 toNetworkUint32() const noexcept;
     
-    /** Returns true if this address is IPADDR_ANY (0.0.0.0). */
+    /** Returns true if this address is ANY (0.0.0.0). */
     bool isAny() const noexcept;
     
-    /** Returns true if this address is IPADDR_BROADCAST (255.255.255.255). */
+    /** Returns true if this address is BROADCAST (255.255.255.255). */
     bool isBroadcast() const noexcept;
     
+    /** Returns true if this address is LOOPBACK (127.0.0.1). */
+    bool isLocal() const noexcept;
+
     bool operator== (const IpAddress& other) const noexcept;
     bool operator!= (const IpAddress& other) const noexcept;
 
     //==============================================================================
     /** IPv4 Any Address. */
     static const IpAddress any;
+    static const IpAddress broadcast;
+    static const IpAddress localhost;
     
     //==============================================================================
 private:
@@ -264,7 +287,7 @@ public:
     DatagramSocket (int localPortNumber,
                     bool enableBroadcasting = false,
                     bool enableReuseAddress = false,
-                    unsigned long localAddress = 0);
+                    const IpAddress& localAddress = IpAddress::any);
 
     /** Destructor. */
     ~DatagramSocket();
@@ -278,17 +301,25 @@ public:
                     on the same port
     */
     bool bindToPort (int localPortNumber,
-                     unsigned long localAddress = 0);
+                     const IpAddress& localAddress = IpAddress::any);
 
     /** Tries to connect the socket to hostname:port.
 
-        If timeOutMillisecs is 0, then this method will block until the operating system
-        rejects the connection (which could take a long time).
+        This function does not connect in the low level sockets sense.
+        Instead it resolves the remote host name and port to a low
+        level sock_addr, which is then used for subsequent writes.
+
+        So it can be called multiple times for broadcast situations, etc.
 
         @returns true if it succeeds.
         @see isConnected
     */
     bool connect (const String& remoteHostname,
+                  int remotePortNumber,
+                  int timeOutMillisecs = 3000);
+
+    /** Connect using an IpAddress instead */
+    bool connect (const IpAddress& remoteHost,
                   int remotePortNumber,
                   int timeOutMillisecs = 3000);
 
@@ -354,13 +385,12 @@ public:
     */
     DatagramSocket* waitForNextConnection() const;
 
-
 private:
     //==============================================================================
     String hostName;
     int volatile portNumber, handle;
     bool connected, allowBroadcast, allowReuse;
-    unsigned long localAddress;
+    IpAddress localAddress;
     void* serverAddress;
 
     DatagramSocket (const String& hostname, int portNumber, int handle, int localPortNumber);

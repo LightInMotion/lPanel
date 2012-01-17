@@ -64,6 +64,30 @@ BEGIN_JUCE_NAMESPACE
 #endif
 
 //==============================================================================
+
+uint32 Socket::HostToNetworkUint32 (uint32 value)
+{
+    return htonl (value);
+}
+
+uint16 Socket::HostToNetworkUint16 (uint16 value)
+{
+    return htons (value);
+}
+    
+uint32 Socket::NetworkToHostUint32 (uint32 value)
+{
+    return ntohl (value);
+}
+
+uint16 Socket::NetworkToHostUint16 (uint16 value)
+{
+    return ntohs (value);
+}
+
+
+//==============================================================================
+//==============================================================================
 namespace SocketHelpers
 {
     void initSockets()
@@ -98,14 +122,14 @@ namespace SocketHelpers
                                : (setsockopt (handle, IPPROTO_TCP, TCP_NODELAY, (const char*) &one, sizeof (one)) == 0));
     }
 
-    bool bindSocketToPort (const int handle, const int port, const unsigned long localAddress = INADDR_ANY) noexcept
+    bool bindSocketToPort (const int handle, const int port, const IpAddress& localAddress = IpAddress::any) noexcept
     {
-        if (handle <= 0 || port <= 0)
+        if (handle <= 0 || port < 0)
             return false;
 
         struct sockaddr_in servTmpAddr = { 0 };
         servTmpAddr.sin_family = PF_INET;
-        servTmpAddr.sin_addr.s_addr = htonl (localAddress);
+        servTmpAddr.sin_addr.s_addr = localAddress.toNetworkUint32();
         servTmpAddr.sin_port = htons ((uint16) port);
 
         return bind (handle, (struct sockaddr*) &servTmpAddr, sizeof (struct sockaddr_in)) >= 0;
@@ -530,6 +554,7 @@ uint32 IpAddress::toNetworkUint32() const noexcept
 
 bool IpAddress::isAny() const noexcept          { return ipAddress == 0; }
 bool IpAddress::isBroadcast() const noexcept    { return ipAddress == 0xFFFFFFFF; }
+bool IpAddress::isLocal() const noexcept        { return ipAddress == 0x7F000001; }
 
 bool IpAddress::operator== (const IpAddress& other) const noexcept
 { 
@@ -545,7 +570,7 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
     void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
     {
         // For consistancy
-        result.addIfNotAlreadyThere (IpAddress (0x7F000001));
+        result.addIfNotAlreadyThere (IpAddress ("127.0.0.1"));
 
         DynamicLibrary dll ("iphlpapi.dll");
         JUCE_DLL_FUNCTION (GetAdaptersInfo, getAdaptersInfo, DWORD, dll, (PIP_ADAPTER_INFO, PULONG))
@@ -652,9 +677,13 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
     }
 #endif
 
+    const IpAddress IpAddress::any (0);
+    const IpAddress IpAddress::broadcast (0xFFFFFFFF);
+    const IpAddress IpAddress::localhost (0x7F000001);
+ 
 //==============================================================================
 //==============================================================================
-DatagramSocket::DatagramSocket (const int localPortNumber, const bool allowBroadcast_, const bool allowReuse_, const unsigned long localAddress_)
+DatagramSocket::DatagramSocket (const int localPortNumber, const bool allowBroadcast_, const bool allowReuse_, const IpAddress& localAddress_)
     : portNumber (0),
       handle (-1),
       connected (true),
@@ -678,7 +707,7 @@ DatagramSocket::DatagramSocket (const String& hostName_, const int portNumber_,
       connected (true),
       allowBroadcast (false),
       allowReuse (false),
-      localAddress (0),
+      localAddress (IpAddress::any),
       serverAddress (0)
 {
     SocketHelpers::initSockets();
@@ -710,7 +739,7 @@ void DatagramSocket::close()
     handle = -1;
 }
 
-bool DatagramSocket::bindToPort (const int port, const unsigned long localAddress)
+bool DatagramSocket::bindToPort (const int port, const IpAddress& localAddress)
 {
     return SocketHelpers::bindSocketToPort (handle, port, localAddress);
 }
@@ -740,6 +769,13 @@ bool DatagramSocket::connect (const String& remoteHostName,
     }
 
     return true;
+}
+
+bool DatagramSocket::connect (const IpAddress& remoteHost,
+                              const int remotePortNumber,
+                              const int timeOutMillisecs)
+{
+    return connect (remoteHost.toString(), remotePortNumber, timeOutMillisecs);
 }
 
 DatagramSocket* DatagramSocket::waitForNextConnection() const
