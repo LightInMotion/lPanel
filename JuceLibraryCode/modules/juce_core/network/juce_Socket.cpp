@@ -541,87 +541,116 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
     return ipAddress != other.ipAddress;
 }
 
-void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
-{
-	struct ifconf cfg;
-	size_t buffer_capacity;
-	char* buffer = nullptr;
-    int sock = -1;
-    
-	// Compute the sizes of ifreq structures
-	const size_t ifreq_size_in = IFNAMSIZ + sizeof (struct sockaddr_in);
-	const size_t ifreq_size_in6 = IFNAMSIZ + sizeof (struct sockaddr_in6);
-	
-    // Poor man's try since we can be in an existing noexcept
-    do
+#if JUCE_WINDOWS
+    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
     {
-        // Create a dummy socket to execute the IO control on
-        sock = socket (AF_INET, SOCK_DGRAM, 0);
-        if (sock < 0)
-            break;
-        
-        // Repeatedly call the IO control with increasing buffer sizes until success
-        // Ugly, old school...
-        bool success = true;
-        buffer_capacity = ifreq_size_in6;
-        buffer = NULL;
-        do 
-        {
-            buffer_capacity *= 2;
-            char* buffer_new = (char*)realloc (buffer, buffer_capacity);
-            if (buffer_new)
-            {
-                buffer = buffer_new;
-            }
-            else
-            {
-                success = false;
-                break;
-            }
-            
-            cfg.ifc_len = buffer_capacity;
-            cfg.ifc_buf = buffer;
-            
-            if ((ioctl (sock, SIOCGIFCONF, &cfg) < 0) && (errno != EINVAL))
-            {
-                success = false;
-                break;
-            }
-            
-        } while ((buffer_capacity - cfg.ifc_len) < 2 * ifreq_size_in6);
-        
-        // How did we do?
-        if (success == false)
-            break;
-        
-        // Copy the interface addresses into the result array
-        while (cfg.ifc_len >= ifreq_size_in) 
-        {
-            // Skip entries for non-internet addresses
-            if (cfg.ifc_req->ifr_addr.sa_family == AF_INET)
-            {
-                const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &cfg.ifc_req->ifr_addr;
-                in_addr_t addr = addr_in->sin_addr.s_addr;
-                // Skip entries without an address
-                if (addr != INADDR_NONE)
-                    result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
-            }
-            
-            // Move to the next structure in the buffer
-            cfg.ifc_len -= IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
-            cfg.ifc_buf += IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
-        }
-        
-	} while (0);
-    
-	// Free the buffer and close the socket if necessary
-	if (buffer != nullptr)
-		free(buffer);
-    
-    if (sock >= 0)
-        close(sock);
-}
+        // For consistancy
+        result.addIfNotAlreadyThere (IpAddress (0x7F000001));
 
+        DynamicLibrary dll ("iphlpapi.dll");
+        JUCE_DLL_FUNCTION (GetAdaptersInfo, getAdaptersInfo, DWORD, dll, (PIP_ADAPTER_INFO, PULONG))
+
+        if (getAdaptersInfo != nullptr)
+        {
+            ULONG len = sizeof (IP_ADAPTER_INFO);
+            HeapBlock<IP_ADAPTER_INFO> adapterInfo (1);
+
+            if (getAdaptersInfo (adapterInfo, &len) == ERROR_BUFFER_OVERFLOW)
+                adapterInfo.malloc (len, 1);
+
+            if (getAdaptersInfo (adapterInfo, &len) == NO_ERROR)
+            {
+                for (PIP_ADAPTER_INFO adapter = adapterInfo; adapter != nullptr; adapter = adapter->Next)
+                {
+                    IpAddress ip (adapter->IpAddressList.IpAddress.String);
+                    if (! ip.isAny())
+                        result.addIfNotAlreadyThere (ip);
+                }
+            }
+        }
+    }
+#else
+    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
+    {
+	    struct ifconf cfg;
+	    size_t buffer_capacity;
+	    char* buffer = nullptr;
+        int sock = -1;
+        
+	    // Compute the sizes of ifreq structures
+	    const size_t ifreq_size_in = IFNAMSIZ + sizeof (struct sockaddr_in);
+	    const size_t ifreq_size_in6 = IFNAMSIZ + sizeof (struct sockaddr_in6);
+    	
+        // Poor man's try since we can be in an existing noexcept
+        do
+        {
+            // Create a dummy socket to execute the IO control on
+            sock = socket (AF_INET, SOCK_DGRAM, 0);
+            if (sock < 0)
+                break;
+            
+            // Repeatedly call the IO control with increasing buffer sizes until success
+            // Ugly, old school...
+            bool success = true;
+            buffer_capacity = ifreq_size_in6;
+            buffer = NULL;
+            do 
+            {
+                buffer_capacity *= 2;
+                char* buffer_new = (char*)realloc (buffer, buffer_capacity);
+                if (buffer_new)
+                {
+                    buffer = buffer_new;
+                }
+                else
+                {
+                    success = false;
+                    break;
+                }
+                
+                cfg.ifc_len = buffer_capacity;
+                cfg.ifc_buf = buffer;
+                
+                if ((ioctl (sock, SIOCGIFCONF, &cfg) < 0) && (errno != EINVAL))
+                {
+                    success = false;
+                    break;
+                }
+                
+            } while ((buffer_capacity - cfg.ifc_len) < 2 * ifreq_size_in6);
+            
+            // How did we do?
+            if (success == false)
+                break;
+            
+            // Copy the interface addresses into the result array
+            while (cfg.ifc_len >= ifreq_size_in) 
+            {
+                // Skip entries for non-internet addresses
+                if (cfg.ifc_req->ifr_addr.sa_family == AF_INET)
+                {
+                    const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &cfg.ifc_req->ifr_addr;
+                    in_addr_t addr = addr_in->sin_addr.s_addr;
+                    // Skip entries without an address
+                    if (addr != INADDR_NONE)
+                        result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
+                }
+                
+                // Move to the next structure in the buffer
+                cfg.ifc_len -= IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
+                cfg.ifc_buf += IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
+            }
+            
+	    } while (0);
+        
+	    // Free the buffer and close the socket if necessary
+	    if (buffer != nullptr)
+		    free(buffer);
+        
+        if (sock >= 0)
+            close(sock);
+    }
+#endif
 
 //==============================================================================
 //==============================================================================

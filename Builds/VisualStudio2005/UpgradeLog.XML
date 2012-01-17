@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="lPanel">
+</Property><Property Name="Solution File" Value="C:\Src\lPanel\Builds\VisualStudio2005\lPanel.sln">
+</Property><Property Name="Date" Value="Sunday, January 15, 2012">
+</Property><Property Name="Time" Value="10:27 AM">
+</Property></Properties><Event ErrorLevel="0" Project="lPanel" Source="lPanel.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="lPanel" Source="lPanel.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="lPanel.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="lPanel.sln" Description="Converted">
+</Event></UpgradeLog>

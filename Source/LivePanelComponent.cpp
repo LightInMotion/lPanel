@@ -441,6 +441,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
         IpAddress::findAllIpAddresses (ips);
         for (int n=0 ; n<ips.size() ; n++)
         {
+            str = (ips[n].toString());
             printf("%08lx\n", (unsigned long)(ips[n]).toUint32());
         }
         

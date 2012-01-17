@@ -1,6 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 8.00
-# Visual C++ Express 2005
-Project("{2323C28F-A333-E1AF-5DF2-AB0486DDE4AB}") = "lPanel", "lPanel.vcproj", "{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}"
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lPanel", "lPanel.vcproj", "{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
