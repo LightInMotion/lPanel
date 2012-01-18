@@ -183,7 +183,10 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
             }
         }
     }
-#else
+#endif
+
+#if JUCE_MAC || JUCE_IOS
+    // Oh joy, two incompatible SIOCGIFCONF interfaces...
     void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
     {
 	    struct ifconf cfg;
@@ -236,7 +239,7 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
             // How did we do?
             if (success == false)
                 break;
-            
+
             // Copy the interface addresses into the result array
             while (cfg.ifc_len >= ifreq_size_in) 
             {
@@ -251,15 +254,49 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
                 }
                 
                 // Move to the next structure in the buffer
+                // CANNOT just use sizeof (ifreq) because entries vary in size
                 cfg.ifc_len -= IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
                 cfg.ifc_buf += IFNAMSIZ + cfg.ifc_req->ifr_addr.sa_len;
             }
-            
 	    } while (0);
         
 	    // Free the buffer and close the socket if necessary
 	    if (buffer != nullptr)
 		    free(buffer);
+        
+        if (sock >= 0)
+            close(sock);
+    }
+#endif
+
+#if JUCE_LINUX || JUCE_ANDROID
+    void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
+    {
+        char buf [1024];
+        struct ifconf ifc;
+        ifc.ifc_len = sizeof (buf);
+        ifc.ifc_buf = buf;
+        ioctl (s, SIOCGIFCONF, &ifc);
+                            
+        struct ifreq *ifr = ifc.ifc_req;
+        int nInterfaces = ifc.ifc_len / sizeof(struct ifreq);
+        for(int i = 0; i < nInterfaces; i++)
+        {
+            struct ifreq *item = &ifr[i];
+            
+            if (item->ifr_addr.sa_family == AF_INET)
+            {
+                const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &item->ifr_addr;
+                in_addr_t addr = addr_in->sin_addr.s_addr;
+                // Skip entries without an address
+                if (addr != INADDR_NONE)
+                    result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
+            }
+        }
+        
+        // Free the buffer and close the socket if necessary
+        if (buffer != nullptr)
+            free(buffer);
         
         if (sock >= 0)
             close(sock);

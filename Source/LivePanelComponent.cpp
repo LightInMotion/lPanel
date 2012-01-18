@@ -635,11 +635,29 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
         Array<IpAddress> ips;
 
         IpAddress::findAllIpAddresses (ips);
+        String ipstring;
+        
+        for (int idx=0 ; idx<ips.size() ; idx++)
+        {
+            ipstring << ips[idx].toString();
+            ipstring << ' ';
+        }
+        
+        AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
+                                    "IP List", 
+                                    ipstring,
+                                    "Ok");
+        
         for (int n=0 ; n<ips.size() ; n++)
         {
             // Try non local addresses first
-            if (! ips[n].isLocal())
+//            if (! ips[n].isLocal())
             {
+                AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
+                                            "Trying...", 
+                                            ips[n].toString(),
+                                            "Ok");
+                
                 DatagramSocket s (Socket::anyPort, true, true, ips[n]);
                 if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
                 {
@@ -649,6 +667,11 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                     outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
 			        outblock.VersionL = LPNET_VERSION;
 
+#if JUCE_IOS
+                    s.connect (ips[n], LPNET_DISCOVERY);
+                    s.write (&outblock, sizeof (LPNET_POLL));
+                    s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
+#endif
                     if (s.write (&outblock, sizeof (LPNET_POLL)) > 0)
                     {
                         while (s.waitUntilReady (true, 250))
@@ -663,14 +686,15 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 				                if (!strcmp((char *)reply->ProtoID, LPNET_PROTO_ID))
 				                {
                                     if (reply->OpCode == Socket::HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
-					                {
-                                        printf("Yo\n");
+					                {                                        
 						                if (reply->VersionL == LPNET_VERSION)
 						                {
                                             IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
-                                            uint16 lpport = Socket::NetworkToHostUint16 (reply->Port);
                                             String str = lpaddress.toString();
-                                            printf("Ho\n");
+                                            AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
+                                                                        "Got One!", 
+                                                                        lpaddress.toString(),
+                                                                        "Ok");
                                         }
                                     }
                                 }
@@ -689,7 +713,10 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
             {
                 if (s.waitUntilReady (true, 1000))
                 {
-                    printf("Got one!\n");
+                    AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
+                                                "Got One!", 
+                                                "CITP",
+                                                "Ok");
                 }
             }
         }

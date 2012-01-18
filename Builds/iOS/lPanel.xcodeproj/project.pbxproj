@@ -93,6 +93,7 @@
 		1DAA29CFB4E4F6F92B373B7D /* juce_gui_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_gui_basics.mm; path = ../../JuceLibraryCode/modules/juce_gui_basics/juce_gui_basics.mm; sourceTree = SOURCE_ROOT; };
 		1DEA9DF2C0FE7D1C0735200F /* juce_ApplicationCommandManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ApplicationCommandManager.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/commands/juce_ApplicationCommandManager.h; sourceTree = SOURCE_ROOT; };
 		1E27AA6BB70BA8B39994D090 /* juce_core.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_core.mm; path = ../../JuceLibraryCode/modules/juce_core/juce_core.mm; sourceTree = SOURCE_ROOT; };
+		1E6C3AC1848C2AEAAE1D344E /* LPNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LPNet.h; path = ../../Source/LPNet.h; sourceTree = SOURCE_ROOT; };
 		1F2D6A3551E30708D97E4867 /* juce_RelativeTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_RelativeTime.cpp; path = ../../JuceLibraryCode/modules/juce_core/time/juce_RelativeTime.cpp; sourceTree = SOURCE_ROOT; };
 		1F439C0AFCD50D1BFB8411DB /* juce_ComponentBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ComponentBuilder.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ComponentBuilder.h; sourceTree = SOURCE_ROOT; };
 		1F551407BB30217739BB4C81 /* juce_events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_events.h; path = ../../JuceLibraryCode/modules/juce_events/juce_events.h; sourceTree = SOURCE_ROOT; };
@@ -1385,6 +1386,7 @@
 		A2991BEC3076E4E292644017 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C3AC1848C2AEAAE1D344E /* LPNet.h */,
 				5657F9F041EF1ADA91BA5C45 /* LivePanelHComponent.cpp */,
 				7A5DD11E59441D203AA156EF /* LivePanelHComponent.h */,
 				76A67D3506ED82DD7D3D2F8F /* LivePanelComponent.cpp */,

@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "0"
          filePath = "/Users/joe/Src/lPanel/Source/LivePanelComponent.cpp"
-         timestampString = "348512477.49572"
+         timestampString = "348532148.826977"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "419"
-         endingLineNumber = "419"
+         startingLineNumber = "637"
+         endingLineNumber = "637"
          landmarkName = "LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)"
          landmarkType = "5">
       </FileBreakpoint>

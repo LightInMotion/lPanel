@@ -22,6 +22,7 @@
       <FILE id="H1qzA0" name="icon-large.png" compile="0" resource="1" file="Images/icon-large.png"/>
     </GROUP>
     <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">
+      <FILE id="FuYl8v" name="LPNet.h" compile="0" resource="0" file="Source/LPNet.h"/>
       <FILE id="JNTpLP" name="LivePanelHComponent.cpp" compile="1" resource="0"
             file="Source/LivePanelHComponent.cpp"/>
       <FILE id="O1VVyI" name="LivePanelHComponent.h" compile="0" resource="0"
