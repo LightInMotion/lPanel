@@ -635,28 +635,23 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
         Array<IpAddress> ips;
 
         IpAddress::findAllIpAddresses (ips);
-        String ipstring;
+        String ipstring = "IPList: ";
         
         for (int idx=0 ; idx<ips.size() ; idx++)
         {
             ipstring << ips[idx].toString();
             ipstring << ' ';
         }
-        
-        AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
-                                    "IP List", 
-                                    ipstring,
-                                    "Ok");
-        
+        Logger::outputDebugString (ipstring);
+                
         for (int n=0 ; n<ips.size() ; n++)
         {
             // Try non local addresses first
 //            if (! ips[n].isLocal())
             {
-                AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
-                                            "Trying...", 
-                                            ips[n].toString(),
-                                            "Ok");
+                String trystring = "Trying: ";
+                trystring << ips[n].toString();
+                Logger::outputDebugString (trystring);
                 
                 DatagramSocket s (Socket::anyPort, true, true, ips[n]);
                 if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
@@ -690,11 +685,9 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 						                if (reply->VersionL == LPNET_VERSION)
 						                {
                                             IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
-                                            String str = lpaddress.toString();
-                                            AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
-                                                                        "Got One!", 
-                                                                        lpaddress.toString(),
-                                                                        "Ok");
+                                            String str = "Got one: ";
+                                            str << lpaddress.toString();
+                                            Logger::outputDebugString (str);
                                         }
                                     }
                                 }
@@ -713,10 +706,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
             {
                 if (s.waitUntilReady (true, 1000))
                 {
-                    AlertWindow::showMessageBox(AlertWindow::WarningIcon, 
-                                                "Got One!", 
-                                                "CITP",
-                                                "Ok");
+                    Logger::outputDebugString("Got CITP");
                 }
             }
         }

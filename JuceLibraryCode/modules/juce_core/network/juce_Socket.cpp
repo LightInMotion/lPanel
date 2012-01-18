@@ -272,34 +272,32 @@ bool IpAddress::operator!= (const IpAddress& other) const noexcept
 #if JUCE_LINUX || JUCE_ANDROID
     void IpAddress::findAllIpAddresses (Array<IpAddress>& result)
     {
-        char buf [1024];
-        struct ifconf ifc;
-        ifc.ifc_len = sizeof (buf);
-        ifc.ifc_buf = buf;
-        ioctl (s, SIOCGIFCONF, &ifc);
-                            
-        struct ifreq *ifr = ifc.ifc_req;
-        int nInterfaces = ifc.ifc_len / sizeof(struct ifreq);
-        for(int i = 0; i < nInterfaces; i++)
+        const int s = socket (AF_INET, SOCK_DGRAM, 0);
+        if (s != -1)
         {
-            struct ifreq *item = &ifr[i];
-            
-            if (item->ifr_addr.sa_family == AF_INET)
+            char buf [1024];
+            struct ifconf ifc;
+            ifc.ifc_len = sizeof (buf);
+            ifc.ifc_buf = buf;
+            ioctl (s, SIOCGIFCONF, &ifc);
+                                
+            struct ifreq *ifr = ifc.ifc_req;
+            int nInterfaces = ifc.ifc_len / sizeof(struct ifreq);
+            for(int i = 0; i < nInterfaces; i++)
             {
-                const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &item->ifr_addr;
-                in_addr_t addr = addr_in->sin_addr.s_addr;
-                // Skip entries without an address
-                if (addr != INADDR_NONE)
-                    result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
+                struct ifreq *item = &ifr[i];
+                
+                if (item->ifr_addr.sa_family == AF_INET)
+                {
+                    const struct sockaddr_in* addr_in = (const struct sockaddr_in*) &item->ifr_addr;
+                    in_addr_t addr = addr_in->sin_addr.s_addr;
+                    // Skip entries without an address
+                    if (addr != INADDR_NONE)
+                        result.addIfNotAlreadyThere (IpAddress (ntohl(addr)));
+                }
             }
+            close (s);
         }
-        
-        // Free the buffer and close the socket if necessary
-        if (buffer != nullptr)
-            free(buffer);
-        
-        if (sock >= 0)
-            close(sock);
     }
 #endif
 
