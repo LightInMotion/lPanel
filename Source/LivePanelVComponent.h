@@ -1,6 +1,22 @@
 /*
-    Combined from two jucer files, V and H
-    Don't edit this combined view file directly with the Jucer!
+  ==============================================================================
+
+  This is an automatically generated file created by the Jucer!
+
+  Creation date:  14 Jan 2012 5:34:36pm
+
+  Be careful when adding custom code to these files, as only the code within
+  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
+  and re-saved.
+
+  Jucer version: 1.12
+
+  ------------------------------------------------------------------------------
+
+  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-6 by Raw Material Software ltd.
+
+  ==============================================================================
 */
 
 #ifndef __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_D00C81FE__

@@ -9,7 +9,6 @@
 */
 
 #include "LivePanelComponent.h"
-#include "LivePanelHComponent.h"
 #include "MainWindow.h"
 
 
@@ -19,8 +18,9 @@ class ContentComp : public Component
 public:
     
     ContentComp()
-        : orientation (-1)
     {
+        LivePanelComponent* view = new LivePanelComponent();
+        showView (view);
     }
     
     ~ContentComp()
@@ -30,27 +30,7 @@ public:
     //==============================================================================
     void resized()
     {
-        if (getWidth() > getHeight())
-        {
-            if (orientation != 2)
-            {
-                orientation = 2;
-                currentView = new LivePanelHComponent();
-                addAndMakeVisible (currentView);
-            }
-        }
-        else
-        {
-            if (orientation != 1)
-            {
-                orientation = 1;
-                currentView = new LivePanelComponent();
-                addAndMakeVisible (currentView);
-            }
-        }
-        
-        if (currentView != 0)
-            currentView->setBounds (0, 0, getWidth(), getHeight());
+        currentView->setBounds (0, 0, getWidth(), getHeight());
     }
     
     //==============================================================================
@@ -62,7 +42,6 @@ public:
     }
 
 private:
-    int orientation;
     ScopedPointer<Component> currentView;
 };
 
