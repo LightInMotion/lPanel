@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  14 Jan 2012 5:34:36pm
+  Creation date:  18 Jan 2012 1:48:22pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -23,7 +23,7 @@
 #include "LPNet.h"
 //[/Headers]
 
-#include "LivePanelComponent.h"
+#include "LivePanelVComponent.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -35,7 +35,7 @@
 
 typedef struct
 {
-	// Magic cookie, always set to ”CITP”
+	// Magic cookie, always set to CITP
 	unsigned char Cookie[4];
 	// Protocol version numbers
 	// Current version is 1.0
@@ -53,7 +53,7 @@ typedef struct
 }  CITP_Header;
 
 typedef struct{
-	// CITP header (ContentType = “SDMX”)
+	// CITP header (ContentType = SDMX)
 	CITP_Header CITPHeader;
 	// The content type of the SDMX message.
 	unsigned char ContentType[4];
@@ -61,14 +61,14 @@ typedef struct{
 
 typedef struct
 {
-   // CITP/SDMX header (ContentType = ”EnId”)
+   // CITP/SDMX header (ContentType = EnId)
    CITP_SDMX_Header SDMXHeader;
    // Encryption identifier
    char Identifier[64];
 }  CITP_SDMX_EncryptionIdentifier;
 
 typedef struct{
-	// CITP/SDMX header (ContentType = ”ChBk”)
+	// CITP/SDMX header (ContentType = ChBk)
 	CITP_SDMX_Header SDMXHeader;
 	// Blind DMX flag (set to non-zero for Blind DMX)
 	unsigned char Blind;
@@ -83,7 +83,7 @@ typedef struct{
 } CITP_SDMX_ChannelBlock_Header;
 
 typedef struct{
-	// CITP/SDMX header (ContentType = ”ChBk”)
+	// CITP/SDMX header (ContentType = ChBk)
 	CITP_SDMX_Header SDMXHeader;
 	// Blind DMX flag (set to non-zero for Blind DMX)
 	unsigned char Blind;
@@ -99,7 +99,7 @@ typedef struct{
 
 typedef struct CITP_SDMX_UniverseName
 {
-	// CITP/SDMX header (ContentType = “UNam”)
+	// CITP/SDMX header (ContentType = UNam)
 	CITP_SDMX_Header SDMXHeader;
 	// Universe (0-based)
 	unsigned char Universe;
@@ -109,7 +109,7 @@ typedef struct CITP_SDMX_UniverseName
 
 typedef struct
 {
-	// CITP header (ContentType = “PINF”)
+	// CITP header (ContentType = PINF)
 	CITP_Header CITPHeader;
 	// The content type of the PINF message.
 	unsigned char ContentType[4];
@@ -117,7 +117,7 @@ typedef struct
 
 typedef struct	// Depracated
 {
-	// CITP/PINF header (ContentType = ”PNam”)
+	// CITP/PINF header (ContentType = PNam)
 	CITP_PINF_Header PINFHeader;
 	// Peer descriptive name (null terminated)
 	char Name[64];
@@ -133,7 +133,7 @@ typedef struct
 
 typedef struct
 {
-	// CITP header (ContentType = “FPTC”)
+	// CITP header (ContentType = FPTC)
 	CITP_Header CITPHeader;
 	// The content type of the FPTC message.
 	unsigned char ContentType[4];
@@ -144,9 +144,9 @@ typedef struct
 #define CITP_FPTC_ContentHint_InSequence 0x00000001
 #define CITP_FPTC_ContentHint_EndSequence 0x00000002
 
-typedef struct 
+typedef struct
 {
-   // CITP/FPTC header (ContentType = ”Ptch”)
+   // CITP/FPTC header (ContentType = Ptch)
    CITP_FPTC_Header FPTCHeader;
    // Fixture identifier
    unsigned short FixtureIdentifier;
@@ -166,7 +166,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP/FPTC header (ContentType = ”UPtc”)
+   // CITP/FPTC header (ContentType = UPtc)
    CITP_FPTC_Header FPTCHeader;
    // Fixture count (0 to unpatch all)
    unsigned short FixtureCount;
@@ -174,9 +174,9 @@ typedef struct
    // unsigned short FixtureIdentifiers[];
 }  CITP_FPTC_Remove_Header;
 
-typedef struct 
+typedef struct
 {
-   // CITP/ FPTC header (ContentType = ”SPtc”)
+   // CITP/ FPTC header (ContentType = SPtc)
    CITP_FPTC_Header FPTCHeader;
    // Fixture count (0 to request all)
    unsigned short FixtureCount;
@@ -186,7 +186,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP header (ContentType = “FSEL”)
+   // CITP header (ContentType = FSEL)
    CITP_Header CITPHeader;
    // The content type of the FSEL message.
    unsigned char ContentType[4];
@@ -194,7 +194,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP/FSEL header (ContentType = ”Sele”)
+   // CITP/FSEL header (ContentType = Sele)
    CITP_FSEL_Header FSELHeader;
    // Complete selection (non-zero for complete)
    unsigned char Complete;
@@ -208,7 +208,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP/FSEL header (ContentType = ”Sele”)
+   // CITP/FSEL header (ContentType = Sele)
    CITP_FSEL_Header FSELHeader;
    // Complete selection (non-zero for complete)
    unsigned char Complete;
@@ -222,7 +222,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP/FSEL header (ContentType = ”DeSe”)
+   // CITP/FSEL header (ContentType = DeSe)
    CITP_FSEL_Header FSELHeader;
    // Fixture count (0 for complete deselection)
    unsigned short FixtureCount;
@@ -232,7 +232,7 @@ typedef struct
 
 typedef struct
 {
-   // CITP/FSEL header (ContentType = ”DeSe”)
+   // CITP/FSEL header (ContentType = DeSe)
    CITP_FSEL_Header FSELHeader;
    // Fixture count (0 for complete deselection)
    unsigned short FixtureCount;
@@ -587,35 +587,35 @@ void LivePanelComponent::paint (Graphics& g)
 
 void LivePanelComponent::resized()
 {
-    stopButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.7321f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
-    tapButton->setBounds (proportionOfWidth (0.2733f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
-    stepButton->setBounds (proportionOfWidth (0.6489f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
-    forwardButton->setBounds (proportionOfWidth (0.7844f), proportionOfHeight (0.6791f), proportionOfWidth (0.1867f), proportionOfHeight (0.1776f));
-    reverseButton->setBounds (proportionOfWidth (0.2622f), proportionOfHeight (0.6791f), proportionOfWidth (0.1867f), proportionOfHeight (0.1776f));
-    ballyButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.5888f), proportionOfWidth (0.3111f), proportionOfHeight (0.1340f));
-    gmFullOnButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.6075f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
-    gmFadeOnButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.7041f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
-    gmFadeOffButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.8131f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
-    gmFullOffButton->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.9097f), proportionOfWidth (0.1556f), proportionOfHeight (0.0654f));
-    gmLabel->setBounds (proportionOfWidth (0.0244f), proportionOfHeight (0.5452f), proportionOfWidth (0.2111f), proportionOfHeight (0.0343f));
-    recallButton1->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton2->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton3->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton4->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.0997f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton5->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton6->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton7->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton8->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.2336f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton9->setBounds (proportionOfWidth (0.0489f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton10->setBounds (proportionOfWidth (0.2867f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton11->setBounds (proportionOfWidth (0.5244f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    recallButton12->setBounds (proportionOfWidth (0.7600f), proportionOfHeight (0.3676f), proportionOfWidth (0.1911f), proportionOfHeight (0.1246f));
-    funcButton->setBounds (proportionOfWidth (0.8733f), proportionOfHeight (0.5358f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
-    funcLabel->setBounds (proportionOfWidth (0.5733f), proportionOfHeight (0.5452f), proportionOfWidth (0.2867f), proportionOfHeight (0.0343f));
-    connectLabel->setBounds (proportionOfWidth (0.2489f), proportionOfHeight (0.0187f), proportionOfWidth (0.5111f), proportionOfHeight (0.0343f));
-    pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
-    pageLabel->setBounds (proportionOfWidth (0.1311f), proportionOfHeight (0.0218f), proportionOfWidth (0.2267f), proportionOfHeight (0.0280f));
-    infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), 18, 18);
+    stopButton->setBounds (proportionOfWidth (0.4611f), proportionOfHeight (0.7327f), proportionOfWidth (0.3115f), proportionOfHeight (0.1114f));
+    tapButton->setBounds (proportionOfWidth (0.2741f), proportionOfHeight (0.8575f), proportionOfWidth (0.3115f), proportionOfHeight (0.1114f));
+    stepButton->setBounds (proportionOfWidth (0.6480f), proportionOfHeight (0.8575f), proportionOfWidth (0.3115f), proportionOfHeight (0.1114f));
+    forwardButton->setBounds (proportionOfWidth (0.7850f), proportionOfHeight (0.6793f), proportionOfWidth (0.1869f), proportionOfHeight (0.1782f));
+    reverseButton->setBounds (proportionOfWidth (0.2617f), proportionOfHeight (0.6793f), proportionOfWidth (0.1869f), proportionOfHeight (0.1782f));
+    ballyButton->setBounds (proportionOfWidth (0.4611f), proportionOfHeight (0.5880f), proportionOfWidth (0.3115f), proportionOfHeight (0.1336f));
+    gmFullOnButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.6080f), proportionOfWidth (0.1558f), proportionOfHeight (0.0646f));
+    gmFadeOnButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.7038f), proportionOfWidth (0.1558f), proportionOfHeight (0.0646f));
+    gmFadeOffButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.8129f), proportionOfWidth (0.1558f), proportionOfHeight (0.0646f));
+    gmFullOffButton->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.9087f), proportionOfWidth (0.1558f), proportionOfHeight (0.0646f));
+    gmLabel->setBounds (proportionOfWidth (0.0249f), proportionOfHeight (0.5457f), proportionOfWidth (0.2118f), proportionOfHeight (0.0334f));
+    recallButton1->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.1002f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton2->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.1002f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton3->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.1002f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton4->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.1002f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton5->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.2339f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton6->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.2339f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton7->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.2339f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton8->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.2339f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton9->setBounds (proportionOfWidth (0.0498f), proportionOfHeight (0.3675f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton10->setBounds (proportionOfWidth (0.2866f), proportionOfHeight (0.3675f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton11->setBounds (proportionOfWidth (0.5234f), proportionOfHeight (0.3675f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    recallButton12->setBounds (proportionOfWidth (0.7601f), proportionOfHeight (0.3675f), proportionOfWidth (0.1900f), proportionOfHeight (0.1247f));
+    funcButton->setBounds (proportionOfWidth (0.8723f), proportionOfHeight (0.5368f), proportionOfWidth (0.0935f), proportionOfHeight (0.0646f));
+    funcLabel->setBounds (proportionOfWidth (0.5732f), proportionOfHeight (0.5457f), proportionOfWidth (0.2866f), proportionOfHeight (0.0334f));
+    connectLabel->setBounds (proportionOfWidth (0.2492f), proportionOfHeight (0.0178f), proportionOfWidth (0.5109f), proportionOfHeight (0.0334f));
+    pageButton->setBounds (proportionOfWidth (0.0374f), proportionOfHeight (0.0022f), proportionOfWidth (0.0935f), proportionOfHeight (0.0646f));
+    pageLabel->setBounds (proportionOfWidth (0.1308f), proportionOfHeight (0.0223f), proportionOfWidth (0.2274f), proportionOfHeight (0.0290f));
+    infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), proportionOfWidth (0.0559f), proportionOfHeight (0.0400f));
     //[UserResized] Add your own custom resize handling here..
     gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
     funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
@@ -636,14 +636,14 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 
         IpAddress::findAllIpAddresses (ips);
         String ipstring = "IPList: ";
-        
+
         for (int idx=0 ; idx<ips.size() ; idx++)
         {
             ipstring << ips[idx].toString();
             ipstring << ' ';
         }
         Logger::outputDebugString (ipstring);
-                
+
         for (int n=0 ; n<ips.size() ; n++)
         {
             // Try non local addresses first
@@ -652,7 +652,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                 String trystring = "Trying: ";
                 trystring << ips[n].toString();
                 Logger::outputDebugString (trystring);
-                
+
                 DatagramSocket s (Socket::anyPort, true, true, ips[n]);
                 if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
                 {
@@ -681,7 +681,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 				                if (!strcmp((char *)reply->ProtoID, LPNET_PROTO_ID))
 				                {
                                     if (reply->OpCode == Socket::HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
-					                {                                        
+					                {
 						                if (reply->VersionL == LPNET_VERSION)
 						                {
                                             IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
@@ -871,177 +871,177 @@ BEGIN_JUCER_METADATA
     <RECT pos="0% 7.143% 100% 44.643%" fill="solid: ff182d3a" hasStroke="0"/>
   </BACKGROUND>
   <IMAGEBUTTON name="stop button" id="ea7fed1bbaa91052" memberName="stopButton"
-               virtualName="" explicitFocusOrder="0" pos="46.106% 73.274% 31.153% 11.136%"
+               virtualName="" explicitFocusOrder="0" pos="45.963% 73.333% 31.056% 11.111%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="stop_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="tap button" id="d05314d5fa933513" memberName="tapButton"
-               virtualName="" explicitFocusOrder="0" pos="27.414% 85.746% 31.153% 11.136%"
+               virtualName="" explicitFocusOrder="0" pos="27.329% 85.778% 31.056% 11.111%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="tap_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="step button" id="96cd5f0ba432c9f5" memberName="stepButton"
-               virtualName="" explicitFocusOrder="0" pos="64.798% 85.746% 31.153% 11.136%"
+               virtualName="" explicitFocusOrder="0" pos="64.907% 85.778% 31.056% 11.111%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="step_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="forward button" id="46eba685f7634102" memberName="forwardButton"
-               virtualName="" explicitFocusOrder="0" pos="78.505% 67.929% 18.692% 17.817%"
+               virtualName="" explicitFocusOrder="0" pos="78.571% 68% 18.634% 17.778%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="forward_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="reverse button" id="d1e1a49c76d10523" memberName="reverseButton"
-               virtualName="" explicitFocusOrder="0" pos="26.168% 67.929% 18.692% 17.817%"
+               virtualName="" explicitFocusOrder="0" pos="26.087% 68% 18.634% 17.778%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="reverse_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="bally button" id="a2c0045bad348fa4" memberName="ballyButton"
-               virtualName="" explicitFocusOrder="0" pos="46.106% 58.797% 31.153% 13.363%"
+               virtualName="" explicitFocusOrder="0" pos="45.963% 58.889% 31.056% 13.333%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="bally_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="gm full on" id="48eadfcb9e1a9803" memberName="gmFullOnButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 60.802% 15.576% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 60.889% 15.528% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade on" id="45fcf1fc1f9ac553" memberName="gmFadeOnButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 70.379% 15.576% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 70.444% 15.528% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOn_2x_png"
                opacityNormal="0.958398461" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade off" id="976910dd801d19ff" memberName="gmFadeOffButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 81.292% 15.576% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 81.333% 15.528% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <IMAGEBUTTON name="gm full off" id="9d0d0e118f2bfe08" memberName="gmFullOffButton"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 90.869% 15.576% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 90.889% 15.528% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="gmfullOff_2x_png"
                opacityNormal="0.946386755" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="gm label" id="63c9b48faf1995" memberName="gmLabel" virtualName=""
-         explicitFocusOrder="0" pos="2.492% 54.566% 21.184% 3.341%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="2.484% 54.667% 21.118% 3.333%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="GM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="recall button 1" id="3d734b24bb9aa3e1" memberName="recallButton1"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 10.022% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 10% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="4f4bd7b069e43c5" memberName="recallButton2"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 10.022% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="28.571% 10% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="f4e7d07022855fd4" memberName="recallButton3"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 10.022% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="52.484% 10% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="8c6c3c6640478175" memberName="recallButton4"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 10.022% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="76.087% 10% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="2deb1abc0f816bae" memberName="recallButton5"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 23.385% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 23.333% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d640741d1e762cea" memberName="recallButton6"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 23.385% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="28.571% 23.333% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="34bee016c96908fc" memberName="recallButton7"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 23.385% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="52.484% 23.333% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d51509e8921d7f63" memberName="recallButton8"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 23.385% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="76.087% 23.333% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="74462e9f215af1cf" memberName="recallButton9"
-               virtualName="" explicitFocusOrder="0" pos="4.984% 36.748% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="4.969% 36.667% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d363e8623625aee3" memberName="recallButton10"
-               virtualName="" explicitFocusOrder="0" pos="28.66% 36.748% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="28.571% 36.667% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="a6c8db0da937653d" memberName="recallButton11"
-               virtualName="" explicitFocusOrder="0" pos="52.336% 36.748% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="52.484% 36.667% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="b47915fcfb5d42b2" memberName="recallButton12"
-               virtualName="" explicitFocusOrder="0" pos="76.012% 36.748% 19.003% 12.472%"
+               virtualName="" explicitFocusOrder="0" pos="76.087% 36.667% 18.944% 12.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="sequence_inactive_2x_png"
                opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="function button" id="f9463f29b30243dd" memberName="funcButton"
-               virtualName="" explicitFocusOrder="0" pos="87.227% 53.675% 9.346% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="87.267% 53.778% 9.317% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="function label" id="3fa2db79ec9077db" memberName="funcLabel"
-         virtualName="" explicitFocusOrder="0" pos="57.321% 54.566% 28.66% 3.341%"
+         virtualName="" explicitFocusOrder="0" pos="57.453% 54.667% 28.571% 3.333%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Func"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="34"/>
   <LABEL name="connect label" id="5f14852cabc3c4f" memberName="connectLabel"
-         virtualName="" explicitFocusOrder="0" pos="24.922% 1.782% 51.09% 3.341%"
+         virtualName="" explicitFocusOrder="0" pos="24.845% 1.778% 51.242% 3.333%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Searching..."
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="page button" id="c9d03a700378b5ac" memberName="pageButton"
-               virtualName="" explicitFocusOrder="0" pos="3.738% 0.223% 9.346% 6.459%"
+               virtualName="" explicitFocusOrder="0" pos="3.727% 0.222% 9.317% 6.444%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="smallButton_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="page label" id="c3afd5f93c8507b2" memberName="pageLabel"
-         virtualName="" explicitFocusOrder="0" pos="13.084% 2.227% 22.741% 2.895%"
+         virtualName="" explicitFocusOrder="0" pos="13.043% 2.222% 22.671% 2.889%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Page ?"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12" bold="0" italic="0" justification="33"/>
   <IMAGEBUTTON name="page button" id="7bbeabccc57b1c53" memberName="infoButton"
-               virtualName="" explicitFocusOrder="0" pos="89.097% 1.336% 18 18"
+               virtualName="" explicitFocusOrder="0" pos="89.13% 1.333% 5.59% 4%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="info_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""

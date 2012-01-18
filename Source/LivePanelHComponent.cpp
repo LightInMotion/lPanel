@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  15 Jan 2012 12:04:21pm
+  Creation date:  18 Jan 2012 1:49:48pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -369,35 +369,35 @@ void LivePanelHComponent::paint (Graphics& g)
 
 void LivePanelHComponent::resized()
 {
-    gmLabel->setBounds (proportionOfWidth (0.6667f), proportionOfHeight (0.8100f), proportionOfWidth (0.1511f), proportionOfHeight (0.0498f));
-    recallButton6->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton9->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton8->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    stopButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.2991f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-    tapButton->setBounds (proportionOfWidth (0.4978f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-    stepButton->setBounds (proportionOfWidth (0.7556f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-    forwardButton->setBounds (proportionOfWidth (0.8533f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
-    reverseButton->setBounds (proportionOfWidth (0.4800f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
-    ballyButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.0872f), proportionOfWidth (0.2222f), proportionOfHeight (0.1869f));
-    gmFullOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.7227f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-    gmFadeOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.8598f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-    gmFadeOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.8723f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-    gmFullOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.7352f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-    recallButton1->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton2->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton3->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton4->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton5->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton7->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton10->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton11->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-    recallButton12->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+    gmLabel->setBounds (proportionOfWidth (0.6659f), proportionOfHeight (0.8100f), proportionOfWidth (0.1514f), proportionOfHeight (0.0498f));
+    recallButton6->setBounds (proportionOfWidth (0.3118f), proportionOfHeight (0.3115f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton9->setBounds (proportionOfWidth (0.3118f), proportionOfHeight (0.4984f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton8->setBounds (proportionOfWidth (0.1693f), proportionOfHeight (0.4984f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    stopButton->setBounds (proportionOfWidth (0.6214f), proportionOfHeight (0.2991f), proportionOfWidth (0.2227f), proportionOfHeight (0.1558f));
+    tapButton->setBounds (proportionOfWidth (0.4989f), proportionOfHeight (0.4984f), proportionOfWidth (0.2227f), proportionOfHeight (0.1558f));
+    stepButton->setBounds (proportionOfWidth (0.7550f), proportionOfHeight (0.4984f), proportionOfWidth (0.2227f), proportionOfHeight (0.1558f));
+    forwardButton->setBounds (proportionOfWidth (0.8530f), proportionOfHeight (0.2243f), proportionOfWidth (0.1336f), proportionOfHeight (0.2492f));
+    reverseButton->setBounds (proportionOfWidth (0.4811f), proportionOfHeight (0.2243f), proportionOfWidth (0.1336f), proportionOfHeight (0.2492f));
+    ballyButton->setBounds (proportionOfWidth (0.6214f), proportionOfHeight (0.0872f), proportionOfWidth (0.2227f), proportionOfHeight (0.1869f));
+    gmFullOnButton->setBounds (proportionOfWidth (0.5768f), proportionOfHeight (0.7227f), proportionOfWidth (0.1114f), proportionOfHeight (0.0935f));
+    gmFadeOnButton->setBounds (proportionOfWidth (0.5768f), proportionOfHeight (0.8598f), proportionOfWidth (0.1114f), proportionOfHeight (0.0935f));
+    gmFadeOffButton->setBounds (proportionOfWidth (0.7995f), proportionOfHeight (0.8723f), proportionOfWidth (0.1114f), proportionOfHeight (0.0935f));
+    gmFullOffButton->setBounds (proportionOfWidth (0.7995f), proportionOfHeight (0.7352f), proportionOfWidth (0.1114f), proportionOfHeight (0.0935f));
+    recallButton1->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.1246f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton2->setBounds (proportionOfWidth (0.1693f), proportionOfHeight (0.1246f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton3->setBounds (proportionOfWidth (0.3118f), proportionOfHeight (0.1246f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton4->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.3115f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton5->setBounds (proportionOfWidth (0.1693f), proportionOfHeight (0.3115f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton7->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.4984f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton10->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.6854f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton11->setBounds (proportionOfWidth (0.1693f), proportionOfHeight (0.6854f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
+    recallButton12->setBounds (proportionOfWidth (0.3118f), proportionOfHeight (0.6854f), proportionOfWidth (0.1359f), proportionOfHeight (0.1744f));
     funcButton->setBounds (proportionOfWidth (0.3964f), proportionOfHeight (0.8972f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
     funcLabel->setBounds (proportionOfWidth (0.1826f), proportionOfHeight (0.9221f), proportionOfWidth (0.2049f), proportionOfHeight (0.0498f));
-    connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
+    connectLabel->setBounds (proportionOfWidth (0.3385f), proportionOfHeight (0.0187f), proportionOfWidth (0.3653f), proportionOfHeight (0.0498f));
     pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
-    pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), 16);
-    infoButton->setBounds (proportionOfWidth (0.9156f), proportionOfHeight (0.0187f), 18, 18);
+    pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), proportionOfHeight (0.0498f));
+    infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (0.0187f), proportionOfWidth (0.0401f), proportionOfHeight (0.0561f));
     //[UserResized] Add your own custom resize handling here..
     gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
     funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
@@ -563,7 +563,7 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="LivePanelHComponent" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+                 snapPixels="32" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="0" initialWidth="320" initialHeight="480">
   <METHODS>
     <METHOD name="handleCommandMessage (int commandId)"/>
@@ -738,12 +738,12 @@ BEGIN_JUCER_METADATA
                opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
                colourDown="20000000"/>
   <LABEL name="page label" id="c3afd5f93c8507b2" memberName="pageLabel"
-         virtualName="" explicitFocusOrder="0" pos="8.909% 92.212% 16.258% 16"
+         virtualName="" explicitFocusOrder="0" pos="8.909% 92.212% 16.258% 4.984%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Page ?"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="33"/>
   <IMAGEBUTTON name="function button" id="e623608fe3262969" memberName="infoButton"
-               virtualName="" explicitFocusOrder="0" pos="91.537% 1.869% 18 18"
+               virtualName="" explicitFocusOrder="0" pos="91.537% 1.869% 4.009% 5.607%"
                buttonText="new button" connectedEdges="0" needsCallback="1"
                radioGroupId="0" keepProportions="0" resourceNormal="info_2x_png"
                opacityNormal="0.948730469" colourNormal="0" resourceOver=""

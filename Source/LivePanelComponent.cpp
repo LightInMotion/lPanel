@@ -606,7 +606,7 @@ void LivePanelComponent::resized()
         connectLabel->setBounds (proportionOfWidth (0.2489f), proportionOfHeight (0.0187f), proportionOfWidth (0.5111f), proportionOfHeight (0.0343f));
         pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
         pageLabel->setBounds (proportionOfWidth (0.1311f), proportionOfHeight (0.0218f), proportionOfWidth (0.2267f), proportionOfHeight (0.0280f));
-        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), 18, 18);
+        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), proportionOfWidth (0.0559f), proportionOfHeight (0.0400f));
     }
     else
     {
@@ -637,8 +637,8 @@ void LivePanelComponent::resized()
         funcLabel->setBounds (proportionOfWidth (0.1826f), proportionOfHeight (0.9221f), proportionOfWidth (0.2049f), proportionOfHeight (0.0498f));
         connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
         pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
-        pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), 16);
-        infoButton->setBounds (proportionOfWidth (0.9156f), proportionOfHeight (0.0187f), 18, 18);    
+        pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), proportionOfHeight (0.0498f));
+        infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (0.0187f), proportionOfWidth (0.0401f), proportionOfHeight (0.0561f));
     }
     
     //[UserResized] Add your own custom resize handling here..
