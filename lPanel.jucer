@@ -19,6 +19,8 @@
   </CONFIGURATIONS>
   <MAINGROUP id="xTGfBl" name="lPanel">
     <GROUP id="{33D4128C-1CDB-B835-8181-111033196E06}" name="Binary Data">
+      <FILE id="XJ1woa" name="sequence_inactive@2x.png" compile="0" resource="1"
+            file="Images/sequence_inactive@2x.png"/>
       <FILE id="H1qzA0" name="icon-large.png" compile="0" resource="1" file="Images/icon-large.png"/>
     </GROUP>
     <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">

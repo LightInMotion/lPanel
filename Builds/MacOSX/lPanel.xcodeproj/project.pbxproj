@@ -460,6 +460,7 @@
 		C3E3DADBA9C2581AAE41C4A1 /* juce_ReadWriteLock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ReadWriteLock.cpp; path = ../../JuceLibraryCode/modules/juce_core/threads/juce_ReadWriteLock.cpp; sourceTree = SOURCE_ROOT; };
 		C3F0B7BCF7B6124C3A19DD84 /* juce_PropertySet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PropertySet.cpp; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_PropertySet.cpp; sourceTree = SOURCE_ROOT; };
 		C428AF72B16D00D87E2A3A34 /* juce_TextLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TextLayout.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/fonts/juce_TextLayout.cpp; sourceTree = SOURCE_ROOT; };
+		C470758B673AC60F06467F2C /* sequence_inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sequence_inactive@2x.png"; path = "../../Images/sequence_inactive@2x.png"; sourceTree = SOURCE_ROOT; };
 		C49304AB2C96AB9496266FC5 /* juce_TextPropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TextPropertyComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/properties/juce_TextPropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		C543C9B1E01EA913ACA8D079 /* juce_DrawableText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_DrawableText.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/drawables/juce_DrawableText.h; sourceTree = SOURCE_ROOT; };
 		C582D8A57C1A6DC70DBB9386 /* juce_GlyphArrangement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GlyphArrangement.h; path = ../../JuceLibraryCode/modules/juce_graphics/fonts/juce_GlyphArrangement.h; sourceTree = SOURCE_ROOT; };
@@ -1212,6 +1213,7 @@
 		6904229A2C5B3040954A56CB /* Binary Data */ = {
 			isa = PBXGroup;
 			children = (
+				C470758B673AC60F06467F2C /* sequence_inactive@2x.png */,
 				D6571C02B9D911BB2C5B1086 /* icon-large.png */,
 			);
 			name = "Binary Data";

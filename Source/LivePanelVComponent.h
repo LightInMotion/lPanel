@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  18 Jan 2012 1:48:22pm
+  Creation date:  18 Jan 2012 2:02:55pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_31361453__
-#define __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_31361453__
+#ifndef __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_DDB02935__
+#define __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_DDB02935__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -130,4 +130,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_31361453__
+#endif   // __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELVCOMPONENT_DDB02935__
