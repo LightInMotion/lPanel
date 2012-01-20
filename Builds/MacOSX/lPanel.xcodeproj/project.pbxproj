@@ -37,6 +37,7 @@
 		0421B137E01BC0D68068BCA0 /* juce_ScopedPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ScopedPointer.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_ScopedPointer.h; sourceTree = SOURCE_ROOT; };
 		04358DE69392DEC4E7EEABB0 /* juce_AffineTransform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_AffineTransform.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/geometry/juce_AffineTransform.cpp; sourceTree = SOURCE_ROOT; };
 		044FCFC1895C10A9F6061D73 /* juce_MemoryOutputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MemoryOutputStream.h; path = ../../JuceLibraryCode/modules/juce_core/streams/juce_MemoryOutputStream.h; sourceTree = SOURCE_ROOT; };
+		047721699896FE05DB1939CB /* new-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon2.png"; path = "../../Images/new-icon2.png"; sourceTree = SOURCE_ROOT; };
 		049B9D67D781E133DB767BD8 /* juce_RelativeCoordinate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_RelativeCoordinate.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/positioning/juce_RelativeCoordinate.cpp; sourceTree = SOURCE_ROOT; };
 		04CC4A725EADD1A7633BA562 /* juce_TextButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_TextButton.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_TextButton.h; sourceTree = SOURCE_ROOT; };
 		05A8175BA1BBA6EADCC33522 /* juce_mac_Network.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_mac_Network.mm; path = ../../JuceLibraryCode/modules/juce_core/native/juce_mac_Network.mm; sourceTree = SOURCE_ROOT; };
@@ -1213,6 +1214,7 @@
 		6904229A2C5B3040954A56CB /* Binary Data */ = {
 			isa = PBXGroup;
 			children = (
+				047721699896FE05DB1939CB /* new-icon2.png */,
 				C470758B673AC60F06467F2C /* sequence_inactive@2x.png */,
 				D6571C02B9D911BB2C5B1086 /* icon-large.png */,
 			);

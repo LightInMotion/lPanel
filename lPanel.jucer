@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="q1a8S5" name="lPanel" projectType="guiapp" version="1.0.0"
-              bundleIdentifier="com" jucerVersion="3.0.0" bigIcon="H1qzA0">
+              bundleIdentifier="co.limsc.lPanel" jucerVersion="3.0.0" bigIcon="RwKMEI">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"/>
     <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules"/>
@@ -19,6 +19,7 @@
   </CONFIGURATIONS>
   <MAINGROUP id="xTGfBl" name="lPanel">
     <GROUP id="{33D4128C-1CDB-B835-8181-111033196E06}" name="Binary Data">
+      <FILE id="RwKMEI" name="new-icon2.png" compile="0" resource="1" file="Images/new-icon2.png"/>
       <FILE id="XJ1woa" name="sequence_inactive@2x.png" compile="0" resource="1"
             file="Images/sequence_inactive@2x.png"/>
       <FILE id="H1qzA0" name="icon-large.png" compile="0" resource="1" file="Images/icon-large.png"/>

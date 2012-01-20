@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string>Icon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com</string>
+    <string>co.limsc.lPanel</string>
     <key>CFBundleName</key>
     <string>lPanel</string>
     <key>CFBundlePackageType</key>
