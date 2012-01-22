@@ -32,6 +32,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void updatePage();
     //[/UserMethods]
 
     void paint (Graphics& g);

@@ -31,7 +31,31 @@ bool LpNet::isConnected()
     return false;
 }
 
+void LpNet::disconnect()
+{
+    const ScopedLock lock (criticalSection);
+    serverSocket = nullptr;
+}
+
+
 //==============================================================================
+bool LpNet::getByte (uint8* b)
+{
+    const ScopedLock lock (criticalSection);
+    if (serverSocket == nullptr)
+        return false;
+    
+    if (! serverSocket->waitUntilReady (true, 1000) ||
+        serverSocket->read (b, 1, true) != 1)
+    {
+        serverSocket = nullptr;
+        startThread();
+        return false;
+    }
+    
+    return true;
+}
+
 bool LpNet::sendCommand (uint8 cmd, uint16 val, uint16 param)
 {
     const ScopedLock lock (criticalSection);
@@ -132,6 +156,44 @@ bool LpNet::doRecall (int recall)
     return sendCommand (LPCMD_RECALL, recall);
 }
 
+bool LpNet::getRecall (int recall, RecallInfo& info)
+{
+    if (! sendCommand (LPCMD_RECALL_GET, recall))
+        return false;
+    
+    uint8 b;
+    
+    if (! getByte (&b))
+        return false;
+    
+    if (b != LPCMD_RECALL_GET)
+    {
+        // We're out of sync, drop the connection
+        disconnect();
+        return false;
+    }
+
+    if (! getByte (&b))
+        return false;
+    
+    if (b)
+        info.isActive = true;
+    else
+        info.isActive = false;
+    
+    while (1)
+    {
+        if (! getByte (&b))
+            return false;
+        
+        if (! b)
+            break;
+        
+        info.name << (char)b;
+    }
+    
+    return true;    
+}
 
 //==============================================================================
 void LpNet::run()

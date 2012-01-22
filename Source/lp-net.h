@@ -20,6 +20,7 @@ public:
     //==============================================================================
     // Status
     bool isConnected();
+    void disconnect();
     
     // Grand Master
     bool setGM (int value);
@@ -33,7 +34,13 @@ public:
     bool activeStep();
     bool activeTap();
     
+    typedef struct {
+        bool isActive;
+        String name;
+    } RecallInfo;
+    
     bool doRecall (int recall);
+    bool getRecall (int recall, RecallInfo& info);
     
     //==============================================================================
     void run();
@@ -42,6 +49,7 @@ private:
     //==============================================================================    
     bool sendCommand (uint8 cmd, uint16 val=0, uint16 param=0);
     int lookupTime (int speed);
+    bool getByte (uint8* b);
 
     //==============================================================================    
     CriticalSection criticalSection;    // To protect what follows

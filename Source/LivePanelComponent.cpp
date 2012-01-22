@@ -340,20 +340,6 @@ LivePanelComponent::~LivePanelComponent()
 }
 
 //==============================================================================
-void LivePanelComponent::timerCallback()
-{
-    bool state = lpNet.isConnected();
-    if (state != lastState)
-    {
-        if (state)
-            connectLabel->setText ("Connected", false);
-        else
-            connectLabel->setText ("Searching...", false);
-        lastState = state;
-    }
-}
-
-//==============================================================================
 void LivePanelComponent::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
@@ -637,6 +623,31 @@ void LivePanelComponent::handleCommandMessage (int commandId)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+//==============================================================================
+void LivePanelComponent::timerCallback()
+{
+    bool state = lpNet.isConnected();
+    if (state != lastState)
+    {
+        if (state)
+        {
+            connectLabel->setText ("Connected", false);
+            updatePage();
+        }
+        else
+            connectLabel->setText ("Searching...", false);
+        lastState = state;
+    }
+}
+
+//==============================================================================
+void LivePanelComponent::updatePage()
+{
+    LpNet::RecallInfo info;
+    
+    lpNet.getRecall(0, info);
+}
+
 //[/MiscUserCode]
 
 
