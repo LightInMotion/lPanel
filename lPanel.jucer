@@ -22,9 +22,10 @@
       <FILE id="RwKMEI" name="new-icon2.png" compile="0" resource="1" file="Images/new-icon2.png"/>
       <FILE id="XJ1woa" name="sequence_inactive@2x.png" compile="0" resource="1"
             file="Images/sequence_inactive@2x.png"/>
-      <FILE id="H1qzA0" name="icon-large.png" compile="0" resource="1" file="Images/icon-large.png"/>
     </GROUP>
     <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">
+      <FILE id="VLgjQg" name="lp-net.cpp" compile="1" resource="0" file="Source/lp-net.cpp"/>
+      <FILE id="m7kGLS" name="lp-net.h" compile="0" resource="0" file="Source/lp-net.h"/>
       <FILE id="FuYl8v" name="LPNet.h" compile="0" resource="0" file="Source/LPNet.h"/>
       <FILE id="lZ7lNr" name="LivePanelComponent.cpp" compile="1" resource="0"
             file="Source/LivePanelComponent.cpp"/>

@@ -43,6 +43,7 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/lp-net_4fde033d.o \
   $(OBJDIR)/LivePanelComponent_2a81ee6e.o \
   $(OBJDIR)/MainWindow_499ac812.o \
   $(OBJDIR)/Main_90ebc5c2.o \
@@ -67,6 +68,11 @@ clean:
 	-@rm -f $(OUTDIR)/$(TARGET)
 	-@rm -rf $(OBJDIR)/*
 	-@rm -rf $(OBJDIR)
+
+$(OBJDIR)/lp-net_4fde033d.o: ../../Source/lp-net.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lp-net.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LivePanelComponent_2a81ee6e.o: ../../Source/LivePanelComponent.cpp
 	-@mkdir -p $(OBJDIR)

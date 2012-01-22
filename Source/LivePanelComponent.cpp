@@ -10,228 +10,12 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
-// CITP Packets
-#if JUCE_WINDOWS
-  #pragma pack(push)
-  #pragma pack(1)
-#endif
-
-typedef struct
-{
-	// Magic cookie, always set to ”CITP”
-	unsigned char Cookie[4];
-	// Protocol version numbers
-	// Current version is 1.0
-	unsigned char VersionMajor;
-	unsigned char VersionMinor;
-	// Reserved space and 4-byte alignment
-	unsigned char Reserved[2];
-	// The size of the entire message
-	unsigned long MessageSize;
-	// Part count and part index of this message fragment
-	unsigned short MessagePartCount;
-	unsigned short MessagePart;
-	// The content type of the message
-	unsigned char ContentType[4];
-}  CITP_Header;
-
-typedef struct{
-	// CITP header (ContentType = “SDMX”)
-	CITP_Header CITPHeader;
-	// The content type of the SDMX message.
-	unsigned char ContentType[4];
-} CITP_SDMX_Header;
-
-typedef struct
-{
-   // CITP/SDMX header (ContentType = ”EnId”)
-   CITP_SDMX_Header SDMXHeader;
-   // Encryption identifier
-   char Identifier[64];
-}  CITP_SDMX_EncryptionIdentifier;
-
-typedef struct{
-	// CITP/SDMX header (ContentType = ”ChBk”)
-	CITP_SDMX_Header SDMXHeader;
-	// Blind DMX flag (set to non-zero for Blind DMX)
-	unsigned char Blind;
-	// Universe (0-based)
-	unsigned char Universe;
-	// Block first channel (0-based)
-	unsigned short FirstChannel;
-	// Block channel count (1-512)
-	unsigned short ChannelCount;
-	// Block channels follow...
-	// unsigned char Channels[];
-} CITP_SDMX_ChannelBlock_Header;
-
-typedef struct{
-	// CITP/SDMX header (ContentType = ”ChBk”)
-	CITP_SDMX_Header SDMXHeader;
-	// Blind DMX flag (set to non-zero for Blind DMX)
-	unsigned char Blind;
-	// Universe (0-based)
-	unsigned char Universe;
-	// Block first channel (0-based)
-	unsigned short FirstChannel;
-	// Block channel count (1-512)
-	unsigned short ChannelCount;
-	// Block channels follow...
-	unsigned char Channels[512];
-} CITP_SDMX_ChannelBlock;
-
-typedef struct CITP_SDMX_UniverseName
-{
-	// CITP/SDMX header (ContentType = “UNam”)
-	CITP_SDMX_Header SDMXHeader;
-	// Universe (0-based)
-	unsigned char Universe;
-	// Universe name
-	char Name[64];
-}  CITP_SDMX_UniverseName;
-
-typedef struct
-{
-	// CITP header (ContentType = “PINF”)
-	CITP_Header CITPHeader;
-	// The content type of the PINF message.
-	unsigned char ContentType[4];
-} CITP_PINF_Header;
-
-typedef struct	// Depracated
-{
-	// CITP/PINF header (ContentType = ”PNam”)
-	CITP_PINF_Header PINFHeader;
-	// Peer descriptive name (null terminated)
-	char Name[64];
-}  CITP_PINF_PeerName;
-
-typedef struct
-{
-	// CITP/PINF header (ContentType = "PLoc")
-	CITP_PINF_Header PINFHeader;
-	unsigned short port;
-	char pstrings;		// Null terminated strings list
-}  CITP_PINF_PLoc;
-
-typedef struct
-{
-	// CITP header (ContentType = “FPTC”)
-	CITP_Header CITPHeader;
-	// The content type of the FPTC message.
-	unsigned char ContentType[4];
-	// Content hint
-	unsigned long ContentHint;
-}  CITP_FPTC_Header;
-
-#define CITP_FPTC_ContentHint_InSequence 0x00000001
-#define CITP_FPTC_ContentHint_EndSequence 0x00000002
-
-typedef struct 
-{
-   // CITP/FPTC header (ContentType = ”Ptch”)
-   CITP_FPTC_Header FPTCHeader;
-   // Fixture identifier
-   unsigned short FixtureIdentifier;
-   // Patch universe (0-based)
-   unsigned char Universe;
-   // Reserved space and 4-byte alignment
-   unsigned char Reserved[1];
-   // Patch channel (0-based)
-   unsigned short Channel;
-   // Patch channel count (1-512)
-   unsigned short ChannelCount;
-   // Fixture make (only a null if omitted)
-   // char FixtureMake[];
-   // Fixture name (never omitted)
-   // char FixtureName[];
-} CITP_FPTC_Patch_Header;
-
-typedef struct
-{
-   // CITP/FPTC header (ContentType = ”UPtc”)
-   CITP_FPTC_Header FPTCHeader;
-   // Fixture count (0 to unpatch all)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-   // unsigned short FixtureIdentifiers[];
-}  CITP_FPTC_Remove_Header;
-
-typedef struct 
-{
-   // CITP/ FPTC header (ContentType = ”SPtc”)
-   CITP_FPTC_Header FPTCHeader;
-   // Fixture count (0 to request all)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-   // unsigned short FixtureIdentifiers[];
-} CITP_FPTC_SendPatch_Header;
-
-typedef struct
-{
-   // CITP header (ContentType = “FSEL”)
-   CITP_Header CITPHeader;
-   // The content type of the FSEL message.
-   unsigned char ContentType[4];
-} CITP_FSEL_Header;
-
-typedef struct
-{
-   // CITP/FSEL header (ContentType = ”Sele”)
-   CITP_FSEL_Header FSELHeader;
-   // Complete selection (non-zero for complete)
-   unsigned char Complete;
-   // Reserved space and 4-byte alignment
-   unsigned char Reserved[1];
-   // Fixture count (greater than 0)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-   // unsigned short FixtureIdentifiers[];
-}  CITP_FSEL_Select_Header;
-
-typedef struct
-{
-   // CITP/FSEL header (ContentType = ”Sele”)
-   CITP_FSEL_Header FSELHeader;
-   // Complete selection (non-zero for complete)
-   unsigned char Complete;
-   // Reserved space and 4-byte alignment
-   unsigned char Reserved[1];
-   // Fixture count (greater than 0)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-   unsigned short FixtureIdentifiers[8192];
-}  CITP_FSEL_Select;
-
-typedef struct
-{
-   // CITP/FSEL header (ContentType = ”DeSe”)
-   CITP_FSEL_Header FSELHeader;
-   // Fixture count (0 for complete deselection)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-// unsigned short FixtureIdentifiers[];
-}  CITP_FSEL_Deselect_Header;
-
-typedef struct
-{
-   // CITP/FSEL header (ContentType = ”DeSe”)
-   CITP_FSEL_Header FSELHeader;
-   // Fixture count (0 for complete deselection)
-   unsigned short FixtureCount;
-   // Fixture identifiers
-   unsigned short FixtureIdentifiers[8192];
-}  CITP_FSEL_Deselect;
-
-#if JUCE_WINDOWS
-  #pragma pack(pop)
-#endif
-
 //[/MiscUserDefs]
 
 //==============================================================================
 LivePanelComponent::LivePanelComponent ()
-    : stopButton (0),
+    : lastState (false),
+      stopButton (0),
       tapButton (0),
       stepButton (0),
       forwardButton (0),
@@ -510,6 +294,7 @@ LivePanelComponent::LivePanelComponent ()
 
     //[Constructor] You can add your own custom stuff here..
     postCommandMessage(0x1234);
+    startTimer (500);
     //[/Constructor]
 }
 
@@ -551,6 +336,20 @@ LivePanelComponent::~LivePanelComponent()
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
+}
+
+//==============================================================================
+void LivePanelComponent::timerCallback()
+{
+    bool state = lpNet.isConnected();
+    if (state != lastState)
+    {
+        if (state)
+            connectLabel->setText ("Connected", false);
+        else
+            connectLabel->setText ("Searching...", false);
+        lastState = state;
+    }
 }
 
 //==============================================================================
@@ -656,85 +455,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 
     if (buttonThatWasClicked == stopButton)
     {
-        //[UserButtonCode_stopButton] -- add your button handler code here..
-        Array<IpAddress> ips;
-
-        IpAddress::findAllIpAddresses (ips);
-        String ipstring = "IPList: ";
-        
-        for (int idx=0 ; idx<ips.size() ; idx++)
-        {
-            ipstring << ips[idx].toString();
-            ipstring << ' ';
-        }
-        Logger::outputDebugString (ipstring);
-                
-        for (int n=0 ; n<ips.size() ; n++)
-        {
-            // Try non local addresses first
-//            if (! ips[n].isLocal())
-            {
-                String trystring = "Trying: ";
-                trystring << ips[n].toString();
-                Logger::outputDebugString (trystring);
-                
-                DatagramSocket s (Socket::anyPort, true, true, ips[n]);
-                if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
-                {
-			        LPNET_POLL outblock;
-			        memset (&outblock, 0, sizeof (outblock));
-			        strcpy ((char *)outblock.ProtoID, LPNET_PROTO_ID);
-                    outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
-			        outblock.VersionL = LPNET_VERSION;
-
-#if JUCE_IOS
-                    s.connect (ips[n], LPNET_DISCOVERY);
-                    s.write (&outblock, sizeof (LPNET_POLL));
-                    s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
-#endif
-                    if (s.write (&outblock, sizeof (LPNET_POLL)) > 0)
-                    {
-                        while (s.waitUntilReady (true, 250))
-                        {
-                            char inbuf[1024];
-
-                            int n = s.read (&inbuf, sizeof (inbuf), false);
-                            if (n > 0)
-                            {
-                                LPNET_POLLREPLY *reply;
-				                reply = (LPNET_POLLREPLY *)inbuf;
-				                if (!strcmp((char *)reply->ProtoID, LPNET_PROTO_ID))
-				                {
-                                    if (reply->OpCode == Socket::HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
-					                {                                        
-						                if (reply->VersionL == LPNET_VERSION)
-						                {
-                                            IpAddress lpaddress (Socket::NetworkToHostUint32 (reply->Address));
-                                            String str = "Got one: ";
-                                            str << lpaddress.toString();
-                                            Logger::outputDebugString (str);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // OK, try CITP!
-//        for (int n=0 ; n<ips.size() ; n++)
-        {
-            DatagramSocket s (4809, true, true);
-            if (s.addMulticastMembership (IpAddress ("224.0.0.180")))
-            {
-                if (s.waitUntilReady (true, 1000))
-                {
-                    Logger::outputDebugString("Got CITP");
-                }
-            }
-        }
+        //[UserButtonCode_stopButton]
         //[/UserButtonCode_stopButton]
     }
     else if (buttonThatWasClicked == tapButton)

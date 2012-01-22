@@ -149,18 +149,10 @@
             <Tool Name="VCCLCompilerTool"/>
           </FileConfiguration>
         </File>
-        <File RelativePath="..\..\Images\icon-large.png">
-          <FileConfiguration Name="Debug|Win32"
-                             ExcludedFromBuild="true">
-            <Tool Name="VCCLCompilerTool"/>
-          </FileConfiguration>
-          <FileConfiguration Name="Release|Win32"
-                             ExcludedFromBuild="true">
-            <Tool Name="VCCLCompilerTool"/>
-          </FileConfiguration>
-        </File>
       </Filter>
       <Filter Name="Source">
+        <File RelativePath="..\..\Source\lp-net.cpp"/>
+        <File RelativePath="..\..\Source\lp-net.h"/>
         <File RelativePath="..\..\Source\LPNet.h"/>
         <File RelativePath="..\..\Source\LivePanelComponent.cpp"/>
         <File RelativePath="..\..\Source\LivePanelComponent.h"/>

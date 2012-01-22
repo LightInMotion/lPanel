@@ -7,6 +7,7 @@
 #define __JUCER_HEADER_LIVEPANELCOMPONENT_LIVEPANELCOMPONENT_D00C81FE__
 
 //[Headers]     -- You can add your own extra header files here --
+#include "lp-net.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 //[/Headers]
 
@@ -21,7 +22,8 @@
                                                                     //[/Comments]
 */
 class LivePanelComponent  : public Component,
-                            public ButtonListener
+                            public ButtonListener,
+                            public Timer
 {
 public:
     //==============================================================================
@@ -67,12 +69,16 @@ public:
     static const char* info_2x_png;
     static const int info_2x_pngSize;
 
-
+    //==============================================================================
+    void timerCallback();
+    
     //==============================================================================
     juce_UseDebuggingNewOperator
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    LpNet lpNet;
+    bool lastState;
     //[/UserVariables]
 
     //==============================================================================
