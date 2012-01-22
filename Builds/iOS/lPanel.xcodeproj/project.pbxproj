@@ -1219,7 +1219,6 @@
 		6904229A2C5B3040954A56CB /* Binary Data */ = {
 			isa = PBXGroup;
 			children = (
-				047721699896FE05DB1939CB /* new-icon2.png */,
 				C470758B673AC60F06467F2C /* sequence_inactive@2x.png */,
 			);
 			name = "Binary Data";
@@ -1713,6 +1712,7 @@
 		FBD41818227DBDCC8ED33244 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				047721699896FE05DB1939CB /* new-icon2.png */,
 				5315D80CA9B68E66960033A5 /* Info.plist */,
 				3429D39220E0CD3C747CC258 /* Icon.icns */,
 			);

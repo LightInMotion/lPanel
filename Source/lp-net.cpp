@@ -79,6 +79,8 @@ int LpNet::lookupTime (int speed)
     return tm;
 }
 
+//==============================================================================
+// GM
 bool LpNet::setGM (int value)
 {
     return sendCommand (LPCMD_GM, value);
@@ -89,6 +91,7 @@ bool LpNet::fadeGM (int speed)
     return sendCommand (LPCMD_GM_FADE, lookupTime (speed));
 }
 
+//==============================================================================
 // Direction
 bool LpNet::activeForward()
 {
@@ -115,10 +118,20 @@ bool LpNet::activeStep()
     return sendCommand (LPCMD_DIR, LP_CHASER_ACTIVE, LP_STEP);    
 }
 
+//==============================================================================
+// Tap
 bool LpNet::activeTap()
 {
     return sendCommand (LPCMD_TAP, LP_CHASER_ACTIVE);        
 }
+
+//==============================================================================
+// Recall
+bool LpNet::doRecall (int recall)
+{
+    return sendCommand (LPCMD_RECALL, recall);
+}
+
 
 //==============================================================================
 void LpNet::run()

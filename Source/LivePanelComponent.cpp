@@ -15,6 +15,7 @@
 //==============================================================================
 LivePanelComponent::LivePanelComponent ()
     : lastState (false),
+      pageOffset (0),
       stopButton (0),
       tapButton (0),
       stepButton (0),
@@ -516,66 +517,97 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == recallButton1)
     {
         //[UserButtonCode_recallButton1] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12);
         //[/UserButtonCode_recallButton1]
     }
     else if (buttonThatWasClicked == recallButton2)
     {
         //[UserButtonCode_recallButton2] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 1);
         //[/UserButtonCode_recallButton2]
     }
     else if (buttonThatWasClicked == recallButton3)
     {
         //[UserButtonCode_recallButton3] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 2);
         //[/UserButtonCode_recallButton3]
     }
     else if (buttonThatWasClicked == recallButton4)
     {
         //[UserButtonCode_recallButton4] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 3);
         //[/UserButtonCode_recallButton4]
     }
     else if (buttonThatWasClicked == recallButton5)
     {
         //[UserButtonCode_recallButton5] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 4);
         //[/UserButtonCode_recallButton5]
     }
     else if (buttonThatWasClicked == recallButton6)
     {
         //[UserButtonCode_recallButton6] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 5);
         //[/UserButtonCode_recallButton6]
     }
     else if (buttonThatWasClicked == recallButton7)
     {
         //[UserButtonCode_recallButton7] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 6);
         //[/UserButtonCode_recallButton7]
     }
     else if (buttonThatWasClicked == recallButton8)
     {
         //[UserButtonCode_recallButton8] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 7);
         //[/UserButtonCode_recallButton8]
     }
     else if (buttonThatWasClicked == recallButton9)
     {
         //[UserButtonCode_recallButton9] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 8);
         //[/UserButtonCode_recallButton9]
     }
     else if (buttonThatWasClicked == recallButton10)
     {
         //[UserButtonCode_recallButton10] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 9);
         //[/UserButtonCode_recallButton10]
     }
     else if (buttonThatWasClicked == recallButton11)
     {
         //[UserButtonCode_recallButton11] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 10);
         //[/UserButtonCode_recallButton11]
     }
     else if (buttonThatWasClicked == recallButton12)
     {
         //[UserButtonCode_recallButton12] -- add your button handler code here..
+        lpNet.doRecall (pageOffset * 12 + 11);
         //[/UserButtonCode_recallButton12]
     }
     else if (buttonThatWasClicked == funcButton)
     {
         //[UserButtonCode_funcButton] -- add your button handler code here..
+        pageOffset++;
+        if (pageOffset >= 4)
+            pageOffset = 0;
+        
+        switch (pageOffset)
+        {
+            case 0:
+                funcLabel->setText ("Func", false);
+                break;
+            case 1:
+                funcLabel->setText ("Shift", false);
+                break;
+            case 2:
+                funcLabel->setText ("Ctlr", false);
+                break;
+            default:
+                funcLabel->setText ("Alt", false);
+                break;
+        };
         //[/UserButtonCode_funcButton]
     }
     else if (buttonThatWasClicked == pageButton)

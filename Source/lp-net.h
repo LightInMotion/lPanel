@@ -33,6 +33,8 @@ public:
     bool activeStep();
     bool activeTap();
     
+    bool doRecall (int recall);
+    
     //==============================================================================
     void run();
     

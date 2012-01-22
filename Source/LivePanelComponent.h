@@ -77,8 +77,9 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    LpNet lpNet;
-    bool lastState;
+    LpNet lpNet;        // A network helper
+    bool lastState;     // For connection update
+    int pageOffset;       // What part of the page are we showing?
     //[/UserVariables]
 
     //==============================================================================
