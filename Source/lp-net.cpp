@@ -56,6 +56,23 @@ bool LpNet::getByte (uint8* b)
     return true;
 }
 
+bool LpNet::getShort (uint16* s)
+{
+    uint8 b;
+    uint16 u;
+    
+    if (! getByte (&b))
+        return false;
+    u = b;
+    u <<= 8;
+    
+    if (! getByte (&b))
+        return false;
+    u += b;
+    *s = u;
+    return true;
+}
+
 bool LpNet::sendCommand (uint8 cmd, uint16 val, uint16 param)
 {
     const ScopedLock lock (criticalSection);
@@ -181,6 +198,9 @@ bool LpNet::getRecall (int recall, RecallInfo& info)
     else
         info.isActive = false;
     
+    if (info.name.length())
+        info.name = String::empty;
+    
     while (1)
     {
         if (! getByte (&b))
@@ -196,6 +216,38 @@ bool LpNet::getRecall (int recall, RecallInfo& info)
 }
 
 //==============================================================================
+// Page
+bool LpNet::setPage (int page)
+{
+    return sendCommand (LPCMD_PAGE, page);
+}
+
+bool LpNet::getPage (int* page)
+{
+    if (! sendCommand (LPCMD_PAGE_GET))
+        return false;
+    
+    uint8 b;
+    if (! getByte (&b))
+        return false;
+    
+    if (b != LPCMD_PAGE_GET)
+    {
+        // Out of sync!
+        disconnect();
+        return false;
+    }
+    
+    uint16 u;
+    if (! getShort (&u))
+        return false;
+    
+    *page = u;
+    return true;
+}
+
+//==============================================================================
+// Discovery Thread
 void LpNet::run()
 {
     while (! threadShouldExit())

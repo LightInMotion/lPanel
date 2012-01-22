@@ -42,6 +42,10 @@ public:
     bool doRecall (int recall);
     bool getRecall (int recall, RecallInfo& info);
     
+    // Page
+    bool setPage (int page);
+    bool getPage (int* page);
+    
     //==============================================================================
     void run();
     
@@ -50,6 +54,7 @@ private:
     bool sendCommand (uint8 cmd, uint16 val=0, uint16 param=0);
     int lookupTime (int speed);
     bool getByte (uint8* b);
+    bool getShort (uint16* s);
 
     //==============================================================================    
     CriticalSection criticalSection;    // To protect what follows

@@ -645,7 +645,11 @@ void LivePanelComponent::updatePage()
 {
     LpNet::RecallInfo info;
     
+    int page;
+    lpNet.getPage(&page);
+    lpNet.getPage(&page);
     lpNet.getRecall(0, info);
+    lpNet.getRecall(1, info);
 }
 
 //[/MiscUserCode]
