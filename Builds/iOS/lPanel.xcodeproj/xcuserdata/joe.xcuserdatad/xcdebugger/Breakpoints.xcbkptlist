@@ -13,9 +13,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "662"
-         endingLineNumber = "662"
-         landmarkName = "LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)"
-         landmarkType = "5">
+         endingLineNumber = "662">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

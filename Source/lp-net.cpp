@@ -167,7 +167,8 @@ void LpNet::run()
                                 {                                        
                                     if (reply->VersionL == LPNET_VERSION)
                                     {
-                                        if (! (reply->Flags & LPNET_FLAG_INUSE))
+                                        if (! (Socket::HostToNetworkUint16 (reply->Flags) &
+                                               LPNET_FLAG_INUSE))
                                         {
                                             const ScopedLock lock (criticalSection);
                                             serverAddress = new IpAddress 
