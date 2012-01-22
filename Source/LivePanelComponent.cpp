@@ -456,51 +456,61 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == stopButton)
     {
         //[UserButtonCode_stopButton]
+        lpNet.activeStop();
         //[/UserButtonCode_stopButton]
     }
     else if (buttonThatWasClicked == tapButton)
     {
         //[UserButtonCode_tapButton] -- add your button handler code here..
+        lpNet.activeTap();
         //[/UserButtonCode_tapButton]
     }
     else if (buttonThatWasClicked == stepButton)
     {
         //[UserButtonCode_stepButton] -- add your button handler code here..
+        lpNet.activeStep();
         //[/UserButtonCode_stepButton]
     }
     else if (buttonThatWasClicked == forwardButton)
     {
         //[UserButtonCode_forwardButton] -- add your button handler code here..
+        lpNet.activeForward();
         //[/UserButtonCode_forwardButton]
     }
     else if (buttonThatWasClicked == reverseButton)
     {
         //[UserButtonCode_reverseButton] -- add your button handler code here..
+        lpNet.activeReverse();
         //[/UserButtonCode_reverseButton]
     }
     else if (buttonThatWasClicked == ballyButton)
     {
         //[UserButtonCode_ballyButton] -- add your button handler code here..
+        lpNet.activeBally();
         //[/UserButtonCode_ballyButton]
     }
     else if (buttonThatWasClicked == gmFullOnButton)
     {
         //[UserButtonCode_gmFullOnButton] -- add your button handler code here..
+        lpNet.setGM (8192);
         //[/UserButtonCode_gmFullOnButton]
     }
     else if (buttonThatWasClicked == gmFadeOnButton)
     {
         //[UserButtonCode_gmFadeOnButton] -- add your button handler code here..
+        lpNet.fadeGM (3);
         //[/UserButtonCode_gmFadeOnButton]
     }
     else if (buttonThatWasClicked == gmFadeOffButton)
     {
         //[UserButtonCode_gmFadeOffButton] -- add your button handler code here..
+        lpNet.fadeGM (-3);
         //[/UserButtonCode_gmFadeOffButton]
     }
     else if (buttonThatWasClicked == gmFullOffButton)
     {
         //[UserButtonCode_gmFullOffButton] -- add your button handler code here..
+        lpNet.setGM (0);
         //[/UserButtonCode_gmFullOffButton]
     }
     else if (buttonThatWasClicked == recallButton1)

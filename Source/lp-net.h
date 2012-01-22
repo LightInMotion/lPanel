@@ -18,17 +18,34 @@ public:
     ~LpNet();
 
     //==============================================================================
+    // Status
     bool isConnected();
+    
+    // Grand Master
+    bool setGM (int value);
+    bool fadeGM (int speed);
+    
+    // Direction
+    bool activeForward();
+    bool activeReverse();
+    bool activeBally();
+    bool activeStop();
+    bool activeStep();
+    bool activeTap();
     
     //==============================================================================
     void run();
     
 private:
+    //==============================================================================    
+    bool sendCommand (uint8 cmd, uint16 val=0, uint16 param=0);
+    int lookupTime (int speed);
+
+    //==============================================================================    
     CriticalSection criticalSection;    // To protect what follows
     ScopedPointer<IpAddress> serverAddress;
     uint16 serverPort;
     ScopedPointer<StreamingSocket> serverSocket;
-    bool connected;
 };
 
 #endif  // __LPNET_H_A420911B__
