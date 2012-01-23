@@ -288,13 +288,7 @@ LivePanelComponent::LivePanelComponent ()
     funcLabel->setMinimumHorizontalScale (.2f);
     connectLabel->setMinimumHorizontalScale (.2f);
     pageLabel->setMinimumHorizontalScale (.2f);
-    //[/UserPreSize]
 
-    setSize (320, 480);
-
-
-    //[Constructor] You can add your own custom stuff here..    
-    // Build an array for easy access
     buttons.add (recallButton1);
     buttons.add (recallButton2);
     buttons.add (recallButton3);
@@ -308,6 +302,29 @@ LivePanelComponent::LivePanelComponent ()
     buttons.add (recallButton11);
     buttons.add (recallButton12);
     
+    // We need labels for the buttons
+    for (int n=0 ; n < 12 ; n++)
+    {
+        Label* label = new Label();
+        
+        addAndMakeVisible (label);
+        label->setFont (Font (12.0000f, Font::plain));
+        label->setJustificationType (Justification::centred);
+        label->setEditable (false, false, false);
+        label->setColour (Label::textColourId, Colours::white);
+        label->setColour (TextEditor::textColourId, Colours::black);
+        label->setColour (TextEditor::backgroundColourId, Colour (0x0));
+        label->setMinimumHorizontalScale (.2f);
+        labels.add (label);
+    }
+    
+    //[/UserPreSize]
+
+    setSize (320, 480);
+
+
+    //[Constructor] You can add your own custom stuff here..    
+    // Build an array for easy access
     postCommandMessage(0x1234);
     startTimer (500);    
     //[/Constructor]
@@ -447,6 +464,14 @@ void LivePanelComponent::resized()
     funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
     pageLabel->setFont (Font (pageLabel->getHeight() * .8f, Font::plain));
     connectLabel->setFont (Font (connectLabel->getHeight() * .8f, Font::plain));
+    
+    for (int n=0 ; n<12 ; n++)
+    {
+        Rectangle<int> r = (buttons[n])->getBounds();
+        int h = r.getHeight();
+        (labels[n])->setBounds (r.getX(), r.getY() + h - (h >> 2), r.getWidth(), h >> 2);
+        (labels[n])->setFont (Font (h / 5.0f, Font::plain));
+    }
     //[/UserResized]
 }
 
@@ -672,6 +697,8 @@ void LivePanelComponent::updatePage()
                                  1.0000f, Colour (0x0),
                                  Image(), 1.0000f, Colour (0x0),
                                  Image(), 1.0000f, Colour (0x20000000));
+        
+        (labels[n])->setText (info.name, false);
     }
 }
 
