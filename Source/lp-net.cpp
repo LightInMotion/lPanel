@@ -97,7 +97,7 @@ bool LpNet::sendCommand (uint8 cmd, uint16 val, uint16 param)
     return true;
 }
 
-int LpNet::lookupTime (int speed)
+uint16 LpNet::lookupTime (int speed)
 {
     int tm;
     
@@ -117,14 +117,14 @@ int LpNet::lookupTime (int speed)
     if (speed < 0)
         tm = 0 - tm;
         
-    return tm;
+    return (uint16)tm;
 }
 
 //==============================================================================
 // GM
 bool LpNet::setGM (int value)
 {
-    return sendCommand (LPCMD_GM, value);
+    return sendCommand (LPCMD_GM, (uint16)value);
 }
 
 bool LpNet::fadeGM (int speed)
@@ -170,12 +170,12 @@ bool LpNet::activeTap()
 // Recall
 bool LpNet::doRecall (int recall)
 {
-    return sendCommand (LPCMD_RECALL, recall);
+    return sendCommand (LPCMD_RECALL, (uint16)recall);
 }
 
 bool LpNet::getRecall (int recall, RecallInfo& info)
 {
-    if (! sendCommand (LPCMD_RECALL_GET, recall))
+    if (! sendCommand (LPCMD_RECALL_GET, (uint16)recall))
         return false;
     
     uint8 b;
@@ -201,7 +201,7 @@ bool LpNet::getRecall (int recall, RecallInfo& info)
     if (info.name.length())
         info.name = String::empty;
     
-    while (1)
+    do
     {
         if (! getByte (&b))
             return false;
@@ -210,7 +210,7 @@ bool LpNet::getRecall (int recall, RecallInfo& info)
             break;
         
         info.name << (char)b;
-    }
+    } while (b);
     
     return true;    
 }
@@ -219,7 +219,7 @@ bool LpNet::getRecall (int recall, RecallInfo& info)
 // Page
 bool LpNet::setPage (int page)
 {
-    return sendCommand (LPCMD_PAGE, page);
+    return sendCommand (LPCMD_PAGE, (uint16)page);
 }
 
 bool LpNet::getPage (int* page)
@@ -267,16 +267,23 @@ void LpNet::run()
             {
                 LPNET_POLL outblock;
                 memset (&outblock, 0, sizeof (outblock));
-                strcpy ((char *)outblock.ProtoID, LPNET_PROTO_ID);
+
+                #if JUCE_WINDOWS
+                  strncpy_s ((char*)outblock.ProtoID, sizeof (outblock.ProtoID), LPNET_PROTO_ID, sizeof (outblock.ProtoID));
+                #else
+                  strncpy ((char*)outblock.ProtoID, LPNET_PROTO_ID, sizeof (outblock.ProtoID));
+                #endif
+                  s
                 outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
                 outblock.VersionL = LPNET_VERSION;
                 
-#if JUCE_IOS
-                // The iOS stack doen't properly bind without sending to ourselves
-                s.connect (ips[n], LPNET_DISCOVERY);
-                s.write (&outblock, sizeof (LPNET_POLL));
-                s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
-#endif
+                #if JUCE_IOS
+                  // The iOS stack doen't properly bind without sending to ourselves
+                  s.connect (ips[n], LPNET_DISCOVERY);
+                  s.write (&outblock, sizeof (LPNET_POLL));
+                  s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
+                #endif
+
                 if (s.write (&outblock, sizeof (LPNET_POLL)) > 0)
                 {
                     while (s.waitUntilReady (true, 250))

@@ -52,7 +52,7 @@ public:
 private:
     //==============================================================================    
     bool sendCommand (uint8 cmd, uint16 val=0, uint16 param=0);
-    int lookupTime (int speed);
+    uint16 lookupTime (int speed);
     bool getByte (uint8* b);
     bool getShort (uint16* s);
 

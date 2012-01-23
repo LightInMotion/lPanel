@@ -738,7 +738,8 @@ void LivePanelComponent::updatePage()
         if (! lpNet.getRecall (pageOffset * 12 + n, info))
             info.isActive = false;
         
-        (buttons[n])->setImages (false, true, true,
+        (buttons[n])->setImages (false, true, info.isActive ? false
+                                                            : true,
                         info.isActive ? ImageCache::getFromMemory (BinaryData::sequence_active2x_png, BinaryData::sequence_active2x_pngSize)
                                       : ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize),
                                  1.0000f, Colour (0x0),
