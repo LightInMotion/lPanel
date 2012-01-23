@@ -7,6 +7,9 @@
 
 namespace BinaryData
 {
+    extern const char*   sequence_active2x_png;
+    const int            sequence_active2x_pngSize = 13655;
+
     extern const char*   newicon2_png;
     const int            newicon2_pngSize = 13257;
 

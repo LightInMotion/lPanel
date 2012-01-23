@@ -281,6 +281,7 @@
 		71E1248BA9B6FF91BFAB3808 /* juce_JSON.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_JSON.cpp; path = ../../JuceLibraryCode/modules/juce_core/json/juce_JSON.cpp; sourceTree = SOURCE_ROOT; };
 		72093CF4120D29376473FFF4 /* juce_EdgeTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_EdgeTable.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/geometry/juce_EdgeTable.cpp; sourceTree = SOURCE_ROOT; };
 		72B799B9DB652F5D5DE2872E /* juce_MouseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MouseEvent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/mouse/juce_MouseEvent.h; sourceTree = SOURCE_ROOT; };
+		730BC87E9A3B48B74CEC8E3C /* sequence_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sequence_active@2x.png"; path = "../../Images/sequence_active@2x.png"; sourceTree = SOURCE_ROOT; };
 		73C6432FB5E9FB974F42E0D7 /* juce_HyperlinkButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_HyperlinkButton.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_HyperlinkButton.h; sourceTree = SOURCE_ROOT; };
 		7499B7B144126FC6C2CB4B43 /* BinaryData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryData.cpp; path = ../../JuceLibraryCode/BinaryData.cpp; sourceTree = SOURCE_ROOT; };
 		75046F86B2FEAA5853FAD4ED /* juce_AlertWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AlertWindow.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/windows/juce_AlertWindow.h; sourceTree = SOURCE_ROOT; };
@@ -1216,6 +1217,7 @@
 		6904229A2C5B3040954A56CB /* Binary Data */ = {
 			isa = PBXGroup;
 			children = (
+				730BC87E9A3B48B74CEC8E3C /* sequence_active@2x.png */,
 				047721699896FE05DB1939CB /* new-icon2.png */,
 				C470758B673AC60F06467F2C /* sequence_inactive@2x.png */,
 			);

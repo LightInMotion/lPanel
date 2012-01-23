@@ -129,6 +129,16 @@
   <Files>
     <Filter Name="lPanel">
       <Filter Name="Binary Data">
+        <File RelativePath="..\..\Images\sequence_active@2x.png">
+          <FileConfiguration Name="Debug|Win32"
+                             ExcludedFromBuild="true">
+            <Tool Name="VCCLCompilerTool"/>
+          </FileConfiguration>
+          <FileConfiguration Name="Release|Win32"
+                             ExcludedFromBuild="true">
+            <Tool Name="VCCLCompilerTool"/>
+          </FileConfiguration>
+        </File>
         <File RelativePath="..\..\Images\new-icon2.png">
           <FileConfiguration Name="Debug|Win32"
                              ExcludedFromBuild="true">

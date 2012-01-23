@@ -293,15 +293,30 @@ LivePanelComponent::LivePanelComponent ()
     setSize (320, 480);
 
 
-    //[Constructor] You can add your own custom stuff here..
+    //[Constructor] You can add your own custom stuff here..    
+    // Build an array for easy access
+    buttons.add (recallButton1);
+    buttons.add (recallButton2);
+    buttons.add (recallButton3);
+    buttons.add (recallButton4);
+    buttons.add (recallButton5);
+    buttons.add (recallButton6);
+    buttons.add (recallButton7);
+    buttons.add (recallButton8);
+    buttons.add (recallButton9);
+    buttons.add (recallButton10);
+    buttons.add (recallButton11);
+    buttons.add (recallButton12);
+    
     postCommandMessage(0x1234);
-    startTimer (500);
+    startTimer (500);    
     //[/Constructor]
 }
 
 LivePanelComponent::~LivePanelComponent()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    buttons.clear();
     //[/Destructor_pre]
 
     deleteAndZero (stopButton);
@@ -594,6 +609,8 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                 funcLabel->setText ("Alt", false);
                 break;
         };
+        
+        updatePage();
         //[/UserButtonCode_funcButton]
     }
     else if (buttonThatWasClicked == pageButton)
@@ -643,13 +660,19 @@ void LivePanelComponent::timerCallback()
 //==============================================================================
 void LivePanelComponent::updatePage()
 {
-    LpNet::RecallInfo info;
-    
-    int page;
-    lpNet.getPage(&page);
-    lpNet.getPage(&page);
-    lpNet.getRecall(0, info);
-    lpNet.getRecall(1, info);
+    for (int n=0 ; n<12 ; n++)
+    {
+        LpNet::RecallInfo info;
+        if (! lpNet.getRecall (pageOffset * 12 + n, info))
+            info.isActive = false;
+        
+        (buttons[n])->setImages (false, true, true,
+                        info.isActive ? ImageCache::getFromMemory (BinaryData::sequence_active2x_png, BinaryData::sequence_active2x_pngSize)
+                                      : ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize),
+                                 1.0000f, Colour (0x0),
+                                 Image(), 1.0000f, Colour (0x0),
+                                 Image(), 1.0000f, Colour (0x20000000));
+    }
 }
 
 //[/MiscUserCode]
