@@ -80,7 +80,9 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     LpNet lpNet;        // A network helper
     bool lastState;     // For connection update
-    int pageOffset;       // What part of the page are we showing?
+    int pageOffset;     // What part of the page are we showing?
+    int lastPage;       // Last page detected
+    int timerDivider;   // We poll pages at a lower rate
 
     Array<ImageButton*> buttons;    // Easier to deal with recall buts as array
     OwnedArray<Label> labels;       // We'll allocate labels and move to match

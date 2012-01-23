@@ -16,6 +16,8 @@
 LivePanelComponent::LivePanelComponent ()
     : lastState (false),
       pageOffset (0),
+      lastPage (-1),
+      timerDivider (0),
       stopButton (0),
       tapButton (0),
       stepButton (0),
@@ -672,19 +674,44 @@ void LivePanelComponent::timerCallback()
     if (state != lastState)
     {
         if (state)
-        {
             connectLabel->setText ("Connected", false);
-            updatePage();
-        }
         else
             connectLabel->setText ("Searching...", false);
         lastState = state;
+        updatePage();
+    }
+    
+    timerDivider++;
+    if (timerDivider >= 10)
+    {
+        timerDivider=0;
+        
+        int page;
+        if (lpNet.getPage (&page))
+        {
+            if (page != lastPage)
+                updatePage();
+        }
     }
 }
 
 //==============================================================================
 void LivePanelComponent::updatePage()
 {
+    int page;
+    
+    if (! lpNet.getPage (&page))
+        page = -1;
+    
+    lastPage = page;
+    String p = "Page: ";
+    if (page >= 0)
+        p << String(page + 1);
+    else
+        p << '?';
+    
+    pageLabel->setText (p, false);
+    
     for (int n=0 ; n<12 ; n++)
     {
         LpNet::RecallInfo info;
