@@ -161,6 +161,8 @@
         </File>
       </Filter>
       <Filter Name="Source">
+        <File RelativePath="..\..\Source\PagePickerComponent.cpp"/>
+        <File RelativePath="..\..\Source\PagePickerComponent.h"/>
         <File RelativePath="..\..\Source\lp-net.cpp"/>
         <File RelativePath="..\..\Source\lp-net.h"/>
         <File RelativePath="..\..\Source\LPNet.h"/>

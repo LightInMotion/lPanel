@@ -12,6 +12,7 @@
 		1EFF8489667EB43A924AA984 /* juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DAA29CFB4E4F6F92B373B7D /* juce_gui_basics.mm */; };
 		321CECDD5471286A5A97DD41 /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA6BB70BA8B39994D090 /* juce_core.mm */; };
 		3EA859995DCF94AC59660040 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3429D39220E0CD3C747CC258 /* Icon.icns */; };
+		72BDB0BF1A1A092AB3964100 /* PagePickerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F63C789CCBF1DFD224AB818 /* PagePickerComponent.cpp */; };
 		7CB6308CB65668214279D29B /* juce_data_structures.mm in Sources */ = {isa = PBXBuildFile; fileRef = 366C5D15AF82E7EBD3D3DECF /* juce_data_structures.mm */; };
 		8A454BEE1A68D59356DE130C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7AC1C1FCD2BF14312D526C /* IOKit.framework */; };
 		8EC47BBBF25E8C78A5D3DA3D /* lp-net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E17A2459620F4EEF81F2B49 /* lp-net.cpp */; };
@@ -193,6 +194,7 @@
 		4E858506BBC26689F1803CB0 /* juce_ComponentBuilder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ComponentBuilder.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ComponentBuilder.cpp; sourceTree = SOURCE_ROOT; };
 		4EFF108BCF7A154D14628B3C /* juce_GroupComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GroupComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_GroupComponent.h; sourceTree = SOURCE_ROOT; };
 		4F4A63E64014C75AAE61E00C /* juce_UndoManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_UndoManager.cpp; path = ../../JuceLibraryCode/modules/juce_data_structures/undomanager/juce_UndoManager.cpp; sourceTree = SOURCE_ROOT; };
+		4F63C789CCBF1DFD224AB818 /* PagePickerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PagePickerComponent.cpp; path = ../../Source/PagePickerComponent.cpp; sourceTree = SOURCE_ROOT; };
 		4FAC5974BA1E45A33C624CE8 /* juce_NamedPipe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_NamedPipe.h; path = ../../JuceLibraryCode/modules/juce_core/network/juce_NamedPipe.h; sourceTree = SOURCE_ROOT; };
 		4FCFFAE72BE8D5BC35DE81DC /* juce_CharPointer_UTF16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CharPointer_UTF16.h; path = ../../JuceLibraryCode/modules/juce_core/text/juce_CharPointer_UTF16.h; sourceTree = SOURCE_ROOT; };
 		4FE30EBEC588EDF7734899EA /* juce_Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Value.h; path = ../../JuceLibraryCode/modules/juce_data_structures/values/juce_Value.h; sourceTree = SOURCE_ROOT; };
@@ -474,6 +476,7 @@
 		C67A940A5A92E910E723C26F /* juce_Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Font.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/fonts/juce_Font.cpp; sourceTree = SOURCE_ROOT; };
 		C746878051333CB8677EA98B /* juce_ActionBroadcaster.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ActionBroadcaster.cpp; path = ../../JuceLibraryCode/modules/juce_events/broadcasters/juce_ActionBroadcaster.cpp; sourceTree = SOURCE_ROOT; };
 		C7C77730874F0EBCA8BEFBB6 /* juce_ZipFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ZipFile.h; path = ../../JuceLibraryCode/modules/juce_core/zip/juce_ZipFile.h; sourceTree = SOURCE_ROOT; };
+		C7D849429980E9C760EA90E4 /* PagePickerComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PagePickerComponent.h; path = ../../Source/PagePickerComponent.h; sourceTree = SOURCE_ROOT; };
 		C8078810D6C8A8E8CD552F36 /* juce_ComponentPeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ComponentPeer.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/windows/juce_ComponentPeer.h; sourceTree = SOURCE_ROOT; };
 		C83A17D5C85B763C3B75CA4D /* juce_RelativePointPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_RelativePointPath.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/positioning/juce_RelativePointPath.h; sourceTree = SOURCE_ROOT; };
 		C8D2F7E1F63B6AFDD362CAD2 /* juce_PerformanceCounter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PerformanceCounter.h; path = ../../JuceLibraryCode/modules/juce_core/time/juce_PerformanceCounter.h; sourceTree = SOURCE_ROOT; };
@@ -1387,6 +1390,8 @@
 		A2991BEC3076E4E292644017 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4F63C789CCBF1DFD224AB818 /* PagePickerComponent.cpp */,
+				C7D849429980E9C760EA90E4 /* PagePickerComponent.h */,
 				5E17A2459620F4EEF81F2B49 /* lp-net.cpp */,
 				C1CE698A66794576DD2A5D24 /* lp-net.h */,
 				1E6C3AC1848C2AEAAE1D344E /* LPNet.h */,
@@ -1778,6 +1783,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BDB0BF1A1A092AB3964100 /* PagePickerComponent.cpp in Sources */,
 				8EC47BBBF25E8C78A5D3DA3D /* lp-net.cpp in Sources */,
 				AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */,
 				E451C3D3DA3A8C25D7B139B1 /* MainWindow.cpp in Sources */,

@@ -26,6 +26,10 @@
             file="Images/sequence_inactive@2x.png"/>
     </GROUP>
     <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">
+      <FILE id="a6M7ZG" name="PagePickerComponent.cpp" compile="1" resource="0"
+            file="Source/PagePickerComponent.cpp"/>
+      <FILE id="qYtFrd" name="PagePickerComponent.h" compile="0" resource="0"
+            file="Source/PagePickerComponent.h"/>
       <FILE id="VLgjQg" name="lp-net.cpp" compile="1" resource="0" file="Source/lp-net.cpp"/>
       <FILE id="m7kGLS" name="lp-net.h" compile="0" resource="0" file="Source/lp-net.h"/>
       <FILE id="FuYl8v" name="LPNet.h" compile="0" resource="0" file="Source/LPNet.h"/>

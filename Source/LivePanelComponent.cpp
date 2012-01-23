@@ -6,6 +6,7 @@
 */
 
 #include "LPNet.h"
+#include "PagePickerComponent.h"
 #include "LivePanelComponent.h"
 
 
@@ -18,6 +19,7 @@ LivePanelComponent::LivePanelComponent ()
       pageOffset (0),
       lastPage (-1),
       timerDivider (0),
+      overlay (0),
       stopButton (0),
       tapButton (0),
       stepButton (0),
@@ -324,10 +326,8 @@ LivePanelComponent::LivePanelComponent ()
 
     setSize (320, 480);
 
-
     //[Constructor] You can add your own custom stuff here..    
     // Build an array for easy access
-    postCommandMessage(0x1234);
     startTimer (500);    
     //[/Constructor]
 }
@@ -474,6 +474,9 @@ void LivePanelComponent::resized()
         (labels[n])->setBounds (r.getX(), r.getY() + h - (h >> 2), r.getWidth(), h >> 2);
         (labels[n])->setFont (Font (h / 5.0f, Font::plain));
     }
+    
+    if (overlay != nullptr)
+        overlay->setBounds (0, 0, getWidth(), getHeight());
     //[/UserResized]
 }
 
@@ -643,6 +646,9 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == pageButton)
     {
         //[UserButtonCode_pageButton] -- add your button handler code here..
+        overlay = new PagePickerComponent (lastPage);
+        addAndMakeVisible (overlay);
+        resized();
         //[/UserButtonCode_pageButton]
     }
     else if (buttonThatWasClicked == infoButton)
@@ -658,8 +664,22 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 void LivePanelComponent::handleCommandMessage (int commandId)
 {
     //[UserCode_handleCommandMessage] -- Add your code here...
+    // Page overlay?
     if (commandId == 0x1234)
     {
+        if (overlay != nullptr)
+        {
+            PagePickerComponent* picker = dynamic_cast<PagePickerComponent*> (overlay);
+            int page = picker->getPage();
+            
+            lpNet.setPage (page);
+            lpNet.getPage (&page);
+            
+            removeChildComponent (picker);
+            deleteAndZero (overlay);
+            
+            updatePage();
+        }
     }
     //[/UserCode_handleCommandMessage]
 }

@@ -86,6 +86,9 @@ private:
 
     Array<ImageButton*> buttons;    // Easier to deal with recall buts as array
     OwnedArray<Label> labels;       // We'll allocate labels and move to match
+    
+    Component* overlay;
+    
     //[/UserVariables]
 
     //==============================================================================
