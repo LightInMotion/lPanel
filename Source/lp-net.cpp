@@ -273,7 +273,7 @@ void LpNet::run()
                 #else
                   strncpy ((char*)outblock.ProtoID, LPNET_PROTO_ID, sizeof (outblock.ProtoID));
                 #endif
-                  s
+                  
                 outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
                 outblock.VersionL = LPNET_VERSION;
                 

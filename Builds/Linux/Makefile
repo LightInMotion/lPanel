@@ -43,6 +43,7 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/AboutComponent_ebbe5b79.o \
   $(OBJDIR)/PagePickerComponent_f5d967e1.o \
   $(OBJDIR)/lp-net_4fde033d.o \
   $(OBJDIR)/LivePanelComponent_2a81ee6e.o \
@@ -69,6 +70,11 @@ clean:
 	-@rm -f $(OUTDIR)/$(TARGET)
 	-@rm -rf $(OBJDIR)/*
 	-@rm -rf $(OBJDIR)
+
+$(OBJDIR)/AboutComponent_ebbe5b79.o: ../../Source/AboutComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling AboutComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/PagePickerComponent_f5d967e1.o: ../../Source/PagePickerComponent.cpp
 	-@mkdir -p $(OBJDIR)

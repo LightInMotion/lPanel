@@ -22,6 +22,7 @@
 		D5D38BF85F4E523DD81B2897 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D7F2FEC8CD13FFAF4E401C /* Carbon.framework */; };
 		DB9DA45E42D901F14F8AE78A /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631BE7BA58170A1BD2AEB2D2 /* juce_events.mm */; };
 		E451C3D3DA3A8C25D7B139B1 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA31822F30BD4FB784157C46 /* MainWindow.cpp */; };
+		F1F08BFE725314A59AA6F9A9 /* AboutComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E757A47CEFAC4C060425D387 /* AboutComponent.cpp */; };
 		FD91A02069DEB71A71E5B085 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63200DEDB5E4D9FD917B83E1 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -351,6 +352,7 @@
 		8C2B0CF058CECB1609BA1577 /* juce_ArrowButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ArrowButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ArrowButton.cpp; sourceTree = SOURCE_ROOT; };
 		8D08C2D4A7848846E073712C /* juce_StringPairArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_StringPairArray.cpp; path = ../../JuceLibraryCode/modules/juce_core/text/juce_StringPairArray.cpp; sourceTree = SOURCE_ROOT; };
 		8D0AF660F8DE6A4D81AE6EEA /* juce_Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Timer.h; path = ../../JuceLibraryCode/modules/juce_events/timers/juce_Timer.h; sourceTree = SOURCE_ROOT; };
+		8D5EEC97CAA17D1128140A80 /* AboutComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AboutComponent.h; path = ../../Source/AboutComponent.h; sourceTree = SOURCE_ROOT; };
 		8D98B0FF07FF639A93636A7C /* juce_mac_ObjCSuffix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_mac_ObjCSuffix.h; path = ../../JuceLibraryCode/modules/juce_core/native/juce_mac_ObjCSuffix.h; sourceTree = SOURCE_ROOT; };
 		8F475F9421A3C5176B07D3F3 /* juce_GlowEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GlowEffect.h; path = ../../JuceLibraryCode/modules/juce_graphics/effects/juce_GlowEffect.h; sourceTree = SOURCE_ROOT; };
 		8F7F050035FDA2EE765C6086 /* juce_KeyListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_KeyListener.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/keyboard/juce_KeyListener.h; sourceTree = SOURCE_ROOT; };
@@ -546,6 +548,7 @@
 		E6C244CE21026EA96F90A6AD /* juce_Slider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Slider.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_Slider.cpp; sourceTree = SOURCE_ROOT; };
 		E70C6B84F1F7331262128FAC /* juce_linux_Network.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_linux_Network.cpp; path = ../../JuceLibraryCode/modules/juce_core/native/juce_linux_Network.cpp; sourceTree = SOURCE_ROOT; };
 		E7249282A3A9CD7D26839FC1 /* juce_PerformanceCounter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PerformanceCounter.cpp; path = ../../JuceLibraryCode/modules/juce_core/time/juce_PerformanceCounter.cpp; sourceTree = SOURCE_ROOT; };
+		E757A47CEFAC4C060425D387 /* AboutComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AboutComponent.cpp; path = ../../Source/AboutComponent.cpp; sourceTree = SOURCE_ROOT; };
 		E85FDF04E65A9CB79ADB0308 /* juce_TimeSliceThread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TimeSliceThread.cpp; path = ../../JuceLibraryCode/modules/juce_core/threads/juce_TimeSliceThread.cpp; sourceTree = SOURCE_ROOT; };
 		E888CB9DF5BAEE8D08EBBD72 /* juce_PropertyPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PropertyPanel.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/properties/juce_PropertyPanel.cpp; sourceTree = SOURCE_ROOT; };
 		E9F49BFBCBEFAA1A998DE3D4 /* juce_ScrollBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ScrollBar.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ScrollBar.h; sourceTree = SOURCE_ROOT; };
@@ -1390,6 +1393,8 @@
 		A2991BEC3076E4E292644017 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E757A47CEFAC4C060425D387 /* AboutComponent.cpp */,
+				8D5EEC97CAA17D1128140A80 /* AboutComponent.h */,
 				4F63C789CCBF1DFD224AB818 /* PagePickerComponent.cpp */,
 				C7D849429980E9C760EA90E4 /* PagePickerComponent.h */,
 				5E17A2459620F4EEF81F2B49 /* lp-net.cpp */,
@@ -1783,6 +1788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F08BFE725314A59AA6F9A9 /* AboutComponent.cpp in Sources */,
 				72BDB0BF1A1A092AB3964100 /* PagePickerComponent.cpp in Sources */,
 				8EC47BBBF25E8C78A5D3DA3D /* lp-net.cpp in Sources */,
 				AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */,
