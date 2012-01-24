@@ -417,7 +417,7 @@
 		A9AE4181D58076862C9D0343 /* juce_MultiTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MultiTimer.cpp; path = ../../JuceLibraryCode/modules/juce_events/timers/juce_MultiTimer.cpp; sourceTree = SOURCE_ROOT; };
 		AA48C88214E8AC7912E5CC52 /* juce_ImageCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ImageCache.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/images/juce_ImageCache.cpp; sourceTree = SOURCE_ROOT; };
 		AC02F197D444AA358F4C3F22 /* juce_ToolbarItemPalette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ToolbarItemPalette.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_ToolbarItemPalette.cpp; sourceTree = SOURCE_ROOT; };
-		AC6A59FDA4577AE71F1E3D8B /* lPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6A59FDA4577AE71F1E3D8B /* iPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E44CB5F30624181212DF0 /* juce_ButtonPropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ButtonPropertyComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/properties/juce_ButtonPropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		ACF6A2F9144335ABAE052EAB /* juce_Value.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Value.cpp; path = ../../JuceLibraryCode/modules/juce_data_structures/values/juce_Value.cpp; sourceTree = SOURCE_ROOT; };
 		AD20DDBDB8958BB47818D84F /* juce_Slider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Slider.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_Slider.h; sourceTree = SOURCE_ROOT; };
@@ -1235,7 +1235,7 @@
 		6E394B05558D404C1358192C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC6A59FDA4577AE71F1E3D8B /* lPanel.app */,
+				AC6A59FDA4577AE71F1E3D8B /* iPanel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1747,7 +1747,7 @@
 			name = iPanel;
 			productInstallPath = "$(HOME)/Applications";
 			productName = iPanel;
-			productReference = AC6A59FDA4577AE71F1E3D8B /* lPanel.app */;
+			productReference = AC6A59FDA4577AE71F1E3D8B /* iPanel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1847,7 +1847,7 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PRODUCT_NAME = lPanel;
+				PRODUCT_NAME = iPanel;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};
@@ -1867,7 +1867,7 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PRODUCT_NAME = lPanel;
+				PRODUCT_NAME = iPanel;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};

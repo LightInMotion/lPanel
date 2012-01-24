@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EAF682C4A9A53E32F9739A67"
-               BuildableName = "lPanel.app"
+               BuildableName = "iPanel.app"
                BlueprintName = "iPanel"
                ReferencedContainer = "container:iPanel.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAF682C4A9A53E32F9739A67"
-            BuildableName = "lPanel.app"
+            BuildableName = "iPanel.app"
             BlueprintName = "iPanel"
             ReferencedContainer = "container:iPanel.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAF682C4A9A53E32F9739A67"
-            BuildableName = "lPanel.app"
+            BuildableName = "iPanel.app"
             BlueprintName = "iPanel"
             ReferencedContainer = "container:iPanel.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAF682C4A9A53E32F9739A67"
-            BuildableName = "lPanel.app"
+            BuildableName = "iPanel.app"
             BlueprintName = "iPanel"
             ReferencedContainer = "container:iPanel.xcodeproj">
          </BuildableReference>
