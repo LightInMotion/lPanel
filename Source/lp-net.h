@@ -19,6 +19,7 @@ public:
 
     //==============================================================================
     // Status
+    void connect();
     bool isConnected();
     void disconnect();
     

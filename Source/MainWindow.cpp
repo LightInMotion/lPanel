@@ -8,6 +8,7 @@
   ==============================================================================
 */
 
+#include "lp-net.h"
 #include "LivePanelComponent.h"
 #include "MainWindow.h"
 
@@ -19,12 +20,22 @@ public:
     
     ContentComp()
     {
-        LivePanelComponent* view = new LivePanelComponent();
+        LivePanelComponent* view = new LivePanelComponent (&lpNet);
         showView (view);
     }
     
     ~ContentComp()
     {
+    }
+    
+    void suspend()
+    {
+        lpNet.disconnect();
+    }
+    
+    void resume()
+    {
+        lpNet.connect();
     }
     
     //==============================================================================
@@ -43,6 +54,7 @@ public:
 
 private:
     ScopedPointer<Component> currentView;
+    LpNet lpNet;
 };
 
 //==============================================================================
@@ -69,6 +81,18 @@ MainAppWindow::MainAppWindow()
 MainAppWindow::~MainAppWindow()
 {
     clearContentComponent();
+}
+
+void MainAppWindow::suspend()
+{
+    ContentComp* contentComp = dynamic_cast<ContentComp*> (getContentComponent());
+    contentComp->suspend();
+}
+
+void MainAppWindow::resume()
+{
+    ContentComp* contentComp = dynamic_cast<ContentComp*> (getContentComponent());
+    contentComp->resume();    
 }
 
 void MainAppWindow::closeButtonPressed()

@@ -23,6 +23,16 @@ LpNet::~LpNet()
 
 
 //==============================================================================
+void LpNet::connect()
+{
+    stopThread (-1);
+    {
+        const ScopedLock lock (criticalSection);
+        serverSocket = nullptr;
+        startThread();
+    }
+}
+
 bool LpNet::isConnected()
 {
     const ScopedLock lock (criticalSection);

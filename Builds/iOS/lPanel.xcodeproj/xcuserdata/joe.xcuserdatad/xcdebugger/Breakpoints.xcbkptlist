@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/Users/joe/Src/lPanel/Source/LivePanelComponent.cpp"
-         timestampString = "348615179.364846"
+         filePath = "/Users/joe/Src/lPanel/Source/MainWindow.cpp"
+         timestampString = "349060603.313774"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "662"
-         endingLineNumber = "662">
+         startingLineNumber = "92"
+         endingLineNumber = "92">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

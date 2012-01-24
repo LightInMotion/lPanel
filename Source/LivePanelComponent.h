@@ -27,7 +27,7 @@ class LivePanelComponent  : public Component,
 {
 public:
     //==============================================================================
-    LivePanelComponent ();
+    LivePanelComponent (LpNet *lpNet);
     ~LivePanelComponent();
 
     //==============================================================================
@@ -78,7 +78,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    LpNet lpNet;        // A network helper
+    LpNet *lpNet;       // A network helper
     bool lastState;     // For connection update
     int pageOffset;     // What part of the page are we showing?
     int lastPage;       // Last page detected

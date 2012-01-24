@@ -38,6 +38,16 @@ public:
         mainWindow = 0;
     }
 
+    void suspendApp()
+    {
+        mainWindow->suspend(); 
+    }
+    
+    void resumeApp()
+    {
+        mainWindow->resume();
+    }
+    
     //==============================================================================
     void systemRequestedQuit()
     {

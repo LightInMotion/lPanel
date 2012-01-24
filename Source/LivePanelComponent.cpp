@@ -5,8 +5,9 @@
     Don't edit this file directly in the jucer
 */
 
-#include "LPNet.h"
+#include "lp-net.h"
 #include "PagePickerComponent.h"
+#include "AboutComponent.h"
 #include "LivePanelComponent.h"
 
 
@@ -14,8 +15,9 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-LivePanelComponent::LivePanelComponent ()
-    : lastState (false),
+LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
+    : lpNet (lpNet_),
+      lastState (false),
       pageOffset (0),
       lastPage (-1),
       timerDivider (0),
@@ -462,10 +464,10 @@ void LivePanelComponent::resized()
     }
     
     //[UserResized] Add your own custom resize handling here..
-    gmLabel->setFont (Font (gmLabel->getHeight() * .8f, Font::plain));
-    funcLabel->setFont (Font (funcLabel->getHeight() * .8f, Font::plain));
-    pageLabel->setFont (Font (pageLabel->getHeight() * .8f, Font::plain));
-    connectLabel->setFont (Font (connectLabel->getHeight() * .8f, Font::plain));
+    gmLabel->setFont (Font (gmLabel->getHeight() * .7f, Font::plain));
+    funcLabel->setFont (Font (funcLabel->getHeight() * .7f, Font::plain));
+    pageLabel->setFont (Font (pageLabel->getHeight() * .7f, Font::plain));
+    connectLabel->setFont (Font (connectLabel->getHeight() * .7f, Font::plain));
     
     for (int n=0 ; n<12 ; n++)
     {
@@ -488,133 +490,133 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == stopButton)
     {
         //[UserButtonCode_stopButton]
-        lpNet.activeStop();
+        lpNet->activeStop();
         //[/UserButtonCode_stopButton]
     }
     else if (buttonThatWasClicked == tapButton)
     {
         //[UserButtonCode_tapButton] -- add your button handler code here..
-        lpNet.activeTap();
+        lpNet->activeTap();
         //[/UserButtonCode_tapButton]
     }
     else if (buttonThatWasClicked == stepButton)
     {
         //[UserButtonCode_stepButton] -- add your button handler code here..
-        lpNet.activeStep();
+        lpNet->activeStep();
         //[/UserButtonCode_stepButton]
     }
     else if (buttonThatWasClicked == forwardButton)
     {
         //[UserButtonCode_forwardButton] -- add your button handler code here..
-        lpNet.activeForward();
+        lpNet->activeForward();
         //[/UserButtonCode_forwardButton]
     }
     else if (buttonThatWasClicked == reverseButton)
     {
         //[UserButtonCode_reverseButton] -- add your button handler code here..
-        lpNet.activeReverse();
+        lpNet->activeReverse();
         //[/UserButtonCode_reverseButton]
     }
     else if (buttonThatWasClicked == ballyButton)
     {
         //[UserButtonCode_ballyButton] -- add your button handler code here..
-        lpNet.activeBally();
+        lpNet->activeBally();
         //[/UserButtonCode_ballyButton]
     }
     else if (buttonThatWasClicked == gmFullOnButton)
     {
         //[UserButtonCode_gmFullOnButton] -- add your button handler code here..
-        lpNet.setGM (8192);
+        lpNet->setGM (8192);
         //[/UserButtonCode_gmFullOnButton]
     }
     else if (buttonThatWasClicked == gmFadeOnButton)
     {
         //[UserButtonCode_gmFadeOnButton] -- add your button handler code here..
-        lpNet.fadeGM (3);
+        lpNet->fadeGM (3);
         //[/UserButtonCode_gmFadeOnButton]
     }
     else if (buttonThatWasClicked == gmFadeOffButton)
     {
         //[UserButtonCode_gmFadeOffButton] -- add your button handler code here..
-        lpNet.fadeGM (-3);
+        lpNet->fadeGM (-3);
         //[/UserButtonCode_gmFadeOffButton]
     }
     else if (buttonThatWasClicked == gmFullOffButton)
     {
         //[UserButtonCode_gmFullOffButton] -- add your button handler code here..
-        lpNet.setGM (0);
+        lpNet->setGM (0);
         //[/UserButtonCode_gmFullOffButton]
     }
     else if (buttonThatWasClicked == recallButton1)
     {
         //[UserButtonCode_recallButton1] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12);
+        lpNet->doRecall (pageOffset * 12);
         //[/UserButtonCode_recallButton1]
     }
     else if (buttonThatWasClicked == recallButton2)
     {
         //[UserButtonCode_recallButton2] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 1);
+        lpNet->doRecall (pageOffset * 12 + 1);
         //[/UserButtonCode_recallButton2]
     }
     else if (buttonThatWasClicked == recallButton3)
     {
         //[UserButtonCode_recallButton3] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 2);
+        lpNet->doRecall (pageOffset * 12 + 2);
         //[/UserButtonCode_recallButton3]
     }
     else if (buttonThatWasClicked == recallButton4)
     {
         //[UserButtonCode_recallButton4] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 3);
+        lpNet->doRecall (pageOffset * 12 + 3);
         //[/UserButtonCode_recallButton4]
     }
     else if (buttonThatWasClicked == recallButton5)
     {
         //[UserButtonCode_recallButton5] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 4);
+        lpNet->doRecall (pageOffset * 12 + 4);
         //[/UserButtonCode_recallButton5]
     }
     else if (buttonThatWasClicked == recallButton6)
     {
         //[UserButtonCode_recallButton6] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 5);
+        lpNet->doRecall (pageOffset * 12 + 5);
         //[/UserButtonCode_recallButton6]
     }
     else if (buttonThatWasClicked == recallButton7)
     {
         //[UserButtonCode_recallButton7] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 6);
+        lpNet->doRecall (pageOffset * 12 + 6);
         //[/UserButtonCode_recallButton7]
     }
     else if (buttonThatWasClicked == recallButton8)
     {
         //[UserButtonCode_recallButton8] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 7);
+        lpNet->doRecall (pageOffset * 12 + 7);
         //[/UserButtonCode_recallButton8]
     }
     else if (buttonThatWasClicked == recallButton9)
     {
         //[UserButtonCode_recallButton9] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 8);
+        lpNet->doRecall (pageOffset * 12 + 8);
         //[/UserButtonCode_recallButton9]
     }
     else if (buttonThatWasClicked == recallButton10)
     {
         //[UserButtonCode_recallButton10] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 9);
+        lpNet->doRecall (pageOffset * 12 + 9);
         //[/UserButtonCode_recallButton10]
     }
     else if (buttonThatWasClicked == recallButton11)
     {
         //[UserButtonCode_recallButton11] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 10);
+        lpNet->doRecall (pageOffset * 12 + 10);
         //[/UserButtonCode_recallButton11]
     }
     else if (buttonThatWasClicked == recallButton12)
     {
         //[UserButtonCode_recallButton12] -- add your button handler code here..
-        lpNet.doRecall (pageOffset * 12 + 11);
+        lpNet->doRecall (pageOffset * 12 + 11);
         //[/UserButtonCode_recallButton12]
     }
     else if (buttonThatWasClicked == funcButton)
@@ -646,14 +648,23 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == pageButton)
     {
         //[UserButtonCode_pageButton] -- add your button handler code here..
-        overlay = new PagePickerComponent (lastPage);
-        addAndMakeVisible (overlay);
-        resized();
+        if (overlay == nullptr)
+        {
+            overlay = new PagePickerComponent (lastPage);
+            addAndMakeVisible (overlay);
+            resized();
+        }
         //[/UserButtonCode_pageButton]
     }
     else if (buttonThatWasClicked == infoButton)
     {
         //[UserButtonCode_infoButton] -- add your button handler code here..
+        if (overlay == nullptr)
+        {
+            overlay = new AboutComponent();
+            addAndMakeVisible (overlay);
+            resized();
+        }
         //[/UserButtonCode_infoButton]
     }
 
@@ -672,14 +683,19 @@ void LivePanelComponent::handleCommandMessage (int commandId)
             PagePickerComponent* picker = dynamic_cast<PagePickerComponent*> (overlay);
             int page = picker->getPage();
             
-            lpNet.setPage (page);
-            lpNet.getPage (&page);
+            lpNet->setPage (page);
+            lpNet->getPage (&page);
             
             removeChildComponent (picker);
             deleteAndZero (overlay);
             
             updatePage();
         }
+    }
+    else if (overlay != nullptr)
+    {
+        removeChildComponent (overlay);
+        deleteAndZero (overlay);
     }
     //[/UserCode_handleCommandMessage]
 }
@@ -690,7 +706,7 @@ void LivePanelComponent::handleCommandMessage (int commandId)
 //==============================================================================
 void LivePanelComponent::timerCallback()
 {
-    bool state = lpNet.isConnected();
+    bool state = lpNet->isConnected();
     if (state != lastState)
     {
         if (state)
@@ -707,7 +723,7 @@ void LivePanelComponent::timerCallback()
         timerDivider=0;
         
         int page;
-        if (lpNet.getPage (&page))
+        if (lpNet->getPage (&page))
         {
             if (page != lastPage)
                 updatePage();
@@ -720,7 +736,7 @@ void LivePanelComponent::updatePage()
 {
     int page;
     
-    if (! lpNet.getPage (&page))
+    if (! lpNet->getPage (&page))
         page = -1;
     
     lastPage = page;
@@ -735,7 +751,7 @@ void LivePanelComponent::updatePage()
     for (int n=0 ; n<12 ; n++)
     {
         LpNet::RecallInfo info;
-        if (! lpNet.getRecall (pageOffset * 12 + n, info))
+        if (! lpNet->getRecall (pageOffset * 12 + n, info))
             info.isActive = false;
         
         (buttons[n])->setImages (false, true, info.isActive ? false
