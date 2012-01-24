@@ -7,9 +7,6 @@
 
 namespace BinaryData
 {
-    extern const char*   testicon3_png;
-    const int            testicon3_pngSize = 13780;
-
     extern const char*   sequence_active2x_png;
     const int            sequence_active2x_pngSize = 13655;
 
