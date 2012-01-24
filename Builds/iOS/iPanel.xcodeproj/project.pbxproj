@@ -20,11 +20,10 @@
 		95FDDE65AE374CCE0BADB4EB /* BinaryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7499B7B144126FC6C2CB4B43 /* BinaryData.cpp */; };
 		A6A6566639D70EDA872B0473 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A26C6DE5715F429AD3964 /* Main.cpp */; };
 		AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A67D3506ED82DD7D3D2F8F /* LivePanelComponent.cpp */; };
-		D85413B514CE8CF900FD1518 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413B014CE8CF900FD1518 /* Default.png */; };
-		D85413B614CE8CF900FD1518 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413B114CE8CF900FD1518 /* Icon-72.png */; };
-		D85413B714CE8CF900FD1518 /* icon-large.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413B214CE8CF900FD1518 /* icon-large.png */; };
-		D85413B814CE8CF900FD1518 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413B314CE8CF900FD1518 /* Icon.png */; };
-		D85413B914CE8CF900FD1518 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413B414CE8CF900FD1518 /* Icon@2x.png */; };
+		D85413C814CE91E500FD1518 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C414CE91E500FD1518 /* Default.png */; };
+		D85413C914CE91E500FD1518 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C514CE91E500FD1518 /* Icon-72.png */; };
+		D85413CA14CE91E500FD1518 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C614CE91E500FD1518 /* Icon.png */; };
+		D85413CB14CE91E500FD1518 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C714CE91E500FD1518 /* Icon@2x.png */; };
 		DB9DA45E42D901F14F8AE78A /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631BE7BA58170A1BD2AEB2D2 /* juce_events.mm */; };
 		E451C3D3DA3A8C25D7B139B1 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA31822F30BD4FB784157C46 /* MainWindow.cpp */; };
 		ED520F5601D23ACFB86F030B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502C977875F44C2FB1E52443 /* UIKit.framework */; };
@@ -421,7 +420,7 @@
 		A9AE4181D58076862C9D0343 /* juce_MultiTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MultiTimer.cpp; path = ../../JuceLibraryCode/modules/juce_events/timers/juce_MultiTimer.cpp; sourceTree = SOURCE_ROOT; };
 		AA48C88214E8AC7912E5CC52 /* juce_ImageCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ImageCache.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/images/juce_ImageCache.cpp; sourceTree = SOURCE_ROOT; };
 		AC02F197D444AA358F4C3F22 /* juce_ToolbarItemPalette.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ToolbarItemPalette.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_ToolbarItemPalette.cpp; sourceTree = SOURCE_ROOT; };
-		AC6A59FDA4577AE71F1E3D8B /* lPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6A59FDA4577AE71F1E3D8B /* iPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E44CB5F30624181212DF0 /* juce_ButtonPropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ButtonPropertyComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/properties/juce_ButtonPropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		ACF6A2F9144335ABAE052EAB /* juce_Value.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Value.cpp; path = ../../JuceLibraryCode/modules/juce_data_structures/values/juce_Value.cpp; sourceTree = SOURCE_ROOT; };
 		AD20DDBDB8958BB47818D84F /* juce_Slider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Slider.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_Slider.h; sourceTree = SOURCE_ROOT; };
@@ -519,11 +518,10 @@
 		D663095768285CA8923A305D /* juce_Variant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Variant.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_Variant.h; sourceTree = SOURCE_ROOT; };
 		D66A104BD93BF76B07B219B5 /* juce_ShapeButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ShapeButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ShapeButton.cpp; sourceTree = SOURCE_ROOT; };
 		D69E1D787791C166B03E1A2C /* juce_XmlElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_XmlElement.h; path = ../../JuceLibraryCode/modules/juce_core/xml/juce_XmlElement.h; sourceTree = SOURCE_ROOT; };
-		D85413B014CE8CF900FD1518 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		D85413B114CE8CF900FD1518 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		D85413B214CE8CF900FD1518 /* icon-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-large.png"; sourceTree = "<group>"; };
-		D85413B314CE8CF900FD1518 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		D85413B414CE8CF900FD1518 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		D85413C414CE91E500FD1518 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D85413C514CE91E500FD1518 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D85413C614CE91E500FD1518 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D85413C714CE91E500FD1518 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		D8B45E47CA79FAF24A8BE90A /* juce_CaretComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CaretComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/keyboard/juce_CaretComponent.h; sourceTree = SOURCE_ROOT; };
 		D9D87846F5FBF3995D147C0A /* juce_mac_FileChooser.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_mac_FileChooser.mm; path = ../../JuceLibraryCode/modules/juce_gui_basics/native/juce_mac_FileChooser.mm; sourceTree = SOURCE_ROOT; };
 		DAB77F507129791887445F98 /* juce_OptionalScopedPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_OptionalScopedPointer.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_OptionalScopedPointer.h; sourceTree = SOURCE_ROOT; };
@@ -1246,7 +1244,7 @@
 		6E394B05558D404C1358192C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC6A59FDA4577AE71F1E3D8B /* lPanel.app */,
+				AC6A59FDA4577AE71F1E3D8B /* iPanel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1735,11 +1733,10 @@
 		FBD41818227DBDCC8ED33244 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D85413B014CE8CF900FD1518 /* Default.png */,
-				D85413B114CE8CF900FD1518 /* Icon-72.png */,
-				D85413B214CE8CF900FD1518 /* icon-large.png */,
-				D85413B314CE8CF900FD1518 /* Icon.png */,
-				D85413B414CE8CF900FD1518 /* Icon@2x.png */,
+				D85413C414CE91E500FD1518 /* Default.png */,
+				D85413C514CE91E500FD1518 /* Icon-72.png */,
+				D85413C614CE91E500FD1518 /* Icon.png */,
+				D85413C714CE91E500FD1518 /* Icon@2x.png */,
 				5315D80CA9B68E66960033A5 /* Info.plist */,
 			);
 			name = Resources;
@@ -1763,7 +1760,7 @@
 			name = iPanel;
 			productInstallPath = "$(HOME)/Applications";
 			productName = iPanel;
-			productReference = AC6A59FDA4577AE71F1E3D8B /* lPanel.app */;
+			productReference = AC6A59FDA4577AE71F1E3D8B /* iPanel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1795,11 +1792,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85413B514CE8CF900FD1518 /* Default.png in Resources */,
-				D85413B614CE8CF900FD1518 /* Icon-72.png in Resources */,
-				D85413B714CE8CF900FD1518 /* icon-large.png in Resources */,
-				D85413B814CE8CF900FD1518 /* Icon.png in Resources */,
-				D85413B914CE8CF900FD1518 /* Icon@2x.png in Resources */,
+				D85413C814CE91E500FD1518 /* Default.png in Resources */,
+				D85413C914CE91E500FD1518 /* Icon-72.png in Resources */,
+				D85413CA14CE91E500FD1518 /* Icon.png in Resources */,
+				D85413CB14CE91E500FD1518 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1867,7 +1863,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				PRODUCT_NAME = lPanel;
+				PRODUCT_NAME = iPanel;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wreorder";
@@ -1891,7 +1887,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				PRODUCT_NAME = lPanel;
+				PRODUCT_NAME = iPanel;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wreorder";
