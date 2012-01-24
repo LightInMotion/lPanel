@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  23 Jan 2012 12:54:38pm
+  Creation date:  23 Jan 2012 10:23:00pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -46,7 +46,7 @@ AboutComponent::AboutComponent ()
     nameLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (infoLabel = new Label (L"Info Label",
-                                              L"iPanel is part of the BlueLite X1 family of DMX control products\n\nIt allows you to remotely control part of the \'Live Panel\' screen\n\nKeep your show lighting intereesting even when you are away from the control booth\n\nFor more information, free downloads, or help, visit us online at:"));
+                                              L"This application is part of the BlueLite X1 family of DMX control products\n\nIt allows you to remotely control part of the \'Live Panel\' screen\n\nKeep your show lighting interesting even when you are away from the control booth\n\nFor more information, free downloads, or help, visit us online at:"));
     infoLabel->setFont (Font (16.0000f, Font::plain));
     infoLabel->setJustificationType (Justification::centredTop);
     infoLabel->setEditable (false, false, false);
@@ -78,6 +78,10 @@ AboutComponent::AboutComponent ()
 
 
     //[Constructor] You can add your own custom stuff here..
+    String n = ProjectInfo::projectName;
+    n << ' ';
+    n << ProjectInfo::versionString;
+    nameLabel->setText (n, false);
     //[/Constructor]
 }
 
@@ -118,9 +122,8 @@ void AboutComponent::resized()
 {
     nameLabel->setBounds (proportionOfWidth (0.0748f), proportionOfHeight (0.2661f), proportionOfWidth (0.8474f), proportionOfHeight (0.0499f));
     infoLabel->setBounds (proportionOfWidth (0.0748f), proportionOfHeight (0.3326f), proportionOfWidth (0.8474f), proportionOfHeight (0.4158f));
-    textButton->setBounds (proportionOfWidth (0.2617f), proportionOfHeight (0.8981f), proportionOfWidth (0.4673f), proportionOfHeight (0.0665f));
-    hyperlinkButton->setBounds (proportionOfWidth (0.2368f), proportionOfHeight (0.7817f), proportionOfWidth (0.5109f), proportionOfHeight (0.0665f));
-    
+    textButton->setBounds (proportionOfWidth (0.1994f), proportionOfHeight (0.8815f), proportionOfWidth (0.5857f), proportionOfHeight (0.0832f));
+    hyperlinkButton->setBounds (proportionOfWidth (0.1869f), proportionOfHeight (0.7568f), proportionOfWidth (0.6106f), proportionOfHeight (0.0832f));
     //[UserResized] Add your own custom resize handling here..
     nameLabel->setFont (Font (nameLabel->getHeight() * .7f, Font::plain));
     if (getWidth() < getHeight())
@@ -176,15 +179,15 @@ BEGIN_JUCER_METADATA
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
   <LABEL name="Info Label" id="edfb60ceff15bd9c" memberName="infoLabel"
          virtualName="" explicitFocusOrder="0" pos="7.477% 33.264% 84.735% 41.58%"
-         textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="iPanel is part of the BlueLite X1 family of DMX control products&#10;&#10;It allows you to remotely control part of the 'Live Panel' screen&#10;&#10;Keep your show lighting intereesting even when you are away from the control booth&#10;&#10;For more information, free downloads, or help, visit us online at:"
+         textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="This application is part of the BlueLite X1 family of DMX control products&#10;&#10;It allows you to remotely control part of the 'Live Panel' screen&#10;&#10;Keep your show lighting interesting even when you are away from the control booth&#10;&#10;For more information, free downloads, or help, visit us online at:"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="16" bold="0" italic="0" justification="12"/>
   <TEXTBUTTON name="new button" id="7a7b81ad7911a890" memberName="textButton"
-              virtualName="" explicitFocusOrder="0" pos="26.168% 89.813% 46.729% 6.653%"
+              virtualName="" explicitFocusOrder="0" pos="19.938% 88.15% 58.567% 8.316%"
               bgColOff="ff0000ff" textCol="ffffffff" textColOn="ffffffff" buttonText="Done"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <HYPERLINKBUTTON name="new hyperlink" id="16ebdae3bad47fe2" memberName="hyperlinkButton"
-                   virtualName="" explicitFocusOrder="0" pos="23.676% 78.17% 51.09% 6.653%"
+                   virtualName="" explicitFocusOrder="0" pos="18.692% 75.676% 61.059% 8.316%"
                    tooltip="http://www.limsc.co" textCol="ec6c6cee" buttonText="www.limsc.co"
                    connectedEdges="0" needsCallback="0" radioGroupId="0" url="http://www.limsc.co"/>
 </JUCER_COMPONENT>
