@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="co.limsc.lPanel" jucerVersion="3.0.0" bigIcon="FUbVO4">
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"/>
+    <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules"/>
+    <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" juceFolder="../juce/modules"/>
+    <ANDROID targetFolder="Builds/Android" androidSDKPath="${user.home}/SDKs/android-sdk-macosx"
+             androidNDKPath="${user.home}/SDKs/android-ndk-r7" androidInternetNeeded="1"
+             juceFolder="../juce/modules"/>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../juce/modules"/>
+  </EXPORTFORMATS>
+  <CONFIGURATIONS>
+    <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="lPanel"
+                   osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+    <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="lPanel"
+                   osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+  </CONFIGURATIONS>
+  <MAINGROUP id="xTGfBl" name="iPanel">
+    <GROUP id="{33D4128C-1CDB-B835-8181-111033196E06}" name="Binary Data">
+      <FILE id="i6pj5z" name="info.png" compile="0" resource="1" file="Images/info.png"/>
+      <FILE id="FUbVO4" name="test-icon3.png" compile="0" resource="0" file="Images/test-icon3.png"/>
+      <FILE id="pwm19v" name="sequence_active@2x.png" compile="0" resource="1"
+            file="Images/sequence_active@2x.png"/>
+      <FILE id="XJ1woa" name="sequence_inactive@2x.png" compile="0" resource="1"
+            file="Images/sequence_inactive@2x.png"/>
+    </GROUP>
+    <GROUP id="{FCCA27CA-1BB9-8B82-A6BB-3C2B382A503C}" name="Source">
+      <FILE id="LxiytW" name="AboutComponent.cpp" compile="1" resource="0"
+            file="Source/AboutComponent.cpp"/>
+      <FILE id="GBoYnd" name="AboutComponent.h" compile="0" resource="0"
+            file="Source/AboutComponent.h"/>
+      <FILE id="a6M7ZG" name="PagePickerComponent.cpp" compile="1" resource="0"
+            file="Source/PagePickerComponent.cpp"/>
+      <FILE id="qYtFrd" name="PagePickerComponent.h" compile="0" resource="0"
+            file="Source/PagePickerComponent.h"/>
+      <FILE id="VLgjQg" name="lp-net.cpp" compile="1" resource="0" file="Source/lp-net.cpp"/>
+      <FILE id="m7kGLS" name="lp-net.h" compile="0" resource="0" file="Source/lp-net.h"/>
+      <FILE id="FuYl8v" name="LPNet.h" compile="0" resource="0" file="Source/LPNet.h"/>
+      <FILE id="lZ7lNr" name="LivePanelComponent.cpp" compile="1" resource="0"
+            file="Source/LivePanelComponent.cpp"/>
+      <FILE id="heNkZD" name="LivePanelComponent.h" compile="0" resource="0"
+            file="Source/LivePanelComponent.h"/>
+      <FILE id="rnfEzn" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
+      <FILE id="UX4Uos" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
+      <FILE id="RYPzYD" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_FORCE_DEBUG="disabled" JUCE_USE_DIRECTWRITE="disabled"/>
+</JUCERPROJECT>

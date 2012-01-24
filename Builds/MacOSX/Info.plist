@@ -10,7 +10,7 @@
     <key>CFBundleIdentifier</key>
     <string>co.limsc.lPanel</string>
     <key>CFBundleName</key>
-    <string>lPanel</string>
+    <string>iPanel</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>

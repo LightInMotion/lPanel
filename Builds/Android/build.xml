@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="lPanel" default="debug">
+<project name="iPanel" default="debug">
   <loadproperties srcFile="local.properties"/>
   <loadproperties srcFile="project.properties"/>
   <path id="android.antlibs">

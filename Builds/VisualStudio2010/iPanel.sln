@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{7E5F5A17-7538-80B0-C947-E68AE0508A3B}") = "iPanel", "iPanel.vcxproj", "{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}.Debug|Win32.Build.0 = Debug|Win32
+		{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}.Release|Win32.ActiveCfg = Release|Win32
+		{D9CDAEA6-3D08-BE32-C7DA-345FA0FBDDB2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
