@@ -20,6 +20,7 @@
 		95FDDE65AE374CCE0BADB4EB /* BinaryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7499B7B144126FC6C2CB4B43 /* BinaryData.cpp */; };
 		A6A6566639D70EDA872B0473 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A26C6DE5715F429AD3964 /* Main.cpp */; };
 		AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A67D3506ED82DD7D3D2F8F /* LivePanelComponent.cpp */; };
+		D829148714CF3400004CC5BA /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D829148614CF3400004CC5BA /* Entitlements.plist */; };
 		D85413C814CE91E500FD1518 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C414CE91E500FD1518 /* Default.png */; };
 		D85413C914CE91E500FD1518 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C514CE91E500FD1518 /* Icon-72.png */; };
 		D85413CA14CE91E500FD1518 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C614CE91E500FD1518 /* Icon.png */; };
@@ -518,6 +519,7 @@
 		D663095768285CA8923A305D /* juce_Variant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Variant.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_Variant.h; sourceTree = SOURCE_ROOT; };
 		D66A104BD93BF76B07B219B5 /* juce_ShapeButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ShapeButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ShapeButton.cpp; sourceTree = SOURCE_ROOT; };
 		D69E1D787791C166B03E1A2C /* juce_XmlElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_XmlElement.h; path = ../../JuceLibraryCode/modules/juce_core/xml/juce_XmlElement.h; sourceTree = SOURCE_ROOT; };
+		D829148614CF3400004CC5BA /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D85413C414CE91E500FD1518 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D85413C514CE91E500FD1518 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		D85413C614CE91E500FD1518 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -1433,6 +1435,7 @@
 		A6510C263E0E4A44C3CBBF37 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D829148614CF3400004CC5BA /* Entitlements.plist */,
 				71197D7DD9AC3A9DBF57F2FB /* iPanel */,
 				65D8B1329C28CCF0B46E4449 /* Juce Modules */,
 				7B65050454A6325D0AC7D16A /* Juce Library Code */,
@@ -1796,6 +1799,7 @@
 				D85413C914CE91E500FD1518 /* Icon-72.png in Resources */,
 				D85413CA14CE91E500FD1518 /* Icon.png in Resources */,
 				D85413CB14CE91E500FD1518 /* Icon@2x.png in Resources */,
+				D829148714CF3400004CC5BA /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1851,7 +1855,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joe Fitzpatrick";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joe Fitzpatrick";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -1862,8 +1867,10 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = iPanel;
+				PROVISIONING_PROFILE = "99BD2287-7DAF-4539-89E7-5AEA16937D10";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "99BD2287-7DAF-4539-89E7-5AEA16937D10";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wreorder";
@@ -1875,7 +1882,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joe Fitzpatrick (UFCF8G2WZZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joe Fitzpatrick (UFCF8G2WZZ)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -1886,8 +1894,10 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = iPanel;
+				PROVISIONING_PROFILE = "3C7D570A-C96E-48EA-836B-466236ADBAC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C7D570A-C96E-48EA-836B-466236ADBAC4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wreorder";
@@ -1919,6 +1929,57 @@
 			};
 			name = Debug;
 		};
+		D829148314CF331B004CC5BA /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joe Fitzpatrick";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joe Fitzpatrick";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = iPanel;
+				PROVISIONING_PROFILE = "99BD2287-7DAF-4539-89E7-5AEA16937D10";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "99BD2287-7DAF-4539-89E7-5AEA16937D10";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wreorder";
+				ZERO_LINK = NO;
+			};
+			name = Distribution;
+		};
+		D829148414CF331B004CC5BA /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_NDEBUG=1",
+					"NDEBUG=1",
+					"JUCE_ObjCExtraSuffix=sXoyQo",
+					"JUCER_XCODE_IPHONE_5BC26AE3=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					../../JuceLibraryCode,
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1927,6 +1988,7 @@
 			buildConfigurations = (
 				3E1076DEC9E4D468C1C88868 /* Debug */,
 				31FB1EA7835DD6B68A7B9CAC /* Release */,
+				D829148314CF331B004CC5BA /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1936,6 +1998,7 @@
 			buildConfigurations = (
 				B30D1D9C1D90078520C31C16 /* Debug */,
 				18C59BEF9ADD72C74C1C653A /* Release */,
+				D829148414CF331B004CC5BA /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
