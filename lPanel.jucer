@@ -5,11 +5,11 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"/>
     <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules"/>
-    <VS2005 targetFolder="Builds/VisualStudio2005" libraryType="1" juceFolder="../juce/modules"/>
     <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" juceFolder="../juce/modules"/>
     <ANDROID targetFolder="Builds/Android" androidSDKPath="${user.home}/SDKs/android-sdk-macosx"
              androidNDKPath="${user.home}/SDKs/android-ndk-r7" androidInternetNeeded="1"
              juceFolder="../juce/modules"/>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../juce/modules"/>
   </EXPORTFORMATS>
   <CONFIGURATIONS>
     <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="lPanel"
