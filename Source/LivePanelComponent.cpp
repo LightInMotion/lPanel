@@ -428,7 +428,7 @@ void LivePanelComponent::resized()
         connectLabel->setBounds (proportionOfWidth (0.2489f), proportionOfHeight (0.0187f), proportionOfWidth (0.5111f), proportionOfHeight (0.0343f));
         pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
         pageLabel->setBounds (proportionOfWidth (0.1311f), proportionOfHeight (0.0218f), proportionOfWidth (0.2267f), proportionOfHeight (0.0280f));
-        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.007), proportionOfWidth (0.0781f), proportionOfHeight (0.0521f));
+        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.007f), proportionOfWidth (0.0781f), proportionOfHeight (0.0521f));
     }
     else
     {
