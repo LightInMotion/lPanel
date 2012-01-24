@@ -54,14 +54,14 @@ typedef signed long S32;
 
 // All in BIG Endian !!!!
 typedef struct {
-	U8 ProtoID[8];               // protocol ID = "IMS Net"
+	U8 ProtoID[8];               // protocol ID = "LIMSClp"
 	U16 OpCode;                  // == LPNET_OPCODE_POLL
 	U8 VersionH;                 // 0
 	U8 VersionL;                 // protocol version, set to LPNET_VERSION
 } LPNET_POLL;
 
 typedef struct {
-	U8 ProtoID[8];               // protocol ID = "IMS Net"
+	U8 ProtoID[8];               // protocol ID = "LIMSClp"
 	U16 OpCode;                  // == LPNET_OPCODE_POLLREPLY
 	U8 VersionH;                 // 0
 	U8 VersionL;                 // protocol version, set to LPNET_VERSION
@@ -81,8 +81,8 @@ typedef struct {
 
 	LPCMD_CUES is the exception, the parameter is a null terminated string
 */
-										//									VAL			PAR
-#define LPCMD_GM (0)				// Set GM						0-8192		unused
+                                //									VAL			PAR
+#define LPCMD_GM (0)			// Set GM						0-8192		unused
 #define LPCMD_GM_FADE (1)		// Fade GM						+/-time		unused
 
 	// Time
