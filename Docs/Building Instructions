@@ -1,0 +1,30 @@
+In the subfolder "Builds" there is a folder for each build target.
+
+Mac, iOS, and Windows are very straight forward. You either need
+XCode from Apple (Mac and iOS) or Visual Studio 2010 from
+Microsoft (Windows).
+
+The free versions should open and build the included  projects
+just fine, let us know if they do not.
+
+The Linux folder simply contains a make file, since Linux always
+includes a build environment. However, the system may not have
+all the referenced development libraries. For Ununtu Linux I had
+to install the following on a fresh install:
+
+sudo apt-get -y install g++
+sudo apt-get -y install libfreetype6-dev
+sudo apt-get -y install libx11-dev
+sudo apt-get -y install libxinerama-dev
+sudo apt-get -y install libxcursor-dev
+sudo apt-get -y install mesa-common-dev
+sudo apt-get -y install libasound2-dev
+sudo apt-get -y install freeglut3-dev
+
+Android is, well, hell. See developer.android.com. You'll need the
+latest SDK and NDK. AFTER you have the NDK samples building and
+running you can build the native library with "ant debug" or "ant
+release" from the command line. For the Java/packaging part, create
+a new Android project in Eclipse "from existing sources" and point
+to the Builds/Android folder.
+
