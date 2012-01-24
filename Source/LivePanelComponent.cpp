@@ -285,7 +285,7 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
     infoButton->addListener (this);
 
     infoButton->setImages (false, true, true,
-                           ImageCache::getFromMemory (info_2x_png, info_2x_pngSize), 0.9487f, Colour (0x0),
+                           ImageCache::getFromMemory (BinaryData::info_png, BinaryData::info_pngSize), 0.9487f, Colour (0x0),
                            Image(), 1.0000f, Colour (0x0),
                            Image(), 1.0000f, Colour (0x20000000));
 
@@ -428,7 +428,7 @@ void LivePanelComponent::resized()
         connectLabel->setBounds (proportionOfWidth (0.2489f), proportionOfHeight (0.0187f), proportionOfWidth (0.5111f), proportionOfHeight (0.0343f));
         pageButton->setBounds (proportionOfWidth (0.0378f), proportionOfHeight (0.0031f), proportionOfWidth (0.0933f), proportionOfHeight (0.0654f));
         pageLabel->setBounds (proportionOfWidth (0.1311f), proportionOfHeight (0.0218f), proportionOfWidth (0.2267f), proportionOfHeight (0.0280f));
-        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.0134f), proportionOfWidth (0.0559f), proportionOfHeight (0.0400f));
+        infoButton->setBounds (proportionOfWidth (0.8910f), proportionOfHeight (0.007), proportionOfWidth (0.0781f), proportionOfHeight (0.0521f));
     }
     else
     {
@@ -460,7 +460,7 @@ void LivePanelComponent::resized()
         connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
         pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
         pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), proportionOfHeight (0.0498f));
-        infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (0.0187f), proportionOfWidth (0.0401f), proportionOfHeight (0.0561f));
+        infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (.004f), proportionOfWidth (0.0521f), proportionOfHeight (0.0781f));
     }
     
     //[UserResized] Add your own custom resize handling here..
@@ -3133,17 +3133,3 @@ static const unsigned char resource_LivePanelComponent_smallButton_2x_png[] = { 
 const char* LivePanelComponent::smallButton_2x_png = (const char*) resource_LivePanelComponent_smallButton_2x_png;
 const int LivePanelComponent::smallButton_2x_pngSize = 1861;
 
-// JUCER_RESOURCE: info_2x_png, 533, "../Images/info@2x.png"
-static const unsigned char resource_LivePanelComponent_info_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,36,0,0,0,36,8,6,0,0,0,225,0,152,152,0,0,0,1,115,82,71,66,0,174,206,28,233,0,
-0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,220,1,15,1,25,53,0,90,72,30,0,0,0,34,116,69,88,116,67,111,109,109,101,
-110,116,0,67,114,101,97,116,101,100,32,119,105,116,104,32,71,73,77,80,32,111,110,32,97,32,77,97,99,135,168,119,67,0,0,1,103,73,68,65,84,88,195,213,88,81,82,196,32,12,37,41,109,71,61,142,247,191,138,7,
-80,63,28,119,183,74,9,27,191,186,51,50,235,10,225,81,199,252,150,132,151,215,23,2,113,14,96,33,172,26,194,170,136,88,84,235,16,99,84,239,125,209,90,17,113,227,56,82,23,64,170,218,196,0,17,21,237,197,37,
-140,180,130,217,18,138,49,106,19,67,8,32,181,108,209,222,96,126,3,197,72,48,148,217,103,8,213,236,19,18,140,37,185,220,143,115,1,187,157,45,223,147,80,186,177,50,148,251,242,94,34,46,173,102,70,5,149,
-148,20,161,71,70,105,103,96,118,154,153,69,75,244,215,191,43,215,146,71,4,65,158,101,102,13,189,189,31,158,74,27,102,141,121,36,43,8,227,218,139,85,79,48,33,172,202,45,96,122,20,3,207,243,100,202,88,85,
-117,89,62,174,126,123,126,121,125,180,196,156,231,137,170,203,158,136,104,91,143,174,48,34,34,182,48,227,156,115,135,227,169,207,89,100,205,8,205,206,55,134,68,164,202,177,7,59,27,6,178,100,246,19,59,
-146,146,14,204,102,118,160,221,126,107,176,49,202,229,42,219,212,58,74,3,220,90,151,206,103,55,77,35,181,232,145,175,253,71,115,31,26,134,75,224,117,45,235,0,249,158,213,151,252,18,38,143,167,69,31,238,
-239,76,122,100,116,175,106,1,99,122,40,222,2,140,168,84,70,116,117,73,73,17,96,138,166,31,53,227,23,196,120,230,255,141,99,242,119,123,205,209,32,210,118,72,54,221,244,80,35,189,47,114,208,7,123,195,141,
-118,42,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
-
-const char* LivePanelComponent::info_2x_png = (const char*) resource_LivePanelComponent_info_2x_png;
-const int LivePanelComponent::info_2x_pngSize = 533;
