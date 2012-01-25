@@ -338,12 +338,12 @@ extern ThreadLocalJNIEnvHolder threadLocalJNIEnvHolder;
  METHOD (setClipboardContent,    "setClipboardContent",  "(Ljava/lang/String;)V") \
  METHOD (excludeClipRegion,      "excludeClipRegion",    "(Landroid/graphics/Canvas;FFFF)V") \
  METHOD (renderGlyph,            "renderGlyph",          "(CLandroid/graphics/Paint;Landroid/graphics/Matrix;Landroid/graphics/Rect;)[I") \
- STATICMETHOD (createHTTPStream, "createHTTPStream",     "(Ljava/lang/String;Z[BLjava/lang/String;ILjava/lang/StringBuffer;)Lcom/limsc/iPanel/JuceAppActivity$HTTPStream;") \
+ STATICMETHOD (createHTTPStream, "createHTTPStream",     "(Ljava/lang/String;Z[BLjava/lang/String;ILjava/lang/StringBuffer;)Lcom/limsc/iPanel/iPanelAppActivity$HTTPStream;") \
  METHOD (showMessageBox,         "showMessageBox",       "(Ljava/lang/String;Ljava/lang/String;J)V") \
  METHOD (showOkCancelBox,        "showOkCancelBox",      "(Ljava/lang/String;Ljava/lang/String;J)V") \
  METHOD (showYesNoCancelBox,     "showYesNoCancelBox",   "(Ljava/lang/String;Ljava/lang/String;J)V") \
 
-DECLARE_JNI_CLASS (JuceAppActivity, "com/limsc/iPanel/JuceAppActivity");
+DECLARE_JNI_CLASS (iPanelAppActivity, "com/limsc/iPanel/iPanelAppActivity");
 #undef JNI_CLASS_MEMBERS
 
 //==============================================================================

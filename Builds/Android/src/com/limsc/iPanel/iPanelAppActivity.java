@@ -48,7 +48,7 @@ import java.net.URL;
 import java.net.HttpURLConnection;
 
 //==============================================================================
-public final class JuceAppActivity   extends Activity
+public final class iPanelAppActivity   extends Activity
 {
     //==============================================================================
     static
@@ -181,7 +181,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 0);
+                            iPanelAppActivity.this.alertDismissed (callback, 0);
                         }
                     });
 
@@ -199,7 +199,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 1);
+                            iPanelAppActivity.this.alertDismissed (callback, 1);
                         }
                     })
                .setNegativeButton ("Cancel", new DialogInterface.OnClickListener()
@@ -207,7 +207,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 0);
+                            iPanelAppActivity.this.alertDismissed (callback, 0);
                         }
                     });
 
@@ -225,7 +225,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 1);
+                            iPanelAppActivity.this.alertDismissed (callback, 1);
                         }
                     })
                .setNegativeButton ("No", new DialogInterface.OnClickListener()
@@ -233,7 +233,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 2);
+                            iPanelAppActivity.this.alertDismissed (callback, 2);
                         }
                     })
                .setNeutralButton ("Cancel", new DialogInterface.OnClickListener()
@@ -241,7 +241,7 @@ public final class JuceAppActivity   extends Activity
                         public void onClick (DialogInterface dialog, int id)
                         {
                             dialog.cancel();
-                            JuceAppActivity.this.alertDismissed (callback, 0);
+                            iPanelAppActivity.this.alertDismissed (callback, 0);
                         }
                     });
 
