@@ -76,7 +76,7 @@ DECLARE_JNI_CLASS (CanvasMinimal, "android/graphics/Canvas");
  METHOD (invalidate,    "invalidate",       "(IIII)V") \
  METHOD (containsPoint, "containsPoint",    "(II)Z") \
 
-DECLARE_JNI_CLASS (ComponentPeerView, "com/juce/ComponentPeerView");
+DECLARE_JNI_CLASS (ComponentPeerView, "com/limsc/iPanel/ComponentPeerView");
 #undef JNI_CLASS_MEMBERS
 
 

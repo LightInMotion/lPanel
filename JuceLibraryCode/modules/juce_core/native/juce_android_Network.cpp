@@ -40,7 +40,7 @@ DECLARE_JNI_CLASS (StringBuffer, "java/lang/StringBuffer");
  METHOD (isExhausted, "isExhausted", "()Z") \
  METHOD (setPosition, "setPosition", "(J)Z") \
 
-DECLARE_JNI_CLASS (HTTPStream, "com/juce/JuceAppActivity$HTTPStream");
+DECLARE_JNI_CLASS (HTTPStream, "com/limsc/iPanel/JuceAppActivity$HTTPStream");
 #undef JNI_CLASS_MEMBERS
 
 
