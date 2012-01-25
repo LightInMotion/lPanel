@@ -35,5 +35,9 @@
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
 </dict>
 </plist>

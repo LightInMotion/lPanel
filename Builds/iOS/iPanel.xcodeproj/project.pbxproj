@@ -21,10 +21,10 @@
 		A6A6566639D70EDA872B0473 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A26C6DE5715F429AD3964 /* Main.cpp */; };
 		AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A67D3506ED82DD7D3D2F8F /* LivePanelComponent.cpp */; };
 		D829148714CF3400004CC5BA /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D829148614CF3400004CC5BA /* Entitlements.plist */; };
-		D85413C814CE91E500FD1518 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C414CE91E500FD1518 /* Default.png */; };
 		D85413C914CE91E500FD1518 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C514CE91E500FD1518 /* Icon-72.png */; };
 		D85413CA14CE91E500FD1518 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C614CE91E500FD1518 /* Icon.png */; };
 		D85413CB14CE91E500FD1518 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D85413C714CE91E500FD1518 /* Icon@2x.png */; };
+		D8572F3114CFD46D005E6177 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D8572F3014CFD46D005E6177 /* Default.png */; };
 		DB9DA45E42D901F14F8AE78A /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631BE7BA58170A1BD2AEB2D2 /* juce_events.mm */; };
 		E451C3D3DA3A8C25D7B139B1 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA31822F30BD4FB784157C46 /* MainWindow.cpp */; };
 		ED520F5601D23ACFB86F030B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502C977875F44C2FB1E52443 /* UIKit.framework */; };
@@ -520,10 +520,10 @@
 		D66A104BD93BF76B07B219B5 /* juce_ShapeButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ShapeButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ShapeButton.cpp; sourceTree = SOURCE_ROOT; };
 		D69E1D787791C166B03E1A2C /* juce_XmlElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_XmlElement.h; path = ../../JuceLibraryCode/modules/juce_core/xml/juce_XmlElement.h; sourceTree = SOURCE_ROOT; };
 		D829148614CF3400004CC5BA /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		D85413C414CE91E500FD1518 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D85413C514CE91E500FD1518 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		D85413C614CE91E500FD1518 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D85413C714CE91E500FD1518 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		D8572F3014CFD46D005E6177 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D8B45E47CA79FAF24A8BE90A /* juce_CaretComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CaretComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/keyboard/juce_CaretComponent.h; sourceTree = SOURCE_ROOT; };
 		D9D87846F5FBF3995D147C0A /* juce_mac_FileChooser.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_mac_FileChooser.mm; path = ../../JuceLibraryCode/modules/juce_gui_basics/native/juce_mac_FileChooser.mm; sourceTree = SOURCE_ROOT; };
 		DAB77F507129791887445F98 /* juce_OptionalScopedPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_OptionalScopedPointer.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_OptionalScopedPointer.h; sourceTree = SOURCE_ROOT; };
@@ -1736,7 +1736,7 @@
 		FBD41818227DBDCC8ED33244 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D85413C414CE91E500FD1518 /* Default.png */,
+				D8572F3014CFD46D005E6177 /* Default.png */,
 				D85413C514CE91E500FD1518 /* Icon-72.png */,
 				D85413C614CE91E500FD1518 /* Icon.png */,
 				D85413C714CE91E500FD1518 /* Icon@2x.png */,
@@ -1795,11 +1795,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85413C814CE91E500FD1518 /* Default.png in Resources */,
 				D85413C914CE91E500FD1518 /* Icon-72.png in Resources */,
 				D85413CA14CE91E500FD1518 /* Icon.png in Resources */,
 				D85413CB14CE91E500FD1518 /* Icon@2x.png in Resources */,
 				D829148714CF3400004CC5BA /* Entitlements.plist in Resources */,
+				D8572F3114CFD46D005E6177 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

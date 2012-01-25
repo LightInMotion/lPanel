@@ -45,6 +45,7 @@ void LpNet::disconnect()
 {
     const ScopedLock lock (criticalSection);
     serverSocket = nullptr;
+    startThread();
 }
 
 
