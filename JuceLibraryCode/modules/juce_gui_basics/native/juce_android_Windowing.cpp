@@ -44,6 +44,16 @@ JUCE_JNI_CALLBACK (iPanelAppActivity, launchApp, void, (JNIEnv* env, jobject act
         exit (0);
 }
 
+JUCE_JNI_CALLBACK (iPanelAppActivity, pauseApp, void, (JNIEnv* env, jobject activity))
+{
+    JUCEApplicationBase::appWillSuspend();
+}
+
+JUCE_JNI_CALLBACK (iPanelAppActivity, resumeApp, void, (JNIEnv* env, jobject activity))
+{
+    JUCEApplicationBase::appWillResume();
+}
+
 JUCE_JNI_CALLBACK (iPanelAppActivity, quitApp, void, (JNIEnv* env, jobject activity))
 {
     JUCEApplicationBase::appWillTerminateByForce();
