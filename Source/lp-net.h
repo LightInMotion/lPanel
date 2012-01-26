@@ -21,7 +21,7 @@ public:
     // Status
     void connect();
     bool isConnected();
-    void disconnect();
+    void disconnect(bool startDiscovery=true);
     
     // Grand Master
     bool setGM (int value);

@@ -30,11 +30,12 @@ public:
     
     void suspend()
     {
-        lpNet.disconnect();
+        lpNet.disconnect (false);
     }
     
     void resume()
     {
+        lpNet.connect();
     }
     
     //==============================================================================

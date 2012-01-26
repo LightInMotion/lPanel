@@ -41,11 +41,12 @@ bool LpNet::isConnected()
     return false;
 }
 
-void LpNet::disconnect()
+void LpNet::disconnect(bool startDiscovery)
 {
     const ScopedLock lock (criticalSection);
     serverSocket = nullptr;
-    startThread();
+    if (startDiscovery)
+        startThread();
 }
 
 
