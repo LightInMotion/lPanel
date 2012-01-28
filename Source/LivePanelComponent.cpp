@@ -487,139 +487,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == stopButton)
-    {
-        //[UserButtonCode_stopButton]
-        lpNet->activeStop();
-        //[/UserButtonCode_stopButton]
-    }
-    else if (buttonThatWasClicked == tapButton)
-    {
-        //[UserButtonCode_tapButton] -- add your button handler code here..
-        lpNet->activeTap();
-        //[/UserButtonCode_tapButton]
-    }
-    else if (buttonThatWasClicked == stepButton)
-    {
-        //[UserButtonCode_stepButton] -- add your button handler code here..
-        lpNet->activeStep();
-        //[/UserButtonCode_stepButton]
-    }
-    else if (buttonThatWasClicked == forwardButton)
-    {
-        //[UserButtonCode_forwardButton] -- add your button handler code here..
-        lpNet->activeForward();
-        //[/UserButtonCode_forwardButton]
-    }
-    else if (buttonThatWasClicked == reverseButton)
-    {
-        //[UserButtonCode_reverseButton] -- add your button handler code here..
-        lpNet->activeReverse();
-        //[/UserButtonCode_reverseButton]
-    }
-    else if (buttonThatWasClicked == ballyButton)
-    {
-        //[UserButtonCode_ballyButton] -- add your button handler code here..
-        lpNet->activeBally();
-        //[/UserButtonCode_ballyButton]
-    }
-    else if (buttonThatWasClicked == gmFullOnButton)
-    {
-        //[UserButtonCode_gmFullOnButton] -- add your button handler code here..
-        lpNet->setGM (8192);
-        //[/UserButtonCode_gmFullOnButton]
-    }
-    else if (buttonThatWasClicked == gmFadeOnButton)
-    {
-        //[UserButtonCode_gmFadeOnButton] -- add your button handler code here..
-        lpNet->fadeGM (3);
-        //[/UserButtonCode_gmFadeOnButton]
-    }
-    else if (buttonThatWasClicked == gmFadeOffButton)
-    {
-        //[UserButtonCode_gmFadeOffButton] -- add your button handler code here..
-        lpNet->fadeGM (-3);
-        //[/UserButtonCode_gmFadeOffButton]
-    }
-    else if (buttonThatWasClicked == gmFullOffButton)
-    {
-        //[UserButtonCode_gmFullOffButton] -- add your button handler code here..
-        lpNet->setGM (0);
-        //[/UserButtonCode_gmFullOffButton]
-    }
-    else if (buttonThatWasClicked == recallButton1)
-    {
-        //[UserButtonCode_recallButton1] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12);
-        //[/UserButtonCode_recallButton1]
-    }
-    else if (buttonThatWasClicked == recallButton2)
-    {
-        //[UserButtonCode_recallButton2] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 1);
-        //[/UserButtonCode_recallButton2]
-    }
-    else if (buttonThatWasClicked == recallButton3)
-    {
-        //[UserButtonCode_recallButton3] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 2);
-        //[/UserButtonCode_recallButton3]
-    }
-    else if (buttonThatWasClicked == recallButton4)
-    {
-        //[UserButtonCode_recallButton4] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 3);
-        //[/UserButtonCode_recallButton4]
-    }
-    else if (buttonThatWasClicked == recallButton5)
-    {
-        //[UserButtonCode_recallButton5] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 4);
-        //[/UserButtonCode_recallButton5]
-    }
-    else if (buttonThatWasClicked == recallButton6)
-    {
-        //[UserButtonCode_recallButton6] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 5);
-        //[/UserButtonCode_recallButton6]
-    }
-    else if (buttonThatWasClicked == recallButton7)
-    {
-        //[UserButtonCode_recallButton7] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 6);
-        //[/UserButtonCode_recallButton7]
-    }
-    else if (buttonThatWasClicked == recallButton8)
-    {
-        //[UserButtonCode_recallButton8] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 7);
-        //[/UserButtonCode_recallButton8]
-    }
-    else if (buttonThatWasClicked == recallButton9)
-    {
-        //[UserButtonCode_recallButton9] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 8);
-        //[/UserButtonCode_recallButton9]
-    }
-    else if (buttonThatWasClicked == recallButton10)
-    {
-        //[UserButtonCode_recallButton10] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 9);
-        //[/UserButtonCode_recallButton10]
-    }
-    else if (buttonThatWasClicked == recallButton11)
-    {
-        //[UserButtonCode_recallButton11] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 10);
-        //[/UserButtonCode_recallButton11]
-    }
-    else if (buttonThatWasClicked == recallButton12)
-    {
-        //[UserButtonCode_recallButton12] -- add your button handler code here..
-        lpNet->doRecall (pageOffset * 12 + 11);
-        //[/UserButtonCode_recallButton12]
-    }
-    else if (buttonThatWasClicked == funcButton)
+    if (buttonThatWasClicked == funcButton)
     {
         //[UserButtonCode_funcButton] -- add your button handler code here..
         pageOffset++;
@@ -670,6 +538,57 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
+}
+
+void LivePanelComponent::buttonStateChanged(Button* buttonThatChanged)
+{
+    if (buttonThatChanged->isDown())
+    {
+        if (buttonThatChanged == stopButton)
+            lpNet->activeStop();
+        else if (buttonThatChanged == tapButton)
+            lpNet->activeTap();
+        else if (buttonThatChanged == stepButton)
+            lpNet->activeStep();
+        else if (buttonThatChanged == forwardButton)
+            lpNet->activeForward();
+        else if (buttonThatChanged == reverseButton)
+            lpNet->activeReverse();
+        else if (buttonThatChanged == ballyButton)
+            lpNet->activeBally();
+        else if (buttonThatChanged == gmFullOnButton)
+            lpNet->setGM (8192);
+        else if (buttonThatChanged == gmFadeOnButton)
+            lpNet->fadeGM (3);
+        else if (buttonThatChanged == gmFadeOffButton)
+            lpNet->fadeGM (-3);
+        else if (buttonThatChanged == gmFullOffButton)
+            lpNet->setGM (0);
+        else if (buttonThatChanged == recallButton1)
+            lpNet->doRecall (pageOffset * 12);
+        else if (buttonThatChanged == recallButton2)
+            lpNet->doRecall (pageOffset * 12 + 1);
+        else if (buttonThatChanged == recallButton3)
+            lpNet->doRecall (pageOffset * 12 + 2);
+        else if (buttonThatChanged == recallButton4)
+            lpNet->doRecall (pageOffset * 12 + 3);
+        else if (buttonThatChanged == recallButton5)
+            lpNet->doRecall (pageOffset * 12 + 4);
+        else if (buttonThatChanged == recallButton6)
+            lpNet->doRecall (pageOffset * 12 + 5);
+        else if (buttonThatChanged == recallButton7)
+            lpNet->doRecall (pageOffset * 12 + 6);
+        else if (buttonThatChanged == recallButton8)
+            lpNet->doRecall (pageOffset * 12 + 7);
+        else if (buttonThatChanged == recallButton9)
+            lpNet->doRecall (pageOffset * 12 + 8);
+        else if (buttonThatChanged == recallButton10)
+            lpNet->doRecall (pageOffset * 12 + 9);
+        else if (buttonThatChanged == recallButton11)
+            lpNet->doRecall (pageOffset * 12 + 10);
+        else if (buttonThatChanged == recallButton12)
+            lpNet->doRecall (pageOffset * 12 + 11);
+    }
 }
 
 void LivePanelComponent::handleCommandMessage (int commandId)

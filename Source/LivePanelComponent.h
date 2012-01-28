@@ -38,6 +38,7 @@ public:
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
+    void buttonStateChanged (Button* buttonThatChanged);
     void handleCommandMessage (int commandId);
 
     // Binary resources:
