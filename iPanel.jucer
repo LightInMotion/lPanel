@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.0"
+<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.1"
               bundleIdentifier="co.limsc.iPanel" jucerVersion="3.0.0" bigIcon="FUbVO4">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"/>
