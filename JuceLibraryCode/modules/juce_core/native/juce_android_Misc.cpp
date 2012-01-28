@@ -28,6 +28,6 @@ void Logger::outputDebugString (const String& text)
     JNIEnv* const env = getEnv();
 
     if (env != nullptr)
-        env->CallStaticVoidMethod (JuceAppActivity, JuceAppActivity.printToConsole,
+        env->CallStaticVoidMethod (iPanelAppActivity, iPanelAppActivity.printToConsole,
                                    javaString (text).get());
 }

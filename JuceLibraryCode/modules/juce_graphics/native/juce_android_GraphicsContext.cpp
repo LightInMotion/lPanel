@@ -348,7 +348,7 @@ public:
 
     void excludeClipRectangle (const Rectangle<int>& r)
     {
-        android.activity.callVoidMethod (JuceAppActivity.excludeClipRegion, getCanvas().get(),
+        android.activity.callVoidMethod (iPanelAppActivity.excludeClipRegion, getCanvas().get(),
                                          (float) r.getX(), (float) r.getY(), (float) r.getRight(), (float) r.getBottom());
     }
 

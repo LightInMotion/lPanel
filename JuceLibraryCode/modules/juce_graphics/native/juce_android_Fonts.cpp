@@ -169,7 +169,7 @@ public:
         JNIEnv* env = getEnv();
 
         jobject matrix = GraphicsHelpers::createMatrix (env, AffineTransform::scale (unitsToHeightScaleFactor, unitsToHeightScaleFactor).followedBy (t));
-        jintArray maskData = (jintArray) android.activity.callObjectMethod (JuceAppActivity.renderGlyph, (jchar) glyphNumber, paint.get(), matrix, rect.get());
+        jintArray maskData = (jintArray) android.activity.callObjectMethod (iPanelAppActivity.renderGlyph, (jchar) glyphNumber, paint.get(), matrix, rect.get());
 
         env->DeleteLocalRef (matrix);
 
