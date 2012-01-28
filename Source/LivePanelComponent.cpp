@@ -321,6 +321,7 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
         label->setColour (TextEditor::textColourId, Colours::black);
         label->setColour (TextEditor::backgroundColourId, Colour (0x0));
         label->setMinimumHorizontalScale (.2f);
+        label->setInterceptsMouseClicks (false, false);
         labels.add (label);
     }
     
