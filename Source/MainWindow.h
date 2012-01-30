@@ -12,6 +12,7 @@
 #define __MAINWINDOW_H_9F83EC72__
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "lp-net.h"
 
 
 //==============================================================================
@@ -19,13 +20,10 @@ class MainAppWindow   : public DocumentWindow
 {
 public:
     //==============================================================================
-    MainAppWindow();
+    MainAppWindow (LpNet* lpNet);
     ~MainAppWindow();
 
     void closeButtonPressed();
-
-    void suspend();
-    void resume();
     
     /* Note: Be careful when overriding DocumentWindow methods - the base class
        uses a lot of them, so by overriding you might break its functionality.
@@ -35,6 +33,8 @@ public:
     */
 
 private:
+    LpNet* lpNet;
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainAppWindow)
 };

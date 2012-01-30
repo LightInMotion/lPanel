@@ -29,7 +29,7 @@ public:
     void initialise (const String& /*commandLine*/)
     {
         // Do your application's initialisation code here..
-        mainWindow = new MainAppWindow();
+        mainWindow = new MainAppWindow (&lpNet);
     }
 
     void shutdown()
@@ -40,12 +40,12 @@ public:
 
     void suspendApp()
     {
-        mainWindow->suspend(); 
+        lpNet.disconnect (false);
     }
     
     void resumeApp()
     {
-        mainWindow->resume();
+        lpNet.connect();
     }
     
     //==============================================================================
@@ -80,6 +80,7 @@ public:
     }
 
 private:
+    LpNet lpNet;
     ScopedPointer <MainAppWindow> mainWindow;
 };
 

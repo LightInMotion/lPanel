@@ -18,26 +18,17 @@ class ContentComp : public Component
 {
 public:
     
-    ContentComp()
+    ContentComp( LpNet* lpNet_)
+        : lpNet (lpNet_)
     {
-        LivePanelComponent* view = new LivePanelComponent (&lpNet);
+        LivePanelComponent* view = new LivePanelComponent (lpNet);
         showView (view);
     }
     
     ~ContentComp()
     {
     }
-    
-    void suspend()
-    {
-        lpNet.disconnect (false);
-    }
-    
-    void resume()
-    {
-        lpNet.connect();
-    }
-    
+        
     //==============================================================================
     void resized()
     {
@@ -54,14 +45,15 @@ public:
 
 private:
     ScopedPointer<Component> currentView;
-    LpNet lpNet;
+    LpNet* lpNet;
 };
 
 //==============================================================================
-MainAppWindow::MainAppWindow()
+MainAppWindow::MainAppWindow (LpNet* lpNet_)
     : DocumentWindow (JUCEApplication::getInstance()->getApplicationName(),
                       Colours::black,
-                      DocumentWindow::allButtons)
+                      DocumentWindow::allButtons),
+      lpNet (lpNet_)
 {    
     #if JUCE_ANDROID || JUCE_IOS
         setTitleBarHeight (0);
@@ -72,7 +64,7 @@ MainAppWindow::MainAppWindow()
         centreWithSize (320, 480);
     #endif
 
-    ContentComp* contentComp = new ContentComp();
+    ContentComp* contentComp = new ContentComp (lpNet);
     setContentOwned(contentComp, false);
     
     setVisible (true);
@@ -81,18 +73,6 @@ MainAppWindow::MainAppWindow()
 MainAppWindow::~MainAppWindow()
 {
     clearContentComponent();
-}
-
-void MainAppWindow::suspend()
-{
-    ContentComp* contentComp = dynamic_cast<ContentComp*> (getContentComponent());
-    contentComp->suspend();
-}
-
-void MainAppWindow::resume()
-{
-    ContentComp* contentComp = dynamic_cast<ContentComp*> (getContentComponent());
-    contentComp->resume();    
 }
 
 void MainAppWindow::closeButtonPressed()
