@@ -84,6 +84,7 @@ private:
     int pageOffset;     // What part of the page are we showing?
     int lastPage;       // Last page detected
     int timerDivider;   // We poll pages at a lower rate
+    bool bigDisplay;    // Are we showing a whole page?
 
     Array<ImageButton*> buttons;    // Easier to deal with recall buts as array
     OwnedArray<Label> labels;       // We'll allocate labels and move to match

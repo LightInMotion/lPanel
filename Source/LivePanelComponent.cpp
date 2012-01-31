@@ -21,6 +21,7 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
       pageOffset (0),
       lastPage (-1),
       timerDivider (0),
+      bigDisplay (false),
       overlay (0),
       stopButton (0),
       tapButton (0),
@@ -779,6 +780,7 @@ void LivePanelComponent::resized()
         }
         funcLabel->setVisible (true);
         funcButton->setVisible (true);
+        bigDisplay = false;
         
         stopButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.7321f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
         tapButton->setBounds (proportionOfWidth (0.2733f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
@@ -821,6 +823,7 @@ void LivePanelComponent::resized()
             }
             funcLabel->setVisible (true);
             funcButton->setVisible (true);
+            bigDisplay = false;
             
             gmLabel->setBounds (proportionOfWidth (0.6667f), proportionOfHeight (0.8100f), proportionOfWidth (0.1511f), proportionOfHeight (0.0498f));
             recallButton6->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
@@ -864,6 +867,9 @@ void LivePanelComponent::resized()
 
             pageOffset = 0;
             funcLabel->setText ("Func", false);
+            if (! bigDisplay)
+                updatePage();
+            bigDisplay = true;
             
             gmLabel->setBounds (proportionOfWidth (0.2886f), proportionOfHeight (0.6035f), proportionOfWidth (0.0861f), proportionOfHeight (0.0310f));
             recallButton6->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
