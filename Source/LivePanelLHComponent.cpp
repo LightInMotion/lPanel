@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  30 Jan 2012 9:18:33pm
+  Creation date:  31 Jan 2012 8:29:10am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -58,7 +58,43 @@ LivePanelHComponent::LivePanelHComponent ()
       connectLabel (0),
       pageButton (0),
       pageLabel (0),
-      infoButton (0)
+      infoButton (0),
+      recallButton13 (0),
+      recallButton14 (0),
+      recallButton15 (0),
+      recallButton16 (0),
+      recallButton17 (0),
+      recallButton18 (0),
+      recallButton19 (0),
+      recallButton20 (0),
+      recallButton21 (0),
+      recallButton22 (0),
+      recallButton23 (0),
+      recallButton24 (0),
+      recallButton25 (0),
+      recallButton26 (0),
+      recallButton27 (0),
+      recallButton28 (0),
+      recallButton29 (0),
+      recallButton30 (0),
+      recallButton31 (0),
+      recallButton32 (0),
+      recallButton33 (0),
+      recallButton34 (0),
+      recallButton35 (0),
+      recallButton36 (0),
+      recallButton37 (0),
+      recallButton38 (0),
+      recallButton39 (0),
+      recallButton40 (0),
+      recallButton41 (0),
+      recallButton42 (0),
+      recallButton43 (0),
+      recallButton44 (0),
+      recallButton45 (0),
+      recallButton46 (0),
+      recallButton47 (0),
+      recallButton48 (0)
 {
     addAndMakeVisible (gmLabel = new Label (L"gm label",
                                             L"GM"));
@@ -296,6 +332,294 @@ LivePanelHComponent::LivePanelHComponent ()
                            ImageCache::getFromMemory (info_2x_png, info_2x_pngSize), 1.0000f, Colour (0x0),
                            Image(), 1.0000f, Colour (0x0),
                            Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton13 = new ImageButton (L"recall button 1"));
+    recallButton13->setButtonText (L"new button");
+    recallButton13->addListener (this);
+
+    recallButton13->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton14 = new ImageButton (L"recall button 1"));
+    recallButton14->setButtonText (L"new button");
+    recallButton14->addListener (this);
+
+    recallButton14->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton15 = new ImageButton (L"recall button 1"));
+    recallButton15->setButtonText (L"new button");
+    recallButton15->addListener (this);
+
+    recallButton15->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton16 = new ImageButton (L"recall button 1"));
+    recallButton16->setButtonText (L"new button");
+    recallButton16->addListener (this);
+
+    recallButton16->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton17 = new ImageButton (L"recall button 1"));
+    recallButton17->setButtonText (L"new button");
+    recallButton17->addListener (this);
+
+    recallButton17->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton18 = new ImageButton (L"recall button 1"));
+    recallButton18->setButtonText (L"new button");
+    recallButton18->addListener (this);
+
+    recallButton18->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton19 = new ImageButton (L"recall button 1"));
+    recallButton19->setButtonText (L"new button");
+    recallButton19->addListener (this);
+
+    recallButton19->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton20 = new ImageButton (L"recall button 1"));
+    recallButton20->setButtonText (L"new button");
+    recallButton20->addListener (this);
+
+    recallButton20->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton21 = new ImageButton (L"recall button 1"));
+    recallButton21->setButtonText (L"new button");
+    recallButton21->addListener (this);
+
+    recallButton21->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton22 = new ImageButton (L"recall button 1"));
+    recallButton22->setButtonText (L"new button");
+    recallButton22->addListener (this);
+
+    recallButton22->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton23 = new ImageButton (L"recall button 1"));
+    recallButton23->setButtonText (L"new button");
+    recallButton23->addListener (this);
+
+    recallButton23->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton24 = new ImageButton (L"recall button 1"));
+    recallButton24->setButtonText (L"new button");
+    recallButton24->addListener (this);
+
+    recallButton24->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton25 = new ImageButton (L"recall button 1"));
+    recallButton25->setButtonText (L"new button");
+    recallButton25->addListener (this);
+
+    recallButton25->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton26 = new ImageButton (L"recall button 1"));
+    recallButton26->setButtonText (L"new button");
+    recallButton26->addListener (this);
+
+    recallButton26->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton27 = new ImageButton (L"recall button 1"));
+    recallButton27->setButtonText (L"new button");
+    recallButton27->addListener (this);
+
+    recallButton27->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton28 = new ImageButton (L"recall button 1"));
+    recallButton28->setButtonText (L"new button");
+    recallButton28->addListener (this);
+
+    recallButton28->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton29 = new ImageButton (L"recall button 1"));
+    recallButton29->setButtonText (L"new button");
+    recallButton29->addListener (this);
+
+    recallButton29->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton30 = new ImageButton (L"recall button 1"));
+    recallButton30->setButtonText (L"new button");
+    recallButton30->addListener (this);
+
+    recallButton30->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton31 = new ImageButton (L"recall button 1"));
+    recallButton31->setButtonText (L"new button");
+    recallButton31->addListener (this);
+
+    recallButton31->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton32 = new ImageButton (L"recall button 1"));
+    recallButton32->setButtonText (L"new button");
+    recallButton32->addListener (this);
+
+    recallButton32->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton33 = new ImageButton (L"recall button 1"));
+    recallButton33->setButtonText (L"new button");
+    recallButton33->addListener (this);
+
+    recallButton33->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton34 = new ImageButton (L"recall button 1"));
+    recallButton34->setButtonText (L"new button");
+    recallButton34->addListener (this);
+
+    recallButton34->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton35 = new ImageButton (L"recall button 1"));
+    recallButton35->setButtonText (L"new button");
+    recallButton35->addListener (this);
+
+    recallButton35->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton36 = new ImageButton (L"recall button 1"));
+    recallButton36->setButtonText (L"new button");
+    recallButton36->addListener (this);
+
+    recallButton36->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton37 = new ImageButton (L"recall button 1"));
+    recallButton37->setButtonText (L"new button");
+    recallButton37->addListener (this);
+
+    recallButton37->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton38 = new ImageButton (L"recall button 1"));
+    recallButton38->setButtonText (L"new button");
+    recallButton38->addListener (this);
+
+    recallButton38->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton39 = new ImageButton (L"recall button 1"));
+    recallButton39->setButtonText (L"new button");
+    recallButton39->addListener (this);
+
+    recallButton39->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton40 = new ImageButton (L"recall button 1"));
+    recallButton40->setButtonText (L"new button");
+    recallButton40->addListener (this);
+
+    recallButton40->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton41 = new ImageButton (L"recall button 1"));
+    recallButton41->setButtonText (L"new button");
+    recallButton41->addListener (this);
+
+    recallButton41->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton42 = new ImageButton (L"recall button 1"));
+    recallButton42->setButtonText (L"new button");
+    recallButton42->addListener (this);
+
+    recallButton42->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton43 = new ImageButton (L"recall button 1"));
+    recallButton43->setButtonText (L"new button");
+    recallButton43->addListener (this);
+
+    recallButton43->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton44 = new ImageButton (L"recall button 1"));
+    recallButton44->setButtonText (L"new button");
+    recallButton44->addListener (this);
+
+    recallButton44->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton45 = new ImageButton (L"recall button 1"));
+    recallButton45->setButtonText (L"new button");
+    recallButton45->addListener (this);
+
+    recallButton45->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton46 = new ImageButton (L"recall button 1"));
+    recallButton46->setButtonText (L"new button");
+    recallButton46->addListener (this);
+
+    recallButton46->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton47 = new ImageButton (L"recall button 1"));
+    recallButton47->setButtonText (L"new button");
+    recallButton47->addListener (this);
+
+    recallButton47->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addAndMakeVisible (recallButton48 = new ImageButton (L"recall button 1"));
+    recallButton48->setButtonText (L"new button");
+    recallButton48->addListener (this);
+
+    recallButton48->setImages (false, true, true,
+                               ImageCache::getFromMemory (sequence_inactive_2x_png, sequence_inactive_2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -341,6 +665,42 @@ LivePanelHComponent::~LivePanelHComponent()
     deleteAndZero (pageButton);
     deleteAndZero (pageLabel);
     deleteAndZero (infoButton);
+    deleteAndZero (recallButton13);
+    deleteAndZero (recallButton14);
+    deleteAndZero (recallButton15);
+    deleteAndZero (recallButton16);
+    deleteAndZero (recallButton17);
+    deleteAndZero (recallButton18);
+    deleteAndZero (recallButton19);
+    deleteAndZero (recallButton20);
+    deleteAndZero (recallButton21);
+    deleteAndZero (recallButton22);
+    deleteAndZero (recallButton23);
+    deleteAndZero (recallButton24);
+    deleteAndZero (recallButton25);
+    deleteAndZero (recallButton26);
+    deleteAndZero (recallButton27);
+    deleteAndZero (recallButton28);
+    deleteAndZero (recallButton29);
+    deleteAndZero (recallButton30);
+    deleteAndZero (recallButton31);
+    deleteAndZero (recallButton32);
+    deleteAndZero (recallButton33);
+    deleteAndZero (recallButton34);
+    deleteAndZero (recallButton35);
+    deleteAndZero (recallButton36);
+    deleteAndZero (recallButton37);
+    deleteAndZero (recallButton38);
+    deleteAndZero (recallButton39);
+    deleteAndZero (recallButton40);
+    deleteAndZero (recallButton41);
+    deleteAndZero (recallButton42);
+    deleteAndZero (recallButton43);
+    deleteAndZero (recallButton44);
+    deleteAndZero (recallButton45);
+    deleteAndZero (recallButton46);
+    deleteAndZero (recallButton47);
+    deleteAndZero (recallButton48);
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -356,7 +716,7 @@ void LivePanelHComponent::paint (Graphics& g)
     g.fillAll (Colour (0xff233845));
 
     g.setColour (Colour (0xff182d3a));
-    g.fillRect (proportionOfWidth (0.0178f), proportionOfHeight (0.1121f), proportionOfWidth (0.4444f), proportionOfHeight (0.7601f));
+    g.fillRect (proportionOfWidth (0.0101f), proportionOfHeight (0.0851f), proportionOfWidth (0.9785f), proportionOfHeight (0.4874f));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -364,35 +724,71 @@ void LivePanelHComponent::paint (Graphics& g)
 
 void LivePanelHComponent::resized()
 {
-    gmLabel->setBounds (299, 260, 68, 16);
-    recallButton6->setBounds (140, 100, 61, 56);
-    recallButton9->setBounds (140, 160, 61, 56);
-    recallButton8->setBounds (76, 160, 61, 56);
-    stopButton->setBounds (279, 96, 100, 50);
-    tapButton->setBounds (224, 160, 100, 50);
-    stepButton->setBounds (339, 160, 100, 50);
-    forwardButton->setBounds (383, 72, 60, 80);
-    reverseButton->setBounds (216, 72, 60, 80);
-    ballyButton->setBounds (279, 28, 100, 60);
-    gmFullOnButton->setBounds (259, 232, 50, 30);
-    gmFadeOnButton->setBounds (259, 276, 50, 30);
-    gmFadeOffButton->setBounds (359, 280, 50, 30);
-    gmFullOffButton->setBounds (359, 236, 50, 30);
-    recallButton1->setBounds (12, 40, 61, 56);
-    recallButton2->setBounds (76, 40, 61, 56);
-    recallButton3->setBounds (140, 40, 61, 56);
-    recallButton4->setBounds (12, 100, 61, 56);
-    recallButton5->setBounds (76, 100, 61, 56);
-    recallButton7->setBounds (12, 160, 61, 56);
-    recallButton10->setBounds (12, 220, 61, 56);
-    recallButton11->setBounds (76, 220, 61, 56);
-    recallButton12->setBounds (140, 220, 61, 56);
-    funcButton->setBounds (178, 288, 30, 30);
-    funcLabel->setBounds (82, 296, 92, 16);
-    connectLabel->setBounds (152, 6, 164, 16);
-    pageButton->setBounds (9, 289, 30, 30);
-    pageLabel->setBounds (40, 296, 73, 16);
-    infoButton->setBounds (411, 6, 18, 18);
+    gmLabel->setBounds (proportionOfWidth (0.2886f), proportionOfHeight (0.6035f), proportionOfWidth (0.0861f), proportionOfHeight (0.0310f));
+    recallButton6->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton9->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton8->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    stopButton->setBounds (proportionOfWidth (0.4949f), proportionOfHeight (0.7505f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+    tapButton->setBounds (proportionOfWidth (0.4253f), proportionOfHeight (0.8743f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+    stepButton->setBounds (proportionOfWidth (0.5709f), proportionOfHeight (0.8743f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+    forwardButton->setBounds (proportionOfWidth (0.6266f), proportionOfHeight (0.7041f), proportionOfWidth (0.0759f), proportionOfHeight (0.1547f));
+    reverseButton->setBounds (proportionOfWidth (0.4152f), proportionOfHeight (0.7041f), proportionOfWidth (0.0759f), proportionOfHeight (0.1547f));
+    ballyButton->setBounds (proportionOfWidth (0.4949f), proportionOfHeight (0.6190f), proportionOfWidth (0.1266f), proportionOfHeight (0.1160f));
+    gmFullOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.6499f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+    gmFadeOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.7350f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+    gmFadeOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.9130f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+    gmFullOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.8278f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+    recallButton1->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton2->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton3->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton4->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton5->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton7->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton10->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton11->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton12->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    funcButton->setBounds (proportionOfWidth (0.9291f), proportionOfHeight (0.6035f), proportionOfWidth (0.0380f), proportionOfHeight (0.0580f));
+    funcLabel->setBounds (proportionOfWidth (0.8076f), proportionOfHeight (0.6190f), proportionOfWidth (0.1165f), proportionOfHeight (0.0310f));
+    connectLabel->setBounds (proportionOfWidth (0.4000f), proportionOfHeight (0.0232f), proportionOfWidth (0.2076f), proportionOfHeight (0.0310f));
+    pageButton->setBounds (proportionOfWidth (0.0114f), proportionOfHeight (0.0097f), proportionOfWidth (0.0380f), proportionOfHeight (0.0580f));
+    pageLabel->setBounds (proportionOfWidth (0.0506f), proportionOfHeight (0.0232f), proportionOfWidth (0.0924f), proportionOfHeight (0.0310f));
+    infoButton->setBounds (proportionOfWidth (0.9570f), proportionOfHeight (0.0155f), proportionOfWidth (0.0228f), proportionOfHeight (0.0348f));
+    recallButton13->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton14->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton15->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton16->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton17->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton18->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton19->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton20->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton21->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton22->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton23->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton24->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton25->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton26->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton27->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton28->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton29->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton30->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton31->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton32->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton33->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton34->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton35->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton36->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton37->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton38->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton39->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton40->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton41->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton42->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton43->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton44->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton45->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton46->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton47->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+    recallButton48->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -527,6 +923,186 @@ void LivePanelHComponent::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_infoButton] -- add your button handler code here..
         //[/UserButtonCode_infoButton]
     }
+    else if (buttonThatWasClicked == recallButton13)
+    {
+        //[UserButtonCode_recallButton13] -- add your button handler code here..
+        //[/UserButtonCode_recallButton13]
+    }
+    else if (buttonThatWasClicked == recallButton14)
+    {
+        //[UserButtonCode_recallButton14] -- add your button handler code here..
+        //[/UserButtonCode_recallButton14]
+    }
+    else if (buttonThatWasClicked == recallButton15)
+    {
+        //[UserButtonCode_recallButton15] -- add your button handler code here..
+        //[/UserButtonCode_recallButton15]
+    }
+    else if (buttonThatWasClicked == recallButton16)
+    {
+        //[UserButtonCode_recallButton16] -- add your button handler code here..
+        //[/UserButtonCode_recallButton16]
+    }
+    else if (buttonThatWasClicked == recallButton17)
+    {
+        //[UserButtonCode_recallButton17] -- add your button handler code here..
+        //[/UserButtonCode_recallButton17]
+    }
+    else if (buttonThatWasClicked == recallButton18)
+    {
+        //[UserButtonCode_recallButton18] -- add your button handler code here..
+        //[/UserButtonCode_recallButton18]
+    }
+    else if (buttonThatWasClicked == recallButton19)
+    {
+        //[UserButtonCode_recallButton19] -- add your button handler code here..
+        //[/UserButtonCode_recallButton19]
+    }
+    else if (buttonThatWasClicked == recallButton20)
+    {
+        //[UserButtonCode_recallButton20] -- add your button handler code here..
+        //[/UserButtonCode_recallButton20]
+    }
+    else if (buttonThatWasClicked == recallButton21)
+    {
+        //[UserButtonCode_recallButton21] -- add your button handler code here..
+        //[/UserButtonCode_recallButton21]
+    }
+    else if (buttonThatWasClicked == recallButton22)
+    {
+        //[UserButtonCode_recallButton22] -- add your button handler code here..
+        //[/UserButtonCode_recallButton22]
+    }
+    else if (buttonThatWasClicked == recallButton23)
+    {
+        //[UserButtonCode_recallButton23] -- add your button handler code here..
+        //[/UserButtonCode_recallButton23]
+    }
+    else if (buttonThatWasClicked == recallButton24)
+    {
+        //[UserButtonCode_recallButton24] -- add your button handler code here..
+        //[/UserButtonCode_recallButton24]
+    }
+    else if (buttonThatWasClicked == recallButton25)
+    {
+        //[UserButtonCode_recallButton25] -- add your button handler code here..
+        //[/UserButtonCode_recallButton25]
+    }
+    else if (buttonThatWasClicked == recallButton26)
+    {
+        //[UserButtonCode_recallButton26] -- add your button handler code here..
+        //[/UserButtonCode_recallButton26]
+    }
+    else if (buttonThatWasClicked == recallButton27)
+    {
+        //[UserButtonCode_recallButton27] -- add your button handler code here..
+        //[/UserButtonCode_recallButton27]
+    }
+    else if (buttonThatWasClicked == recallButton28)
+    {
+        //[UserButtonCode_recallButton28] -- add your button handler code here..
+        //[/UserButtonCode_recallButton28]
+    }
+    else if (buttonThatWasClicked == recallButton29)
+    {
+        //[UserButtonCode_recallButton29] -- add your button handler code here..
+        //[/UserButtonCode_recallButton29]
+    }
+    else if (buttonThatWasClicked == recallButton30)
+    {
+        //[UserButtonCode_recallButton30] -- add your button handler code here..
+        //[/UserButtonCode_recallButton30]
+    }
+    else if (buttonThatWasClicked == recallButton31)
+    {
+        //[UserButtonCode_recallButton31] -- add your button handler code here..
+        //[/UserButtonCode_recallButton31]
+    }
+    else if (buttonThatWasClicked == recallButton32)
+    {
+        //[UserButtonCode_recallButton32] -- add your button handler code here..
+        //[/UserButtonCode_recallButton32]
+    }
+    else if (buttonThatWasClicked == recallButton33)
+    {
+        //[UserButtonCode_recallButton33] -- add your button handler code here..
+        //[/UserButtonCode_recallButton33]
+    }
+    else if (buttonThatWasClicked == recallButton34)
+    {
+        //[UserButtonCode_recallButton34] -- add your button handler code here..
+        //[/UserButtonCode_recallButton34]
+    }
+    else if (buttonThatWasClicked == recallButton35)
+    {
+        //[UserButtonCode_recallButton35] -- add your button handler code here..
+        //[/UserButtonCode_recallButton35]
+    }
+    else if (buttonThatWasClicked == recallButton36)
+    {
+        //[UserButtonCode_recallButton36] -- add your button handler code here..
+        //[/UserButtonCode_recallButton36]
+    }
+    else if (buttonThatWasClicked == recallButton37)
+    {
+        //[UserButtonCode_recallButton37] -- add your button handler code here..
+        //[/UserButtonCode_recallButton37]
+    }
+    else if (buttonThatWasClicked == recallButton38)
+    {
+        //[UserButtonCode_recallButton38] -- add your button handler code here..
+        //[/UserButtonCode_recallButton38]
+    }
+    else if (buttonThatWasClicked == recallButton39)
+    {
+        //[UserButtonCode_recallButton39] -- add your button handler code here..
+        //[/UserButtonCode_recallButton39]
+    }
+    else if (buttonThatWasClicked == recallButton40)
+    {
+        //[UserButtonCode_recallButton40] -- add your button handler code here..
+        //[/UserButtonCode_recallButton40]
+    }
+    else if (buttonThatWasClicked == recallButton41)
+    {
+        //[UserButtonCode_recallButton41] -- add your button handler code here..
+        //[/UserButtonCode_recallButton41]
+    }
+    else if (buttonThatWasClicked == recallButton42)
+    {
+        //[UserButtonCode_recallButton42] -- add your button handler code here..
+        //[/UserButtonCode_recallButton42]
+    }
+    else if (buttonThatWasClicked == recallButton43)
+    {
+        //[UserButtonCode_recallButton43] -- add your button handler code here..
+        //[/UserButtonCode_recallButton43]
+    }
+    else if (buttonThatWasClicked == recallButton44)
+    {
+        //[UserButtonCode_recallButton44] -- add your button handler code here..
+        //[/UserButtonCode_recallButton44]
+    }
+    else if (buttonThatWasClicked == recallButton45)
+    {
+        //[UserButtonCode_recallButton45] -- add your button handler code here..
+        //[/UserButtonCode_recallButton45]
+    }
+    else if (buttonThatWasClicked == recallButton46)
+    {
+        //[UserButtonCode_recallButton46] -- add your button handler code here..
+        //[/UserButtonCode_recallButton46]
+    }
+    else if (buttonThatWasClicked == recallButton47)
+    {
+        //[UserButtonCode_recallButton47] -- add your button handler code here..
+        //[/UserButtonCode_recallButton47]
+    }
+    else if (buttonThatWasClicked == recallButton48)
+    {
+        //[UserButtonCode_recallButton48] -- add your button handler code here..
+        //[/UserButtonCode_recallButton48]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -554,184 +1130,404 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="LivePanelHComponent" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="32" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="0" initialWidth="320" initialHeight="480">
   <METHODS>
     <METHOD name="handleCommandMessage (int commandId)"/>
   </METHODS>
   <BACKGROUND backgroundColour="ff233845">
-    <RECT pos="1.778% 11.215% 44.444% 76.012%" fill="solid: ff182d3a" hasStroke="0"/>
+    <RECT pos="1.013% 8.511% 97.848% 48.743%" fill="solid: ff182d3a" hasStroke="0"/>
   </BACKGROUND>
   <LABEL name="gm label" id="63c9b48faf1995" memberName="gmLabel" virtualName=""
-         explicitFocusOrder="0" pos="299 260 68 16" textCol="ffffffff"
+         explicitFocusOrder="0" pos="28.861% 60.348% 8.608% 3.095%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="GM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="recall button 1" id="d640741d1e762cea" memberName="recallButton6"
-               virtualName="" explicitFocusOrder="0" pos="140 100 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="42.025% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="74462e9f215af1cf" memberName="recallButton9"
-               virtualName="" explicitFocusOrder="0" pos="140 160 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="66.329% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d51509e8921d7f63" memberName="recallButton8"
-               virtualName="" explicitFocusOrder="0" pos="76 160 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="58.228% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="stop button" id="ea7fed1bbaa91052" memberName="stopButton"
-               virtualName="" explicitFocusOrder="0" pos="279 96 100 50" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="stop_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="49.494% 75.048% 12.658% 9.671%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="stop_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="tap button" id="d05314d5fa933513" memberName="tapButton"
-               virtualName="" explicitFocusOrder="0" pos="224 160 100 50" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="tap_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="42.532% 87.427% 12.658% 9.671%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="tap_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="step button" id="96cd5f0ba432c9f5" memberName="stepButton"
-               virtualName="" explicitFocusOrder="0" pos="339 160 100 50" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="step_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="57.089% 87.427% 12.658% 9.671%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="step_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="forward button" id="46eba685f7634102" memberName="forwardButton"
-               virtualName="" explicitFocusOrder="0" pos="383 72 60 80" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="forward_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="62.658% 70.406% 7.595% 15.474%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="forward_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="reverse button" id="d1e1a49c76d10523" memberName="reverseButton"
-               virtualName="" explicitFocusOrder="0" pos="216 72 60 80" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="reverse_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="41.519% 70.406% 7.595% 15.474%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="reverse_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="bally button" id="a2c0045bad348fa4" memberName="ballyButton"
-               virtualName="" explicitFocusOrder="0" pos="279 28 100 60" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="bally_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="49.494% 61.896% 12.658% 11.605%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="bally_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="gm full on" id="48eadfcb9e1a9803" memberName="gmFullOnButton"
-               virtualName="" explicitFocusOrder="0" pos="259 232 50 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="gmfullOn_2x_png" opacityNormal="0.958398461"
-               colourNormal="0" resourceOver="" opacityOver="1" colourOver="0"
-               resourceDown="" opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="30.253% 64.99% 6.329% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="gmfullOn_2x_png"
+               opacityNormal="0.958398461" colourNormal="0" resourceOver=""
+               opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
+               colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade on" id="45fcf1fc1f9ac553" memberName="gmFadeOnButton"
-               virtualName="" explicitFocusOrder="0" pos="259 276 50 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="gmfadeOn_2x_png" opacityNormal="0.958398461"
-               colourNormal="0" resourceOver="" opacityOver="1" colourOver="0"
-               resourceDown="" opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="30.253% 73.501% 6.329% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOn_2x_png"
+               opacityNormal="0.958398461" colourNormal="0" resourceOver=""
+               opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
+               colourDown="20000000"/>
   <IMAGEBUTTON name="gm fade off" id="976910dd801d19ff" memberName="gmFadeOffButton"
-               virtualName="" explicitFocusOrder="0" pos="359 280 50 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="gmfadeOff_2x_png" opacityNormal="0.946386755"
-               colourNormal="0" resourceOver="" opacityOver="1" colourOver="0"
-               resourceDown="" opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="30.253% 91.296% 6.329% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="gmfadeOff_2x_png"
+               opacityNormal="0.946386755" colourNormal="0" resourceOver=""
+               opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
+               colourDown="20000000"/>
   <IMAGEBUTTON name="gm full off" id="9d0d0e118f2bfe08" memberName="gmFullOffButton"
-               virtualName="" explicitFocusOrder="0" pos="359 236 50 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="0"
-               resourceNormal="gmfullOff_2x_png" opacityNormal="0.946386755"
-               colourNormal="0" resourceOver="" opacityOver="1" colourOver="0"
-               resourceDown="" opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="30.253% 82.785% 6.329% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="0" resourceNormal="gmfullOff_2x_png"
+               opacityNormal="0.946386755" colourNormal="0" resourceOver=""
+               opacityOver="1" colourOver="0" resourceDown="" opacityDown="1"
+               colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="3d734b24bb9aa3e1" memberName="recallButton1"
-               virtualName="" explicitFocusOrder="0" pos="12 40 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="1.519% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="4f4bd7b069e43c5" memberName="recallButton2"
-               virtualName="" explicitFocusOrder="0" pos="76 40 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="9.62% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="f4e7d07022855fd4" memberName="recallButton3"
-               virtualName="" explicitFocusOrder="0" pos="140 40 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="17.722% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="8c6c3c6640478175" memberName="recallButton4"
-               virtualName="" explicitFocusOrder="0" pos="12 100 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="25.823% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="2deb1abc0f816bae" memberName="recallButton5"
-               virtualName="" explicitFocusOrder="0" pos="76 100 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="33.924% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="34bee016c96908fc" memberName="recallButton7"
-               virtualName="" explicitFocusOrder="0" pos="12 160 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="50.127% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="d363e8623625aee3" memberName="recallButton10"
-               virtualName="" explicitFocusOrder="0" pos="12 220 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="74.43% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="a6c8db0da937653d" memberName="recallButton11"
-               virtualName="" explicitFocusOrder="0" pos="76 220 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="82.532% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="recall button 1" id="b47915fcfb5d42b2" memberName="recallButton12"
-               virtualName="" explicitFocusOrder="0" pos="140 220 61 56" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="sequence_inactive_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="90.633% 10.058% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <IMAGEBUTTON name="function button" id="f9463f29b30243dd" memberName="funcButton"
-               virtualName="" explicitFocusOrder="0" pos="178 288 30 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="smallButton_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="92.911% 60.348% 3.797% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="smallButton_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <LABEL name="function label" id="3fa2db79ec9077db" memberName="funcLabel"
-         virtualName="" explicitFocusOrder="0" pos="82 296 92 16" textCol="ffffffff"
-         edTextCol="ff000000" edBkgCol="0" labelText="Func" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="16" bold="0" italic="0" justification="34"/>
+         virtualName="" explicitFocusOrder="0" pos="80.759% 61.896% 11.646% 3.095%"
+         textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Func"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="16" bold="0" italic="0" justification="34"/>
   <LABEL name="connect label" id="5f14852cabc3c4f" memberName="connectLabel"
-         virtualName="" explicitFocusOrder="0" pos="152 6 164 16" textCol="ffffffff"
-         edTextCol="ff000000" edBkgCol="0" labelText="Searching..." editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="16" bold="0" italic="0" justification="36"/>
+         virtualName="" explicitFocusOrder="0" pos="40% 2.321% 20.759% 3.095%"
+         textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Searching..."
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
   <IMAGEBUTTON name="page button" id="c9d03a700378b5ac" memberName="pageButton"
-               virtualName="" explicitFocusOrder="0" pos="9 289 30 30" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="smallButton_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="1.139% 0.967% 3.797% 5.803%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="smallButton_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
   <LABEL name="page label" id="c3afd5f93c8507b2" memberName="pageLabel"
-         virtualName="" explicitFocusOrder="0" pos="40 296 73 16" textCol="ffffffff"
-         edTextCol="ff000000" edBkgCol="0" labelText="Page ?" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="16" bold="0" italic="0" justification="33"/>
+         virtualName="" explicitFocusOrder="0" pos="5.063% 2.321% 9.241% 3.095%"
+         textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="Page ?"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="16" bold="0" italic="0" justification="33"/>
   <IMAGEBUTTON name="function button" id="e623608fe3262969" memberName="infoButton"
-               virtualName="" explicitFocusOrder="0" pos="411 6 18 18" buttonText="new button"
-               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
-               resourceNormal="info_2x_png" opacityNormal="1" colourNormal="0"
-               resourceOver="" opacityOver="1" colourOver="0" resourceDown=""
-               opacityDown="1" colourDown="20000000"/>
+               virtualName="" explicitFocusOrder="0" pos="95.696% 1.547% 2.278% 3.482%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="info_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="920e8482a139438" memberName="recallButton13"
+               virtualName="" explicitFocusOrder="0" pos="1.519% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="58e396339d73620e" memberName="recallButton14"
+               virtualName="" explicitFocusOrder="0" pos="9.62% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="92f781d681eef80a" memberName="recallButton15"
+               virtualName="" explicitFocusOrder="0" pos="17.722% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="a44aa535b206364a" memberName="recallButton16"
+               virtualName="" explicitFocusOrder="0" pos="25.823% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="b88756260eda29c4" memberName="recallButton17"
+               virtualName="" explicitFocusOrder="0" pos="33.924% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="6b6752d857092efc" memberName="recallButton18"
+               virtualName="" explicitFocusOrder="0" pos="42.025% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="abcd36ef98f046c0" memberName="recallButton19"
+               virtualName="" explicitFocusOrder="0" pos="50.127% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="a23454646cc24a9b" memberName="recallButton20"
+               virtualName="" explicitFocusOrder="0" pos="58.228% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="8955d0d6d674cada" memberName="recallButton21"
+               virtualName="" explicitFocusOrder="0" pos="66.329% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="fa326ef0844f765a" memberName="recallButton22"
+               virtualName="" explicitFocusOrder="0" pos="74.43% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="d006503c1e78c77" memberName="recallButton23"
+               virtualName="" explicitFocusOrder="0" pos="82.532% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="49065d16473113d1" memberName="recallButton24"
+               virtualName="" explicitFocusOrder="0" pos="90.633% 21.663% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="1822dbeaf344b4dc" memberName="recallButton25"
+               virtualName="" explicitFocusOrder="0" pos="1.519% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="d9c37985d520f850" memberName="recallButton26"
+               virtualName="" explicitFocusOrder="0" pos="9.62% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="efd21327e95531c3" memberName="recallButton27"
+               virtualName="" explicitFocusOrder="0" pos="17.722% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="4014ea62c74393a3" memberName="recallButton28"
+               virtualName="" explicitFocusOrder="0" pos="25.823% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="e570ccab27137d9a" memberName="recallButton29"
+               virtualName="" explicitFocusOrder="0" pos="33.924% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="515c427b685dd06f" memberName="recallButton30"
+               virtualName="" explicitFocusOrder="0" pos="42.025% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="7ae12f25b49ddceb" memberName="recallButton31"
+               virtualName="" explicitFocusOrder="0" pos="50.127% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="b551bce8cdb496c0" memberName="recallButton32"
+               virtualName="" explicitFocusOrder="0" pos="58.228% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="cb61f00cb7f16291" memberName="recallButton33"
+               virtualName="" explicitFocusOrder="0" pos="66.329% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="3befecfd0656ce7f" memberName="recallButton34"
+               virtualName="" explicitFocusOrder="0" pos="74.43% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="635230d24ffbd6e6" memberName="recallButton35"
+               virtualName="" explicitFocusOrder="0" pos="82.532% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="86ed8099a5fc953b" memberName="recallButton36"
+               virtualName="" explicitFocusOrder="0" pos="90.633% 33.269% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="ec6053bb2c7d8c2b" memberName="recallButton37"
+               virtualName="" explicitFocusOrder="0" pos="1.519% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="8fee91a5fa73eaf8" memberName="recallButton38"
+               virtualName="" explicitFocusOrder="0" pos="9.62% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="3145a95a104f8273" memberName="recallButton39"
+               virtualName="" explicitFocusOrder="0" pos="17.722% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="dc2f04d3b583268c" memberName="recallButton40"
+               virtualName="" explicitFocusOrder="0" pos="25.823% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="ca149d7551ceffa6" memberName="recallButton41"
+               virtualName="" explicitFocusOrder="0" pos="33.924% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="1ea4c74a4050fe85" memberName="recallButton42"
+               virtualName="" explicitFocusOrder="0" pos="42.025% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="643d24675927728c" memberName="recallButton43"
+               virtualName="" explicitFocusOrder="0" pos="50.127% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="e7762e2f87bb307c" memberName="recallButton44"
+               virtualName="" explicitFocusOrder="0" pos="58.228% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="16c72b8001c90824" memberName="recallButton45"
+               virtualName="" explicitFocusOrder="0" pos="66.329% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="150161e5157b199" memberName="recallButton46"
+               virtualName="" explicitFocusOrder="0" pos="74.43% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="f6aaed2e8b66eeb" memberName="recallButton47"
+               virtualName="" explicitFocusOrder="0" pos="82.532% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
+  <IMAGEBUTTON name="recall button 1" id="a0a11f166c7a6d7d" memberName="recallButton48"
+               virtualName="" explicitFocusOrder="0" pos="90.633% 44.874% 7.722% 10.832%"
+               buttonText="new button" connectedEdges="0" needsCallback="1"
+               radioGroupId="0" keepProportions="1" resourceNormal="sequence_inactive_2x_png"
+               opacityNormal="1" colourNormal="0" resourceOver="" opacityOver="1"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="20000000"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -741,7 +1537,7 @@ END_JUCER_METADATA
 //==============================================================================
 // Binary resources - be careful not to edit any of these sections!
 
-// JUCER_RESOURCE: stop_2x_png, 18537, "../../Images/Stop@2x.png"
+// JUCER_RESOURCE: stop_2x_png, 18537, "../Images/Stop@2x.png"
 static const unsigned char resource_LivePanelHComponent_stop_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,200,0,0,0,100,8,6,0,0,0,195,134,127,11,0,0,0,1,115,82,71,66,0,174,206,28,233,
 0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,4,39,23,16,68,225,63,0,0,32,0,73,68,65,84,120,218,237,189,
 121,144,101,103,117,39,248,59,247,222,151,91,229,94,185,84,102,237,139,74,82,73,66,187,100,144,89,26,132,36,16,2,73,128,196,98,7,118,99,143,163,27,143,233,238,233,24,166,219,221,127,76,196,76,56,250,143,
@@ -1077,7 +1873,7 @@ static const unsigned char resource_LivePanelHComponent_stop_2x_png[] = { 137,80
 const char* LivePanelHComponent::stop_2x_png = (const char*) resource_LivePanelHComponent_stop_2x_png;
 const int LivePanelHComponent::stop_2x_pngSize = 18537;
 
-// JUCER_RESOURCE: tap_2x_png, 17175, "../../Images/Tap@2x.png"
+// JUCER_RESOURCE: tap_2x_png, 17175, "../Images/Tap@2x.png"
 static const unsigned char resource_LivePanelHComponent_tap_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,200,0,0,0,100,8,6,0,0,0,195,134,127,11,0,0,0,1,115,82,71,66,0,174,206,28,233,
 0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,4,36,20,162,96,227,70,0,0,32,0,73,68,65,84,120,218,237,189,
 121,144,28,231,117,39,248,123,153,89,125,3,141,62,209,104,0,2,8,146,0,111,82,164,200,145,76,75,26,201,20,169,131,148,168,145,69,123,28,210,142,189,242,142,119,39,98,198,187,235,141,113,204,206,70,120,
@@ -1388,7 +2184,7 @@ static const unsigned char resource_LivePanelHComponent_tap_2x_png[] = { 137,80,
 const char* LivePanelHComponent::tap_2x_png = (const char*) resource_LivePanelHComponent_tap_2x_png;
 const int LivePanelHComponent::tap_2x_pngSize = 17175;
 
-// JUCER_RESOURCE: step_2x_png, 19046, "../../Images/Step@2x.png"
+// JUCER_RESOURCE: step_2x_png, 19046, "../Images/Step@2x.png"
 static const unsigned char resource_LivePanelHComponent_step_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,200,0,0,0,100,8,6,0,0,0,195,134,127,11,0,0,0,1,115,82,71,66,0,174,206,28,233,
 0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,4,34,3,119,233,193,7,0,0,32,0,73,68,65,84,120,218,237,189,
 103,144,100,215,117,38,248,157,151,153,149,89,222,117,249,110,116,119,181,67,195,59,130,0,1,2,20,9,18,160,1,232,4,136,6,164,104,180,67,81,179,59,17,51,179,82,104,99,102,199,4,135,26,77,140,98,103,151,
@@ -1733,7 +2529,7 @@ static const unsigned char resource_LivePanelHComponent_step_2x_png[] = { 137,80
 const char* LivePanelHComponent::step_2x_png = (const char*) resource_LivePanelHComponent_step_2x_png;
 const int LivePanelHComponent::step_2x_pngSize = 19046;
 
-// JUCER_RESOURCE: forward_2x_png, 14663, "../../Images/Forward@2x.png"
+// JUCER_RESOURCE: forward_2x_png, 14663, "../Images/Forward@2x.png"
 static const unsigned char resource_LivePanelHComponent_forward_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,120,0,0,0,160,8,6,0,0,0,199,9,168,144,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,0,0,0,0,0,249,67,187,127,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,29,20,35,35,91,15,220,16,0,0,32,0,73,68,65,84,120,218,237,125,
 89,116,28,231,117,230,189,127,45,189,97,95,8,16,164,72,144,20,73,237,182,101,199,171,118,239,73,188,38,142,115,50,142,39,25,159,204,67,94,102,242,158,115,230,97,242,54,231,36,51,199,243,52,62,182,51,73,
@@ -1998,7 +2794,7 @@ static const unsigned char resource_LivePanelHComponent_forward_2x_png[] = { 137
 const char* LivePanelHComponent::forward_2x_png = (const char*) resource_LivePanelHComponent_forward_2x_png;
 const int LivePanelHComponent::forward_2x_pngSize = 14663;
 
-// JUCER_RESOURCE: reverse_2x_png, 14756, "../../Images/Reverse@2x.png"
+// JUCER_RESOURCE: reverse_2x_png, 14756, "../Images/Reverse@2x.png"
 static const unsigned char resource_LivePanelHComponent_reverse_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,120,0,0,0,160,8,6,0,0,0,199,9,168,144,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,0,0,0,0,0,249,67,187,127,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,29,20,36,52,151,157,207,16,0,0,32,0,73,68,65,84,120,218,237,125,
 231,151,28,215,117,231,189,21,186,58,76,234,73,0,186,7,51,152,68,18,164,8,138,35,144,10,228,172,130,37,153,164,178,124,214,242,106,247,236,174,247,236,39,159,227,207,251,15,200,31,215,222,79,107,159,181,
@@ -2264,7 +3060,7 @@ static const unsigned char resource_LivePanelHComponent_reverse_2x_png[] = { 137
 const char* LivePanelHComponent::reverse_2x_png = (const char*) resource_LivePanelHComponent_reverse_2x_png;
 const int LivePanelHComponent::reverse_2x_pngSize = 14756;
 
-// JUCER_RESOURCE: bally_2x_png, 18303, "../../Images/Bally@2x.png"
+// JUCER_RESOURCE: bally_2x_png, 18303, "../Images/Bally@2x.png"
 static const unsigned char resource_LivePanelHComponent_bally_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,200,0,0,0,120,8,6,0,0,0,183,146,189,235,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,149,0,58,0,58,15,85,170,235,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,29,21,18,30,196,248,253,132,0,0,32,0,73,68,65,84,120,218,237,
 189,121,172,100,231,117,39,118,206,119,239,173,237,213,219,151,126,107,247,123,175,187,217,27,187,73,170,69,54,73,137,148,108,197,162,99,103,16,193,113,44,39,35,39,14,226,0,1,2,100,48,65,96,120,252,215,
@@ -2592,7 +3388,7 @@ static const unsigned char resource_LivePanelHComponent_bally_2x_png[] = { 137,8
 const char* LivePanelHComponent::bally_2x_png = (const char*) resource_LivePanelHComponent_bally_2x_png;
 const int LivePanelHComponent::bally_2x_pngSize = 18303;
 
-// JUCER_RESOURCE: gmfullOn_2x_png, 6348, "../../Images/GMFullOn@2x.png"
+// JUCER_RESOURCE: gmfullOn_2x_png, 6348, "../Images/GMFullOn@2x.png"
 static const unsigned char resource_LivePanelHComponent_gmfullOn_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,100,0,0,0,60,8,6,0,0,0,144,63,31,206,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,15,33,30,51,151,17,252,0,0,24,76,73,68,65,84,120,218,
 237,92,89,112,28,215,117,61,175,215,217,49,152,193,66,130,224,38,145,162,8,26,18,69,69,187,84,90,34,81,150,108,121,83,49,118,172,216,78,57,229,165,82,165,252,231,47,149,114,242,21,127,56,78,197,118,202,
@@ -2710,7 +3506,7 @@ static const unsigned char resource_LivePanelHComponent_gmfullOn_2x_png[] = { 13
 const char* LivePanelHComponent::gmfullOn_2x_png = (const char*) resource_LivePanelHComponent_gmfullOn_2x_png;
 const int LivePanelHComponent::gmfullOn_2x_pngSize = 6348;
 
-// JUCER_RESOURCE: gmfadeOn_2x_png, 6576, "../../Images/GMFadeOn@2x.png"
+// JUCER_RESOURCE: gmfadeOn_2x_png, 6576, "../Images/GMFadeOn@2x.png"
 static const unsigned char resource_LivePanelHComponent_gmfadeOn_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,100,0,0,0,60,8,6,0,0,0,144,63,31,206,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,15,54,50,4,204,249,137,0,0,25,48,73,68,65,84,120,218,
 237,124,87,144,28,231,117,238,247,247,76,79,222,73,155,128,5,22,129,4,8,98,161,37,65,82,164,152,84,164,116,41,74,164,146,101,21,28,164,107,251,150,111,217,86,93,21,253,238,55,151,203,246,147,253,224,80,
@@ -2832,7 +3628,7 @@ static const unsigned char resource_LivePanelHComponent_gmfadeOn_2x_png[] = { 13
 const char* LivePanelHComponent::gmfadeOn_2x_png = (const char*) resource_LivePanelHComponent_gmfadeOn_2x_png;
 const int LivePanelHComponent::gmfadeOn_2x_pngSize = 6576;
 
-// JUCER_RESOURCE: gmfadeOff_2x_png, 6357, "../../Images/GMFadeOff@2x.png"
+// JUCER_RESOURCE: gmfadeOff_2x_png, 6357, "../Images/GMFadeOff@2x.png"
 static const unsigned char resource_LivePanelHComponent_gmfadeOff_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,100,0,0,0,60,8,6,0,0,0,144,63,31,206,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,16,12,13,128,121,238,128,0,0,24,85,73,68,65,84,120,218,
 237,92,233,151,28,87,117,255,189,170,174,233,109,122,166,151,89,164,145,52,90,140,109,89,198,146,141,151,128,129,96,64,6,59,38,38,56,241,9,228,152,147,67,18,146,79,249,3,242,33,159,66,14,95,66,78,8,33,
@@ -2950,7 +3746,7 @@ static const unsigned char resource_LivePanelHComponent_gmfadeOff_2x_png[] = { 1
 const char* LivePanelHComponent::gmfadeOff_2x_png = (const char*) resource_LivePanelHComponent_gmfadeOff_2x_png;
 const int LivePanelHComponent::gmfadeOff_2x_pngSize = 6357;
 
-// JUCER_RESOURCE: gmfullOff_2x_png, 6122, "../../Images/GMFullOff@2x.png"
+// JUCER_RESOURCE: gmfullOff_2x_png, 6122, "../Images/GMFullOff@2x.png"
 static const unsigned char resource_LivePanelHComponent_gmfullOff_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,100,0,0,0,60,8,6,0,0,0,144,63,31,206,0,0,0,1,115,82,71,66,0,174,206,28,
 233,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,10,30,16,7,11,138,238,146,126,0,0,23,106,73,68,65,84,120,218,
 237,92,217,151,92,197,121,255,213,189,183,247,233,153,233,158,141,77,18,136,176,9,35,129,89,98,99,59,198,182,176,33,118,112,76,194,137,157,131,79,142,147,56,121,202,31,144,135,60,197,57,126,137,115,226,
@@ -3064,7 +3860,7 @@ static const unsigned char resource_LivePanelHComponent_gmfullOff_2x_png[] = { 1
 const char* LivePanelHComponent::gmfullOff_2x_png = (const char*) resource_LivePanelHComponent_gmfullOff_2x_png;
 const int LivePanelHComponent::gmfullOff_2x_pngSize = 6122;
 
-// JUCER_RESOURCE: sequence_inactive_png, 5234, "../../Images/sequence_inactive.png"
+// JUCER_RESOURCE: sequence_inactive_png, 5234, "../Images/sequence_inactive.png"
 static const unsigned char resource_LivePanelHComponent_sequence_inactive_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,48,0,0,0,48,8,6,0,0,0,87,2,249,135,0,0,10,79,105,67,67,80,80,104,
 111,116,111,115,104,111,112,32,73,67,67,32,112,114,111,102,105,108,101,0,0,120,218,157,83,103,84,83,233,22,61,247,222,244,66,75,136,128,148,75,111,82,21,8,32,82,66,139,128,20,145,38,42,33,9,16,74,136,
 33,161,217,21,81,193,17,69,69,4,27,200,160,136,3,142,142,128,140,21,81,44,12,138,10,216,7,228,33,162,142,131,163,136,138,202,251,225,123,163,107,214,188,247,230,205,254,181,215,62,231,172,243,157,179,
@@ -3162,7 +3958,7 @@ static const unsigned char resource_LivePanelHComponent_sequence_inactive_png[] 
 const char* LivePanelHComponent::sequence_inactive_png = (const char*) resource_LivePanelHComponent_sequence_inactive_png;
 const int LivePanelHComponent::sequence_inactive_pngSize = 5234;
 
-// JUCER_RESOURCE: smallButton_2x_png, 1861, "../../Images/SmallButton@2x.png"
+// JUCER_RESOURCE: smallButton_2x_png, 1861, "../Images/SmallButton@2x.png"
 static const unsigned char resource_LivePanelHComponent_smallButton_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,60,0,0,0,60,8,6,0,0,0,58,252,217,114,0,0,0,1,115,82,71,66,0,174,206,
 28,233,0,0,0,6,98,75,71,68,0,0,0,0,0,0,249,67,187,127,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,219,12,24,17,12,40,96,148,250,140,0,0,6,197,73,68,65,84,104,222,237,
 90,77,139,28,85,20,61,29,242,111,92,5,92,4,2,18,5,157,133,160,89,72,22,42,18,144,184,16,36,160,11,107,8,110,66,226,20,145,104,98,34,162,97,220,101,229,71,76,132,224,198,77,150,34,126,36,19,135,96,38,127,
@@ -3200,7 +3996,7 @@ static const unsigned char resource_LivePanelHComponent_smallButton_2x_png[] = {
 const char* LivePanelHComponent::smallButton_2x_png = (const char*) resource_LivePanelHComponent_smallButton_2x_png;
 const int LivePanelHComponent::smallButton_2x_pngSize = 1861;
 
-// JUCER_RESOURCE: sequence_inactive_2x_png, 9786, "../../Images/sequence_inactive@2x.png"
+// JUCER_RESOURCE: sequence_inactive_2x_png, 9786, "../Images/sequence_inactive@2x.png"
 static const unsigned char resource_LivePanelHComponent_sequence_inactive_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,122,0,0,0,112,8,6,0,0,0,209,194,100,130,0,0,0,1,115,82,71,66,
 0,174,206,28,233,0,0,0,6,98,75,71,68,0,0,0,0,0,0,249,67,187,127,0,0,0,9,112,72,89,115,0,0,46,35,0,0,46,35,1,120,165,63,118,0,0,0,7,116,73,77,69,7,220,1,14,23,41,27,163,221,203,133,0,0,32,0,73,68,65,84,
 120,218,237,125,123,148,101,85,121,231,239,247,237,123,239,169,238,186,253,168,234,247,163,170,187,160,155,116,203,195,65,16,163,16,250,133,98,162,60,76,16,2,186,102,73,70,87,124,16,51,62,150,193,196,
@@ -3379,7 +4175,7 @@ static const unsigned char resource_LivePanelHComponent_sequence_inactive_2x_png
 const char* LivePanelHComponent::sequence_inactive_2x_png = (const char*) resource_LivePanelHComponent_sequence_inactive_2x_png;
 const int LivePanelHComponent::sequence_inactive_2x_pngSize = 9786;
 
-// JUCER_RESOURCE: info_2x_png, 533, "../../Images/info@2x.png"
+// JUCER_RESOURCE: info_2x_png, 533, "../Images/info@2x.png"
 static const unsigned char resource_LivePanelHComponent_info_2x_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,36,0,0,0,36,8,6,0,0,0,225,0,152,152,0,0,0,1,115,82,71,66,0,174,206,28,233,
 0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,220,1,15,1,25,53,0,90,72,30,0,0,0,34,116,69,88,116,67,111,109,109,
 101,110,116,0,67,114,101,97,116,101,100,32,119,105,116,104,32,71,73,77,80,32,111,110,32,97,32,77,97,99,135,168,119,67,0,0,1,103,73,68,65,84,88,195,213,88,81,82,196,32,12,37,41,109,71,61,142,247,191,138,

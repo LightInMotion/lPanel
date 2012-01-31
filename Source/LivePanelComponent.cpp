@@ -45,6 +45,42 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
       recallButton10 (0),
       recallButton11 (0),
       recallButton12 (0),
+      recallButton13 (0),
+      recallButton14 (0),
+      recallButton15 (0),
+      recallButton16 (0),
+      recallButton17 (0),
+      recallButton18 (0),
+      recallButton19 (0),
+      recallButton20 (0),
+      recallButton21 (0),
+      recallButton22 (0),
+      recallButton23 (0),
+      recallButton24 (0),
+      recallButton25 (0),
+      recallButton26 (0),
+      recallButton27 (0),
+      recallButton28 (0),
+      recallButton29 (0),
+      recallButton30 (0),
+      recallButton31 (0),
+      recallButton32 (0),
+      recallButton33 (0),
+      recallButton34 (0),
+      recallButton35 (0),
+      recallButton36 (0),
+      recallButton37 (0),
+      recallButton38 (0),
+      recallButton39 (0),
+      recallButton40 (0),
+      recallButton41 (0),
+      recallButton42 (0),
+      recallButton43 (0),
+      recallButton44 (0),
+      recallButton45 (0),
+      recallButton46 (0),
+      recallButton47 (0),
+      recallButton48 (0),
       funcButton (0),
       funcLabel (0),
       connectLabel (0),
@@ -237,6 +273,262 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
                                ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x0),
                                Image(), 1.0000f, Colour (0x20000000));
+
+    addChildComponent (recallButton13 = new ImageButton (L"recall button 1"));
+    recallButton13->addListener (this);
+    
+    recallButton13->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+
+    addChildComponent (recallButton14 = new ImageButton (L"recall button 1"));
+    recallButton14->addListener (this);
+    
+    recallButton14->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+
+    addChildComponent (recallButton15 = new ImageButton (L"recall button 1"));
+    recallButton15->addListener (this);
+    
+    recallButton15->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton16 = new ImageButton (L"recall button 1"));
+    recallButton16->addListener (this);
+    
+    recallButton16->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton17 = new ImageButton (L"recall button 1"));
+    recallButton17->addListener (this);
+    
+    recallButton17->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton18 = new ImageButton (L"recall button 1"));
+    recallButton18->addListener (this);
+    
+    recallButton18->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton19 = new ImageButton (L"recall button 1"));
+    recallButton19->addListener (this);
+    
+    recallButton19->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton20 = new ImageButton (L"recall button 1"));
+    recallButton20->addListener (this);
+    
+    recallButton20->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton21 = new ImageButton (L"recall button 1"));
+    recallButton21->addListener (this);
+    
+    recallButton21->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton22 = new ImageButton (L"recall button 1"));
+    recallButton22->addListener (this);
+    
+    recallButton22->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton23 = new ImageButton (L"recall button 1"));
+    recallButton23->addListener (this);
+    
+    recallButton23->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton24 = new ImageButton (L"recall button 1"));
+    recallButton24->addListener (this);
+    
+    recallButton24->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton25 = new ImageButton (L"recall button 1"));
+    recallButton25->addListener (this);
+    
+    recallButton25->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton26 = new ImageButton (L"recall button 1"));
+    recallButton26->addListener (this);
+    
+    recallButton26->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton27 = new ImageButton (L"recall button 1"));
+    recallButton27->addListener (this);
+    
+    recallButton27->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton28 = new ImageButton (L"recall button 1"));
+    recallButton28->addListener (this);
+    
+    recallButton28->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton29 = new ImageButton (L"recall button 1"));
+    recallButton29->addListener (this);
+    
+    recallButton29->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton30 = new ImageButton (L"recall button 1"));
+    recallButton30->addListener (this);
+    
+    recallButton30->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton31 = new ImageButton (L"recall button 1"));
+    recallButton31->addListener (this);
+    
+    recallButton31->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton32 = new ImageButton (L"recall button 1"));
+    recallButton32->addListener (this);
+    
+    recallButton32->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton33 = new ImageButton (L"recall button 1"));
+    recallButton33->addListener (this);
+    
+    recallButton33->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton34 = new ImageButton (L"recall button 1"));
+    recallButton34->addListener (this);
+    
+    recallButton34->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton35 = new ImageButton (L"recall button 1"));
+    recallButton35->addListener (this);
+    
+    recallButton35->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton36 = new ImageButton (L"recall button 1"));
+    recallButton36->addListener (this);
+    
+    recallButton36->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton37 = new ImageButton (L"recall button 1"));
+    recallButton37->addListener (this);
+    
+    recallButton37->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton38 = new ImageButton (L"recall button 1"));
+    recallButton38->addListener (this);
+    
+    recallButton38->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton39 = new ImageButton (L"recall button 1"));
+    recallButton39->addListener (this);
+    
+    recallButton39->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton40 = new ImageButton (L"recall button 1"));
+    recallButton40->addListener (this);
+    
+    recallButton40->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton41 = new ImageButton (L"recall button 1"));
+    recallButton41->addListener (this);
+    
+    recallButton41->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton42 = new ImageButton (L"recall button 1"));
+    recallButton42->addListener (this);
+    
+    recallButton42->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton43 = new ImageButton (L"recall button 1"));
+    recallButton43->addListener (this);
+    
+    recallButton43->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton44 = new ImageButton (L"recall button 1"));
+    recallButton44->addListener (this);
+    
+    recallButton44->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton45 = new ImageButton (L"recall button 1"));
+    recallButton45->addListener (this);
+    
+    recallButton45->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton46 = new ImageButton (L"recall button 1"));
+    recallButton46->addListener (this);
+    
+    recallButton46->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton47 = new ImageButton (L"recall button 1"));
+    recallButton47->addListener (this);
+    
+    recallButton47->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+    addChildComponent (recallButton48 = new ImageButton (L"recall button 1"));
+    recallButton48->addListener (this);
+    
+    recallButton48->setImages (false, true, true,
+                               ImageCache::getFromMemory (BinaryData::sequence_inactive2x_png, BinaryData::sequence_inactive2x_pngSize), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x0),
+                               Image(), 1.0000f, Colour (0x20000000));
+
     addAndMakeVisible (funcButton = new ImageButton (L"function button"));
     funcButton->setButtonText (L"new button");
     funcButton->addListener (this);
@@ -307,13 +599,53 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
     buttons.add (recallButton10);
     buttons.add (recallButton11);
     buttons.add (recallButton12);
+    buttons.add (recallButton13);
+    buttons.add (recallButton14);
+    buttons.add (recallButton15);
+    buttons.add (recallButton16);
+    buttons.add (recallButton17);
+    buttons.add (recallButton18);
+    buttons.add (recallButton19);
+    buttons.add (recallButton20);
+    buttons.add (recallButton21);
+    buttons.add (recallButton22);
+    buttons.add (recallButton23);
+    buttons.add (recallButton24);
+    buttons.add (recallButton25);
+    buttons.add (recallButton26);
+    buttons.add (recallButton27);
+    buttons.add (recallButton28);
+    buttons.add (recallButton29);
+    buttons.add (recallButton30);
+    buttons.add (recallButton31);
+    buttons.add (recallButton32);
+    buttons.add (recallButton33);
+    buttons.add (recallButton34);
+    buttons.add (recallButton35);
+    buttons.add (recallButton36);
+    buttons.add (recallButton37);
+    buttons.add (recallButton38);
+    buttons.add (recallButton39);
+    buttons.add (recallButton40);
+    buttons.add (recallButton41);
+    buttons.add (recallButton42);
+    buttons.add (recallButton43);
+    buttons.add (recallButton44);
+    buttons.add (recallButton45);
+    buttons.add (recallButton46);
+    buttons.add (recallButton47);
+    buttons.add (recallButton48);
     
     // We need labels for the buttons
-    for (int n=0 ; n < 12 ; n++)
+    for (int n=0 ; n < 48 ; n++)
     {
         Label* label = new Label();
         
-        addAndMakeVisible (label);
+        if (n < 12)
+            addAndMakeVisible (label);
+        else
+            addChildComponent (label);
+        
         label->setFont (Font (12.0000f, Font::plain));
         label->setJustificationType (Justification::centred);
         label->setEditable (false, false, false);
@@ -321,6 +653,7 @@ LivePanelComponent::LivePanelComponent (LpNet *lpNet_)
         label->setColour (TextEditor::textColourId, Colours::black);
         label->setColour (TextEditor::backgroundColourId, Colour (0x0));
         label->setMinimumHorizontalScale (.2f);
+        label->setInterceptsMouseClicks (false, false);
         labels.add (label);
     }
     
@@ -363,6 +696,42 @@ LivePanelComponent::~LivePanelComponent()
     deleteAndZero (recallButton10);
     deleteAndZero (recallButton11);
     deleteAndZero (recallButton12);
+    deleteAndZero (recallButton13);
+    deleteAndZero (recallButton14);
+    deleteAndZero (recallButton15);
+    deleteAndZero (recallButton16);
+    deleteAndZero (recallButton17);
+    deleteAndZero (recallButton18);
+    deleteAndZero (recallButton19);
+    deleteAndZero (recallButton20);
+    deleteAndZero (recallButton21);
+    deleteAndZero (recallButton22);
+    deleteAndZero (recallButton23);
+    deleteAndZero (recallButton24);
+    deleteAndZero (recallButton25);
+    deleteAndZero (recallButton26);
+    deleteAndZero (recallButton27);
+    deleteAndZero (recallButton28);
+    deleteAndZero (recallButton29);
+    deleteAndZero (recallButton30);
+    deleteAndZero (recallButton31);
+    deleteAndZero (recallButton32);
+    deleteAndZero (recallButton33);
+    deleteAndZero (recallButton34);
+    deleteAndZero (recallButton35);
+    deleteAndZero (recallButton36);
+    deleteAndZero (recallButton37);
+    deleteAndZero (recallButton38);
+    deleteAndZero (recallButton39);
+    deleteAndZero (recallButton40);
+    deleteAndZero (recallButton41);
+    deleteAndZero (recallButton42);
+    deleteAndZero (recallButton43);
+    deleteAndZero (recallButton44);
+    deleteAndZero (recallButton45);
+    deleteAndZero (recallButton46);
+    deleteAndZero (recallButton47);
+    deleteAndZero (recallButton48);
     deleteAndZero (funcButton);
     deleteAndZero (funcLabel);
     deleteAndZero (connectLabel);
@@ -390,7 +759,10 @@ void LivePanelComponent::paint (Graphics& g)
     }
     else
     {
-        g.fillRect (proportionOfWidth (0.0178f), proportionOfHeight (0.1121f), proportionOfWidth (0.4444f), proportionOfHeight (0.7601f));
+        if (getWidth() < 1000)
+            g.fillRect (proportionOfWidth (0.0178f), proportionOfHeight (0.1121f), proportionOfWidth (0.4444f), proportionOfHeight (0.7601f));
+        else
+            g.fillRect (proportionOfWidth (0.0101f), proportionOfHeight (0.0851f), proportionOfWidth (0.9785f), proportionOfHeight (0.4874f));
     }
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -400,6 +772,14 @@ void LivePanelComponent::resized()
 {
     if (getWidth() < getHeight())
     {
+        for (int n=12 ; n < 48 ; n++)
+        {
+            buttons[n]->setVisible (false);
+            labels[n]->setVisible (false);
+        }
+        funcLabel->setVisible (true);
+        funcButton->setVisible (true);
+        
         stopButton->setBounds (proportionOfWidth (0.4600f), proportionOfHeight (0.7321f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
         tapButton->setBounds (proportionOfWidth (0.2733f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
         stepButton->setBounds (proportionOfWidth (0.6489f), proportionOfHeight (0.8567f), proportionOfWidth (0.3111f), proportionOfHeight (0.1121f));
@@ -432,35 +812,125 @@ void LivePanelComponent::resized()
     }
     else
     {
-        gmLabel->setBounds (proportionOfWidth (0.6667f), proportionOfHeight (0.8100f), proportionOfWidth (0.1511f), proportionOfHeight (0.0498f));
-        recallButton6->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton9->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton8->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        stopButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.2991f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-        tapButton->setBounds (proportionOfWidth (0.4978f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-        stepButton->setBounds (proportionOfWidth (0.7556f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
-        forwardButton->setBounds (proportionOfWidth (0.8533f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
-        reverseButton->setBounds (proportionOfWidth (0.4800f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
-        ballyButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.0872f), proportionOfWidth (0.2222f), proportionOfHeight (0.1869f));
-        gmFullOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.7227f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-        gmFadeOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.8598f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-        gmFadeOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.8723f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-        gmFullOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.7352f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
-        recallButton1->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton2->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton3->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton4->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton5->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton7->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton10->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton11->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        recallButton12->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
-        funcButton->setBounds (proportionOfWidth (0.3964f), proportionOfHeight (0.8972f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
-        funcLabel->setBounds (proportionOfWidth (0.1826f), proportionOfHeight (0.9221f), proportionOfWidth (0.2049f), proportionOfHeight (0.0498f));
-        connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
-        pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
-        pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), proportionOfHeight (0.0498f));
-        infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (.004f), proportionOfWidth (0.0521f), proportionOfHeight (0.0781f));
+        if (getWidth() < 1000)
+        {
+            for (int n=12 ; n < 48 ; n++)
+            {
+                buttons[n]->setVisible (false);
+                labels[n]->setVisible (false);
+            }
+            funcLabel->setVisible (true);
+            funcButton->setVisible (true);
+            
+            gmLabel->setBounds (proportionOfWidth (0.6667f), proportionOfHeight (0.8100f), proportionOfWidth (0.1511f), proportionOfHeight (0.0498f));
+            recallButton6->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton9->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton8->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            stopButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.2991f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
+            tapButton->setBounds (proportionOfWidth (0.4978f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
+            stepButton->setBounds (proportionOfWidth (0.7556f), proportionOfHeight (0.4984f), proportionOfWidth (0.2222f), proportionOfHeight (0.1558f));
+            forwardButton->setBounds (proportionOfWidth (0.8533f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
+            reverseButton->setBounds (proportionOfWidth (0.4800f), proportionOfHeight (0.2243f), proportionOfWidth (0.1333f), proportionOfHeight (0.2492f));
+            ballyButton->setBounds (proportionOfWidth (0.6222f), proportionOfHeight (0.0872f), proportionOfWidth (0.2222f), proportionOfHeight (0.1869f));
+            gmFullOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.7227f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
+            gmFadeOnButton->setBounds (proportionOfWidth (0.5778f), proportionOfHeight (0.8598f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
+            gmFadeOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.8723f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
+            gmFullOffButton->setBounds (proportionOfWidth (0.8000f), proportionOfHeight (0.7352f), proportionOfWidth (0.1111f), proportionOfHeight (0.0935f));
+            recallButton1->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton2->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton3->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.1246f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton4->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton5->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.3115f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton7->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.4984f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton10->setBounds (proportionOfWidth (0.0267f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton11->setBounds (proportionOfWidth (0.1689f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            recallButton12->setBounds (proportionOfWidth (0.3111f), proportionOfHeight (0.6854f), proportionOfWidth (0.1356f), proportionOfHeight (0.1744f));
+            funcButton->setBounds (proportionOfWidth (0.3964f), proportionOfHeight (0.8972f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
+            funcLabel->setBounds (proportionOfWidth (0.1826f), proportionOfHeight (0.9221f), proportionOfWidth (0.2049f), proportionOfHeight (0.0498f));
+            connectLabel->setBounds (proportionOfWidth (0.3378f), proportionOfHeight (0.0187f), proportionOfWidth (0.3644f), proportionOfHeight (0.0498f));
+            pageButton->setBounds (proportionOfWidth (0.0200f), proportionOfHeight (0.9003f), proportionOfWidth (0.0668f), proportionOfHeight (0.0935f));
+            pageLabel->setBounds (proportionOfWidth (0.0891f), proportionOfHeight (0.9221f), proportionOfWidth (0.1626f), proportionOfHeight (0.0498f));
+            infoButton->setBounds (proportionOfWidth (0.9154f), proportionOfHeight (.004f), proportionOfWidth (0.0521f), proportionOfHeight (0.0781f));
+        }
+        else
+        {
+            for (int n=12 ; n < 48 ; n++)
+            {
+                buttons[n]->setVisible (true);
+                labels[n]->setVisible (true);
+            }
+            funcLabel->setVisible (false);
+            funcButton->setVisible (false);
+
+            pageOffset = 0;
+            funcLabel->setText ("Func", false);
+            
+            gmLabel->setBounds (proportionOfWidth (0.2886f), proportionOfHeight (0.6035f), proportionOfWidth (0.0861f), proportionOfHeight (0.0310f));
+            recallButton6->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton9->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton8->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            stopButton->setBounds (proportionOfWidth (0.4949f), proportionOfHeight (0.7505f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+            tapButton->setBounds (proportionOfWidth (0.4253f), proportionOfHeight (0.8743f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+            stepButton->setBounds (proportionOfWidth (0.5709f), proportionOfHeight (0.8743f), proportionOfWidth (0.1266f), proportionOfHeight (0.0967f));
+            forwardButton->setBounds (proportionOfWidth (0.6266f), proportionOfHeight (0.7041f), proportionOfWidth (0.0759f), proportionOfHeight (0.1547f));
+            reverseButton->setBounds (proportionOfWidth (0.4152f), proportionOfHeight (0.7041f), proportionOfWidth (0.0759f), proportionOfHeight (0.1547f));
+            ballyButton->setBounds (proportionOfWidth (0.4949f), proportionOfHeight (0.6190f), proportionOfWidth (0.1266f), proportionOfHeight (0.1160f));
+            gmFullOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.6499f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            gmFadeOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.7350f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            gmFadeOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.9130f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            gmFullOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.8278f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            recallButton1->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton2->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton3->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton4->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton5->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton7->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton10->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton11->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton12->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            funcButton->setBounds (proportionOfWidth (0.9291f), proportionOfHeight (0.6035f), proportionOfWidth (0.0380f), proportionOfHeight (0.0580f));
+            funcLabel->setBounds (proportionOfWidth (0.8076f), proportionOfHeight (0.6190f), proportionOfWidth (0.1165f), proportionOfHeight (0.0310f));
+            connectLabel->setBounds (proportionOfWidth (0.4000f), proportionOfHeight (0.0232f), proportionOfWidth (0.2076f), proportionOfHeight (0.0310f));
+            pageButton->setBounds (proportionOfWidth (0.0114f), proportionOfHeight (0.0097f), proportionOfWidth (0.0380f), proportionOfHeight (0.0580f));
+            pageLabel->setBounds (proportionOfWidth (0.0506f), proportionOfHeight (0.0232f), proportionOfWidth (0.0924f), proportionOfHeight (0.0310f));
+            infoButton->setBounds (proportionOfWidth (0.9570f), proportionOfHeight (0.0155f), proportionOfWidth (0.0228f), proportionOfHeight (0.0348f));
+            recallButton13->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton14->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton15->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton16->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton17->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton18->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton19->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton20->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton21->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton22->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton23->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton24->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.2166f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton25->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton26->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton27->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton28->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton29->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton30->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton31->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton32->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton33->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton34->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton35->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton36->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.3327f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton37->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton38->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton39->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton40->setBounds (proportionOfWidth (0.2582f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton41->setBounds (proportionOfWidth (0.3392f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton42->setBounds (proportionOfWidth (0.4202f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton43->setBounds (proportionOfWidth (0.5013f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton44->setBounds (proportionOfWidth (0.5823f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton45->setBounds (proportionOfWidth (0.6633f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton46->setBounds (proportionOfWidth (0.7443f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton47->setBounds (proportionOfWidth (0.8253f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
+            recallButton48->setBounds (proportionOfWidth (0.9063f), proportionOfHeight (0.4487f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));            
+        }
     }
     
     //[UserResized] Add your own custom resize handling here..
@@ -469,8 +939,11 @@ void LivePanelComponent::resized()
     pageLabel->setFont (Font (pageLabel->getHeight() * .7f, Font::plain));
     connectLabel->setFont (Font (connectLabel->getHeight() * .7f, Font::plain));
     
-    for (int n=0 ; n<12 ; n++)
+    for (int n=0 ; n<48 ; n++)
     {
+        if (! labels[n]->isVisible())
+            break;
+        
         Rectangle<int> r = (buttons[n])->getBounds();
         int h = r.getHeight();
         (labels[n])->setBounds (r.getX(), r.getY() + h - (h >> 2), r.getWidth(), h >> 2);
@@ -588,6 +1061,78 @@ void LivePanelComponent::buttonStateChanged(Button* buttonThatChanged)
             lpNet->doRecall (pageOffset * 12 + 10);
         else if (buttonThatChanged == recallButton12)
             lpNet->doRecall (pageOffset * 12 + 11);
+        else if (buttonThatChanged == recallButton13)
+            lpNet->doRecall (12);
+        else if (buttonThatChanged == recallButton14)
+            lpNet->doRecall (13);
+        else if (buttonThatChanged == recallButton15)
+            lpNet->doRecall (14);
+        else if (buttonThatChanged == recallButton16)
+            lpNet->doRecall (15);
+        else if (buttonThatChanged == recallButton17)
+            lpNet->doRecall (16);
+        else if (buttonThatChanged == recallButton18)
+            lpNet->doRecall (17);
+        else if (buttonThatChanged == recallButton19)
+            lpNet->doRecall (18);
+        else if (buttonThatChanged == recallButton20)
+            lpNet->doRecall (19);
+        else if (buttonThatChanged == recallButton21)
+            lpNet->doRecall (20);
+        else if (buttonThatChanged == recallButton22)
+            lpNet->doRecall (21);
+        else if (buttonThatChanged == recallButton23)
+            lpNet->doRecall (22);
+        else if (buttonThatChanged == recallButton24)
+            lpNet->doRecall (23);
+        else if (buttonThatChanged == recallButton25)
+            lpNet->doRecall (24);
+        else if (buttonThatChanged == recallButton26)
+            lpNet->doRecall (25);
+        else if (buttonThatChanged == recallButton27)
+            lpNet->doRecall (26);
+        else if (buttonThatChanged == recallButton28)
+            lpNet->doRecall (27);
+        else if (buttonThatChanged == recallButton29)
+            lpNet->doRecall (28);
+        else if (buttonThatChanged == recallButton30)
+            lpNet->doRecall (29);
+        else if (buttonThatChanged == recallButton31)
+            lpNet->doRecall (30);
+        else if (buttonThatChanged == recallButton32)
+            lpNet->doRecall (31);
+        else if (buttonThatChanged == recallButton33)
+            lpNet->doRecall (32);
+        else if (buttonThatChanged == recallButton34)
+            lpNet->doRecall (33);
+        else if (buttonThatChanged == recallButton35)
+            lpNet->doRecall (34);
+        else if (buttonThatChanged == recallButton36)
+            lpNet->doRecall (35);
+        else if (buttonThatChanged == recallButton37)
+            lpNet->doRecall (36);
+        else if (buttonThatChanged == recallButton38)
+            lpNet->doRecall (37);
+        else if (buttonThatChanged == recallButton39)
+            lpNet->doRecall (38);
+        else if (buttonThatChanged == recallButton40)
+            lpNet->doRecall (39);
+        else if (buttonThatChanged == recallButton41)
+            lpNet->doRecall (40);
+        else if (buttonThatChanged == recallButton42)
+            lpNet->doRecall (41);
+        else if (buttonThatChanged == recallButton43)
+            lpNet->doRecall (42);
+        else if (buttonThatChanged == recallButton44)
+            lpNet->doRecall (43);
+        else if (buttonThatChanged == recallButton45)
+            lpNet->doRecall (44);
+        else if (buttonThatChanged == recallButton46)
+            lpNet->doRecall (45);
+        else if (buttonThatChanged == recallButton47)
+            lpNet->doRecall (46);
+        else if (buttonThatChanged == recallButton48)
+            lpNet->doRecall (47);
     }
 }
 
@@ -667,8 +1212,11 @@ void LivePanelComponent::updatePage()
     
     pageLabel->setText (p, false);
     
-    for (int n=0 ; n<12 ; n++)
+    for (int n=0 ; n<48 ; n++)
     {
+        if (! buttons[n]->isVisible())
+            break;
+        
         LpNet::RecallInfo info;
         if (! lpNet->getRecall (pageOffset * 12 + n, info))
             info.isActive = false;

@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  30 Jan 2012 9:18:33pm
+  Creation date:  31 Jan 2012 8:29:10am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_3D185441__
-#define __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_3D185441__
+#ifndef __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
+#define __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "juce.h"
@@ -121,6 +121,42 @@ private:
     ImageButton* pageButton;
     Label* pageLabel;
     ImageButton* infoButton;
+    ImageButton* recallButton13;
+    ImageButton* recallButton14;
+    ImageButton* recallButton15;
+    ImageButton* recallButton16;
+    ImageButton* recallButton17;
+    ImageButton* recallButton18;
+    ImageButton* recallButton19;
+    ImageButton* recallButton20;
+    ImageButton* recallButton21;
+    ImageButton* recallButton22;
+    ImageButton* recallButton23;
+    ImageButton* recallButton24;
+    ImageButton* recallButton25;
+    ImageButton* recallButton26;
+    ImageButton* recallButton27;
+    ImageButton* recallButton28;
+    ImageButton* recallButton29;
+    ImageButton* recallButton30;
+    ImageButton* recallButton31;
+    ImageButton* recallButton32;
+    ImageButton* recallButton33;
+    ImageButton* recallButton34;
+    ImageButton* recallButton35;
+    ImageButton* recallButton36;
+    ImageButton* recallButton37;
+    ImageButton* recallButton38;
+    ImageButton* recallButton39;
+    ImageButton* recallButton40;
+    ImageButton* recallButton41;
+    ImageButton* recallButton42;
+    ImageButton* recallButton43;
+    ImageButton* recallButton44;
+    ImageButton* recallButton45;
+    ImageButton* recallButton46;
+    ImageButton* recallButton47;
+    ImageButton* recallButton48;
 
 
     //==============================================================================
@@ -130,4 +166,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_3D185441__
+#endif   // __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
