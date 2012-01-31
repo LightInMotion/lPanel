@@ -39,11 +39,11 @@ bool MessageManager::dispatchNextMessageOnSystemQueue (const bool returnIfNoPend
 bool MessageManager::postMessageToSystemQueue (Message* message)
 {
     message->incReferenceCount();
-    getEnv()->CallVoidMethod (android.activity, iPanelAppActivity.postMessage, (jlong) (pointer_sized_uint) message);
+    getEnv()->CallVoidMethod (android.activity, JuceAppActivity.postMessage, (jlong) (pointer_sized_uint) message);
     return true;
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, deliverMessage, void, (jobject activity, jlong value))
+JUCE_JNI_CALLBACK (JuceAppActivity, deliverMessage, void, (jobject activity, jlong value))
 {
     Message* const message = (Message*) (pointer_sized_uint) value;
     MessageManager::getInstance()->deliverMessage (message);
@@ -105,7 +105,7 @@ public:
 
     void messageCallback()
     {
-        android.activity.callVoidMethod (iPanelAppActivity.finish);
+        android.activity.callVoidMethod (JuceAppActivity.finish);
     }
 };
 
