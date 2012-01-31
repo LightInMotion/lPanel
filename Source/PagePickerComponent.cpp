@@ -93,8 +93,8 @@ void PagePickerComponent::resized()
 void PagePickerComponent::buttonClicked (Button* buttonThatWasClicked)
 {
     page = buttons.indexOf (dynamic_cast<TextButton*> (buttonThatWasClicked));
-    for (int n=0 ; n < 24 ; n++)
-        (buttons[n])->setEnabled (false);
+//    for (int n=0 ; n < 24 ; n++)
+//        (buttons[n])->setEnabled (false);
     
     Component* parent = getParentComponent();
     parent->postCommandMessage (0x1234);
