@@ -40,7 +40,7 @@ DECLARE_JNI_CLASS (StringBuffer, "java/lang/StringBuffer");
  METHOD (isExhausted, "isExhausted", "()Z") \
  METHOD (setPosition, "setPosition", "(J)Z") \
 
-DECLARE_JNI_CLASS (HTTPStream, "com/juce/JuceAppActivity$HTTPStream");
+DECLARE_JNI_CLASS (HTTPStream, "com/limsc/iPanel/iPanelAppActivity$HTTPStream");
 #undef JNI_CLASS_MEMBERS
 
 
@@ -85,8 +85,8 @@ public:
 
         LocalRef<jobject> responseHeaderBuffer (env->NewObject (StringBuffer, StringBuffer.constructor));
 
-        stream = GlobalRef (env->CallStaticObjectMethod (JuceAppActivity,
-                                                         JuceAppActivity.createHTTPStream,
+        stream = GlobalRef (env->CallStaticObjectMethod (iPanelAppActivity,
+                                                         iPanelAppActivity.createHTTPStream,
                                                          javaString (address).get(),
                                                          (jboolean) isPost,
                                                          postDataArray,
