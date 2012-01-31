@@ -877,8 +877,8 @@ void LivePanelComponent::resized()
             ballyButton->setBounds (proportionOfWidth (0.4949f), proportionOfHeight (0.6190f), proportionOfWidth (0.1266f), proportionOfHeight (0.1160f));
             gmFullOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.6499f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
             gmFadeOnButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.7350f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
-            gmFadeOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.9130f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
-            gmFullOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.8278f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            gmFullOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.9130f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
+            gmFadeOffButton->setBounds (proportionOfWidth (0.3025f), proportionOfHeight (0.8278f), proportionOfWidth (0.0633f), proportionOfHeight (0.0580f));
             recallButton1->setBounds (proportionOfWidth (0.0152f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
             recallButton2->setBounds (proportionOfWidth (0.0962f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
             recallButton3->setBounds (proportionOfWidth (0.1772f), proportionOfHeight (0.1006f), proportionOfWidth (0.0772f), proportionOfHeight (0.1083f));
