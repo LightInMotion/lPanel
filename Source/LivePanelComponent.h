@@ -70,6 +70,8 @@ public:
     static const int sequence_inactive_2x_pngSize;
     static const char* info_2x_png;
     static const int info_2x_pngSize;
+    static const char* smallLogo_png;
+    static const int smallLogo_pngSize;
 
     //==============================================================================
     void timerCallback();
@@ -159,6 +161,7 @@ private:
     ImageButton* pageButton;
     Label* pageLabel;
     ImageButton* infoButton;
+    Image cachedImage_smallLogo_png;
 
 
     //==============================================================================

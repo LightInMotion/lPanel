@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  31 Jan 2012 8:29:10am
+  Creation date:  6 Feb 2012 3:54:00pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
-#define __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
+#ifndef __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_D9575D4D__
+#define __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_D9575D4D__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "juce.h"
@@ -82,6 +82,8 @@ public:
     static const int sequence_inactive_2x_pngSize;
     static const char* info_2x_png;
     static const int info_2x_pngSize;
+    static const char* smallLogo_png;
+    static const int smallLogo_pngSize;
 
 
     //==============================================================================
@@ -157,6 +159,7 @@ private:
     ImageButton* recallButton46;
     ImageButton* recallButton47;
     ImageButton* recallButton48;
+    Image cachedImage_smallLogo_png;
 
 
     //==============================================================================
@@ -166,4 +169,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_DA8F5654__
+#endif   // __JUCER_HEADER_LIVEPANELHCOMPONENT_LIVEPANELLHCOMPONENT_D9575D4D__
