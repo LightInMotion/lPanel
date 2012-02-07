@@ -25,10 +25,14 @@ LpNet::~LpNet()
 //==============================================================================
 void LpNet::connect()
 {
+    if (isThreadRunning() && (! threadShouldExit()))
+        return;
+    
     stopThread (-1);
     {
-        const ScopedLock lock (criticalSection);
+        criticalSection.enter();
         serverSocket = nullptr;
+        criticalSection.exit();
         startThread();
     }
 }
@@ -43,8 +47,10 @@ bool LpNet::isConnected()
 
 void LpNet::disconnect(bool startDiscovery)
 {
-    const ScopedLock lock (criticalSection);
+    stopThread (-1);
+    criticalSection.enter();
     serverSocket = nullptr;
+    criticalSection.exit();
     if (startDiscovery)
         startThread();
 }
