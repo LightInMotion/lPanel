@@ -993,7 +993,7 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
                 funcLabel->setText ("Shift", false);
                 break;
             case 2:
-                funcLabel->setText ("Ctlr", false);
+                funcLabel->setText ("Ctrl", false);
                 break;
             default:
                 funcLabel->setText ("Alt", false);
