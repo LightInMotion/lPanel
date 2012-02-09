@@ -4,7 +4,7 @@
           package="com.limsc.iPanel">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true"/>
   <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-sdk android:minSdkVersion="7" android:maxSdkVersion="15"/>
+  <uses-sdk android:minSdkVersion="7"/>
   <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
     <activity android:name="iPanelAppActivity" android:label="@string/app_name">
       <intent-filter>
