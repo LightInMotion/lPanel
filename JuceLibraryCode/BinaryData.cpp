@@ -5,28 +5,8 @@
 
 */
 
-#include "BinaryData.h"
-
-
-const char* BinaryData::getNamedResource (const char* resourceNameUTF8, int& numBytes) throw()
+namespace BinaryData
 {
-    int hash = 0;
-    if (resourceNameUTF8 != 0)
-        while (*resourceNameUTF8 != 0)
-            hash = 31 * hash + *resourceNameUTF8++;
-
-    switch (hash)
-    {
-        case 0x0aa03f18:  numBytes = BinaryData::info_pngSize; return BinaryData::info_png;
-        case 0xe5f12b34:  numBytes = BinaryData::sequence_active2x_pngSize; return BinaryData::sequence_active2x_png;
-        case 0x342fb159:  numBytes = BinaryData::sequence_inactive2x_pngSize; return BinaryData::sequence_inactive2x_png;
-        default: break;
-    }
-
-    numBytes = 0;
-    return 0;
-}
-
 
 //================== info.png ==================
 static const unsigned char temp_ac8b1d79[] =
@@ -77,7 +57,7 @@ static const unsigned char temp_ac8b1d79[] =
 0,192,155,109,101,140,75,204,88,102,31,38,34,166,229,181,77,242,33,107,89,101,120,79,31,231,50,143,93,148,174,141,136,55,251,91,211,100,230,66,194,68,198,145,64,225,219,166,221,185,222,251,77,12,128,123,146,125,71,2,159,54,141,45,150,50,85,0,77,0,135,
 0,54,1,84,50,156,230,11,64,27,64,148,246,44,85,116,66,119,163,146,155,150,82,143,228,179,203,209,154,215,127,136,113,82,245,196,161,95,111,238,124,32,16,8,148,202,31,169,141,105,130,113,15,194,43,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* BinaryData::info_png = (const char*) temp_ac8b1d79;
+const char* info_png = (const char*) temp_ac8b1d79;
 
 //================== sequence_active@2x.png ==================
 static const unsigned char temp_393879cd[] =
@@ -276,7 +256,7 @@ static const unsigned char temp_393879cd[] =
 252,63,185,219,236,8,254,32,26,171,78,189,249,153,55,241,157,47,76,63,106,179,40,255,207,166,89,254,221,4,249,111,185,70,190,211,39,24,11,154,198,172,33,112,90,85,247,213,224,21,4,119,162,226,62,75,50,82,221,19,149,205,130,136,7,75,151,192,63,26,252,
 17,68,186,39,104,251,253,240,106,188,3,239,83,221,163,19,225,113,208,26,243,158,49,235,157,99,14,120,230,255,23,165,172,240,116,27,228,90,151,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* BinaryData::sequence_active2x_png = (const char*) temp_393879cd;
+const char* sequence_active2x_png = (const char*) temp_393879cd;
 
 //================== sequence_inactive@2x.png ==================
 static const unsigned char temp_82f2d448[] =
@@ -457,4 +437,29 @@ static const unsigned char temp_82f2d448[] =
 94,102,94,78,204,237,134,168,153,152,203,196,100,152,56,101,123,136,203,4,129,71,216,240,203,76,180,207,158,220,67,207,49,241,174,159,254,244,167,191,68,125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,
 125,212,71,125,212,71,125,212,71,125,212,71,125,212,71,125,252,123,198,255,7,215,5,236,4,195,5,177,212,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* BinaryData::sequence_inactive2x_png = (const char*) temp_82f2d448;
+const char* sequence_inactive2x_png = (const char*) temp_82f2d448;
+
+
+const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw()
+{
+    int hash = 0;
+    if (resourceNameUTF8 != 0)
+        while (*resourceNameUTF8 != 0)
+            hash = 31 * hash + *resourceNameUTF8++;
+
+    switch (hash)
+    {
+        case 0x0aa03f18:
+        case 0x168ac80b:  numBytes = 3283; return info_png;
+        case 0xe5f12b34:
+        case 0x260e7987:  numBytes = 13655; return sequence_active2x_png;
+        case 0x342fb159:
+        case 0xfa85cfe9:  numBytes = 12430; return sequence_inactive2x_png;
+        default: break;
+    }
+
+    numBytes = 0;
+    return 0;
+}
+
+}

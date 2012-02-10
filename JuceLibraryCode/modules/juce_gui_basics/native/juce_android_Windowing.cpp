@@ -100,10 +100,10 @@ public:
           fullScreen (false),
           sizeAllocated (0)
     {
-        GlobalRef gr (android.activity.callObjectMethod (iPanelAppActivity.createNewView, component->isOpaque()));
-        view = gr;
-        gr.clear();
-        
+        // NB: must not put this in the initialiser list, as it invokes a callback,
+        // which will fail if the peer is only half-constructed.
+        view = GlobalRef (android.activity.callObjectMethod (iPanelAppActivity.createNewView,
+                                                             component->isOpaque()));
         if (isFocused())
             handleFocusGain();
     }
@@ -492,12 +492,12 @@ public:
         for (int i = getNumPeers(); --i >= 0;)
         {
             AndroidComponentPeer* const ap = static_cast <AndroidComponentPeer*> (getPeer(i));
-            jassert (dynamic_cast <AndroidComponentPeer*> (getPeer(i)) != 0);
+            jassert (dynamic_cast <AndroidComponentPeer*> (getPeer(i)) != nullptr);
 
-            if (env->IsSameObject (viewToFind, ap->view.get()))
+            if (env->IsSameObject (ap->view.get(), viewToFind))
                 return ap;
         }
-
+        
         return nullptr;
     }
 
@@ -578,7 +578,7 @@ Point<int> AndroidComponentPeer::lastMousePos;
           peer->juceMethodInvocation; \
   }
 
-JUCE_VIEW_CALLBACK (void, handlePaint,      (JNIEnv* env, jobject view, jobject canvas),                handlePaintCallback (env, canvas))
+JUCE_VIEW_CALLBACK (void, handlePaint,      (JNIEnv* env, jobject view, jobject canvas),                    handlePaintCallback (env, canvas))
 JUCE_VIEW_CALLBACK (void, handleMouseDown,  (JNIEnv* env, jobject view, jfloat x, jfloat y, jlong time),    handleMouseDownCallback ((float) x, (float) y, (int64) time))
 JUCE_VIEW_CALLBACK (void, handleMouseDrag,  (JNIEnv* env, jobject view, jfloat x, jfloat y, jlong time),    handleMouseDragCallback ((float) x, (float) y, (int64) time))
 JUCE_VIEW_CALLBACK (void, handleMouseUp,    (JNIEnv* env, jobject view, jfloat x, jfloat y, jlong time),    handleMouseUpCallback ((float) x, (float) y, (int64) time))

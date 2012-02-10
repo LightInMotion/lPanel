@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.3"
+<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.4"
               bundleIdentifier="co.limsc.iPanel" jucerVersion="3.0.0" bigIcon="FUbVO4">
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"/>
-    <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules"/>
-    <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" juceFolder="../juce/modules"/>
+    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+      </CONFIGURATIONS>
+    </XCODE_MAC>
+    <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"/>
+      </CONFIGURATIONS>
+    </LINUX_MAKE>
+    <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" juceFolder="../juce/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+      </CONFIGURATIONS>
+    </XCODE_IPHONE>
     <ANDROID targetFolder="Builds/Android" androidSDKPath="${user.home}/SDKs/android-sdk-macosx"
              androidNDKPath="${user.home}/SDKs/android-ndk-r7" androidInternetNeeded="1"
-             juceFolder="../juce/modules"/>
-    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../juce/modules"/>
+             juceFolder="../juce/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"/>
+      </CONFIGURATIONS>
+    </ANDROID>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../juce/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
+                       winWarningLevel="4" winArchitecture="32-bit"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
+                       winWarningLevel="4" winArchitecture="32-bit"/>
+      </CONFIGURATIONS>
+    </VS2010>
   </EXPORTFORMATS>
-  <CONFIGURATIONS>
-    <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
-                   osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
-    <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
-                   osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
-  </CONFIGURATIONS>
   <MAINGROUP id="xTGfBl" name="iPanel">
     <GROUP id="{33D4128C-1CDB-B835-8181-111033196E06}" name="Binary Data">
       <FILE id="i6pj5z" name="info.png" compile="0" resource="1" file="Images/info.png"/>
