@@ -105,13 +105,6 @@ public final class iPanel   extends Activity
         android.util.Log.i ("Juce", s);
     }
     
-    //==============================================================================
-    public final void launchURL (String s)
-    {
-    	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
-    	startActivity(browserIntent);    	
-    }
-    
 
     //==============================================================================
     public native void deliverMessage (long value);
