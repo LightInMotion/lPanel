@@ -23,9 +23,7 @@
   ==============================================================================
 */
 
-BEGIN_JUCE_NAMESPACE
 
-//==============================================================================
 DrawableRectangle::DrawableRectangle()
 {
 }
@@ -155,7 +153,7 @@ RelativePoint DrawableRectangle::ValueTreeWrapper::getCornerSize() const
     return RelativePoint (state [cornerSize]);
 }
 
-Value DrawableRectangle::ValueTreeWrapper::getCornerSizeValue (UndoManager* undoManager) const
+Value DrawableRectangle::ValueTreeWrapper::getCornerSizeValue (UndoManager* undoManager)
 {
     return state.getPropertyAsValue (cornerSize, undoManager);
 }
@@ -184,5 +182,3 @@ ValueTree DrawableRectangle::createValueTree (ComponentBuilder::ImageProvider* i
 
     return tree;
 }
-
-END_JUCE_NAMESPACE

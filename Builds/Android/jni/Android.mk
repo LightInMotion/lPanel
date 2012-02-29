@@ -21,11 +21,11 @@ LOCAL_SRC_FILES := \
   ../../../JuceLibraryCode/modules/juce_gui_basics/juce_gui_basics.cpp\
 
 ifeq ($(CONFIG),Debug)
-  LOCAL_CPPFLAGS += -fsigned-char -fexceptions -frtti -g -I "../../JuceLibraryCode" -O0 -D "JUCE_ANDROID=1" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_ANDROID_7F0E4A25=1"
+  LOCAL_CPPFLAGS += -fsigned-char -fexceptions -frtti -g -I "../../JuceLibraryCode" -O0 -D "JUCE_ANDROID=1" -D "JUCE_ANDROID_ACTIVITY_CLASSNAME=co_limsc_ipanel_iPanel" -D JUCE_ANDROID_ACTIVITY_CLASSPATH=\"co/limsc/ipanel/iPanel\" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_ANDROID_7F0E4A25=1"
+  LOCAL_LDLIBS := -llog -lGLESv2
 else
-  LOCAL_CPPFLAGS += -fsigned-char -fexceptions -frtti -I "../../JuceLibraryCode" -Os -D "JUCE_ANDROID=1" -D "NDEBUG=1" -D "JUCER_ANDROID_7F0E4A25=1"
+  LOCAL_CPPFLAGS += -fsigned-char -fexceptions -frtti -I "../../JuceLibraryCode" -Os -D "JUCE_ANDROID=1" -D "JUCE_ANDROID_ACTIVITY_CLASSNAME=co_limsc_ipanel_iPanel" -D JUCE_ANDROID_ACTIVITY_CLASSPATH=\"co/limsc/ipanel/iPanel\" -D "NDEBUG=1" -D "JUCER_ANDROID_7F0E4A25=1"
+  LOCAL_LDLIBS := -llog -lGLESv2
 endif
-
-LOCAL_LDLIBS := -lGLESv1_CM -lGLESv2
 
 include $(BUILD_SHARED_LIBRARY)

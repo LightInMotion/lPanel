@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="3" android:versionName="1.0.4"
-          package="com.limsc.iPanel">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0"
+          package="co.limsc.ipanel">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true"/>
+  <uses-sdk android:minSdkVersion="8"/>
   <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-sdk android:minSdkVersion="7"/>
-  <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-    <activity android:name="iPanelAppActivity" android:label="@string/app_name">
+  <application android:label="@string/app_name" android:icon="@drawable/icon">
+    <activity android:name="iPanel" android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

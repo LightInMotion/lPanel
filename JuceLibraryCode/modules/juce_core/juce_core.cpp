@@ -23,7 +23,7 @@
   ==============================================================================
 */
 
-#ifdef __JUCE_CORE_JUCEHEADER__
+#if defined (__JUCE_CORE_JUCEHEADER__) && ! JUCE_AMALGAMATED_INCLUDE
  /* When you add this cpp file to your project, you mustn't include it in a file where you've
     already included any other headers - just put it inside a file on its own, possibly with your config
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
@@ -40,7 +40,49 @@
 #include "native/juce_BasicNativeHeaders.h"
 #include "juce_core.h"
 
+#include <locale>
+#include <cctype>
+#include <sys/timeb.h>
+
+#if ! JUCE_ANDROID
+ #include <cwctype>
+#endif
+
+#if JUCE_WINDOWS
+ #include <ctime>
+ #include <winsock2.h>
+ #include <ws2tcpip.h>
+
+ #if JUCE_MINGW
+  #include <wspiapi.h>
+ #endif
+
+#else
+ #if JUCE_LINUX || JUCE_ANDROID
+  #include <sys/types.h>
+  #include <sys/socket.h>
+  #include <sys/errno.h>
+  #include <unistd.h>
+  #include <netinet/in.h>
+ #endif
+
+ #include <pwd.h>
+ #include <fcntl.h>
+ #include <netdb.h>
+ #include <arpa/inet.h>
+ #include <netinet/tcp.h>
+ #include <sys/time.h>
+#endif
+
+#if JUCE_ANDROID
+ #include <android/log.h>
+#endif
+
+
 //==============================================================================
+namespace juce
+{
+
 // START_AUTOINCLUDE containers/*.cpp, files/*.cpp, json/*.cpp, logging/*.cpp, maths/*.cpp,
 // memory/*.cpp, misc/*.cpp, network/*.cpp, streams/*.cpp, system/*.cpp, text/*.cpp, threads/*.cpp,
 // time/*.cpp, unit_tests/*.cpp, xml/*.cpp, zip/juce_GZIPD*.cpp, zip/juce_GZIPC*.cpp, zip/juce_Zip*.cpp
@@ -99,53 +141,52 @@
 #include "zip/juce_ZipFile.cpp"
 // END_AUTOINCLUDE
 
-BEGIN_JUCE_NAMESPACE
+//==============================================================================
+#if JUCE_MAC || JUCE_IOS
+#include "native/juce_osx_ObjCHelpers.h"
+#include "native/juce_mac_ObjCSuffix.h"
+#endif
+
+#if JUCE_ANDROID
+#include "native/juce_android_JNIHelpers.h"
+#endif
+
+#if ! JUCE_WINDOWS
+#include "native/juce_posix_SharedCode.h"
+#include "native/juce_posix_NamedPipe.cpp"
+#endif
 
 //==============================================================================
 #if JUCE_MAC || JUCE_IOS
- #include "native/juce_osx_ObjCHelpers.h"
- #include "native/juce_mac_ObjCSuffix.h"
- #include "native/juce_posix_NamedPipe.cpp"
- #include "native/juce_posix_SharedCode.h"
- #include "native/juce_mac_Files.mm"
- #include "native/juce_mac_Network.mm"
- #include "native/juce_mac_Strings.mm"
- #include "native/juce_mac_SystemStats.mm"
- #include "native/juce_mac_Threads.mm"
+#include "native/juce_mac_Files.mm"
+#include "native/juce_mac_Network.mm"
+#include "native/juce_mac_Strings.mm"
+#include "native/juce_mac_SystemStats.mm"
+#include "native/juce_mac_Threads.mm"
 
 //==============================================================================
 #elif JUCE_WINDOWS
- #if JUCE_VC6
-  #pragma warning (disable: 4309 4305)
- #endif
-
- #include "native/juce_win32_ComSmartPtr.h"
- #include "native/juce_win32_Files.cpp"
- #include "native/juce_win32_Network.cpp"
- #include "native/juce_win32_Registry.cpp"
- #include "native/juce_win32_SystemStats.cpp"
- #include "native/juce_win32_Threads.cpp"
+#include "native/juce_win32_ComSmartPtr.h"
+#include "native/juce_win32_Files.cpp"
+#include "native/juce_win32_Network.cpp"
+#include "native/juce_win32_Registry.cpp"
+#include "native/juce_win32_SystemStats.cpp"
+#include "native/juce_win32_Threads.cpp"
 
 //==============================================================================
 #elif JUCE_LINUX
- #include "native/juce_posix_SharedCode.h"
- #include "native/juce_posix_NamedPipe.cpp"
- #include "native/juce_linux_Files.cpp"
- #include "native/juce_linux_Network.cpp"
- #include "native/juce_linux_SystemStats.cpp"
- #include "native/juce_linux_Threads.cpp"
+#include "native/juce_linux_Files.cpp"
+#include "native/juce_linux_Network.cpp"
+#include "native/juce_linux_SystemStats.cpp"
+#include "native/juce_linux_Threads.cpp"
 
 //==============================================================================
 #elif JUCE_ANDROID
- #include "native/juce_android_JNIHelpers.h"
- #include "native/juce_posix_SharedCode.h"
- #include "native/juce_posix_NamedPipe.cpp"
- #include "native/juce_android_Files.cpp"
- #include "native/juce_android_Misc.cpp"
- #include "native/juce_android_Network.cpp"
- #include "native/juce_android_SystemStats.cpp"
- #include "native/juce_android_Threads.cpp"
+#include "native/juce_android_Files.cpp"
+#include "native/juce_android_Misc.cpp"
+#include "native/juce_android_Network.cpp"
+#include "native/juce_android_SystemStats.cpp"
+#include "native/juce_android_Threads.cpp"
 
 #endif
-
-END_JUCE_NAMESPACE
+}

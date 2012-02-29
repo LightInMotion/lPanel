@@ -203,7 +203,7 @@ public:
         it needs to change the value. Attaching a Value::Listener to the value object will provide
         callbacks whenever the property changes.
     */
-    Value getPropertyAsValue (const Identifier& name, UndoManager* undoManager) const;
+    Value getPropertyAsValue (const Identifier& name, UndoManager* undoManager);
 
     //==============================================================================
     /** Returns the number of child nodes belonging to this one.
@@ -344,6 +344,11 @@ public:
 
     /** Reloads a tree from a data block that was written with writeToStream(). */
     static ValueTree readFromData (const void* data, size_t numBytes);
+
+    /** Reloads a tree from a data block that was written with writeToStream() and
+        then zipped using GZIPCompressorOutputStream.
+    */
+    static ValueTree readFromGZIPData (const void* data, size_t numBytes);
 
     //==============================================================================
     /** Listener class for events that happen to a ValueTree.
@@ -499,9 +504,6 @@ private:
     void createListOfChildren (OwnedArray<ValueTree>&) const;
     void reorderChildren (const OwnedArray<ValueTree>&, UndoManager*);
 
-#if JUCE_MSVC && ! DOXYGEN
- public:  // (workaround for VC6)
-#endif
     explicit ValueTree (SharedObject*);
 };
 

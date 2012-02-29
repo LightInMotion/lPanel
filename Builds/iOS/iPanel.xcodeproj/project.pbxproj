@@ -1772,7 +1772,7 @@
 		86472942EED792DB17B11920 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 383F5E48E73DE43762AA3E49 /* Build configuration list for PBXProject "iPanel" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1846,6 +1846,7 @@
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../JuceLibraryCode,
@@ -1931,6 +1932,7 @@
 					"JUCE_ObjCExtraSuffix=sXoyQo",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../JuceLibraryCode,
@@ -1991,6 +1993,7 @@
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../../JuceLibraryCode,

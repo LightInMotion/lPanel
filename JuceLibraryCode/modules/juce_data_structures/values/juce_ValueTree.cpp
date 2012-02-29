@@ -23,11 +23,8 @@
   ==============================================================================
 */
 
-BEGIN_JUCE_NAMESPACE
 
-
-//==============================================================================
-class ValueTree::SharedObject    : public SingleThreadedReferenceCountedObject
+class ValueTree::SharedObject  : public ReferenceCountedObject
 {
 public:
     typedef ReferenceCountedObjectPtr<SharedObject> Ptr;
@@ -831,7 +828,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE (ValueTreePropertyValueSource);
 };
 
-Value ValueTree::getPropertyAsValue (const Identifier& name, UndoManager* const undoManager) const
+Value ValueTree::getPropertyAsValue (const Identifier& name, UndoManager* const undoManager)
 {
     return Value (new ValueTreePropertyValueSource (*this, name, undoManager));
 }
@@ -1012,6 +1009,12 @@ ValueTree ValueTree::readFromData (const void* const data, const size_t numBytes
     return readFromStream (in);
 }
 
+ValueTree ValueTree::readFromGZIPData (const void* const data, const size_t numBytes)
+{
+    MemoryInputStream in (data, numBytes, false);
+    GZIPDecompressorInputStream gzipStream (in);
+    return readFromStream (gzipStream);
+}
 
 //==============================================================================
 #if JUCE_UNIT_TESTS
@@ -1103,5 +1106,3 @@ public:
 static ValueTreeTests valueTreeTests;
 
 #endif
-
-END_JUCE_NAMESPACE

@@ -23,8 +23,6 @@
   ==============================================================================
 */
 
-BEGIN_JUCE_NAMESPACE
-
 TextLayout::Glyph::Glyph (const int glyphCode_, const Point<float>& anchor_, float width_) noexcept
     : glyphCode (glyphCode_), anchor (anchor_), width (width_)
 {
@@ -301,8 +299,9 @@ namespace TextLayoutHelpers
             int lineStartPosition = 0;
             int runStartPosition = 0;
 
-            TextLayout::Line* glyphLine = new TextLayout::Line();
-            TextLayout::Run*  glyphRun  = new TextLayout::Run();
+            ScopedPointer<TextLayout::Line> currentLine;
+            ScopedPointer<TextLayout::Run> currentRun;
+
             bool needToSetLineOrigin = true;
 
             for (int i = 0; i < tokens.size(); ++i)
@@ -314,20 +313,23 @@ namespace TextLayoutHelpers
                 Array <float> xOffsets;
                 t->font.getGlyphPositions (t->text.trimEnd(), newGlyphs, xOffsets);
 
-                glyphRun->glyphs.ensureStorageAllocated (glyphRun->glyphs.size() + newGlyphs.size());
+                if (currentRun == nullptr)  currentRun  = new TextLayout::Run();
+                if (currentLine == nullptr) currentLine = new TextLayout::Line();
+
+                currentRun->glyphs.ensureStorageAllocated (currentRun->glyphs.size() + newGlyphs.size());
 
                 for (int j = 0; j < newGlyphs.size(); ++j)
                 {
                     if (needToSetLineOrigin)
                     {
                         needToSetLineOrigin = false;
-                        glyphLine->lineOrigin = tokenPos.translated (0, t->font.getAscent());
+                        currentLine->lineOrigin = tokenPos.translated (0, t->font.getAscent());
                     }
 
                     const float x = xOffsets.getUnchecked (j);
-                    glyphRun->glyphs.add (TextLayout::Glyph (newGlyphs.getUnchecked(j),
-                                                             Point<float> (tokenPos.getX() + x, 0),
-                                                             xOffsets.getUnchecked (j + 1) - x));
+                    currentRun->glyphs.add (TextLayout::Glyph (newGlyphs.getUnchecked(j),
+                                                               Point<float> (tokenPos.getX() + x, 0),
+                                                               xOffsets.getUnchecked (j + 1) - x));
                     ++charPosition;
                 }
 
@@ -338,29 +340,29 @@ namespace TextLayoutHelpers
 
                 if (nextToken == nullptr) // this is the last token
                 {
-                    addRun (glyphLine, glyphRun, t, runStartPosition, charPosition);
-                    glyphLine->stringRange = Range<int> (lineStartPosition, charPosition);
-                    layout.addLine (glyphLine);
+                    addRun (currentLine, currentRun.release(), t, runStartPosition, charPosition);
+                    currentLine->stringRange = Range<int> (lineStartPosition, charPosition);
+                    layout.addLine (currentLine.release());
                 }
                 else
                 {
                     if (t->font != nextToken->font || t->colour != nextToken->colour)
                     {
-                        addRun (glyphLine, glyphRun, t, runStartPosition, charPosition);
+                        addRun (currentLine, currentRun.release(), t, runStartPosition, charPosition);
                         runStartPosition = charPosition;
-                        glyphRun = new TextLayout::Run();
                     }
 
                     if (t->line != nextToken->line)
                     {
-                        addRun (glyphLine, glyphRun, t, runStartPosition, charPosition);
-                        glyphLine->stringRange = Range<int> (lineStartPosition, charPosition);
-                        layout.addLine (glyphLine);
+                        if (currentRun == nullptr)
+                            currentRun = new TextLayout::Run();
+
+                        addRun (currentLine, currentRun.release(), t, runStartPosition, charPosition);
+                        currentLine->stringRange = Range<int> (lineStartPosition, charPosition);
+                        layout.addLine (currentLine.release());
 
                         runStartPosition = charPosition;
                         lineStartPosition = charPosition;
-                        glyphLine = new TextLayout::Line();
-                        glyphRun  = new TextLayout::Run();
                         needToSetLineOrigin = true;
                     }
                 }
@@ -369,19 +371,16 @@ namespace TextLayoutHelpers
             if ((text.getJustification().getFlags() & (Justification::right | Justification::horizontallyCentred)) != 0)
             {
                 const int totalW = (int) layout.getWidth();
+                const bool isCentred = (text.getJustification().getFlags() & Justification::horizontallyCentred) != 0;
 
                 for (int i = 0; i < layout.getNumLines(); ++i)
                 {
-                    const int lineW = getLineWidth (i);
-                    float dx = 0;
+                    float dx = (float) (totalW - getLineWidth (i));
 
-                    if ((text.getJustification().getFlags() & Justification::right) != 0)
-                        dx = (float) (totalW - lineW);
-                    else
-                        dx = (totalW - lineW) / 2.0f;
+                    if (isCentred)
+                        dx /= 2.0f;
 
-                    TextLayout::Line& glyphLine = layout.getLine (i);
-                    glyphLine.lineOrigin.x += dx;
+                    layout.getLine(i).lineOrigin.x += dx;
                 }
             }
         }
@@ -617,5 +616,3 @@ void TextLayout::recalculateWidth()
         width = range.getLength();
     }
 }
-
-END_JUCE_NAMESPACE

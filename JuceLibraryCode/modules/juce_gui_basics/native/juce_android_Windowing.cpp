@@ -23,13 +23,16 @@
   ==============================================================================
 */
 
-END_JUCE_NAMESPACE
+} // (juce namespace)
+
 extern juce::JUCEApplicationBase* juce_CreateApplication(); // (from START_JUCE_APPLICATION)
-BEGIN_JUCE_NAMESPACE
+
+namespace juce
+{
 
 //==============================================================================
-JUCE_JNI_CALLBACK (iPanelAppActivity, launchApp, void, (JNIEnv* env, jobject activity,
-                                                      jstring appFile, jstring appDataDir))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, launchApp, void, (JNIEnv* env, jobject activity,
+                                                                      jstring appFile, jstring appDataDir))
 {
     android.initialise (env, activity, appFile, appDataDir);
 
@@ -44,17 +47,17 @@ JUCE_JNI_CALLBACK (iPanelAppActivity, launchApp, void, (JNIEnv* env, jobject act
         exit (0);
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, pauseApp, void, (JNIEnv* env, jobject activity))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, pauseApp, void, (JNIEnv* env, jobject activity))
 {
     JUCEApplicationBase::appWillSuspend();
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, resumeApp, void, (JNIEnv* env, jobject activity))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, resumeApp, void, (JNIEnv* env, jobject activity))
 {
     JUCEApplicationBase::appWillResume();
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, quitApp, void, (JNIEnv* env, jobject activity))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, quitApp, void, (JNIEnv* env, jobject activity))
 {
     JUCEApplicationBase::appWillTerminateByForce();
 
@@ -85,8 +88,9 @@ DECLARE_JNI_CLASS (CanvasMinimal, "android/graphics/Canvas");
  METHOD (hasFocus,      "hasFocus",         "()Z") \
  METHOD (invalidate,    "invalidate",       "(IIII)V") \
  METHOD (containsPoint, "containsPoint",    "(II)Z") \
+ METHOD (createGLView,  "createGLView",     "()L" JUCE_ANDROID_ACTIVITY_CLASSPATH "$OpenGLView;") \
 
-DECLARE_JNI_CLASS (ComponentPeerView, "com/limsc/iPanel/ComponentPeerView");
+DECLARE_JNI_CLASS (ComponentPeerView, JUCE_ANDROID_ACTIVITY_CLASSPATH "$ComponentPeerView");
 #undef JNI_CLASS_MEMBERS
 
 
@@ -102,7 +106,7 @@ public:
     {
         // NB: must not put this in the initialiser list, as it invokes a callback,
         // which will fail if the peer is only half-constructed.
-        view = GlobalRef (android.activity.callObjectMethod (iPanelAppActivity.createNewView,
+        view = GlobalRef (android.activity.callObjectMethod (JuceAppActivity.createNewView,
                                                              component->isOpaque()));
         if (isFocused())
             handleFocusGain();
@@ -112,7 +116,7 @@ public:
     {
         if (MessageManager::getInstance()->isThisTheMessageThread())
         {
-            android.activity.callVoidMethod (iPanelAppActivity.deleteView, view.get());
+            android.activity.callVoidMethod (JuceAppActivity.deleteView, view.get());
         }
         else
         {
@@ -127,7 +131,7 @@ public:
 
                 void messageCallback()
                 {
-                    android.activity.callVoidMethod (iPanelAppActivity.deleteView, view.get());
+                    android.activity.callVoidMethod (JuceAppActivity.deleteView, view.get());
                 }
 
             private:
@@ -234,6 +238,14 @@ public:
                                view.callIntMethod (ComponentPeerView.getTop),
                                view.callIntMethod (ComponentPeerView.getWidth),
                                view.callIntMethod (ComponentPeerView.getHeight));
+    }
+
+    void handleScreenSizeChange()
+    {
+        ComponentPeer::handleScreenSizeChange();
+
+        if (isFullScreen())
+            setFullScreen (true);
     }
 
     Point<int> getScreenPosition() const
@@ -463,6 +475,7 @@ public:
         // TODO
     }
 
+   #if USE_ANDROID_CANVAS
     StringArray getAvailableRenderingEngines()
     {
         StringArray s (ComponentPeer::getAvailableRenderingEngines());
@@ -470,7 +483,6 @@ public:
         return s;
     }
 
-   #if USE_ANDROID_CANVAS
     int getCurrentRenderingEngine() const
     {
         return usingAndroidGraphics ? 1 : 0;
@@ -571,7 +583,7 @@ Point<int> AndroidComponentPeer::lastMousePos;
 
 //==============================================================================
 #define JUCE_VIEW_CALLBACK(returnType, javaMethodName, params, juceMethodInvocation) \
-  JUCE_JNI_CALLBACK (ComponentPeerView, javaMethodName, returnType, params) \
+  JUCE_JNI_CALLBACK (JUCE_JOIN_MACRO (JUCE_ANDROID_ACTIVITY_CLASSNAME, _00024ComponentPeerView), javaMethodName, returnType, params) \
   { \
       AndroidComponentPeer* const peer = AndroidComponentPeer::findPeerForJavaView (env, view); \
       if (peer != nullptr) \
@@ -591,6 +603,11 @@ ComponentPeer* Component::createNewPeer (int styleFlags, void*)
     return new AndroidComponentPeer (this, styleFlags);
 }
 
+jobject createOpenGLView (ComponentPeer* peer)
+{
+    jobject parentView = static_cast <jobject> (peer->getNativeHandle());
+    return getEnv()->CallObjectMethod (parentView, ComponentPeerView.createGLView);
+}
 
 //==============================================================================
 bool Desktop::canUseSemiTransparentWindows() noexcept
@@ -650,7 +667,7 @@ void JUCE_CALLTYPE NativeMessageBox::showMessageBoxAsync (AlertWindow::AlertIcon
                                                           const String& title, const String& message,
                                                           Component* associatedComponent)
 {
-    android.activity.callVoidMethod (iPanelAppActivity.showMessageBox, javaString (title).get(), javaString (message).get(), (jlong) 0);
+    android.activity.callVoidMethod (JuceAppActivity.showMessageBox, javaString (title).get(), javaString (message).get(), (jlong) 0);
 }
 
 bool JUCE_CALLTYPE NativeMessageBox::showOkCancelBox (AlertWindow::AlertIconType iconType,
@@ -660,7 +677,7 @@ bool JUCE_CALLTYPE NativeMessageBox::showOkCancelBox (AlertWindow::AlertIconType
 {
     jassert (callback != 0); // on android, all alerts must be non-modal!!
 
-    android.activity.callVoidMethod (iPanelAppActivity.showOkCancelBox, javaString (title).get(), javaString (message).get(),
+    android.activity.callVoidMethod (JuceAppActivity.showOkCancelBox, javaString (title).get(), javaString (message).get(),
                                      (jlong) (pointer_sized_int) callback);
     return false;
 }
@@ -672,13 +689,13 @@ int JUCE_CALLTYPE NativeMessageBox::showYesNoCancelBox (AlertWindow::AlertIconTy
 {
     jassert (callback != 0); // on android, all alerts must be non-modal!!
 
-    android.activity.callVoidMethod (iPanelAppActivity.showYesNoCancelBox, javaString (title).get(), javaString (message).get(),
+    android.activity.callVoidMethod (JuceAppActivity.showYesNoCancelBox, javaString (title).get(), javaString (message).get(),
                                      (jlong) (pointer_sized_int) callback);
     return 0;
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, alertDismissed, void, (JNIEnv* env, jobject activity,
-                                                           jlong callbackAsLong, jint result))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, alertDismissed, void, (JNIEnv* env, jobject activity,
+                                                                           jlong callbackAsLong, jint result))
 {
     ModalComponentManager::Callback* callback = (ModalComponentManager::Callback*) callbackAsLong;
 
@@ -706,11 +723,11 @@ void Desktop::setKioskComponent (Component* kioskModeComponent, bool enableOrDis
 //==============================================================================
 void Desktop::getCurrentMonitorPositions (Array <Rectangle<int> >& monitorCoords, const bool clipToWorkArea)
 {
-    monitorCoords.add (Rectangle<int> (0, 0, android.screenWidth, android.screenHeight));
+    monitorCoords.add (Rectangle<int> (android.screenWidth, android.screenHeight));
 }
 
-JUCE_JNI_CALLBACK (iPanelAppActivity, setScreenSize, void, (JNIEnv* env, jobject activity,
-                                                          jint screenWidth, jint screenHeight))
+JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, setScreenSize, void, (JNIEnv* env, jobject activity,
+                                                                          jint screenWidth, jint screenHeight))
 {
     const bool isSystemInitialised = android.screenWidth != 0;
     android.screenWidth = screenWidth;
@@ -755,12 +772,12 @@ void LookAndFeel::playAlertSound()
 void SystemClipboard::copyTextToClipboard (const String& text)
 {
     const LocalRef<jstring> t (javaString (text));
-    android.activity.callVoidMethod (iPanelAppActivity.setClipboardContent, t.get());
+    android.activity.callVoidMethod (JuceAppActivity.setClipboardContent, t.get());
 }
 
 String SystemClipboard::getTextFromClipboard()
 {
-    const LocalRef<jstring> text ((jstring) android.activity.callObjectMethod (iPanelAppActivity.getClipboardContent));
+    const LocalRef<jstring> text ((jstring) android.activity.callObjectMethod (JuceAppActivity.getClipboardContent));
     return juceString (text);
 }
 

@@ -23,7 +23,7 @@
   ==============================================================================
 */
 
-#ifdef __JUCE_GRAPHICS_MODULE_JUCEHEADER__
+#if defined (__JUCE_GRAPHICS_MODULE_JUCEHEADER__) && ! JUCE_AMALGAMATED_INCLUDE
  /* When you add this cpp file to your project, you mustn't include it in a file where you've
     already included any other headers - just put it inside a file on its own, possibly with your config
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
@@ -64,6 +64,9 @@
 #endif
 
 //==============================================================================
+namespace juce
+{
+
 // START_AUTOINCLUDE colour/*.cpp, geometry/*.cpp, placement/*.cpp, contexts/*.cpp, images/*.cpp,
 // image_formats/*.cpp, fonts/*.cpp, effects/*.cpp
 #include "colour/juce_Colour.cpp"
@@ -99,8 +102,6 @@
 // END_AUTOINCLUDE
 
 //==============================================================================
-BEGIN_JUCE_NAMESPACE
-
 #if JUCE_MAC || JUCE_IOS
  #include "../juce_core/native/juce_osx_ObjCHelpers.h"
  #include "../juce_core/native/juce_mac_ObjCSuffix.h"
@@ -127,4 +128,4 @@ BEGIN_JUCE_NAMESPACE
 
 #endif
 
-END_JUCE_NAMESPACE
+}

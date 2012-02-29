@@ -23,9 +23,7 @@
   ==============================================================================
 */
 
-BEGIN_JUCE_NAMESPACE
 
-//==============================================================================
 URL::URL()
 {
 }
@@ -46,13 +44,13 @@ URL::URL (const String& url_)
             {
                 if (nextAmp < 0)
                 {
-                    parameters.set (removeEscapeChars (url.substring (i + 1, equalsPos)),
-                                    removeEscapeChars (url.substring (equalsPos + 1)));
+                    addParameter (removeEscapeChars (url.substring (i + 1, equalsPos)),
+                                  removeEscapeChars (url.substring (equalsPos + 1)));
                 }
                 else if (nextAmp > 0 && equalsPos < nextAmp)
                 {
-                    parameters.set (removeEscapeChars (url.substring (i + 1, equalsPos)),
-                                    removeEscapeChars (url.substring (equalsPos + 1, nextAmp)));
+                    addParameter (removeEscapeChars (url.substring (i + 1, equalsPos)),
+                                  removeEscapeChars (url.substring (equalsPos + 1, nextAmp)));
                 }
             }
 
@@ -67,7 +65,8 @@ URL::URL (const String& url_)
 URL::URL (const URL& other)
     : url (other.url),
       postData (other.postData),
-      parameters (other.parameters),
+      parameterNames (other.parameterNames),
+      parameterValues (other.parameterValues),
       filesToUpload (other.filesToUpload),
       mimeTypes (other.mimeTypes)
 {
@@ -77,7 +76,8 @@ URL& URL::operator= (const URL& other)
 {
     url = other.url;
     postData = other.postData;
-    parameters = other.parameters;
+    parameterNames = other.parameterNames;
+    parameterValues = other.parameterValues;
     filesToUpload = other.filesToUpload;
     mimeTypes = other.mimeTypes;
 
@@ -88,7 +88,8 @@ bool URL::operator== (const URL& other) const
 {
     return url == other.url
         && postData == other.postData
-        && parameters == other.parameters
+        && parameterNames == other.parameterNames
+        && parameterValues == other.parameterValues
         && filesToUpload == other.filesToUpload
         && mimeTypes == other.mimeTypes;
 }
@@ -104,18 +105,19 @@ URL::~URL()
 
 namespace URLHelpers
 {
-    String getMangledParameters (const StringPairArray& parameters)
+    String getMangledParameters (const URL& url)
     {
+        jassert (url.getParameterNames().size() == url.getParameterValues().size());
         String p;
 
-        for (int i = 0; i < parameters.size(); ++i)
+        for (int i = 0; i < url.getParameterNames().size(); ++i)
         {
             if (i > 0)
                 p << '&';
 
-            p << URL::addEscapeChars (parameters.getAllKeys() [i], true)
+            p << URL::addEscapeChars (url.getParameterNames()[i], true)
               << '='
-              << URL::addEscapeChars (parameters.getAllValues() [i], true);
+              << URL::addEscapeChars (url.getParameterValues()[i], true);
         }
 
         return p;
@@ -160,12 +162,12 @@ namespace URLHelpers
             data << "--" << boundary;
 
             int i;
-            for (i = 0; i < url.getParameters().size(); ++i)
+            for (i = 0; i < url.getParameterNames().size(); ++i)
             {
                 data << "\r\nContent-Disposition: form-data; name=\""
-                     << url.getParameters().getAllKeys() [i]
+                     << url.getParameterNames() [i]
                      << "\"\r\n\r\n"
-                     << url.getParameters().getAllValues() [i]
+                     << url.getParameterValues() [i]
                      << "\r\n--"
                      << boundary;
             }
@@ -192,7 +194,8 @@ namespace URLHelpers
         }
         else
         {
-            data << getMangledParameters (url.getParameters()) << url.getPostData();
+            data << getMangledParameters (url)
+                 << url.getPostData();
 
             // just a short text attachment, so use simple url encoding..
             headers << "Content-Type: application/x-www-form-urlencoded\r\nContent-length: "
@@ -212,10 +215,16 @@ namespace URLHelpers
     }
 }
 
+void URL::addParameter (const String& name, const String& value)
+{
+    parameterNames.add (name);
+    parameterValues.add (value);
+}
+
 String URL::toString (const bool includeGetParameters) const
 {
-    if (includeGetParameters && parameters.size() > 0)
-        return url + "?" + URLHelpers::getMangledParameters (parameters);
+    if (includeGetParameters && parameterNames.size() > 0)
+        return url + "?" + URLHelpers::getMangledParameters (*this);
     else
         return url;
 }
@@ -365,7 +374,7 @@ URL URL::withParameter (const String& parameterName,
                         const String& parameterValue) const
 {
     URL u (*this);
-    u.parameters.set (parameterName, parameterValue);
+    u.addParameter (parameterName, parameterValue);
     return u;
 }
 
@@ -386,11 +395,6 @@ URL URL::withPOSTData (const String& postData_) const
     URL u (*this);
     u.postData = postData_;
     return u;
-}
-
-const StringPairArray& URL::getParameters() const
-{
-    return parameters;
 }
 
 const StringPairArray& URL::getFilesToUpload() const
@@ -475,6 +479,3 @@ bool URL::launchInDefaultBrowser() const
 
     return Process::openDocument (u, String::empty);
 }
-
-
-END_JUCE_NAMESPACE

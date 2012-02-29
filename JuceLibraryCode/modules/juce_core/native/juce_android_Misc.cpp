@@ -25,9 +25,5 @@
 
 void Logger::outputDebugString (const String& text)
 {
-    JNIEnv* const env = getEnv();
-
-    if (env != nullptr)
-        env->CallStaticVoidMethod (iPanelAppActivity, iPanelAppActivity.printToConsole,
-                                   javaString (text).get());
+    __android_log_print (ANDROID_LOG_INFO, "JUCE", text.toUTF8());
 }

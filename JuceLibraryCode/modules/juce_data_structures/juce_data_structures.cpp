@@ -23,7 +23,7 @@
   ==============================================================================
 */
 
-#ifdef __JUCE_DATA_STRUCTURES_JUCEHEADER__
+#if defined (__JUCE_DATA_STRUCTURES_JUCEHEADER__) && ! JUCE_AMALGAMATED_INCLUDE
  /* When you add this cpp file to your project, you mustn't include it in a file where you've
     already included any other headers - just put it inside a file on its own, possibly with your config
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
@@ -38,6 +38,9 @@
 
 #include "juce_data_structures.h"
 
+namespace juce
+{
+
 // START_AUTOINCLUDE values/*.cpp, undomanager/*.cpp, app_properties/*.cpp
 #include "values/juce_Value.cpp"
 #include "values/juce_ValueTree.cpp"
@@ -45,3 +48,5 @@
 #include "app_properties/juce_ApplicationProperties.cpp"
 #include "app_properties/juce_PropertiesFile.cpp"
 // END_AUTOINCLUDE
+
+}

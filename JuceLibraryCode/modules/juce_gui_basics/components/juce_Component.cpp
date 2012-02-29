@@ -23,9 +23,6 @@
   ==============================================================================
 */
 
-BEGIN_JUCE_NAMESPACE
-
-//==============================================================================
 #define CHECK_MESSAGE_MANAGER_IS_LOCKED     jassert (MessageManager::getInstance()->currentThreadHasLockedMessageManager());
 
 Component* Component::currentlyFocusedComponent = nullptr;
@@ -191,10 +188,8 @@ private:
 
 
 //==============================================================================
-class Component::ComponentHelpers
+struct Component::ComponentHelpers
 {
-public:
-    //==============================================================================
    #if JUCE_MODAL_LOOPS_PERMITTED
     static void* runModalLoopCallback (void* userData)
     {
@@ -467,9 +462,7 @@ Component::Component (const String& name)
 
 Component::~Component()
 {
-   #if ! JUCE_VC6  // (access to private union not allowed in VC6)
     static_jassert (sizeof (flags) <= sizeof (componentFlags));
-   #endif
 
     componentListeners.call (&ComponentListener::componentBeingDeleted, *this);
 
@@ -681,8 +674,11 @@ void Component::addToDesktop (int styleWanted, void* nativeWindowToAttachTo)
 
             bounds.setPosition (topLeft);
             peer->setBounds (topLeft.x, topLeft.y, getWidth(), getHeight(), false);
-
             peer->setVisible (isVisible());
+
+            peer = ComponentPeer::getPeerFor (this);
+            if (peer == nullptr)
+                return;
 
             if (wasFullscreen)
             {
@@ -3041,6 +3037,3 @@ bool Component::BailOutChecker::shouldBailOut() const noexcept
 {
     return safePointer == nullptr;
 }
-
-
-END_JUCE_NAMESPACE

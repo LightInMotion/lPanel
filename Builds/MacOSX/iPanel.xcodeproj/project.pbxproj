@@ -1756,7 +1756,7 @@
 		86472942EED792DB17B11920 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 383F5E48E73DE43762AA3E49 /* Build configuration list for PBXProject "iPanel" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1831,6 +1831,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				SRCROOT = ../..;
 			};
 			name = Release;
 		};
@@ -1898,6 +1899,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				ONLY_ACTIVE_ARCH = YES;
+				SRCROOT = ../..;
 			};
 			name = Debug;
 		};

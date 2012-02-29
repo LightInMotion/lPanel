@@ -23,13 +23,7 @@
   ==============================================================================
 */
 
-#if ! JUCE_WINDOWS
- #include <pwd.h>
-#endif
 
-BEGIN_JUCE_NAMESPACE
-
-//==============================================================================
 File::File (const String& fullPathName)
     : fullPath (parseAbsolutePath (fullPathName))
 {
@@ -85,9 +79,9 @@ String File::parseAbsolutePath (const String& p)
     // Windows..
     String path (p.replaceCharacter ('/', '\\'));
 
-    if (path.startsWithChar (File::separator))
+    if (path.startsWithChar (separator))
     {
-        if (path[1] != File::separator)
+        if (path[1] != separator)
         {
             /*  When you supply a raw string to the File object constructor, it must be an absolute path.
                 If you're trying to parse a string that may be either a relative path or an absolute path,
@@ -126,7 +120,7 @@ String File::parseAbsolutePath (const String& p)
 
     if (path.startsWithChar ('~'))
     {
-        if (path[1] == File::separator || path[1] == 0)
+        if (path[1] == separator || path[1] == 0)
         {
             // expand a name of the form "~/abc"
             path = File::getSpecialLocation (File::userHomeDirectory).getFullPathName()
@@ -142,7 +136,7 @@ String File::parseAbsolutePath (const String& p)
                 path = addTrailingSeparator (pw->pw_dir) + path.fromFirstOccurrenceOf ("/", false, false);
         }
     }
-    else if (! path.startsWithChar (File::separator))
+    else if (! path.startsWithChar (separator))
     {
         /*  When you supply a raw string to the File object constructor, it must be an absolute path.
             If you're trying to parse a string that may be either a relative path or an absolute path,
@@ -165,8 +159,8 @@ String File::parseAbsolutePath (const String& p)
 
 String File::addTrailingSeparator (const String& path)
 {
-    return path.endsWithChar (File::separator) ? path
-                                               : path + File::separator;
+    return path.endsWithChar (separator) ? path
+                                         : path + separator;
 }
 
 //==============================================================================
@@ -397,7 +391,7 @@ File File::getChildFile (String relativePath) const
         {
             if (relativePath[1] == '.')
             {
-                if (relativePath [2] == 0 || relativePath[2] == separator)
+                if (relativePath[2] == 0 || relativePath[2] == separator)
                 {
                     const int lastSlash = path.lastIndexOfChar (separator);
                     if (lastSlash >= 0)
@@ -496,7 +490,7 @@ bool File::loadFileAsData (MemoryBlock& destBlock) const
         return false;
 
     FileInputStream in (*this);
-    return getSize() == in.readIntoMemoryBlock (destBlock);
+    return in.openedOk() && getSize() == in.readIntoMemoryBlock (destBlock);
 }
 
 String File::loadFileAsString() const
@@ -505,7 +499,8 @@ String File::loadFileAsString() const
         return String::empty;
 
     FileInputStream in (*this);
-    return in.readEntireStreamAsString();
+    return in.openedOk() ? in.readEntireStreamAsString()
+                         : String::empty;
 }
 
 void File::readLines (StringArray& destLines) const
@@ -748,22 +743,25 @@ bool File::hasIdenticalContentTo (const File& other) const
     {
         FileInputStream in1 (*this), in2 (other);
 
-        const int bufferSize = 4096;
-        HeapBlock <char> buffer1 (bufferSize), buffer2 (bufferSize);
-
-        for (;;)
+        if (in1.openedOk() && in2.openedOk())
         {
-            const int num1 = in1.read (buffer1, bufferSize);
-            const int num2 = in2.read (buffer2, bufferSize);
+            const int bufferSize = 4096;
+            HeapBlock <char> buffer1 (bufferSize), buffer2 (bufferSize);
 
-            if (num1 != num2)
-                break;
+            for (;;)
+            {
+                const int num1 = in1.read (buffer1, bufferSize);
+                const int num2 = in2.read (buffer2, bufferSize);
 
-            if (num1 <= 0)
-                return true;
+                if (num1 != num2)
+                    break;
 
-            if (memcmp (buffer1, buffer2, (size_t) num1) != 0)
-                break;
+                if (num1 <= 0)
+                    return true;
+
+                if (memcmp (buffer1, buffer2, (size_t) num1) != 0)
+                    break;
+            }
         }
     }
 
@@ -812,6 +810,24 @@ String File::createLegalFileName (const String& original)
 }
 
 //==============================================================================
+static int countNumberOfSeparators (String::CharPointerType s)
+{
+    int num = 0;
+
+    for (;;)
+    {
+        const juce_wchar c = s.getAndAdvance();
+
+        if (c == 0)
+            break;
+
+        if (c == File::separator)
+            ++num;
+    }
+
+    return num;
+}
+
 String File::getRelativePathFrom (const File& dir)  const
 {
     String thisPath (fullPath);
@@ -822,57 +838,54 @@ String File::getRelativePathFrom (const File& dir)  const
     String dirPath (addTrailingSeparator (dir.existsAsFile() ? dir.getParentDirectory().getFullPathName()
                                                              : dir.fullPath));
 
-    const int len = jmin (thisPath.length(), dirPath.length());
     int commonBitLength = 0;
+    String::CharPointerType thisPathAfterCommon (thisPath.getCharPointer());
+    String::CharPointerType dirPathAfterCommon  (dirPath.getCharPointer());
 
     {
         String::CharPointerType thisPathIter (thisPath.getCharPointer());
-        String::CharPointerType dirPathIter (dirPath.getCharPointer());
+        String::CharPointerType dirPathIter  (dirPath.getCharPointer());
 
-        for (int i = 0; i < len; ++i)
+        for (int i = 0;;)
         {
             const juce_wchar c1 = thisPathIter.getAndAdvance();
             const juce_wchar c2 = dirPathIter.getAndAdvance();
 
            #if NAMES_ARE_CASE_SENSITIVE
-            if (c1 != c2)
+            if (c1 != c2
            #else
-            if (c1 != c2 && CharacterFunctions::toLowerCase (c1) != CharacterFunctions::toLowerCase (c2))
+            if ((c1 != c2 && CharacterFunctions::toLowerCase (c1) != CharacterFunctions::toLowerCase (c2))
            #endif
+                 || c1 == 0)
                 break;
 
-            ++commonBitLength;
+            ++i;
+
+            if (c1 == separator)
+            {
+                thisPathAfterCommon = thisPathIter;
+                dirPathAfterCommon  = dirPathIter;
+                commonBitLength = i;
+            }
         }
     }
 
-    while (commonBitLength > 0 && thisPath [commonBitLength - 1] != File::separator)
-        --commonBitLength;
-
     // if the only common bit is the root, then just return the full path..
-    if (commonBitLength <= 0
-         || (commonBitLength == 1 && thisPath [1] == File::separator))
+    if (commonBitLength == 0 || (commonBitLength == 1 && thisPath[1] == separator))
         return fullPath;
 
-    thisPath = thisPath.substring (commonBitLength);
-    dirPath  = dirPath.substring (commonBitLength);
+    const int numUpDirectoriesNeeded = countNumberOfSeparators (dirPathAfterCommon);
 
-    while (dirPath.isNotEmpty())
-    {
-       #if JUCE_WINDOWS
-        thisPath = "..\\" + thisPath;
-       #else
-        thisPath = "../" + thisPath;
-       #endif
+    if (numUpDirectoriesNeeded == 0)
+        return thisPathAfterCommon;
 
-        const int sep = dirPath.indexOfChar (separator);
-
-        if (sep >= 0)
-            dirPath = dirPath.substring (sep + 1);
-        else
-            dirPath = String::empty;
-    }
-
-    return thisPath;
+   #if JUCE_WINDOWS
+    String s (String::repeatedString ("..\\", numUpDirectoriesNeeded));
+   #else
+    String s (String::repeatedString ("../",  numUpDirectoriesNeeded));
+   #endif
+    s.appendCharPointer (thisPathAfterCommon);
+    return s;
 }
 
 //==============================================================================
@@ -1078,5 +1091,3 @@ public:
 static FileTests fileUnitTests;
 
 #endif
-
-END_JUCE_NAMESPACE
