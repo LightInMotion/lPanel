@@ -55,6 +55,10 @@ MainAppWindow::MainAppWindow (LpNet* lpNet_)
                       DocumentWindow::allButtons),
       lpNet (lpNet_)
 {    
+    #if JUCE_LINUX
+        setUsingNativeTitleBar (true);
+    #endif
+
     #if JUCE_ANDROID || JUCE_IOS
         setTitleBarHeight (0);
         setFullScreen (true);
