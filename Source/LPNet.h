@@ -14,10 +14,10 @@
 #ifndef U8
 typedef unsigned char U8;
 typedef unsigned short U16;
-typedef unsigned long U32;
+typedef unsigned int U32;
 typedef signed char S8;
 typedef signed short S16;
-typedef signed long S32;
+typedef signed int S32;
 #endif
 
 #ifndef TRUE
