@@ -67,11 +67,11 @@ MainAppWindow::MainAppWindow (LpNet* lpNet_)
     ContentComp* contentComp = new ContentComp (lpNet);
     setContentOwned(contentComp, false);
     
-    setVisible (true);
-
     #if JUCE_LINUX
       setUsingNativeTitleBar (true);
     #endif
+
+    setVisible (true);
 }
 
 MainAppWindow::~MainAppWindow()
