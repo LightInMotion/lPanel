@@ -81,7 +81,7 @@ AboutComponent::AboutComponent ()
     String n = ProjectInfo::projectName;
     n << ' ';
     n << ProjectInfo::versionString;
-    nameLabel->setText (n, false);
+    nameLabel->setText (n, dontSendNotification);
     //[/Constructor]
 }
 

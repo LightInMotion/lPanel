@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
-	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon</string>
-		<string>Icon-72</string>
-	</array>
-	<key>CFBundleIdentifier</key>
-	<string>co.limsc.${PRODUCT_NAME:rfc1034identifier}</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.5</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.5</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleBlackOpaque</string>
-	<key>UIRequiresPersistentWiFi</key>
-	<true/>
-</dict>
+  <dict>
+    <key>UIPrerenderedIcon</key>
+    <true/>
+    <key>CFBundleIconFile</key>
+    <string>Icon</string>
+    <key>CFBundleIconFiles</key>
+    <array>
+      <string>Icon</string>
+      <string>Icon-72</string>
+    </array>
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleBlackOpaque</string>
+    <key>UIRequiresPersistentWiFi</key>
+    <true/>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>CFBundleExecutable</key>
+    <string>${EXECUTABLE_NAME}</string>
+    <key>CFBundleIdentifier</key>
+    <string>co.limsc.iPanel</string>
+    <key>CFBundleName</key>
+    <string>iPanel</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.6</string>
+    <key>CFBundleVersion</key>
+    <string>1.0.6</string>
+    <key>NSHumanReadableCopyright</key>
+    <string></string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+  </dict>
 </plist>

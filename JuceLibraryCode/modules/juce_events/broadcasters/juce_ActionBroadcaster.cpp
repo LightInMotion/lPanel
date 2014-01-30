@@ -1,68 +1,66 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
 
-
-class ActionMessage  : public Message
+class ActionBroadcaster::ActionMessage  : public MessageManager::MessageBase
 {
 public:
-    ActionMessage (const String& messageText, ActionListener* const listener_) noexcept
-        : message (messageText),
+    ActionMessage (const ActionBroadcaster* const broadcaster_,
+                   const String& messageText,
+                   ActionListener* const listener_) noexcept
+        : broadcaster (const_cast <ActionBroadcaster*> (broadcaster_)),
+          message (messageText),
           listener (listener_)
+    {}
+
+    void messageCallback() override
     {
+        if (const ActionBroadcaster* const b = broadcaster)
+            if (b->actionListeners.contains (listener))
+                listener->actionListenerCallback (message);
     }
 
+private:
+    WeakReference<ActionBroadcaster> broadcaster;
     const String message;
     ActionListener* const listener;
 
-private:
-    JUCE_DECLARE_NON_COPYABLE (ActionMessage);
+    JUCE_DECLARE_NON_COPYABLE (ActionMessage)
 };
-
-ActionBroadcaster::CallbackReceiver::CallbackReceiver() {}
-
-void ActionBroadcaster::CallbackReceiver::handleMessage (const Message& message)
-{
-    const ActionMessage& am = static_cast <const ActionMessage&> (message);
-
-    if (owner->actionListeners.contains (am.listener))
-        am.listener->actionListenerCallback (am.message);
-}
 
 //==============================================================================
 ActionBroadcaster::ActionBroadcaster()
 {
     // are you trying to create this object before or after juce has been intialised??
-    jassert (MessageManager::instance != nullptr);
-
-    callback.owner = this;
+    jassert (MessageManager::getInstanceWithoutCreating() != nullptr);
 }
 
 ActionBroadcaster::~ActionBroadcaster()
 {
     // all event-based objects must be deleted BEFORE juce is shut down!
-    jassert (MessageManager::instance != nullptr);
+    jassert (MessageManager::getInstanceWithoutCreating() != nullptr);
+
+    masterReference.clear();
 }
 
 void ActionBroadcaster::addActionListener (ActionListener* const listener)
@@ -90,5 +88,5 @@ void ActionBroadcaster::sendActionMessage (const String& message) const
     const ScopedLock sl (actionListenerLock);
 
     for (int i = actionListeners.size(); --i >= 0;)
-        callback.postMessage (new ActionMessage (message, actionListeners.getUnchecked(i)));
+        (new ActionMessage (this, message, actionListeners.getUnchecked(i)))->post();
 }

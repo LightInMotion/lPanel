@@ -1,32 +1,30 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
 
-#ifndef __JUCE_MESSAGEMANAGER_JUCEHEADER__
-#define __JUCE_MESSAGEMANAGER_JUCEHEADER__
+#ifndef JUCE_MESSAGEMANAGER_H_INCLUDED
+#define JUCE_MESSAGEMANAGER_H_INCLUDED
 
-#include "juce_CallbackMessage.h"
 class MessageManagerLock;
 class ThreadPoolJob;
 class ActionListener;
@@ -40,9 +38,10 @@ typedef void* (MessageCallbackFunction) (void* userData);
 
 
 //==============================================================================
-/** Delivers Message objects to MessageListeners, and handles the event-dispatch loop.
+/**
+    This class is in charge of the application's event-dispatch loop.
 
-    @see Message, MessageListener, MessageManagerLock, JUCEApplication
+    @see Message, CallbackMessage, MessageManagerLock, JUCEApplication, JUCEApplicationBase
 */
 class JUCE_API  MessageManager
 {
@@ -50,6 +49,9 @@ public:
     //==============================================================================
     /** Returns the global instance of the MessageManager. */
     static MessageManager* getInstance();
+
+    /** Returns the global instance of the MessageManager, or nullptr if it doesn't exist. */
+    static MessageManager* getInstanceWithoutCreating() noexcept;
 
     /** Deletes the global MessageManager instance.
         Does nothing if no instance had been created.
@@ -79,7 +81,7 @@ public:
     */
     bool hasStopMessageBeenSent() const noexcept        { return quitMessagePosted; }
 
-   #if JUCE_MODAL_LOOPS_PERMITTED
+   #if JUCE_MODAL_LOOPS_PERMITTED || DOXYGEN
     /** Synchronously dispatches messages until a given time has elapsed.
 
         Returns false if a quit message has been posted by a call to stopDispatchLoop(),
@@ -119,10 +121,10 @@ public:
     */
     void setCurrentThreadAsMessageThread();
 
-    /** Returns the ID of the current message thread, as set by setCurrentMessageThread().
+    /** Returns the ID of the current message thread, as set by setCurrentThreadAsMessageThread().
 
         (Best to ignore this method unless you really know what you're doing..)
-        @see setCurrentMessageThread
+        @see setCurrentThreadAsMessageThread
     */
     Thread::ThreadID getCurrentMessageThread() const noexcept            { return messageThreadId; }
 
@@ -157,9 +159,27 @@ public:
     void deregisterBroadcastListener (ActionListener* listener);
 
     //==============================================================================
+    /** Internal class used as the base class for all message objects.
+        You shouldn't need to use this directly - see the CallbackMessage or Message
+        classes instead.
+    */
+    class JUCE_API  MessageBase  : public ReferenceCountedObject
+    {
+    public:
+        MessageBase() noexcept {}
+        virtual ~MessageBase() {}
+
+        virtual void messageCallback() = 0;
+        void post();
+
+        typedef ReferenceCountedObjectPtr<MessageBase> Ptr;
+
+        JUCE_DECLARE_NON_COPYABLE (MessageBase)
+    };
+
+    //==============================================================================
    #ifndef DOXYGEN
     // Internal methods - do not use!
-    void deliverMessage (Message*);
     void deliverBroadcastMessage (const String&);
     ~MessageManager() noexcept;
    #endif
@@ -168,31 +188,26 @@ private:
     //==============================================================================
     MessageManager() noexcept;
 
-    friend class MessageListener;
-    friend class ChangeBroadcaster;
-    friend class ActionBroadcaster;
-    friend class CallbackMessage;
     static MessageManager* instance;
 
-    SortedSet <const MessageListener*> messageListeners;
-    ScopedPointer <ActionBroadcaster> broadcaster;
+    friend class MessageBase;
+    class QuitMessage;
+    friend class QuitMessage;
+    friend class MessageManagerLock;
 
-    friend class JUCEApplication;
+    ScopedPointer <ActionBroadcaster> broadcaster;
     bool quitMessagePosted, quitMessageReceived;
     Thread::ThreadID messageThreadId;
-
-    friend class MessageManagerLock;
     Thread::ThreadID volatile threadWithLock;
     CriticalSection lockingLock;
 
-    void postMessageToQueue (Message* message);
-    static bool postMessageToSystemQueue (Message*);
+    static bool postMessageToSystemQueue (MessageBase*);
     static void* exitModalLoopCallback (void*);
     static void doPlatformSpecificInitialisation();
     static void doPlatformSpecificShutdown();
     static bool dispatchNextMessageOnSystemQueue (bool returnIfNoPendingMessages);
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MessageManager);
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MessageManager)
 };
 
 
@@ -306,8 +321,8 @@ private:
 
     bool attemptLock (Thread*, ThreadPoolJob*);
 
-    JUCE_DECLARE_NON_COPYABLE (MessageManagerLock);
+    JUCE_DECLARE_NON_COPYABLE (MessageManagerLock)
 };
 
 
-#endif   // __JUCE_MESSAGEMANAGER_JUCEHEADER__
+#endif   // JUCE_MESSAGEMANAGER_H_INCLUDED

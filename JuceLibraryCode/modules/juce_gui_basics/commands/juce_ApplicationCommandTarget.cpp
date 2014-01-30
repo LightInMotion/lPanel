@@ -1,60 +1,46 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
 
-
-class ApplicationCommandTarget::MessageTarget  : public MessageListener
+class ApplicationCommandTarget::CommandMessage  : public MessageManager::MessageBase
 {
 public:
-    MessageTarget (ApplicationCommandTarget& owner_)
-        : owner (owner_)
+    CommandMessage (ApplicationCommandTarget* const target, const InvocationInfo& inf)
+        : owner (target), info (inf)
     {
     }
 
-    void handleMessage (const Message& message)
+    void messageCallback() override
     {
-        jassert (dynamic_cast <const InvokedMessage*> (&message) != nullptr);
-
-        owner.tryToInvoke (dynamic_cast <const InvokedMessage&> (message).info, false);
+        if (ApplicationCommandTarget* const target = owner)
+            target->tryToInvoke (info, false);
     }
-
-    struct InvokedMessage   : public Message
-    {
-        InvokedMessage (const InvocationInfo& info_)
-            : info (info_)
-        {}
-
-        const InvocationInfo info;
-
-    private:
-        JUCE_DECLARE_NON_COPYABLE (InvokedMessage);
-    };
 
 private:
-    ApplicationCommandTarget& owner;
+    WeakReference<ApplicationCommandTarget> owner;
+    const InvocationInfo info;
 
-    JUCE_DECLARE_NON_COPYABLE (MessageTarget);
+    JUCE_DECLARE_NON_COPYABLE (CommandMessage)
 };
 
 //==============================================================================
@@ -64,7 +50,7 @@ ApplicationCommandTarget::ApplicationCommandTarget()
 
 ApplicationCommandTarget::~ApplicationCommandTarget()
 {
-    messageInvoker = nullptr;
+    masterReference.clear();
 }
 
 //==============================================================================
@@ -74,21 +60,17 @@ bool ApplicationCommandTarget::tryToInvoke (const InvocationInfo& info, const bo
     {
         if (async)
         {
-            if (messageInvoker == nullptr)
-                messageInvoker = new MessageTarget (*this);
-
-            messageInvoker->postMessage (new MessageTarget::InvokedMessage (info));
+            (new CommandMessage (this, info))->post();
             return true;
         }
-        else
-        {
-            const bool success = perform (info);
 
-            jassert (success);  // hmm - your target should have been able to perform this command. If it can't
-                                // do it at the moment for some reason, it should clear the 'isActive' flag when it
-                                // returns the command's info.
-            return success;
-        }
+        if (perform (info))
+            return true;
+
+        // Hmm.. your target claimed that it could perform this command, but failed to do so.
+        // If it can't do it at the moment for some reason, it should clear the 'isActive' flag
+        // when it returns the command's info.
+        jassertfalse;
     }
 
     return false;
@@ -96,11 +78,8 @@ bool ApplicationCommandTarget::tryToInvoke (const InvocationInfo& info, const bo
 
 ApplicationCommandTarget* ApplicationCommandTarget::findFirstTargetParentComponent()
 {
-    Component* c = dynamic_cast <Component*> (this);
-
-    if (c != nullptr)
-        // (unable to use the syntax findParentComponentOfClass <ApplicationCommandTarget> () because of a VC6 compiler bug)
-        return c->findParentComponentOfClass ((ApplicationCommandTarget*) nullptr);
+    if (Component* const c = dynamic_cast <Component*> (this))
+        return c->findParentComponentOfClass<ApplicationCommandTarget>();
 
     return nullptr;
 }
@@ -196,8 +175,8 @@ bool ApplicationCommandTarget::invokeDirectly (const CommandID commandID, const 
 }
 
 //==============================================================================
-ApplicationCommandTarget::InvocationInfo::InvocationInfo (const CommandID commandID_)
-    : commandID (commandID_),
+ApplicationCommandTarget::InvocationInfo::InvocationInfo (const CommandID command)
+    : commandID (command),
       commandFlags (0),
       invocationMethod (direct),
       originatingComponent (nullptr),

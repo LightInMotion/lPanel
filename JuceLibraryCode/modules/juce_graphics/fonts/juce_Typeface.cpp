@@ -1,31 +1,108 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
 
+struct FontStyleHelpers
+{
+    static const char* getStyleName (const bool bold,
+                                     const bool italic) noexcept
+    {
+        if (bold && italic) return "Bold Italic";
+        if (bold)           return "Bold";
+        if (italic)         return "Italic";
+        return "Regular";
+    }
 
-Typeface::Typeface (const String& name_) noexcept
-    : name (name_)
+    static const char* getStyleName (const int styleFlags) noexcept
+    {
+        return getStyleName ((styleFlags & Font::bold) != 0,
+                             (styleFlags & Font::italic) != 0);
+    }
+
+    static bool isBold (const String& style) noexcept
+    {
+        return style.containsWholeWordIgnoreCase ("Bold");
+    }
+
+    static bool isItalic (const String& style) noexcept
+    {
+        return style.containsWholeWordIgnoreCase ("Italic")
+            || style.containsWholeWordIgnoreCase ("Oblique");
+    }
+
+    static bool isPlaceholderFamilyName (const String& family)
+    {
+        return family == Font::getDefaultSansSerifFontName()
+            || family == Font::getDefaultSerifFontName()
+            || family == Font::getDefaultMonospacedFontName();
+    }
+
+    struct ConcreteFamilyNames
+    {
+        ConcreteFamilyNames()
+            : sans  (findName (Font::getDefaultSansSerifFontName())),
+              serif (findName (Font::getDefaultSerifFontName())),
+              mono  (findName (Font::getDefaultMonospacedFontName()))
+        {
+        }
+
+        String lookUp (const String& placeholder)
+        {
+            if (placeholder == Font::getDefaultSansSerifFontName())  return sans;
+            if (placeholder == Font::getDefaultSerifFontName())      return serif;
+            if (placeholder == Font::getDefaultMonospacedFontName()) return mono;
+
+            return findName (placeholder);
+        }
+
+    private:
+        static String findName (const String& placeholder)
+        {
+            const Font f (placeholder, Font::getDefaultStyle(), 15.0f);
+            return Font::getDefaultTypefaceForFont (f)->getName();
+        }
+
+        String sans, serif, mono;
+    };
+
+    static String getConcreteFamilyNameFromPlaceholder (const String& placeholder)
+    {
+        static ConcreteFamilyNames names;
+        return names.lookUp (placeholder);
+    }
+
+    static String getConcreteFamilyName (const Font& font)
+    {
+        const String& family = font.getTypefaceName();
+
+        return isPlaceholderFamilyName (family) ? getConcreteFamilyNameFromPlaceholder (family)
+                                                : family;
+    }
+};
+
+//==============================================================================
+Typeface::Typeface (const String& name_, const String& style_) noexcept
+    : name (name_), style (style_)
 {
 }
 
@@ -35,7 +112,7 @@ Typeface::~Typeface()
 
 Typeface::Ptr Typeface::getFallbackTypeface()
 {
-    const Font fallbackFont (Font::getFallbackFontName(), 10, 0);
+    const Font fallbackFont (Font::getFallbackFontName(), Font::getFallbackFontStyle(), 10.0f);
     return fallbackFont.getTypeface();
 }
 

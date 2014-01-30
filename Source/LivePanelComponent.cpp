@@ -877,7 +877,7 @@ void LivePanelComponent::resized()
             funcButton->setVisible (false);
 
             pageOffset = 0;
-            funcLabel->setText ("Func", false);
+            funcLabel->setText ("Func", dontSendNotification);
             if (! bigDisplay)
                 updatePage();
             bigDisplay = true;
@@ -987,16 +987,16 @@ void LivePanelComponent::buttonClicked (Button* buttonThatWasClicked)
         switch (pageOffset)
         {
             case 0:
-                funcLabel->setText ("Func", false);
+                funcLabel->setText ("Func", dontSendNotification);
                 break;
             case 1:
-                funcLabel->setText ("Shift", false);
+                funcLabel->setText ("Shift", dontSendNotification);
                 break;
             case 2:
-                funcLabel->setText ("Ctrl", false);
+                funcLabel->setText ("Ctrl", dontSendNotification);
                 break;
             default:
-                funcLabel->setText ("Alt", false);
+                funcLabel->setText ("Alt", dontSendNotification);
                 break;
         };
         
@@ -1191,9 +1191,9 @@ void LivePanelComponent::timerCallback()
     if (state != lastState)
     {
         if (state)
-            connectLabel->setText ("Connected", false);
+            connectLabel->setText ("Connected", dontSendNotification);
         else
-            connectLabel->setText ("Searching...", false);
+            connectLabel->setText ("Searching...", dontSendNotification);
         lastState = state;
         updatePage();
     }
@@ -1227,7 +1227,7 @@ void LivePanelComponent::updatePage()
     else
         p << '?';
     
-    pageLabel->setText (p, false);
+    pageLabel->setText (p, dontSendNotification);
     
     for (int n=0 ; n<48 ; n++)
     {
@@ -1246,7 +1246,7 @@ void LivePanelComponent::updatePage()
                                  Image(), 1.0000f, Colour (0x0),
                                  Image(), 1.0000f, Colour (0x20000000));
         
-        (labels[n])->setText (info.name, false);
+        (labels[n])->setText (info.name, dontSendNotification);
     }
 }
 

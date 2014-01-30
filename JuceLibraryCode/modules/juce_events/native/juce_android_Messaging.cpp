@@ -1,24 +1,23 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
@@ -36,57 +35,22 @@ bool MessageManager::dispatchNextMessageOnSystemQueue (const bool returnIfNoPend
 }
 
 //==============================================================================
-bool MessageManager::postMessageToSystemQueue (Message* message)
+bool MessageManager::postMessageToSystemQueue (MessageManager::MessageBase* const message)
 {
     message->incReferenceCount();
-    getEnv()->CallVoidMethod (android.activity, JuceAppActivity.postMessage, (jlong) (pointer_sized_uint) message);
+    android.activity.callVoidMethod (JuceAppActivity.postMessage, (jlong) (pointer_sized_uint) message);
     return true;
 }
 
 JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, deliverMessage, void, (jobject activity, jlong value))
 {
-    Message* const message = (Message*) (pointer_sized_uint) value;
-    MessageManager::getInstance()->deliverMessage (message);
-    message->decReferenceCount();
-}
-
-//==============================================================================
-class AsyncFunctionCaller   : public AsyncUpdater
-{
-public:
-    static void* call (MessageCallbackFunction* func_, void* parameter_)
+    JUCE_TRY
     {
-        if (MessageManager::getInstance()->isThisTheMessageThread())
-            return func_ (parameter_);
-
-        AsyncFunctionCaller caller (func_, parameter_);
-        caller.triggerAsyncUpdate();
-        caller.finished.wait();
-        return caller.result;
+        MessageManager::MessageBase* const message = (MessageManager::MessageBase*) (pointer_sized_uint) value;
+        message->messageCallback();
+        message->decReferenceCount();
     }
-
-    void handleAsyncUpdate()
-    {
-        result = (*func) (parameter);
-        finished.signal();
-    }
-
-private:
-    WaitableEvent finished;
-    MessageCallbackFunction* func;
-    void* parameter;
-    void* volatile result;
-
-    AsyncFunctionCaller (MessageCallbackFunction* func_, void* parameter_)
-        : result (nullptr), func (func_), parameter (parameter_)
-    {}
-
-    JUCE_DECLARE_NON_COPYABLE (AsyncFunctionCaller);
-};
-
-void* MessageManager::callFunctionOnMessageThread (MessageCallbackFunction* func, void* parameter)
-{
-    return AsyncFunctionCaller::call (func, parameter);
+    JUCE_CATCH_EXCEPTION
 }
 
 //==============================================================================
@@ -98,19 +62,18 @@ void MessageManager::runDispatchLoop()
 {
 }
 
-class QuitCallback  : public CallbackMessage
-{
-public:
-    QuitCallback() {}
-
-    void messageCallback()
-    {
-        android.activity.callVoidMethod (JuceAppActivity.finish);
-    }
-};
-
 void MessageManager::stopDispatchLoop()
 {
+    struct QuitCallback  : public CallbackMessage
+    {
+        QuitCallback() {}
+
+        void messageCallback() override
+        {
+            android.activity.callVoidMethod (JuceAppActivity.finish);
+        }
+    };
+
     (new QuitCallback())->post();
     quitMessagePosted = true;
 }

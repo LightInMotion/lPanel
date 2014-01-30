@@ -1,35 +1,36 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the juce_core module of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission to use, copy, modify, and/or distribute this software for any purpose with
+   or without fee is hereby granted, provided that the above copyright notice and this
+   permission notice appear in all copies.
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD
+   TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN
+   NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
+   IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-   JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
-   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-   A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+   ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
+   NOTE! This permissive ISC license applies ONLY to files within the juce_core module!
+   All other JUCE modules are covered by a dual GPL/commercial license, so if you are
+   using any other modules, be sure to check that you also comply with their license.
 
-   To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   For more details, visit www.juce.com
 
   ==============================================================================
 */
-
 
 URL::URL()
 {
 }
 
-URL::URL (const String& url_)
-    : url (url_)
+URL::URL (const String& u)  : url (u)
 {
     int i = url.indexOfChar ('?');
 
@@ -105,7 +106,7 @@ URL::~URL()
 
 namespace URLHelpers
 {
-    String getMangledParameters (const URL& url)
+    static String getMangledParameters (const URL& url)
     {
         jassert (url.getParameterNames().size() == url.getParameterValues().size());
         String p;
@@ -123,7 +124,7 @@ namespace URLHelpers
         return p;
     }
 
-    int findEndOfScheme (const String& url)
+    static int findEndOfScheme (const String& url)
     {
         int i = 0;
 
@@ -134,7 +135,7 @@ namespace URLHelpers
         return url[i] == ':' ? i + 1 : 0;
     }
 
-    int findStartOfNetLocation (const String& url)
+    static int findStartOfNetLocation (const String& url)
     {
         int start = findEndOfScheme (url);
         while (url[start] == '/')
@@ -143,12 +144,12 @@ namespace URLHelpers
         return start;
     }
 
-    int findStartOfPath (const String& url)
+    static int findStartOfPath (const String& url)
     {
         return url.indexOfChar (findStartOfNetLocation (url), '/') + 1;
     }
 
-    void createHeadersAndPostData (const URL& url, String& headers, MemoryBlock& postData)
+    static void createHeadersAndPostData (const URL& url, String& headers, MemoryBlock& postData)
     {
         MemoryOutputStream data (postData, false);
 
@@ -161,8 +162,7 @@ namespace URLHelpers
 
             data << "--" << boundary;
 
-            int i;
-            for (i = 0; i < url.getParameterNames().size(); ++i)
+            for (int i = 0; i < url.getParameterNames().size(); ++i)
             {
                 data << "\r\nContent-Disposition: form-data; name=\""
                      << url.getParameterNames() [i]
@@ -172,7 +172,7 @@ namespace URLHelpers
                      << boundary;
             }
 
-            for (i = 0; i < url.getFilesToUpload().size(); ++i)
+            for (int i = 0; i < url.getFilesToUpload().size(); ++i)
             {
                 const File file (url.getFilesToUpload().getAllValues() [i]);
                 const String paramName (url.getFilesToUpload().getAllKeys() [i]);
@@ -181,7 +181,7 @@ namespace URLHelpers
                      << "\"; filename=\"" << file.getFileName() << "\"\r\n";
 
                 const String mimeType (url.getMimeTypesOfUploadFiles()
-                                          .getValue (paramName, String::empty));
+                                          .getValue (paramName, String()));
 
                 if (mimeType.isNotEmpty())
                     data << "Content-Type: " << mimeType << "\r\n";
@@ -197,13 +197,15 @@ namespace URLHelpers
             data << getMangledParameters (url)
                  << url.getPostData();
 
-            // just a short text attachment, so use simple url encoding..
-            headers << "Content-Type: application/x-www-form-urlencoded\r\nContent-length: "
-                    << (int) data.getDataSize() << "\r\n";
+            // if the user-supplied headers didn't contain a content-type, add one now..
+            if (! headers.containsIgnoreCase ("Content-Type"))
+                headers << "Content-Type: application/x-www-form-urlencoded\r\n";
+
+            headers << "Content-length: " << (int) data.getDataSize() << "\r\n";
         }
     }
 
-    void concatenatePaths (String& path, const String& suffix)
+    static void concatenatePaths (String& path, const String& suffix)
     {
         if (! path.endsWithChar ('/'))
             path << '/';
@@ -225,8 +227,8 @@ String URL::toString (const bool includeGetParameters) const
 {
     if (includeGetParameters && parameterNames.size() > 0)
         return url + "?" + URLHelpers::getMangledParameters (*this);
-    else
-        return url;
+
+    return url;
 }
 
 bool URL::isWellFormed() const
@@ -241,9 +243,9 @@ String URL::getDomain() const
     const int end1 = url.indexOfChar (start, '/');
     const int end2 = url.indexOfChar (start, ':');
 
-    const int end = (end1 < 0 || end2 < 0) ? jmax (end1, end2)
-                                           : jmin (end1, end2);
-
+    const int end = (end1 < 0 && end2 < 0) ? std::numeric_limits<int>::max()
+                                           : ((end1 < 0 || end2 < 0) ? jmax (end1, end2)
+                                                                     : jmin (end1, end2));
     return url.substring (start, end);
 }
 
@@ -251,7 +253,7 @@ String URL::getSubPath() const
 {
     const int startOfPath = URLHelpers::findStartOfPath (url);
 
-    return startOfPath <= 0 ? String::empty
+    return startOfPath <= 0 ? String()
                             : url.substring (startOfPath);
 }
 
@@ -290,7 +292,7 @@ URL URL::getChildURL (const String& subPath) const
 //==============================================================================
 bool URL::isProbablyAWebsiteURL (const String& possibleURL)
 {
-    const char* validProtocols[] = { "http:", "ftp:", "https:" };
+    static const char* validProtocols[] = { "http:", "ftp:", "https:" };
 
     for (int i = 0; i < numElementsInArray (validProtocols); ++i)
         if (possibleURL.startsWithIgnoreCase (validProtocols[i]))
@@ -312,24 +314,24 @@ bool URL::isProbablyAnEmailAddress (const String& possibleEmailAddress)
 
     return atSign > 0
             && possibleEmailAddress.lastIndexOfChar ('.') > (atSign + 1)
-            && (! possibleEmailAddress.endsWithChar ('.'));
+            && ! possibleEmailAddress.endsWithChar ('.');
 }
 
 //==============================================================================
 InputStream* URL::createInputStream (const bool usePostCommand,
                                      OpenStreamProgressCallback* const progressCallback,
                                      void* const progressCallbackContext,
-                                     const String& extraHeaders,
+                                     String headers,
                                      const int timeOutMs,
                                      StringPairArray* const responseHeaders) const
 {
-    String headers;
     MemoryBlock headersAndPostData;
+
+    if (! headers.endsWithChar ('\n'))
+        headers << "\r\n";
 
     if (usePostCommand)
         URLHelpers::createHeadersAndPostData (*this, headers, headersAndPostData);
-
-    headers += extraHeaders;
 
     if (! headers.endsWithChar ('\n'))
         headers << "\r\n";
@@ -343,7 +345,7 @@ InputStream* URL::createInputStream (const bool usePostCommand,
 bool URL::readEntireBinaryStream (MemoryBlock& destData,
                                   const bool usePostCommand) const
 {
-    const ScopedPointer <InputStream> in (createInputStream (usePostCommand));
+    const ScopedPointer<InputStream> in (createInputStream (usePostCommand));
 
     if (in != nullptr)
     {
@@ -356,12 +358,12 @@ bool URL::readEntireBinaryStream (MemoryBlock& destData,
 
 String URL::readEntireTextStream (const bool usePostCommand) const
 {
-    const ScopedPointer <InputStream> in (createInputStream (usePostCommand));
+    const ScopedPointer<InputStream> in (createInputStream (usePostCommand));
 
     if (in != nullptr)
         return in->readEntireStreamAsString();
 
-    return String::empty;
+    return String();
 }
 
 XmlElement* URL::readEntireXmlStream (const bool usePostCommand) const
@@ -390,10 +392,10 @@ URL URL::withFileToUpload (const String& parameterName,
     return u;
 }
 
-URL URL::withPOSTData (const String& postData_) const
+URL URL::withPOSTData (const String& newPostData) const
 {
     URL u (*this);
-    u.postData = postData_;
+    u.postData = newPostData;
     return u;
 }
 
@@ -417,7 +419,7 @@ String URL::removeEscapeChars (const String& s)
 
     // We need to operate on the string as raw UTF8 chars, and then recombine them into unicode
     // after all the replacements have been made, so that multi-byte chars are handled.
-    Array<char> utf8 (result.toUTF8().getAddress(), result.getNumBytesAsUTF8());
+    Array<char> utf8 (result.toRawUTF8(), (int) result.getNumBytesAsUTF8());
 
     for (int i = 0; i < utf8.size(); ++i)
     {
@@ -442,7 +444,7 @@ String URL::addEscapeChars (const String& s, const bool isParameter)
     const CharPointer_UTF8 legalChars (isParameter ? "_-.*!'()"
                                                    : ",$_-.*!'()");
 
-    Array<char> utf8 (s.toUTF8().getAddress(), s.getNumBytesAsUTF8());
+    Array<char> utf8 (s.toRawUTF8(), (int) s.getNumBytesAsUTF8());
 
     for (int i = 0; i < utf8.size(); ++i)
     {
@@ -451,18 +453,9 @@ String URL::addEscapeChars (const String& s, const bool isParameter)
         if (! (CharacterFunctions::isLetterOrDigit (c)
                  || legalChars.indexOf ((juce_wchar) c) >= 0))
         {
-            if (c == ' ')
-            {
-                utf8.set (i, '+');
-            }
-            else
-            {
-                static const char hexDigits[] = "0123456789abcdef";
-
-                utf8.set (i, '%');
-                utf8.insert (++i, hexDigits [((uint8) c) >> 4]);
-                utf8.insert (++i, hexDigits [c & 15]);
-            }
+            utf8.set (i, '%');
+            utf8.insert (++i, "0123456789abcdef" [((uint8) c) >> 4]);
+            utf8.insert (++i, "0123456789abcdef" [c & 15]);
         }
     }
 
@@ -477,5 +470,5 @@ bool URL::launchInDefaultBrowser() const
     if (u.containsChar ('@') && ! u.containsChar (':'))
         u = "mailto:" + u;
 
-    return Process::openDocument (u, String::empty);
+    return Process::openDocument (u, String());
 }

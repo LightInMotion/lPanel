@@ -1,159 +1,38 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the juce_core module of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission to use, copy, modify, and/or distribute this software for any purpose with
+   or without fee is hereby granted, provided that the above copyright notice and this
+   permission notice appear in all copies.
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD
+   TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN
+   NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
+   IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-   JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
-   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-   A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+   ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
+   NOTE! This permissive ISC license applies ONLY to files within the juce_core module!
+   All other JUCE modules are covered by a dual GPL/commercial license, so if you are
+   using any other modules, be sure to check that you also comply with their license.
 
-   To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   For more details, visit www.juce.com
 
   ==============================================================================
 */
 
-
-class RunningThreadsList
-{
-public:
-    RunningThreadsList()
-    {
-    }
-
-    ~RunningThreadsList()
-    {
-        // Some threads are still running! Make sure you stop all your
-        // threads cleanly before your app quits!
-        jassert (threads.size() == 0);
-    }
-
-    void add (Thread* const thread)
-    {
-        const SpinLock::ScopedLockType sl (lock);
-        jassert (! threads.contains (thread));
-        threads.add (thread);
-    }
-
-    void remove (Thread* const thread)
-    {
-        const SpinLock::ScopedLockType sl (lock);
-        jassert (threads.contains (thread));
-        threads.removeValue (thread);
-    }
-
-    int size() const noexcept
-    {
-        return threads.size();
-    }
-
-    Thread* getThreadWithID (const Thread::ThreadID targetID) const noexcept
-    {
-        const SpinLock::ScopedLockType sl (lock);
-
-        for (int i = threads.size(); --i >= 0;)
-        {
-            Thread* const t = threads.getUnchecked(i);
-
-            if (t->getThreadId() == targetID)
-                return t;
-        }
-
-        return nullptr;
-    }
-
-    void stopAll (const int timeOutMilliseconds)
-    {
-        signalAllThreadsToStop();
-
-        for (;;)
-        {
-            Thread* firstThread = getFirstThread();
-
-            if (firstThread != nullptr)
-                firstThread->stopThread (timeOutMilliseconds);
-            else
-                break;
-        }
-    }
-
-    static RunningThreadsList& getInstance()
-    {
-        static RunningThreadsList runningThreads;
-        return runningThreads;
-    }
-
-private:
-    Array<Thread*> threads;
-    SpinLock lock;
-
-    void signalAllThreadsToStop()
-    {
-        const SpinLock::ScopedLockType sl (lock);
-
-        for (int i = threads.size(); --i >= 0;)
-            threads.getUnchecked(i)->signalThreadShouldExit();
-    }
-
-    Thread* getFirstThread() const
-    {
-        const SpinLock::ScopedLockType sl (lock);
-        return threads.getFirst();
-    }
-};
-
-
-//==============================================================================
-void Thread::threadEntryPoint()
-{
-    RunningThreadsList::getInstance().add (this);
-
-    JUCE_TRY
-    {
-        if (threadName_.isNotEmpty())
-            setCurrentThreadName (threadName_);
-
-        if (startSuspensionEvent_.wait (10000))
-        {
-            jassert (getCurrentThreadId() == threadId_);
-
-            if (affinityMask_ != 0)
-                setCurrentThreadAffinityMask (affinityMask_);
-
-            run();
-        }
-    }
-    JUCE_CATCH_ALL_ASSERT
-
-    RunningThreadsList::getInstance().remove (this);
-    closeThreadHandle();
-}
-
-// used to wrap the incoming call from the platform-specific code
-void JUCE_API juce_threadEntryPoint (void* userData)
-{
-    static_cast <Thread*> (userData)->threadEntryPoint();
-}
-
-
-//==============================================================================
-Thread::Thread (const String& threadName)
-    : threadName_ (threadName),
-      threadHandle_ (nullptr),
-      threadId_ (0),
-      threadPriority_ (5),
-      affinityMask_ (0),
-      threadShouldExit_ (false)
+Thread::Thread (const String& threadName_)
+    : threadName (threadName_),
+      threadHandle (nullptr),
+      threadId (0),
+      threadPriority (5),
+      affinityMask (0),
+      shouldExit (false)
 {
 }
 
@@ -168,7 +47,70 @@ Thread::~Thread()
     */
     jassert (! isThreadRunning());
 
-    stopThread (100);
+    stopThread (-1);
+}
+
+//==============================================================================
+// Use a ref-counted object to hold this shared data, so that it can outlive its static
+// shared pointer when threads are still running during static shutdown.
+struct CurrentThreadHolder   : public ReferenceCountedObject
+{
+    CurrentThreadHolder() noexcept {}
+
+    typedef ReferenceCountedObjectPtr <CurrentThreadHolder> Ptr;
+    ThreadLocalValue<Thread*> value;
+
+    JUCE_DECLARE_NON_COPYABLE (CurrentThreadHolder)
+};
+
+static char currentThreadHolderLock [sizeof (SpinLock)]; // (statically initialised to zeros).
+
+static SpinLock* castToSpinLockWithoutAliasingWarning (void* s)
+{
+    return static_cast<SpinLock*> (s);
+}
+
+static CurrentThreadHolder::Ptr getCurrentThreadHolder()
+{
+    static CurrentThreadHolder::Ptr currentThreadHolder;
+    SpinLock::ScopedLockType lock (*castToSpinLockWithoutAliasingWarning (currentThreadHolderLock));
+
+    if (currentThreadHolder == nullptr)
+        currentThreadHolder = new CurrentThreadHolder();
+
+    return currentThreadHolder;
+}
+
+void Thread::threadEntryPoint()
+{
+    const CurrentThreadHolder::Ptr currentThreadHolder (getCurrentThreadHolder());
+    currentThreadHolder->value = this;
+
+    JUCE_TRY
+    {
+        if (threadName.isNotEmpty())
+            setCurrentThreadName (threadName);
+
+        if (startSuspensionEvent.wait (10000))
+        {
+            jassert (getCurrentThreadId() == threadId);
+
+            if (affinityMask != 0)
+                setCurrentThreadAffinityMask (affinityMask);
+
+            run();
+        }
+    }
+    JUCE_CATCH_ALL_ASSERT
+
+    currentThreadHolder->value.releaseCurrentThreadStorage();
+    closeThreadHandle();
+}
+
+// used to wrap the incoming call from the platform-specific code
+void JUCE_API juce_threadEntryPoint (void* userData)
+{
+    static_cast <Thread*> (userData)->threadEntryPoint();
 }
 
 //==============================================================================
@@ -176,13 +118,13 @@ void Thread::startThread()
 {
     const ScopedLock sl (startStopLock);
 
-    threadShouldExit_ = false;
+    shouldExit = false;
 
-    if (threadHandle_ == nullptr)
+    if (threadHandle == nullptr)
     {
         launchThread();
-        setThreadPriority (threadHandle_, threadPriority_);
-        startSuspensionEvent_.signal();
+        setThreadPriority (threadHandle, threadPriority);
+        startSuspensionEvent.signal();
     }
 }
 
@@ -190,9 +132,9 @@ void Thread::startThread (const int priority)
 {
     const ScopedLock sl (startStopLock);
 
-    if (threadHandle_ == nullptr)
+    if (threadHandle == nullptr)
     {
-        threadPriority_ = priority;
+        threadPriority = priority;
         startThread();
     }
     else
@@ -203,13 +145,18 @@ void Thread::startThread (const int priority)
 
 bool Thread::isThreadRunning() const
 {
-    return threadHandle_ != nullptr;
+    return threadHandle != nullptr;
+}
+
+Thread* JUCE_CALLTYPE Thread::getCurrentThread()
+{
+    return getCurrentThreadHolder()->value.get();
 }
 
 //==============================================================================
 void Thread::signalThreadShouldExit()
 {
-    threadShouldExit_ = true;
+    shouldExit = true;
 }
 
 bool Thread::waitForThreadToExit (const int timeOutMilliseconds) const
@@ -217,21 +164,20 @@ bool Thread::waitForThreadToExit (const int timeOutMilliseconds) const
     // Doh! So how exactly do you expect this thread to wait for itself to stop??
     jassert (getThreadId() != getCurrentThreadId() || getCurrentThreadId() == 0);
 
-    const int sleepMsPerIteration = 5;
-    int count = timeOutMilliseconds / sleepMsPerIteration;
+    const uint32 timeoutEnd = Time::getMillisecondCounter() + (uint32) timeOutMilliseconds;
 
     while (isThreadRunning())
     {
-        if (timeOutMilliseconds >= 0 && --count < 0)
+        if (timeOutMilliseconds >= 0 && Time::getMillisecondCounter() > timeoutEnd)
             return false;
 
-        sleep (sleepMsPerIteration);
+        sleep (2);
     }
 
     return true;
 }
 
-void Thread::stopThread (const int timeOutMilliseconds)
+bool Thread::stopThread (const int timeOutMilliseconds)
 {
     // agh! You can't stop the thread that's calling this method! How on earth
     // would that work??
@@ -256,62 +202,53 @@ void Thread::stopThread (const int timeOutMilliseconds)
 
             killThread();
 
-            RunningThreadsList::getInstance().remove (this);
-            threadHandle_ = nullptr;
-            threadId_ = 0;
+            threadHandle = nullptr;
+            threadId = 0;
+            return false;
         }
     }
+
+    return true;
 }
 
 //==============================================================================
-bool Thread::setPriority (const int priority)
+bool Thread::setPriority (const int newPriority)
 {
+    // NB: deadlock possible if you try to set the thread prio from the thread itself,
+    // so using setCurrentThreadPriority instead in that case.
+    if (getCurrentThreadId() == getThreadId())
+        return setCurrentThreadPriority (newPriority);
+
     const ScopedLock sl (startStopLock);
 
-    if (setThreadPriority (threadHandle_, priority))
+    if (setThreadPriority (threadHandle, newPriority))
     {
-        threadPriority_ = priority;
+        threadPriority = newPriority;
         return true;
     }
 
     return false;
 }
 
-bool Thread::setCurrentThreadPriority (const int priority)
+bool Thread::setCurrentThreadPriority (const int newPriority)
 {
-    return setThreadPriority (0, priority);
+    return setThreadPriority (0, newPriority);
 }
 
-void Thread::setAffinityMask (const uint32 affinityMask)
+void Thread::setAffinityMask (const uint32 newAffinityMask)
 {
-    affinityMask_ = affinityMask;
+    affinityMask = newAffinityMask;
 }
 
 //==============================================================================
 bool Thread::wait (const int timeOutMilliseconds) const
 {
-    return defaultEvent_.wait (timeOutMilliseconds);
+    return defaultEvent.wait (timeOutMilliseconds);
 }
 
 void Thread::notify() const
 {
-    defaultEvent_.signal();
-}
-
-//==============================================================================
-int Thread::getNumRunningThreads()
-{
-    return RunningThreadsList::getInstance().size();
-}
-
-Thread* Thread::getCurrentThread()
-{
-    return RunningThreadsList::getInstance().getThreadWithID (getCurrentThreadId());
-}
-
-void Thread::stopAllThreads (const int timeOutMilliseconds)
-{
-    RunningThreadsList::getInstance().stopAll (timeOutMilliseconds);
+    defaultEvent.signal();
 }
 
 //==============================================================================
@@ -347,7 +284,7 @@ public:
 
         expect (ByteOrder::swap ((uint16) 0x1122) == 0x2211);
         expect (ByteOrder::swap ((uint32) 0x11223344) == 0x44332211);
-        expect (ByteOrder::swap ((uint64) literal64bit (0x1122334455667788)) == literal64bit (0x8877665544332211));
+        expect (ByteOrder::swap ((uint64) 0x1122334455667788ULL) == 0x8877665544332211LL);
 
         beginTest ("Atomic int");
         AtomicTester <int>::testInteger (*this);

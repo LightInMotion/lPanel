@@ -1,61 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.5"
-              bundleIdentifier="co.limsc.iPanel" jucerVersion="3.0.0">
+<JUCERPROJECT id="q1a8S5" name="iPanel" projectType="guiapp" version="1.0.6"
+              bundleIdentifier="co.limsc.iPanel" jucerVersion="3.1.0" includeBinaryInAppConfig="1">
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" juceFolder="../juce/modules"
-               bigIcon="FUbVO4">
+    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="tynn5b" bigIcon="FUbVO4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
                        osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
                        osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
       </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
     </XCODE_MAC>
-    <LINUX_MAKE targetFolder="Builds/Linux" juceFolder="../juce/modules" bigIcon="FUbVO4">
+    <LINUX_MAKE targetFolder="Builds/Linux" bigIcon="FUbVO4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
                        libraryPath="/usr/X11R6/lib/"/>
       </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
     </LINUX_MAKE>
-    <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" juceFolder="../juce/modules"
-                  bigIcon="FUbVO4">
+    <XCODE_IPHONE targetFolder="Builds/iOS" objCExtraSuffix="sXoyQo" bigIcon=""
+                  UIStatusBarHidden="0" customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;UIPrerenderedIcon&lt;/key&gt;&#10;&#9;&lt;true/&gt;&#10;&lt;key&gt;CFBundleIconFile&lt;/key&gt;&#10;&#9;&lt;string&gt;Icon&lt;/string&gt;&#10;&#9;&lt;key&gt;CFBundleIconFiles&lt;/key&gt;&#10;&#9;&lt;array&gt;&#10;&#9;&#9;&lt;string&gt;Icon&lt;/string&gt;&#10;&#9;&#9;&lt;string&gt;Icon-72&lt;/string&gt;&#10;&#9;&lt;/array&gt;&#10;&#9;&lt;key&gt;UIStatusBarStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;UIStatusBarStyleBlackOpaque&lt;/string&gt;&#10;&#9;&lt;key&gt;UIRequiresPersistentWiFi&lt;/key&gt;&#10;&#9;&lt;true/&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;"
+                  smallIcon="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
-                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"
+                       iosCompatibility="default"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
-                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"/>
+                       osxSDK="default" osxCompatibility="10.4 SDK" osxArchitecture="32BitUniversal"
+                       iosCompatibility="default"/>
       </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
     </XCODE_IPHONE>
     <ANDROID targetFolder="Builds/Android" androidSDKPath="${user.home}/SDKs/android-sdk-macosx"
              androidNDKPath="${user.home}/SDKs/android-ndk-r7" androidInternetNeeded="1"
-             juceFolder="../juce/modules" androidActivityClass="co.limsc.ipanel.iPanel"
-             androidMinimumSDK="8" androidKeyStore="${user.home}/.android/debug.keystore"
-             androidKeyStorePass="android" androidKeyAlias="androiddebugkey"
-             androidKeyAliasPass="android" bigIcon="FUbVO4">
+             androidActivityClass="co.limsc.ipanel.iPanel" androidMinimumSDK="8"
+             androidKeyStore="${user.home}/.android/debug.keystore" androidKeyStorePass="android"
+             androidKeyAlias="androiddebugkey" androidKeyAliasPass="android"
+             bigIcon="FUbVO4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
                        androidArchitectures="armeabi armeabi-v7a"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
                        androidArchitectures="armeabi armeabi-v7a"/>
       </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
     </ANDROID>
-    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../juce/modules"
-            bigIcon="FUbVO4">
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" bigIcon="FUbVO4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="iPanel"
                        winWarningLevel="4" winArchitecture="32-bit" generateManifest="1"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="iPanel"
                        winWarningLevel="4" winArchitecture="32-bit" generateManifest="1"/>
       </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
     </VS2010>
   </EXPORTFORMATS>
   <MAINGROUP id="xTGfBl" name="iPanel">
     <GROUP id="{33D4128C-1CDB-B835-8181-111033196E06}" name="Binary Data">
       <FILE id="i6pj5z" name="info.png" compile="0" resource="1" file="Images/info.png"/>
-      <FILE id="FUbVO4" name="test-icon3.png" compile="0" resource="0" file="Images/test-icon3.png"/>
       <FILE id="pwm19v" name="sequence_active@2x.png" compile="0" resource="1"
             file="Images/sequence_active@2x.png"/>
       <FILE id="XJ1woa" name="sequence_inactive@2x.png" compile="0" resource="1"
@@ -84,11 +124,11 @@
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
   </MODULES>
   <JUCEOPTIONS JUCE_FORCE_DEBUG="disabled" JUCE_USE_DIRECTWRITE="disabled"/>
 </JUCERPROJECT>

@@ -1,28 +1,30 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the juce_core module of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission to use, copy, modify, and/or distribute this software for any purpose with
+   or without fee is hereby granted, provided that the above copyright notice and this
+   permission notice appear in all copies.
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD
+   TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN
+   NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
+   IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-   JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
-   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-   A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+   ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
+   NOTE! This permissive ISC license applies ONLY to files within the juce_core module!
+   All other JUCE modules are covered by a dual GPL/commercial license, so if you are
+   using any other modules, be sure to check that you also comply with their license.
 
-   To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   For more details, visit www.juce.com
 
   ==============================================================================
 */
-
 
 class Expression::Term  : public SingleThreadedReferenceCountedObject
 {
@@ -45,13 +47,13 @@ public:
                                                                        double /*overallTarget*/, Term* /*topLevelTerm*/) const
     {
         jassertfalse;
-        return nullptr;
+        return ReferenceCountedObjectPtr<Term>();
     }
 
     virtual String getName() const
     {
         jassertfalse; // You shouldn't call this for an expression that's not actually a function!
-        return String::empty;
+        return String();
     }
 
     virtual void renameSymbol (const Symbol& oldSymbol, const String& newName, const Scope& scope, int recursionDepth)
@@ -74,7 +76,7 @@ public:
     }
 
 private:
-    JUCE_DECLARE_NON_COPYABLE (Term);
+    JUCE_DECLARE_NON_COPYABLE (Term)
 };
 
 
@@ -89,15 +91,14 @@ struct Expression::Helpers
             throw EvaluationError ("Recursive symbol references");
     }
 
-    friend class Expression::Term; // (also only needed as a VC6 workaround)
+    friend class Expression::Term;
 
     //==============================================================================
     /** An exception that can be thrown by Expression::evaluate(). */
     class EvaluationError  : public std::exception
     {
     public:
-        EvaluationError (const String& description_)
-            : description (description_)
+        EvaluationError (const String& desc)  : description (desc)
         {
             DBG ("Expression::EvaluationError: " + description);
         }
@@ -109,8 +110,8 @@ struct Expression::Helpers
     class Constant  : public Term
     {
     public:
-        Constant (const double value_, const bool isResolutionTarget_)
-            : value (value_), isResolutionTarget (isResolutionTarget_) {}
+        Constant (const double val, const bool resolutionTarget)
+            : value (val), isResolutionTarget (resolutionTarget) {}
 
         Type getType() const noexcept                { return constantType; }
         Term* clone() const                          { return new Constant (value, isResolutionTarget); }
@@ -147,7 +148,7 @@ struct Expression::Helpers
 
         Type getType() const noexcept       { return operatorType; }
         int getNumInputs() const            { return 2; }
-        Term* getInput (int index) const    { return index == 0 ? left.getObject() : (index == 1 ? right.getObject() : 0); }
+        Term* getInput (int index) const    { return index == 0 ? left.get() : (index == 1 ? right.get() : 0); }
 
         virtual double performFunction (double left, double right) const = 0;
         virtual void writeOperator (String& dest) const = 0;
@@ -185,7 +186,7 @@ struct Expression::Helpers
         {
             jassert (input == left || input == right);
             if (input != left && input != right)
-                return nullptr;
+                return TermPtr();
 
             const Term* const dest = findDestinationFor (topLevelTerm, this);
 
@@ -200,7 +201,7 @@ struct Expression::Helpers
     class SymbolTerm  : public Term
     {
     public:
-        explicit SymbolTerm (const String& symbol_) : symbol (symbol_) {}
+        explicit SymbolTerm (const String& sym) : symbol (sym) {}
 
         TermPtr resolve (const Scope& scope, int recursionDepth)
         {
@@ -233,10 +234,10 @@ struct Expression::Helpers
     class Function  : public Term
     {
     public:
-        explicit Function (const String& functionName_)  : functionName (functionName_) {}
+        explicit Function (const String& name)  : functionName (name) {}
 
-        Function (const String& functionName_, const Array<Expression>& parameters_)
-            : functionName (functionName_), parameters (parameters_)
+        Function (const String& name, const Array<Expression>& params)
+            : functionName (name), parameters (params)
         {}
 
         Type getType() const noexcept   { return functionType; }
@@ -352,8 +353,8 @@ struct Expression::Helpers
         class EvaluationVisitor  : public Scope::Visitor
         {
         public:
-            EvaluationVisitor (const TermPtr& input_, const int recursionCount_)
-                : input (input_), output (input_), recursionCount (recursionCount_) {}
+            EvaluationVisitor (const TermPtr& t, const int recursion)
+                : input (t), output (t), recursionCount (recursion) {}
 
             void visit (const Scope& scope)   { output = input->resolve (scope, recursionCount); }
 
@@ -362,14 +363,14 @@ struct Expression::Helpers
             const int recursionCount;
 
         private:
-            JUCE_DECLARE_NON_COPYABLE (EvaluationVisitor);
+            JUCE_DECLARE_NON_COPYABLE (EvaluationVisitor)
         };
 
         class SymbolVisitingVisitor  : public Scope::Visitor
         {
         public:
-            SymbolVisitingVisitor (const TermPtr& input_, SymbolVisitor& visitor_, const int recursionCount_)
-                : input (input_), visitor (visitor_), recursionCount (recursionCount_) {}
+            SymbolVisitingVisitor (const TermPtr& t, SymbolVisitor& v, const int recursion)
+                : input (t), visitor (v), recursionCount (recursion) {}
 
             void visit (const Scope& scope)   { input->visitAllSymbols (visitor, scope, recursionCount); }
 
@@ -378,14 +379,14 @@ struct Expression::Helpers
             SymbolVisitor& visitor;
             const int recursionCount;
 
-            JUCE_DECLARE_NON_COPYABLE (SymbolVisitingVisitor);
+            JUCE_DECLARE_NON_COPYABLE (SymbolVisitingVisitor)
         };
 
         class SymbolRenamingVisitor   : public Scope::Visitor
         {
         public:
-            SymbolRenamingVisitor (const TermPtr& input_, const Expression::Symbol& symbol_, const String& newName_, const int recursionCount_)
-                : input (input_), symbol (symbol_), newName (newName_), recursionCount (recursionCount_)  {}
+            SymbolRenamingVisitor (const TermPtr& t, const Expression::Symbol& symbol_, const String& newName_, const int recursionCount_)
+                : input (t), symbol (symbol_), newName (newName_), recursionCount (recursionCount_)  {}
 
             void visit (const Scope& scope)   { input->renameSymbol (symbol, newName, scope, recursionCount); }
 
@@ -395,27 +396,27 @@ struct Expression::Helpers
             const String newName;
             const int recursionCount;
 
-            JUCE_DECLARE_NON_COPYABLE (SymbolRenamingVisitor);
+            JUCE_DECLARE_NON_COPYABLE (SymbolRenamingVisitor)
         };
 
-        SymbolTerm* getSymbol() const  { return static_cast <SymbolTerm*> (left.getObject()); }
+        SymbolTerm* getSymbol() const  { return static_cast <SymbolTerm*> (left.get()); }
 
-        JUCE_DECLARE_NON_COPYABLE (DotOperator);
+        JUCE_DECLARE_NON_COPYABLE (DotOperator)
     };
 
     //==============================================================================
     class Negate  : public Term
     {
     public:
-        explicit Negate (const TermPtr& input_) : input (input_)
+        explicit Negate (const TermPtr& t) : input (t)
         {
-            jassert (input_ != nullptr);
+            jassert (t != nullptr);
         }
 
         Type getType() const noexcept                           { return operatorType; }
         int getInputIndexFor (const Term* possibleInput) const  { return possibleInput == input ? 0 : -1; }
         int getNumInputs() const                                { return 1; }
-        Term* getInput (int index) const                        { return index == 0 ? input.getObject() : nullptr; }
+        Term* getInput (int index) const                        { return index == 0 ? input.get() : nullptr; }
         Term* clone() const                                     { return new Negate (input->clone()); }
 
         TermPtr resolve (const Scope& scope, int recursionDepth)
@@ -426,10 +427,10 @@ struct Expression::Helpers
         String getName() const          { return "-"; }
         TermPtr negated()               { return input; }
 
-        TermPtr createTermToEvaluateInput (const Scope& scope, const Term* input_, double overallTarget, Term* topLevelTerm) const
+        TermPtr createTermToEvaluateInput (const Scope& scope, const Term* t, double overallTarget, Term* topLevelTerm) const
         {
-            (void) input_;
-            jassert (input_ == input);
+            (void) t;
+            jassert (t == input);
 
             const Term* const dest = findDestinationFor (topLevelTerm, this);
 
@@ -441,8 +442,8 @@ struct Expression::Helpers
         {
             if (input->getOperatorPrecedence() > 0)
                 return "-(" + input->toString() + ")";
-            else
-                return "-" + input->toString();
+
+            return "-" + input->toString();
         }
 
     private:
@@ -465,13 +466,13 @@ struct Expression::Helpers
         {
             const TermPtr newDest (createDestinationTerm (scope, input, overallTarget, topLevelTerm));
             if (newDest == nullptr)
-                return nullptr;
+                return TermPtr();
 
             return new Subtract (newDest, (input == left ? right : left)->clone());
         }
 
     private:
-        JUCE_DECLARE_NON_COPYABLE (Add);
+        JUCE_DECLARE_NON_COPYABLE (Add)
     };
 
     //==============================================================================
@@ -490,16 +491,16 @@ struct Expression::Helpers
         {
             const TermPtr newDest (createDestinationTerm (scope, input, overallTarget, topLevelTerm));
             if (newDest == nullptr)
-                return nullptr;
+                return TermPtr();
 
             if (input == left)
                 return new Add (newDest, right->clone());
-            else
-                return new Subtract (left->clone(), newDest);
+
+            return new Subtract (left->clone(), newDest);
         }
 
     private:
-        JUCE_DECLARE_NON_COPYABLE (Subtract);
+        JUCE_DECLARE_NON_COPYABLE (Subtract)
     };
 
     //==============================================================================
@@ -518,13 +519,13 @@ struct Expression::Helpers
         {
             const TermPtr newDest (createDestinationTerm (scope, input, overallTarget, topLevelTerm));
             if (newDest == nullptr)
-                return nullptr;
+                return TermPtr();
 
             return new Divide (newDest, (input == left ? right : left)->clone());
         }
 
     private:
-        JUCE_DECLARE_NON_COPYABLE (Multiply);
+        JUCE_DECLARE_NON_COPYABLE (Multiply)
     };
 
     //==============================================================================
@@ -543,16 +544,16 @@ struct Expression::Helpers
         {
             const TermPtr newDest (createDestinationTerm (scope, input, overallTarget, topLevelTerm));
             if (newDest == nullptr)
-                return nullptr;
+                return TermPtr();
 
             if (input == left)
                 return new Multiply (newDest, right->clone());
-            else
-                return new Divide (left->clone(), newDest);
+
+            return new Divide (left->clone(), newDest);
         }
 
     private:
-        JUCE_DECLARE_NON_COPYABLE (Divide);
+        JUCE_DECLARE_NON_COPYABLE (Divide)
     };
 
     //==============================================================================
@@ -575,25 +576,34 @@ struct Expression::Helpers
 
     static Constant* findTermToAdjust (Term* const term, const bool mustBeFlagged)
     {
+        jassert (term != nullptr);
+
+        if (term->getType() == constantType)
         {
-            Constant* const c = dynamic_cast<Constant*> (term);
-            if (c != nullptr && (c->isResolutionTarget || ! mustBeFlagged))
+            Constant* const c = static_cast<Constant*> (term);
+            if (c->isResolutionTarget || ! mustBeFlagged)
                 return c;
         }
 
-        if (dynamic_cast<Function*> (term) != nullptr)
+        if (term->getType() == functionType)
             return nullptr;
 
-        int i;
         const int numIns = term->getNumInputs();
-        for (i = 0; i < numIns; ++i)
+
+        for (int i = 0; i < numIns; ++i)
         {
-            Constant* const c = dynamic_cast<Constant*> (term->getInput (i));
-            if (c != nullptr && (c->isResolutionTarget || ! mustBeFlagged))
-                return c;
+            Term* const input = term->getInput (i);
+
+            if (input->getType() == constantType)
+            {
+                Constant* const c = static_cast<Constant*> (input);
+
+                if (c->isResolutionTarget || ! mustBeFlagged)
+                    return c;
+            }
         }
 
-        for (i = 0; i < numIns; ++i)
+        for (int i = 0; i < numIns; ++i)
         {
             Constant* const c = findTermToAdjust (term->getInput (i), mustBeFlagged);
             if (c != nullptr)
@@ -627,7 +637,7 @@ struct Expression::Helpers
     private:
         const Symbol& symbol;
 
-        JUCE_DECLARE_NON_COPYABLE (SymbolCheckVisitor);
+        JUCE_DECLARE_NON_COPYABLE (SymbolCheckVisitor)
     };
 
     //==============================================================================
@@ -640,7 +650,7 @@ struct Expression::Helpers
     private:
         Array<Symbol>& list;
 
-        JUCE_DECLARE_NON_COPYABLE (SymbolListVisitor);
+        JUCE_DECLARE_NON_COPYABLE (SymbolListVisitor)
     };
 
     //==============================================================================
@@ -806,15 +816,15 @@ struct Expression::Helpers
             char opType;
             if (readOperator ("+-", &opType))
             {
-                TermPtr term (readUnaryExpression());
+                TermPtr e (readUnaryExpression());
 
-                if (term == nullptr)
+                if (e == nullptr)
                     throw ParseError ("Expected expression after \"" + String::charToString ((juce_wchar) (uint8) opType) + "\"");
 
                 if (opType == '-')
-                    term = term->negated();
+                    e = e->negated();
 
-                return term;
+                return e;
             }
 
             return readPrimaryExpression();
@@ -870,7 +880,8 @@ struct Expression::Helpers
 
                     throw ParseError ("Expected \")\"");
                 }
-                else if (readOperator ("."))
+
+                if (readOperator ("."))
                 {
                     TermPtr rhs (readSymbolOrFunction());
 
@@ -882,29 +893,28 @@ struct Expression::Helpers
 
                     return new DotOperator (new SymbolTerm (identifier), rhs);
                 }
-                else // just a symbol..
-                {
-                    jassert (identifier.trim() == identifier);
-                    return new SymbolTerm (identifier);
-                }
+
+                // just a symbol..
+                jassert (identifier.trim() == identifier);
+                return new SymbolTerm (identifier);
             }
 
-            return nullptr;
+            return TermPtr();
         }
 
         TermPtr readParenthesisedExpression()
         {
             if (! readOperator ("("))
-                return nullptr;
+                return TermPtr();
 
             const TermPtr e (readExpression());
             if (e == nullptr || ! readOperator (")"))
-                return nullptr;
+                return TermPtr();
 
             return e;
         }
 
-        JUCE_DECLARE_NON_COPYABLE (Parser);
+        JUCE_DECLARE_NON_COPYABLE (Parser)
     };
 };
 
@@ -1124,7 +1134,10 @@ Expression::Scope::~Scope() {}
 
 Expression Expression::Scope::getSymbolValue (const String& symbol) const
 {
-    throw Helpers::EvaluationError ("Unknown symbol: " + symbol);
+    if (symbol.isNotEmpty())
+        throw Helpers::EvaluationError ("Unknown symbol: " + symbol);
+
+    return Expression();
 }
 
 double Expression::Scope::evaluateFunction (const String& functionName, const double* parameters, int numParams) const
@@ -1139,7 +1152,8 @@ double Expression::Scope::evaluateFunction (const String& functionName, const do
 
             return v;
         }
-        else if (functionName == "max")
+
+        if (functionName == "max")
         {
             double v = parameters[0];
             for (int i = 1; i < numParams; ++i)
@@ -1147,12 +1161,13 @@ double Expression::Scope::evaluateFunction (const String& functionName, const do
 
             return v;
         }
-        else if (numParams == 1)
+
+        if (numParams == 1)
         {
-            if      (functionName == "sin")     return sin (parameters[0]);
-            else if (functionName == "cos")     return cos (parameters[0]);
-            else if (functionName == "tan")     return tan (parameters[0]);
-            else if (functionName == "abs")     return std::abs (parameters[0]);
+            if (functionName == "sin")  return sin (parameters[0]);
+            if (functionName == "cos")  return cos (parameters[0]);
+            if (functionName == "tan")  return tan (parameters[0]);
+            if (functionName == "abs")  return std::abs (parameters[0]);
         }
     }
 
@@ -1166,5 +1181,5 @@ void Expression::Scope::visitRelativeScope (const String& scopeName, Visitor&) c
 
 String Expression::Scope::getScopeUID() const
 {
-    return String::empty;
+    return String();
 }

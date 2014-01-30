@@ -38,12 +38,12 @@ public:
         mainWindow = 0;
     }
 
-    void suspendApp()
+    void suspended()
     {
         lpNet.disconnect (false);
     }
     
-    void resumeApp()
+    void resumed()
     {
         lpNet.connect();
     }

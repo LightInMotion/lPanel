@@ -1,24 +1,23 @@
 /*
   ==============================================================================
 
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
+   This file is part of the JUCE library.
+   Copyright (c) 2013 - Raw Material Software Ltd.
 
-  ------------------------------------------------------------------------------
+   Permission is granted to use this software under the terms of either:
+   a) the GPL v2 (or any later version)
+   b) the Affero GPL v3
 
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
+   Details of these licenses can be found at: www.gnu.org/licenses
 
    JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
    A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-  ------------------------------------------------------------------------------
+   ------------------------------------------------------------------------------
 
    To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
+   available: visit www.juce.com for more information.
 
   ==============================================================================
 */
@@ -31,8 +30,11 @@ Display* display = nullptr;
 Window juce_messageWindowHandle = None;
 XContext windowHandleXContext;   // This is referenced from Windowing.cpp
 
-extern void juce_windowMessageReceive (XEvent* event);  // Defined in Windowing.cpp
-extern void juce_handleSelectionRequest (XSelectionRequestEvent &evt);  // Defined in Clipboard.cpp
+typedef bool (*WindowMessageReceiveCallback) (XEvent&);
+WindowMessageReceiveCallback dispatchWindowMessage = nullptr;
+
+typedef void (*SelectionRequestCallback) (XSelectionRequestEvent&);
+SelectionRequestCallback handleSelectionRequest = nullptr;
 
 //==============================================================================
 ScopedXLock::ScopedXLock()       { XLockDisplay (display); }
@@ -59,7 +61,7 @@ public:
     }
 
     //==============================================================================
-    void postMessage (Message* msg)
+    void postMessage (MessageManager::MessageBase* const msg)
     {
         const int maxBytesInSocketQueue = 128;
 
@@ -89,8 +91,8 @@ public:
         // to keep everything running smoothly..
         if ((++totalEventCount & 1) != 0)
             return dispatchNextXEvent() || dispatchNextInternalMessage();
-        else
-            return dispatchNextInternalMessage() || dispatchNextXEvent();
+
+        return dispatchNextInternalMessage() || dispatchNextXEvent();
     }
 
     // Wait for an event (either XEvent, or an internal Message)
@@ -133,7 +135,7 @@ public:
 
 private:
     CriticalSection lock;
-    ReferenceCountedArray <Message> queue;
+    ReferenceCountedArray <MessageManager::MessageBase> queue;
     int fd[2];
     int bytesInSocket;
     int totalEventCount;
@@ -165,15 +167,16 @@ private:
             XNextEvent (display, &evt);
         }
 
-        if (evt.type == SelectionRequest && evt.xany.window == juce_messageWindowHandle)
-            juce_handleSelectionRequest (evt.xselectionrequest);
-        else if (evt.xany.window != juce_messageWindowHandle)
-            juce_windowMessageReceive (&evt);
+        if (evt.type == SelectionRequest && evt.xany.window == juce_messageWindowHandle
+              && handleSelectionRequest != nullptr)
+            handleSelectionRequest (evt.xselectionrequest);
+        else if (evt.xany.window != juce_messageWindowHandle && dispatchWindowMessage != nullptr)
+            dispatchWindowMessage (evt);
 
         return true;
     }
 
-    Message::Ptr popNextMessage()
+    MessageManager::MessageBase::Ptr popNextMessage()
     {
         const ScopedLock sl (lock);
 
@@ -192,13 +195,17 @@ private:
 
     bool dispatchNextInternalMessage()
     {
-        const Message::Ptr msg (popNextMessage());
+        if (const MessageManager::MessageBase::Ptr msg = popNextMessage())
+        {
+            JUCE_TRY
+            {
+                msg->messageCallback();
+                return true;
+            }
+            JUCE_CATCH_EXCEPTION
+        }
 
-        if (msg == nullptr)
-            return false;
-
-        MessageManager::getInstance()->deliverMessage (msg);
-        return true;
+        return false;
     }
 };
 
@@ -215,7 +222,7 @@ namespace LinuxErrorHandling
 
     //==============================================================================
     // Usually happens when client-server connection is broken
-    int ioErrorHandler (Display* display)
+    int ioErrorHandler (Display*)
     {
         DBG ("ERROR: connection to X server broken.. terminating.");
 
@@ -234,7 +241,7 @@ namespace LinuxErrorHandling
 
         XGetErrorText (display, event->error_code, errorStr, 64);
         XGetErrorDatabaseText (display, "XRequest", String (event->request_code).toUTF8(), "Unknown", requestStr, 64);
-        DBG ("ERROR: X returned " + String (errorStr) + " for operation " + String (requestStr));
+        DBG ("ERROR: X returned " << errorStr << " for operation " << requestStr);
        #endif
 
         return 0;
@@ -314,7 +321,7 @@ void MessageManager::doPlatformSpecificInitialisation()
 
     if (display != 0)  // This is not fatal! we can run headless.
     {
-        // Create a context to store user data associated with Windows we create in WindowDriver
+        // Create a context to store user data associated with Windows we create
         windowHandleXContext = XUniqueContext();
 
         // We're only interested in client messages for this window, which are always sent
@@ -346,7 +353,7 @@ void MessageManager::doPlatformSpecificShutdown()
     }
 }
 
-bool MessageManager::postMessageToSystemQueue (Message* message)
+bool MessageManager::postMessageToSystemQueue (MessageManager::MessageBase* const message)
 {
     if (LinuxErrorHandling::errorOccurred)
         return false;
@@ -355,52 +362,9 @@ bool MessageManager::postMessageToSystemQueue (Message* message)
     return true;
 }
 
-void MessageManager::broadcastMessage (const String& value)
+void MessageManager::broadcastMessage (const String& /* value */)
 {
     /* TODO */
-}
-
-
-//==============================================================================
-class AsyncFunctionCaller   : public AsyncUpdater
-{
-public:
-    static void* call (MessageCallbackFunction* func_, void* parameter_)
-    {
-        if (MessageManager::getInstance()->isThisTheMessageThread())
-            return func_ (parameter_);
-
-        AsyncFunctionCaller caller (func_, parameter_);
-        caller.triggerAsyncUpdate();
-        caller.finished.wait();
-        return caller.result;
-    }
-
-    void handleAsyncUpdate()
-    {
-        result = (*func) (parameter);
-        finished.signal();
-    }
-
-private:
-    WaitableEvent finished;
-    MessageCallbackFunction* func;
-    void* parameter;
-    void* volatile result;
-
-    AsyncFunctionCaller (MessageCallbackFunction* func_, void* parameter_)
-        : result (nullptr), func (func_), parameter (parameter_)
-    {}
-
-    JUCE_DECLARE_NON_COPYABLE (AsyncFunctionCaller);
-};
-
-void* MessageManager::callFunctionOnMessageThread (MessageCallbackFunction* func, void* parameter)
-{
-    if (LinuxErrorHandling::errorOccurred)
-        return nullptr;
-
-    return AsyncFunctionCaller::call (func, parameter);
 }
 
 // this function expects that it will NEVER be called simultaneously for two concurrent threads
