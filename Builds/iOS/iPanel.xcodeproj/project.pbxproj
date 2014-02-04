@@ -20,7 +20,7 @@
 		95FDDE65AE374CCE0BADB4EB /* BinaryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7499B7B144126FC6C2CB4B43 /* BinaryData.cpp */; };
 		A6A6566639D70EDA872B0473 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A26C6DE5715F429AD3964 /* Main.cpp */; };
 		AA3C1D91E4998814BA3C814F /* LivePanelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A67D3506ED82DD7D3D2F8F /* LivePanelComponent.cpp */; };
-		D88466D9189AFD9800D71FCC /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D88466D3189AFD9800D71FCC /* Entitlements.plist */; };
+		D82C56FB18A15924008E66C0 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D82C56FA18A15923008E66C0 /* Entitlements.plist */; };
 		D88466DA189AFD9800D71FCC /* icon-large.png in Resources */ = {isa = PBXBuildFile; fileRef = D88466D4189AFD9800D71FCC /* icon-large.png */; };
 		D88466DB189AFD9800D71FCC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D88466D5189AFD9800D71FCC /* Icon-72.png */; };
 		D88466DC189AFD9800D71FCC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88466D6189AFD9800D71FCC /* Icon@2x.png */; };
@@ -538,7 +538,7 @@
 		D663095768285CA8923A305D /* juce_Variant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Variant.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_Variant.h; sourceTree = SOURCE_ROOT; };
 		D66A104BD93BF76B07B219B5 /* juce_ShapeButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ShapeButton.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/buttons/juce_ShapeButton.cpp; sourceTree = SOURCE_ROOT; };
 		D69E1D787791C166B03E1A2C /* juce_XmlElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_XmlElement.h; path = ../../JuceLibraryCode/modules/juce_core/xml/juce_XmlElement.h; sourceTree = SOURCE_ROOT; };
-		D88466D3189AFD9800D71FCC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		D82C56FA18A15923008E66C0 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		D88466D4189AFD9800D71FCC /* icon-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-large.png"; sourceTree = "<group>"; };
 		D88466D5189AFD9800D71FCC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		D88466D6189AFD9800D71FCC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1472,8 +1472,8 @@
 		A6510C263E0E4A44C3CBBF37 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D82C56FA18A15923008E66C0 /* Entitlements.plist */,
 				D88466DF189AFDD900D71FCC /* Default-568h@2x.png */,
-				D88466D3189AFD9800D71FCC /* Entitlements.plist */,
 				D88466D4189AFD9800D71FCC /* icon-large.png */,
 				D88466D5189AFD9800D71FCC /* Icon-72.png */,
 				D88466D6189AFD9800D71FCC /* Icon@2x.png */,
@@ -1849,7 +1849,7 @@
 				D88466DE189AFD9800D71FCC /* Default.png in Resources */,
 				D88466DC189AFD9800D71FCC /* Icon@2x.png in Resources */,
 				D88466DD189AFD9800D71FCC /* Icon.png in Resources */,
-				D88466D9189AFD9800D71FCC /* Entitlements.plist in Resources */,
+				D82C56FB18A15924008E66C0 /* Entitlements.plist in Resources */,
 				D88466E0189AFDD900D71FCC /* Default-568h@2x.png in Resources */,
 				D88466DB189AFD9800D71FCC /* Icon-72.png in Resources */,
 			);
@@ -1915,7 +1915,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joe Fitzpatrick (98TMPJ7D7E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joe Fitzpatrick (98TMPJ7D7E)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -1928,6 +1929,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = iPanel;
+				PROVISIONING_PROFILE = "35E957F6-AFAA-492A-88EF-C9E0A860941A";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv64 armv7 armv7s";
@@ -1941,7 +1943,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joe Fitzpatrick (UFCF8G2WZZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joe Fitzpatrick (UFCF8G2WZZ)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -1954,6 +1957,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = iPanel;
+				PROVISIONING_PROFILE = "90A02076-409F-494E-9262-9033240A3806";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv64 armv7 armv7s";
