@@ -51,7 +51,12 @@ public:
     void run();
     
 private:
-    //==============================================================================    
+    //==============================================================================
+    uint32 HostToNetworkUint32 (uint32 value);
+    uint16 HostToNetworkUint16 (uint16 value);
+    uint32 NetworkToHostUint32 (uint32 value);
+    uint16 NetworkToHostUint16 (uint16 value);
+    
     bool sendCommand (uint8 cmd, uint16 val=0, uint16 param=0);
     uint16 lookupTime (int speed);
     bool getByte (uint8* b);
@@ -59,7 +64,7 @@ private:
 
     //==============================================================================    
     CriticalSection criticalSection;    // To protect what follows
-    ScopedPointer<IpAddress> serverAddress;
+    ScopedPointer<IPAddress> serverAddress;
     uint16 serverPort;
     ScopedPointer<StreamingSocket> serverSocket;
 };

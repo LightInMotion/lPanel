@@ -1,20 +1,18 @@
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  23 Jan 2012 10:23:00pm
+  This is an automatically generated GUI class created by the Projucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Projucer version: 5.2.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Projucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -30,44 +28,48 @@
 
 //==============================================================================
 AboutComponent::AboutComponent ()
-    : nameLabel (0),
-      infoLabel (0),
-      textButton (0),
-      hyperlinkButton (0),
-      cachedImage_logosmall_2x_png (0)
 {
-    addAndMakeVisible (nameLabel = new Label (L"Name Label",
-                                              L"iPanel v1.0"));
-    nameLabel->setFont (Font (16.0000f, Font::plain));
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
+    addAndMakeVisible (nameLabel = new Label ("Name Label",
+                                              TRANS("iPanel v1.0")));
+    nameLabel->setFont (Font (16.00f, Font::plain).withTypefaceStyle ("Regular"));
     nameLabel->setJustificationType (Justification::centred);
     nameLabel->setEditable (false, false, false);
     nameLabel->setColour (Label::textColourId, Colours::white);
     nameLabel->setColour (TextEditor::textColourId, Colours::black);
-    nameLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    nameLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (infoLabel = new Label (L"Info Label",
-                                              L"This application is part of the BlueLite X1 family of DMX control products\n\nIt allows you to remotely control part of the \'Live Panel\' screen\n\nKeep your show lighting interesting even when you are away from the control booth\n\nFor more information, free downloads, or help, visit us online at:"));
-    infoLabel->setFont (Font (16.0000f, Font::plain));
+    addAndMakeVisible (infoLabel = new Label ("Info Label",
+                                              TRANS("This application is part of the BlueLite X1 family of DMX control products\n"
+                                              "\n"
+                                              "It allows you to remotely control part of the \'Live Panel\' screen\n"
+                                              "\n"
+                                              "Keep your show lighting interesting even when you are away from the control booth\n"
+                                              "\n"
+                                              "For more information, free downloads, or help, visit us online at:")));
+    infoLabel->setFont (Font (16.00f, Font::plain).withTypefaceStyle ("Regular"));
     infoLabel->setJustificationType (Justification::centredTop);
     infoLabel->setEditable (false, false, false);
     infoLabel->setColour (Label::textColourId, Colours::white);
     infoLabel->setColour (TextEditor::textColourId, Colours::black);
-    infoLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    infoLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (textButton = new TextButton (L"new button"));
-    textButton->setButtonText (L"Done");
+    addAndMakeVisible (textButton = new TextButton ("new button"));
+    textButton->setButtonText (TRANS("Done"));
     textButton->addListener (this);
-    textButton->setColour (TextButton::buttonColourId, Colours::blue);
-    textButton->setColour (TextButton::textColourOnId, Colours::white);
+    textButton->setColour (TextButton::buttonColourId, Colours::darkblue);
     textButton->setColour (TextButton::textColourOffId, Colours::white);
+    textButton->setColour (TextButton::textColourOnId, Colours::white);
 
-    addAndMakeVisible (hyperlinkButton = new HyperlinkButton (L"www.limsc.co",
-                                                              URL (L"http://www.limsc.co")));
-    hyperlinkButton->setTooltip (L"http://www.limsc.co");
-    hyperlinkButton->setButtonText (L"www.limsc.co");
+    addAndMakeVisible (hyperlinkButton = new HyperlinkButton (TRANS("www.limsc.co"),
+                                                              URL ("http://www.limsc.co")));
+    hyperlinkButton->setTooltip (TRANS("http://www.limsc.co"));
+    hyperlinkButton->setButtonText (TRANS("www.limsc.co"));
     hyperlinkButton->setColour (HyperlinkButton::textColourId, Colour (0xec6c6cee));
 
-    cachedImage_logosmall_2x_png = ImageCache::getFromMemory (logosmall_2x_png, logosmall_2x_pngSize);
+    cachedImage_logosmall_2x_png_1 = ImageCache::getFromMemory (logosmall_2x_png, logosmall_2x_pngSize);
 
     //[UserPreSize]
     nameLabel->setMinimumHorizontalScale (.2f);
@@ -90,10 +92,10 @@ AboutComponent::~AboutComponent()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    deleteAndZero (nameLabel);
-    deleteAndZero (infoLabel);
-    deleteAndZero (textButton);
-    deleteAndZero (hyperlinkButton);
+    nameLabel = nullptr;
+    infoLabel = nullptr;
+    textButton = nullptr;
+    hyperlinkButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -108,11 +110,16 @@ void AboutComponent::paint (Graphics& g)
 
     g.fillAll (Colours::black);
 
-    g.setColour (Colours::black);
-    g.drawImageWithin (cachedImage_logosmall_2x_png,
-                       proportionOfWidth (0.3115f), proportionOfHeight (0.0083f), proportionOfWidth (0.3738f), proportionOfHeight (0.2619f),
-                       RectanglePlacement::centred,
-                       false);
+    {
+        int x = proportionOfWidth (0.3115f), y = proportionOfHeight (0.0083f), width = proportionOfWidth (0.3738f), height = proportionOfHeight (0.2620f);
+        //[UserPaintCustomArguments] Customize the painting arguments here..
+        //[/UserPaintCustomArguments]
+        g.setColour (Colours::black);
+        g.drawImageWithin (cachedImage_logosmall_2x_png_1,
+                           x, y, width, height,
+                           RectanglePlacement::centred,
+                           false);
+    }
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -120,10 +127,13 @@ void AboutComponent::paint (Graphics& g)
 
 void AboutComponent::resized()
 {
-    nameLabel->setBounds (proportionOfWidth (0.0748f), proportionOfHeight (0.2661f), proportionOfWidth (0.8474f), proportionOfHeight (0.0499f));
-    infoLabel->setBounds (proportionOfWidth (0.0748f), proportionOfHeight (0.3326f), proportionOfWidth (0.8474f), proportionOfHeight (0.4158f));
-    textButton->setBounds (proportionOfWidth (0.1994f), proportionOfHeight (0.8815f), proportionOfWidth (0.5857f), proportionOfHeight (0.0832f));
-    hyperlinkButton->setBounds (proportionOfWidth (0.1869f), proportionOfHeight (0.7568f), proportionOfWidth (0.6106f), proportionOfHeight (0.0832f));
+    //[UserPreResize] Add your own custom resize code here..
+    //[/UserPreResize]
+
+    nameLabel->setBounds (proportionOfWidth (0.0740f), proportionOfHeight (0.2658f), proportionOfWidth (0.8489f), proportionOfHeight (0.0506f));
+    infoLabel->setBounds (proportionOfWidth (0.0740f), proportionOfHeight (0.3333f), proportionOfWidth (0.8489f), proportionOfHeight (0.4156f));
+    textButton->setBounds (proportionOfWidth (0.1994f), proportionOfHeight (0.8819f), proportionOfWidth (0.5852f), proportionOfHeight (0.0823f));
+    hyperlinkButton->setBounds (proportionOfWidth (0.1029f), proportionOfHeight (0.7574f), proportionOfWidth (0.7846f), proportionOfHeight (0.0823f));
     //[UserResized] Add your own custom resize handling here..
     nameLabel->setFont (Font (nameLabel->getHeight() * .7f, Font::plain));
     if (getWidth() < getHeight())
@@ -158,36 +168,39 @@ void AboutComponent::buttonClicked (Button* buttonThatWasClicked)
 
 //==============================================================================
 #if 0
-/*  -- Jucer information section --
+/*  -- Projucer information section --
 
-    This is where the Jucer puts all of its metadata, so don't change anything in here!
+    This is where the Projucer stores the metadata that describe this GUI layout, so
+    make changes in here at your peril!
 
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AboutComponent" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+                 snapPixels="4" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="320" initialHeight="480">
   <BACKGROUND backgroundColour="ff000000">
     <IMAGE pos="31.153% 0.832% 37.383% 26.195%" resource="logosmall_2x_png"
            opacity="1" mode="1"/>
   </BACKGROUND>
   <LABEL name="Name Label" id="80d0abc52ac2d1ed" memberName="nameLabel"
-         virtualName="" explicitFocusOrder="0" pos="7.477% 26.611% 84.735% 4.99%"
+         virtualName="" explicitFocusOrder="0" pos="7.395% 26.582% 84.887% 5.063%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="iPanel v1.0"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="16" bold="0" italic="0" justification="36"/>
+         fontname="Default font" fontsize="16" kerning="0" bold="0" italic="0"
+         justification="36"/>
   <LABEL name="Info Label" id="edfb60ceff15bd9c" memberName="infoLabel"
-         virtualName="" explicitFocusOrder="0" pos="7.477% 33.264% 84.735% 41.58%"
+         virtualName="" explicitFocusOrder="0" pos="7.395% 33.333% 84.887% 41.561%"
          textCol="ffffffff" edTextCol="ff000000" edBkgCol="0" labelText="This application is part of the BlueLite X1 family of DMX control products&#10;&#10;It allows you to remotely control part of the 'Live Panel' screen&#10;&#10;Keep your show lighting interesting even when you are away from the control booth&#10;&#10;For more information, free downloads, or help, visit us online at:"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="16" bold="0" italic="0" justification="12"/>
+         fontname="Default font" fontsize="16" kerning="0" bold="0" italic="0"
+         justification="12"/>
   <TEXTBUTTON name="new button" id="7a7b81ad7911a890" memberName="textButton"
-              virtualName="" explicitFocusOrder="0" pos="19.938% 88.15% 58.567% 8.316%"
-              bgColOff="ff0000ff" textCol="ffffffff" textColOn="ffffffff" buttonText="Done"
+              virtualName="" explicitFocusOrder="0" pos="19.936% 88.186% 58.521% 8.228%"
+              bgColOff="ff00008b" textCol="ffffffff" textColOn="ffffffff" buttonText="Done"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <HYPERLINKBUTTON name="new hyperlink" id="16ebdae3bad47fe2" memberName="hyperlinkButton"
-                   virtualName="" explicitFocusOrder="0" pos="18.692% 75.676% 61.059% 8.316%"
+                   virtualName="" explicitFocusOrder="0" pos="10.289% 75.738% 78.457% 8.228%"
                    tooltip="http://www.limsc.co" textCol="ec6c6cee" buttonText="www.limsc.co"
                    connectedEdges="0" needsCallback="0" radioGroupId="0" url="http://www.limsc.co"/>
 </JUCER_COMPONENT>
@@ -1499,3 +1512,7 @@ static const unsigned char resource_AboutComponent_logosmall_2x_png[] = { 137,80
 
 const char* AboutComponent::logosmall_2x_png = (const char*) resource_AboutComponent_logosmall_2x_png;
 const int AboutComponent::logosmall_2x_pngSize = 73239;
+
+
+//[EndFile] You can add extra defines here...
+//[/EndFile]

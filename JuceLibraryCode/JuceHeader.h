@@ -10,15 +10,16 @@
 
 */
 
-#ifndef __APPHEADERFILE_Q1A8S5__
-#define __APPHEADERFILE_Q1A8S5__
+#pragma once
 
 #include "AppConfig.h"
-#include "modules/juce_core/juce_core.h"
-#include "modules/juce_data_structures/juce_data_structures.h"
-#include "modules/juce_events/juce_events.h"
-#include "modules/juce_graphics/juce_graphics.h"
-#include "modules/juce_gui_basics/juce_gui_basics.h"
+
+#include <juce_core/juce_core.h>
+#include <juce_data_structures/juce_data_structures.h>
+#include <juce_events/juce_events.h>
+#include <juce_graphics/juce_graphics.h>
+#include <juce_gui_basics/juce_gui_basics.h>
+
 #include "BinaryData.h"
 
 #if ! DONT_SET_USING_JUCE_NAMESPACE
@@ -27,11 +28,11 @@
  using namespace juce;
 #endif
 
+#if ! JUCE_DONT_DECLARE_PROJECTINFO
 namespace ProjectInfo
 {
     const char* const  projectName    = "iPanel";
-    const char* const  versionString  = "1.0.6";
-    const int          versionNumber  = 0x10006;
+    const char* const  versionString  = "1.1.0";
+    const int          versionNumber  = 0x10100;
 }
-
-#endif   // __APPHEADERFILE_Q1A8S5__
+#endif

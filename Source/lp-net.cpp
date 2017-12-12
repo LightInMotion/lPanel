@@ -9,9 +9,7 @@
 
 //==============================================================================
 LpNet::LpNet()
-    : Thread ("LP Net Thread"),
-      serverAddress (0),
-      serverSocket (0)
+    : Thread ("LP Net Thread")
 {
     startThread();
 }
@@ -265,6 +263,29 @@ bool LpNet::getPage (int* page)
 }
 
 //==============================================================================
+// Socket Helpers
+//==============================================================================
+uint32 LpNet::HostToNetworkUint32 (uint32 value)
+{
+    return htonl (value);
+}
+
+uint16 LpNet::HostToNetworkUint16 (uint16 value)
+{
+    return htons (value);
+}
+
+uint32 LpNet::NetworkToHostUint32 (uint32 value)
+{
+    return ntohl (value);
+}
+
+uint16 LpNet::NetworkToHostUint16 (uint16 value)
+{
+    return ntohs (value);
+}
+
+//==============================================================================
 // Discovery Thread
 void LpNet::run()
 {
@@ -272,16 +293,18 @@ void LpNet::run()
     {
         sleep (500);
 
-        Array<IpAddress> ips;        
-        IpAddress::findAllIpAddresses (ips);
+        Array<IPAddress> ips;
+        IPAddress::findAllAddresses (ips);
         
         for (int n=0 ; n<ips.size() ; n++)
         {
             if (threadShouldExit())
                 return;
             
-            DatagramSocket s (Socket::anyPort, true, true, ips[n]);
-            if (s.connect (IpAddress::broadcast, LPNET_DISCOVERY))
+            DatagramSocket s(true);
+            s.setEnablePortReuse(true);
+            s.bindToPort(0, ips[n].toString());
+//            if (s.connect (IPAddress::broadcast, LPNET_DISCOVERY))
             {
                 LPNET_POLL outblock;
                 memset (&outblock, 0, sizeof (outblock));
@@ -292,17 +315,18 @@ void LpNet::run()
                   strncpy ((char*)outblock.ProtoID, LPNET_PROTO_ID, sizeof (outblock.ProtoID));
                 #endif
                   
-                outblock.OpCode = Socket::HostToNetworkUint16 (LPNET_OPCODE_POLL);
+                outblock.OpCode = HostToNetworkUint16 (LPNET_OPCODE_POLL);
                 outblock.VersionL = LPNET_VERSION;
                 
                 #if JUCE_IOS
                   // The iOS stack doen't properly bind without sending to ourselves
-                  s.connect (ips[n], LPNET_DISCOVERY);
-                  s.write (&outblock, sizeof (LPNET_POLL));
-                  s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
+//                  s.connect (ips[n], LPNET_DISCOVERY);
+//                  s.write (&outblock, sizeof (LPNET_POLL));
+//                  s.connect (IpAddress::broadcast, LPNET_DISCOVERY);
+                    s.write (ips[n].toString(), LPNET_DISCOVERY, &outblock, sizeof (LPNET_POLL));
                 #endif
 
-                if (s.write (&outblock, sizeof (LPNET_POLL)) > 0)
+                if (s.write (IPAddress::broadcast().toString(), LPNET_DISCOVERY, &outblock, sizeof (LPNET_POLL)) > 0)
                 {
                     while (s.waitUntilReady (true, 250))
                     {
@@ -315,17 +339,17 @@ void LpNet::run()
                             reply = (LPNET_POLLREPLY *)inbuf;
                             if (!strcmp((char *)reply->ProtoID, LPNET_PROTO_ID))
                             {
-                                if (reply->OpCode == Socket::HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
+                                if (reply->OpCode == HostToNetworkUint16(LPNET_OPCODE_POLLREPLY))
                                 {                                        
                                     if (reply->VersionL == LPNET_VERSION)
                                     {
-                                        if (! (Socket::HostToNetworkUint16 (reply->Flags) &
+                                        if (! (HostToNetworkUint16 (reply->Flags) &
                                                LPNET_FLAG_INUSE))
                                         {
                                             const ScopedLock lock (criticalSection);
-                                            serverAddress = new IpAddress 
-                                                (Socket::NetworkToHostUint32 (reply->Address));
-                                            serverPort = Socket::NetworkToHostUint16 (reply->Port);
+                                            serverAddress = new IPAddress
+                                                (NetworkToHostUint32 (reply->Address));
+                                            serverPort = NetworkToHostUint16 (reply->Port);
                                             serverSocket = new StreamingSocket();
                                             if (serverSocket->connect (serverAddress->toString(), 
                                                                    serverPort))

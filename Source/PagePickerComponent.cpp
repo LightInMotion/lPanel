@@ -23,7 +23,7 @@ PagePickerComponent::PagePickerComponent (int page_)
         }
         else
         {
-            button->setColour (TextButton::buttonColourId, Colours::blue);
+            button->setColour (TextButton::buttonColourId, Colours::darkblue);
             button->setColour (TextButton::textColourOffId, Colours::white);
         }
         button->addListener (this);

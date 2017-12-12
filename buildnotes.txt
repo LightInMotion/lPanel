@@ -1,0 +1,6 @@
+For iOS with current JUCE/ProJuicer:
+
+- Save .jucer project and open IDE
+- Select "Upside down" as an available orientation in General settings
+- Set Entitlements file to Entitlements.plist in Build Settings/Signing
+
